@@ -434,7 +434,7 @@
                                                     Accept our <a href="#" class="boldunderline">terms</a>?</label>
                                             </div> --}}
                                             <div class="col-sm-9">
-                                                <button type="submit" class="btn btn-default pull-right">Send</button>
+                                                <button type="submit" class="btn btn-default pull-right">Kirim</button>
                                             </div>
                                         </div>
                                     <div class="spacer-40"></div>

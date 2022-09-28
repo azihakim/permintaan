@@ -16,173 +16,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <form>
-                                    @csrf
-                                        <div class="spacer-10"></div>
-                                        {{-- Start data diri --}}
-                                        @yield('datadiri')
-                                        {{-- End data diri --}}
-
-                                        
-                                        <div class="spacer-40"></div>
-                                        <hr>
-                                        <div class="spacer-20"></div>
-
-                                        {{-- Start data dan informasi yang dibutuhkan --}}
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h4 class="bold">Data dan informasi yang di butuhkan</h4>
-                                            </div>
-                                        </div>
-                                        <div class="spacer-10"></div>
-
-                                        {{-- Start jenis data --}}
-                                        <div class="row col-sm-12">
-                                            <div class="col-sm-12">
-                                                <h4 class="semibold">Jenis data</h4>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="stacked-labels">
-                                                    <label><input type="checkbox" id="cb_datapetir" name="tags" onclick="toggle_datapetir()"><span></span>Data petir</label>
-                                                    <label><input type="checkbox" id="cb_dataharihujan" name="tags" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
-                                                    <label><input type="checkbox" id="cb_datacurahhujanratarata" name="tags" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
-                                                    <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="tags" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="tags" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
-                                                    <label><input type="checkbox" id="cb_datasuhuudararatarata" name="tags" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
-                                                </div>
-                                                <div class="spacer-10"></div>
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <div class="stacked-labels">
-                                                    <label><input type="checkbox" id="cb_datasuhuudaramaksimum" name="tags" onclick="toggle_datasuhuudaramaksimum()"><span></span>Data suhu udara maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datasuhuudaraminimum" name="tags" onclick="toggle_datasuhuudaraminimum()"><span></span>Data suhu udara minimum</label>
-                                                    <label><input type="checkbox" id="cb_datakelembapanudararatarata" name="tags" onclick="toggle_datakelembapanudararatarata()"><span></span>Data kelembapan udara rata-rata</label>
-                                                    <label><input type="checkbox" id="cb_datakelembapanudaramaksimum" name="tags" onclick="toggle_datakelembapanudaramaksimum()"><span></span>Data kelembapan udara maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datakelembapanudaraminimum" name="tags" onclick="toggle_datakelembapanudaraminimum()"><span></span>Data kelembapan udara minimum</label>
-                                                    <label><input type="checkbox" id="cb_datakecepatandanarahangin" name="tags" onclick="toggle_datakecepatandanarahangin()"><span></span>Data kecepatan dan arah angin</label>
-                                                </div>
-                                                <div class="spacer-10"></div>
-                                            </div>
-
-                                            <div class="col-sm-4">
-                                                <div class="stacked-labels">
-                                                    <label><input type="checkbox" id="cb_datakecepatananginmaksimum" name="tags" onclick="toggle_datakecepatananginmaksimum()"><span></span>Data kecepatan angin maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datalamapenyinaranmatahari" name="tags" onclick="toggle_datalamapenyinaranmatahari()"><span></span>Data lama penyinaran matahari</label>
-                                                    <label><input type="checkbox" id="cb_dataprakiraanmusim" name="tags" onclick="toggle_dataprakiraanmusim()"><span></span>Data prakiraan musim</label>
-                                                    <label><input type="checkbox" id="cb_dataklasifikasiiklim" name="tags" onclick="toggle_dataklasifikasiiklim()"><span></span>Data klasifikasi iklim</label>
-                                                    <label><input type="checkbox" id="cb_dataradiasimatahari" name="tags" onclick="toggle_dataradiasimatahari()"><span></span>Data radiasi matahari</label>
-                                                    <label><input type="checkbox" id="cb_unsurcuacalainnya" name="tags" onclick="toggle_unsurcuacalainnya()"><span></span>Unsur cuaca lainnya</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- End jenis data --}}
-
-                                        <div class="spacer-40"></div>   
-                                        
-                                        {{-- Start lokasi dan tanggal data --}}
-                                        {{-- Data petir --}}
-                                        <div id="container_datapetir"></div>
-                                        
-                                        {{-- Data hari hujan --}}
-                                        <div id="container_dataharihujan"></div>
-                                        
-                                        {{-- Data hari hujan rata-rata --}}
-                                        <div id="container_datacurahhujanratarata"></div>
-                                        
-                                        {{-- Data hari hujan maksimum --}}
-                                        <div id="container_datacurahhujanmaksimum"></div>
-                                        
-                                        {{-- Data hari hujan bulanan --}}
-                                        <div id="container_datacurahhujanbulanan"></div>
-
-                                        {{-- Data suhu udara rata-rata --}}
-                                        <div id="container_datasuhuudararatarata"></div>
-                                        
-                                        {{-- Data suhu udara maksimum --}}
-                                        <div id="container_datasuhuudaramaksimum"></div>
-                                        
-                                        {{-- Data suhu udara minimum --}}
-                                        <div id="container_datasuhuudaraminimum"></div>
-                                        
-                                        {{-- Data kelembapan udara rata-rata --}}
-                                        <div id="container_datakelembapanudararatarata"></div>
-                                        
-                                        {{-- Data kelembapan udara maksimum --}}
-                                        <div id="container_datakelembapanudaramaksimum"></div>
-                                        
-                                        {{-- Data kelembapan udara minimum --}}
-                                        <div id="container_datakelembapanudaraminimum"></div>
-                                        
-                                        {{-- Data kecepatan dan arah angin --}}
-                                        <div id="container_datakecepatandanarahangin"></div>
-                                        
-                                        {{-- Data kecepatan angin maksimum --}}
-                                        <div id="container_datakecepatananginmaksimum"></div>
-                                        
-                                        {{-- Data lama penyinaran matahari --}}
-                                        <div id="container_datalamapenyinaranmatahari"></div>
-                                        
-                                        {{-- Data prakiraan musim --}}
-                                        <div id="container_dataprakiraanmusim"></div>
-                                        
-                                        {{-- Data klasifikasi iklim --}}
-                                        <div id="container_dataklasifikasiiklim"></div>
-                                        
-                                        {{-- Data radiasi matahari --}}
-                                        <div id="container_dataradiasimatahari"></div>
-                                        
-                                        {{-- Unsur cuaca lainnya --}}
-                                        <div id="container_unsurcuacalainnya"></div>
-                                        
-                                    
-                                        {{-- End lokasi dan tanggal data --}}
-                                        
-                                        <div class="spacer-40"></div>
-                                        <hr>
-                                        <div class="spacer-20"></div>
-
-                                        {{-- Start syarat permohonan data --}}
-                                            @yield('syarat')
-                                        {{-- End syarat permohonan data --}}
-                                        <div class="spacer-40"></div>
-                                        <hr>
-                                        <div class="spacer-20"></div>
-
-                                        {{-- Start deskripsi permintaan data --}}
-                                        <div class="row col-sm-12">
-                                            <div class="col-sm-12">
-                                                <h4 class="bold">Deskripsi permintaan data</h4>
-                                            </div>
-                                        </div>
-                                        <div class="spacer-10"></div>
-                                        <div class="row col-sm-12">
-                                            <div class="col-sm-12">
-                                                <textarea name="" class="form-control" style="height: 150px;"></textarea>
-                                                <div class="helper-text-box">
-                                                    <div class="form-helper">Silahkan masukkan deskripsi jika tidak ada
-                                                        pilihan di formulir</div>
-                                                </div><!-- End .helper-text-box -->
-                                            </div>
-                                        </div>
-
-                                        {{-- End deskripsi permintaan data --}}
-
-
-                                        {{-- End data dan informasi yang dibutuhkan --}}
-
-                                        <div class="spacer-40"></div>
-
-                                        <div class="spacer-20"></div>
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <button type="submit" class="btn btn-default btn-lg pull-right">Kirim</button>
-                                            </div>
-                                        </div>
-                                    
-                                    <div class="spacer-40"></div>
-                                
-                                </form>
+                                @yield('form')
                             </div>
                         </div>
                     </div>
@@ -233,25 +67,25 @@
                                                     <div class="col-sm-3">\
                                                         <div>\
                                                             <strong>Latitude</strong>\
-                                                            <input type="number" required="" aria-required="true" name="latitude_petir[]" value="{{ old('latitude_petir') }}"\
+                                                            <input type="number" required="" aria-required="true" name="latitude_petir[0]" value="{{ old('latitude_petir') }}"\
                                                                 class="form-control">\
                                                                 <div class="spacer-10"></div>\
                                                         </div>\
                                                         <div>\
                                                             <strong>Longitude</strong>\
                                                             <input type="number" required=""\
-                                                                name="longitude_petir[]" value="{{ old('longitude_petir') }}" class="form-control">\
+                                                                name="longitude_petir[0]" value="{{ old('longitude_petir') }}" class="form-control">\
                                                         </div>\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                                name="tgl_dari_petir[]" required="" value="{{ old('tgl_dari_petir') }}">\
+                                                                name="tgl_dari_petir[0]" required="" value="{{ old('tgl_dari_petir') }}">\
                                                         <div class="spacer-10"></div>\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                                name="tgl_sampai_petir[]" required="" value="{{ old('tgl_sampai_petir') }}">\
+                                                                name="tgl_sampai_petir[0]" required="" value="{{ old('tgl_sampai_petir') }}">\
                                                     </div>\
                                                 </div>\
                                                 <div class="row group col-sm-12 " id="add_datapetir[1]">\
@@ -265,7 +99,7 @@
                                                     <div class="col-sm-3">\
                                                         <div>\
                                                             <strong>Latitude</strong>\
-                                                            <input type="number" name="latitude[1]_petir" value="{{ old('latitude_petir') }}"\
+                                                            <input type="number" name="latitude_petir[1]" value="{{ old('latitude_petir') }}"\
                                                                 class="form-control">\
                                                                 <div class="spacer-10"></div>\
                                                         </div>\
@@ -315,7 +149,7 @@
                                                         <div class="spacer-10"></div>\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                                name="tgl_sampai[2]_petir" value="{{ old('tgl_sampai_petir') }}">\
+                                                                name="tgl_sampai_petir[2]" value="{{ old('tgl_sampai_petir') }}">\
                                                     </div>\
                                                 </div>\
                                             </div>\

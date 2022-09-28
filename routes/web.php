@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LayananbertarifController;
+use App\Http\Controllers\KeagamaanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,7 +50,7 @@ Route::get('sosial', function () {
     return view('formulir.createSosial');
 });
 
-Route::get('keagamaan', function () {
+Route::get('kegiatan-keagamaan', function () {
     return view('formulir.createKeagamaan');
 });
 
@@ -84,3 +85,5 @@ Route::get('layanan-bertarif', function () {
 });
 
 Route::resource('/bertarif', LayananbertarifController::class);
+
+Route::resource('/keagamaan', KeagamaanController::class);
