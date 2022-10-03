@@ -12,22 +12,22 @@
                     </a>
                     <ul role="menu" class="dropdown-menu">
                         <li>
-                            <a href="{{ url('penanggulangan-bencana') }}">Kegiatan Penanggulangan Bencana</a>
+                            <a href="{{ url('kegiatan-penanggulangan-bencana') }}">Kegiatan Penanggulangan Bencana</a>
                         </li>
                         <li>
-                            <a href="{{ url('pendidikan') }}">Kegiatan Pendidikan/Penelitian non Komersil</a>
+                            <a href="{{ url('kegiatan-pendidikan') }}">Kegiatan Pendidikan/Penelitian non Komersil</a>
                         </li>
                         <li>
-                            <a href="{{ url('pemerintahan') }}">Kegiatan Pemerintahan Pusat atau Daerah</a>
+                            <a href="{{ url('kegiatan-pemerintahan') }}">Kegiatan Pemerintahan Pusat atau Daerah</a>
                         </li>
                         <li>
-                            <a href="{{ url('pertahanan-keamanan') }}">Kegiatan Pertahanan dan Keamanan</a>
+                            <a href="{{ url('kegiatan-pertahanan-keamanan') }}">Kegiatan Pertahanan dan Keamanan</a>
                         </li>
                         <li>
-                            <a href="{{ url('keagamaan') }}">Kegiatan Keagamaan</a>
+                            <a href="{{ url('kegiatan-keagamaan') }}">Kegiatan Keagamaan</a>
                         </li>
                         <li>
-                            <a href="{{ url('sosial') }}">Kegiatan Sosial</a>
+                            <a href="{{ url('kegiatan-sosial') }}">Kegiatan Sosial</a>
                         </li>
                         <li>
                             <a href="{{ url('layanan-bertarif') }}">Kegiatan Bertarif</a>

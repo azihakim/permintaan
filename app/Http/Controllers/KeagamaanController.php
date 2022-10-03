@@ -38,10 +38,12 @@ class KeagamaanController extends Controller
     public function store(Request $request)
     {
         //
+                
+            
             $data = $request->all();
             // dd($data);
 
-            // data diri
+            // data formulir
             $keagamaan = new Keagamaan();
             $keagamaan->nama_kegiatan = $data['nama_kegiatan'];
             $keagamaan->telepon = $data['telepon'];
@@ -49,31 +51,33 @@ class KeagamaanController extends Controller
             $keagamaan->surat_pernyataan = $data['surat_pernyataan'];
             $keagamaan->deskripsi = $data['deskripsi'];
             $keagamaan->save();
-            
-            $save_data=[];
-            foreach($data['lokasi_petir'] as $key=>$value){
-                $save_data[]=[
-                    'formulir_id'   => $keagamaan->id,
-                    'lokasi_petir'        => $value,
-                    'latitude_petir'      => $data['latitude_petir'][$key],
-                    'longitude_petir'     => $data['longitude_petir'][$key],
-                    'tgl_dari_petir'      => $data['tgl_dari_petir'][$key],
-                    'tgl_sampai_petir'    => $data['tgl_sampai_petir'][$key]
-                ];
+
+            if($request->exists("cb_datapetirs")){
+                $save_data=[];
+                foreach($data['lokasi_petir'] as $key=>$value){
+                    $save_data[]=[
+                        'formulir_id'   => $keagamaan->id,
+                        'lokasi_petir'        => $value,
+                        'latitude_petir'      => $data['latitude_petir'][$key],
+                        'longitude_petir'     => $data['longitude_petir'][$key],
+                        'tgl_dari_petir'      => $data['tgl_dari_petir'][$key],
+                        'tgl_sampai_petir'    => $data['tgl_sampai_petir'][$key]
+                    ];
+                }
+                DB::table('datapetirs')->insert($save_data);
             }
-            DB::table('datapetirs')->insert($save_data);
-        
 
             // $save_hujan=[];
             // foreach($data['lokasi_harihujan'] as $key=>$value){
-            //     $save_data[]=[
-            //         'formulir_id'   => $layananbertarif->id,
+            //     $save_hujan[]=[
+            //         'formulir_id'   => $keagamaan->id,
             //         'lokasi_harihujan'        => $value,
             //         'tgl_dari_harihujan'      => $data['tgl_dari_harihujan'][$key],
             //         'tgl_sampai_harihujan'    => $data['tgl_sampai_harihujan'][$key]
             //     ];
             // }
-            // DB::table('dataharihujans')->insert($save_hujan);
+            // DB::table('dataharihujans')->insert($save_hujan);        
+
 
             return redirect()->back()->with('status', 'Data Berhasil Di input');
     }

@@ -188,10 +188,10 @@
                                 <li class="@yield('dashboard')">
                                     <a href="{{ url('dashboard') }}">Dashboard<i class="fa fa-dashboard"></i></a>
                                 </li>
-                                <li class="@yield('formulir')">
+                                {{-- <li class="@yield('formulir')">
                                     <a href="{{ url('formulir') }}">Formulir Permintaan<i class="fa fa-envelope"></i>
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li class="@yield('akun')">
                                     <a href="{{ url('akun') }}">Akun<i class="fa fa-user"></i> </a>
                                 </li>

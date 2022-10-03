@@ -38,15 +38,15 @@ Route::get('reset', function () {
     return view('user.reset');
 });
 
-Route::get('pendidikan', function () {
+Route::get('kegiatan-pendidikan', function () {
     return view('formulir.createPendidikan');
 });
 
-Route::get('penanggulangan-bencana', function () {
+Route::get('kegiatan-penanggulangan-bencana', function () {
     return view('formulir.createPenanggulanganBencana');
 });
 
-Route::get('sosial', function () {
+Route::get('kegiatan-sosial', function () {
     return view('formulir.createSosial');
 });
 
@@ -56,11 +56,11 @@ Route::get('kegiatan-keagamaan', function () {
 
 
 
-Route::get('pemerintahan', function () {
+Route::get('kegiatan-pemerintahan', function () {
     return view('formulir.createPemerintahan');
 });
 
-Route::get('pertahanan-keamanan', function () {
+Route::get('kegiatan-pertahanan-keamanan', function () {
     return view('formulir.createPertahanandanKeamanan');
 });
 
