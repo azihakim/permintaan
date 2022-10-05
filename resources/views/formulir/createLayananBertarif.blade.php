@@ -80,8 +80,8 @@
                                             </div>
                                             <div class="col-sm-4">
                                                 <div class="stacked-labels">
-                                                    <label><input type="checkbox" id="cb_datapetir" name="tags" onclick="toggle_datapetir()"><span></span>Data petir</label>
-                                                    <label><input type="checkbox" id="cb_dataharihujan" name="tags" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
+                                                    <label><input type="checkbox" id="cb_datapetir" name="cb_datapetirs" onclick="toggle_datapetir()"><span></span>Data petir</label>
+                                                    <label><input type="checkbox" id="cb_dataharihujan" name="cb_dataharihujans" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
                                                     <label><input type="checkbox" id="cb_datacurahhujanratarata" name="tags" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
                                                     <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="tags" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
                                                     <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="tags" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
@@ -89,7 +89,7 @@
                                                 </div>
                                                 <div class="spacer-10"></div>
                                             </div>
-
+                                
                                             <div class="col-sm-4">
                                                 <div class="stacked-labels">
                                                     <label><input type="checkbox" id="cb_datasuhuudaramaksimum" name="tags" onclick="toggle_datasuhuudaramaksimum()"><span></span>Data suhu udara maksimum</label>
@@ -101,7 +101,7 @@
                                                 </div>
                                                 <div class="spacer-10"></div>
                                             </div>
-
+                                
                                             <div class="col-sm-4">
                                                 <div class="stacked-labels">
                                                     <label><input type="checkbox" id="cb_datakecepatananginmaksimum" name="tags" onclick="toggle_datakecepatananginmaksimum()"><span></span>Data kecepatan angin maksimum</label>
@@ -477,7 +477,7 @@
                                             </div>\
                                             <div class="spacer-10"></div>\
                                             <div id="input_datapetir">\
-                                                <div class="row group col-sm-12 " id="add_datapetir[]">\
+                                                <div class="row group col-sm-12 " id="add_datapetir[0]">\
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" style="width: 100% ; height: 90px"\
@@ -487,25 +487,25 @@
                                                     <div class="col-sm-3">\
                                                         <div>\
                                                             <strong>Latitude</strong>\
-                                                            <input type="number" aria-required="true" name="latitude_petir[]" value="{{ old('latitude_petir') }}"\
+                                                            <input type="number" aria-required="true" name="latitude_petir[0]" value="{{ old('latitude_petir') }}"\
                                                                 class="form-control">\
                                                                 <div class="spacer-10"></div>\
                                                         </div>\
                                                         <div>\
                                                             <strong>Longitude</strong>\
                                                             <input type="number" aria-required="true"\
-                                                                name="longitude_petir[]" value="{{ old('longitude_petir') }}" class="form-control">\
+                                                                name="longitude_petir[0]" value="{{ old('longitude_petir') }}" class="form-control">\
                                                         </div>\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                                name="tgl_dari_petir[]" value="{{ old('tgl_dari_petir') }}">\
+                                                                name="tgl_dari_petir[0]" value="{{ old('tgl_dari_petir') }}">\
                                                         <div class="spacer-10"></div>\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                                name="tgl_sampai_petir[]" value="{{ old('tgl_sampai_petir') }}">\
+                                                                name="tgl_sampai_petir[0]" value="{{ old('tgl_sampai_petir') }}">\
                                                     </div>\
                                                 </div>\
                                             </div>\

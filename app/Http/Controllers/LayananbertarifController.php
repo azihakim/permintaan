@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Dataharihujan;
 use Illuminate\Http\Request;
 use App\Models\Layananbertarif;
-use App\Models\Datapetir;
-use App\Models\Datacurahhujanratarata;
 use App\Models\Formulir;
+use App\Models\Datapermintaan;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 
@@ -46,14 +45,14 @@ class LayananbertarifController extends Controller
             // dd($data);
 
             // data diri
-            $layananbertarif = new Layananbertarif();
+            $layananbertarif = new Formulir();
+            $layananbertarif->jenis_permintaan = "layanan bertarif";
             $layananbertarif->nama = $data['nama'];
             $layananbertarif->telepon = $data['telepon'];
             $layananbertarif->email = $data['email'];
             $layananbertarif->surat_pengantar = $data['surat_pengantar'];
             $layananbertarif->deskripsi = $data['deskripsi'];
             $layananbertarif->save();
-
             // data petir
             // $lokasi = count($request->lokasi);
             // for($i = 0; $i < $lokasi; $i++){
@@ -113,32 +112,72 @@ class LayananbertarifController extends Controller
             //     }
             // };
             
-        
-            $save_data=[];
-            foreach($data['lokasi_petir'] as $key=>$value){
-                $save_data[]=[
-                    'formulir_id'   => $layananbertarif->id,
-                    'lokasi_petir'        => $value,
-                    'latitude_petir'      => $data['latitude_petir'][$key],
-                    'longitude_petir'     => $data['longitude_petir'][$key],
-                    'tgl_dari_petir'      => $data['tgl_dari_petir'][$key],
-                    'tgl_sampai_petir'    => $data['tgl_sampai_petir'][$key]
-                ];
-            }
-            DB::table('datapetirs')->insert($save_data);
-        
-
-            // $save_hujan=[];
-            // foreach($data['lokasi_harihujan'] as $key=>$value){
-            //     $save_data[]=[
-            //         'formulir_id'   => $layananbertarif->id,
-            //         'lokasi_harihujan'        => $value,
-            //         'tgl_dari_harihujan'      => $data['tgl_dari_harihujan'][$key],
-            //         'tgl_sampai_harihujan'    => $data['tgl_sampai_harihujan'][$key]
-            //     ];
+            
+            // foreach($data['lokasi_petir'] as $key=>$value){
+            // $datapetir->formulir_id = $layananbertarif->id;
+            // $datapetir->jenis_data = "data petir";
+            // $datapetir->lokasi = $data['lokasi_petir'][$key];
+            // $datapetir->latitude = $data['latitude_petir'][$key];
+            // $datapetir->longitude = $data['longitude_petir'][$key];
+            // $datapetir->tgl_dari = $data['tgl_dari_petir'][$key];
+            // $datapetir->tgl_sampai = $data['tgl_sampai_petir'][$key];
+            // $datapetir->save();
             // }
-            // DB::table('dataharihujans')->insert($save_hujan);
-
+        
+            
+            
+            if($request->exists("cb_datapetirs")){
+                // $save_data=[];
+                // foreach($data['lokasi_petir'] as $key=>$value){
+                //     $save_data[]=[
+                //         'formulir_id'   => $layananbertarif->id,
+                //         'jenis_data'    => "data petir",
+                //         'lokasi'        => $value,
+                //         'latitude'      => $data['latitude_petir'][$key],
+                //         'longitude'     => $data['longitude_petir'][$key],
+                //         'tgl_dari'      => $data['tgl_dari_petir'][$key],
+                //         'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
+                //     ];  
+                // DB::table('datapermintaans')->insert($save_data); 
+                $petir = count($request->lokasi_petir);
+                    for($i = 0; $i < $petir ; $i++){
+                        Datapermintaan::create([
+                                'formulir_id'   => $layananbertarif->id,
+                                'jenis_data'    => 'data petir',
+                                'lokasi'        => $request->lokasi_petir[$i],
+                                'latitude'      => $request->latitude_petir[$i],
+                                'longitude'     => $request->longitude_petir[$i],
+                                'tgl_dari'      => $request->tgl_dari_petir[$i],
+                                'tgl_sampai'    => $request->tgl_sampai_petir[$i]
+                        ]);
+                    }
+            }
+            
+            if ($request->exists("cb_dataharihujans")){
+            //     $save_hujan=[];
+            //     foreach($data['lokasi_harihujan'] as $key=>$value){
+            //         $save_hujan[]=[
+            //             'formulir_id'   => $layananbertarif->id,
+            //             'jenis_data'     => "data hari hujan",
+            //             'lokasi'        => $value,
+            //             'tgl_dari'      => $data['tgl_dari_harihujan'][$key],
+            //             'tgl_sampai'    => $data['tgl_sampai_harihujan'][$key]
+            //         ];
+            //     DB::table('datapermintaans')->insert($save_hujan); 
+            //     } 
+                    
+                    $hujan= count($request->lokasi_harihujan);
+                    
+                    for($i = 0; $i < $hujan ; $i++){
+                        Datapermintaan::create([
+                        'formulir_id'   => $layananbertarif->id,
+                        'jenis_data'    => "data hari hujan",
+                        'lokasi'        => $request->lokasi_harihujan[$i],
+                        'tgl_dari'      => $request->tgl_dari_harihujan[$i],
+                        'tgl_sampai'    => $request->tgl_sampai_harihujan[$i]
+                        ]);
+                    }
+            }
             return redirect()->back()->with('status', 'Data Berhasil Di input');
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Keagamaan;
+use App\Models\Daftarpermintaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -52,21 +53,23 @@ class KeagamaanController extends Controller
             $keagamaan->deskripsi = $data['deskripsi'];
             $keagamaan->save();
 
-            if($request->exists("cb_datapetirs")){
-                $save_data=[];
-                foreach($data['lokasi_petir'] as $key=>$value){
-                    $save_data[]=[
-                        'formulir_id'   => $keagamaan->id,
-                        'lokasi_petir'        => $value,
-                        'latitude_petir'      => $data['latitude_petir'][$key],
-                        'longitude_petir'     => $data['longitude_petir'][$key],
-                        'tgl_dari_petir'      => $data['tgl_dari_petir'][$key],
-                        'tgl_sampai_petir'    => $data['tgl_sampai_petir'][$key]
-                    ];
-                }
-                DB::table('datapetirs')->insert($save_data);
+            $save_data=[];
+            if($request->exists("cb_datapetir")){
+                    foreach($data['lokasi_petir'] as $key=>$value){
+                        $save_data[]=[
+                            'formulir_id'   => $keagamaan->id,
+                            'jenis_data'        => "data petir",
+                            'lokasi'        => $value,
+                            'latitude'      => $data['latitude_petir'][$key],
+                            'longitude'     => $data['longitude_petir'][$key],
+                            'tgl_dari'      => $data['tgl_dari_petir'][$key],
+                            'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
+                        ];
+                    }
             }
+            DB::table('datapermintaans')->insert($save_data); 
 
+<<<<<<< Updated upstream
             // $save_hujan=[];
             // foreach($data['lokasi_harihujan'] as $key=>$value){
             //     $save_hujan[]=[
@@ -77,6 +80,19 @@ class KeagamaanController extends Controller
             //     ];
             // }
             // DB::table('dataharihujans')->insert($save_hujan);        
+=======
+            $save_hujan=[];
+            foreach($data['lokasi_harihujan'] as $key=>$value){
+                $save_hujan[]=[
+                    'formulir_id'   => $keagamaan->id,
+                    'jenis_data'        => "data hujan",
+                    'lokasi'        => $value,
+                    'tgl_dari'      => $data['tgl_dari_harihujan'][$key],
+                    'tgl_sampai'    => $data['tgl_sampai_harihujan'][$key]
+                ];
+            }
+            DB::table('datapermintaans')->insert($save_hujan);        
+>>>>>>> Stashed changes
 
 
             return redirect()->back()->with('status', 'Data Berhasil Di input');
