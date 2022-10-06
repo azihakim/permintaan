@@ -67,13 +67,13 @@
                                                     <div class="col-sm-3">\
                                                         <div>\
                                                             <strong>Latitude</strong>\
-                                                            <input type="number" required="" aria-required="true" name="latitude_petir[0]" value="{{ old('latitude_petir') }}"\
+                                                            <input type="text" required="" aria-required="true" name="latitude_petir[0]" value="{{ old('latitude_petir') }}"\
                                                                 class="form-control">\
                                                                 <div class="spacer-10"></div>\
                                                         </div>\
                                                         <div>\
                                                             <strong>Longitude</strong>\
-                                                            <input type="number" required=""\
+                                                            <input type="text" required=""\
                                                                 name="longitude_petir[0]" value="{{ old('longitude_petir') }}" class="form-control">\
                                                         </div>\
                                                         <div class="spacer-10"></div>\

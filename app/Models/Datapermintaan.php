@@ -16,6 +16,6 @@ class Datapermintaan extends Model
         'longitude',
         'tgl_dari',
         'tgl_sampai',
-        'unsurcuacalainnya'];
+        'unsurcuacalain'];
     
 }

@@ -82,34 +82,34 @@
                                                 <div class="stacked-labels">
                                                     <label><input type="checkbox" id="cb_datapetir" name="cb_datapetirs" onclick="toggle_datapetir()"><span></span>Data petir</label>
                                                     <label><input type="checkbox" id="cb_dataharihujan" name="cb_dataharihujans" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
-                                                    <label><input type="checkbox" id="cb_datacurahhujanratarata" name="tags" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
-                                                    <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="tags" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="tags" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
-                                                    <label><input type="checkbox" id="cb_datasuhuudararatarata" name="tags" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
+                                                    <label><input type="checkbox" id="cb_datacurahhujanratarata" name="cb_datacurahhujanrataratas" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
+                                                    <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="cb_datacurahhujanmaksimums" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
+                                                    <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="cb_datacurahhujanbulanans" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
+                                                    <label><input type="checkbox" id="cb_datasuhuudararatarata" name="cb_datasuhuudararataratas" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
                                                 </div>
                                                 <div class="spacer-10"></div>
                                             </div>
                                 
                                             <div class="col-sm-4">
                                                 <div class="stacked-labels">
-                                                    <label><input type="checkbox" id="cb_datasuhuudaramaksimum" name="tags" onclick="toggle_datasuhuudaramaksimum()"><span></span>Data suhu udara maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datasuhuudaraminimum" name="tags" onclick="toggle_datasuhuudaraminimum()"><span></span>Data suhu udara minimum</label>
-                                                    <label><input type="checkbox" id="cb_datakelembapanudararatarata" name="tags" onclick="toggle_datakelembapanudararatarata()"><span></span>Data kelembapan udara rata-rata</label>
-                                                    <label><input type="checkbox" id="cb_datakelembapanudaramaksimum" name="tags" onclick="toggle_datakelembapanudaramaksimum()"><span></span>Data kelembapan udara maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datakelembapanudaraminimum" name="tags" onclick="toggle_datakelembapanudaraminimum()"><span></span>Data kelembapan udara minimum</label>
-                                                    <label><input type="checkbox" id="cb_datakecepatandanarahangin" name="tags" onclick="toggle_datakecepatandanarahangin()"><span></span>Data kecepatan dan arah angin</label>
+                                                    <label><input type="checkbox" id="cb_datasuhuudaramaksimum" name="cb_datasuhuudaramaksimums" onclick="toggle_datasuhuudaramaksimum()"><span></span>Data suhu udara maksimum</label>
+                                                    <label><input type="checkbox" id="cb_datasuhuudaraminimum" name="cb_datasuhuudaraminimums" onclick="toggle_datasuhuudaraminimum()"><span></span>Data suhu udara minimum</label>
+                                                    <label><input type="checkbox" id="cb_datakelembapanudararatarata" name="cb_datakelembapanudararataratas" onclick="toggle_datakelembapanudararatarata()"><span></span>Data kelembapan udara rata-rata</label>
+                                                    <label><input type="checkbox" id="cb_datakelembapanudaramaksimum" name="cb_datakelembapanudaramaksimums" onclick="toggle_datakelembapanudaramaksimum()"><span></span>Data kelembapan udara maksimum</label>
+                                                    <label><input type="checkbox" id="cb_datakelembapanudaraminimum" name="cb_datakelembapanudaraminimums" onclick="toggle_datakelembapanudaraminimum()"><span></span>Data kelembapan udara minimum</label>
+                                                    <label><input type="checkbox" id="cb_datakecepatandanarahangin" name="cb_datakecepatandanarahangins" onclick="toggle_datakecepatandanarahangin()"><span></span>Data kecepatan dan arah angin</label>
                                                 </div>
                                                 <div class="spacer-10"></div>
                                             </div>
                                 
                                             <div class="col-sm-4">
                                                 <div class="stacked-labels">
-                                                    <label><input type="checkbox" id="cb_datakecepatananginmaksimum" name="tags" onclick="toggle_datakecepatananginmaksimum()"><span></span>Data kecepatan angin maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datalamapenyinaranmatahari" name="tags" onclick="toggle_datalamapenyinaranmatahari()"><span></span>Data lama penyinaran matahari</label>
-                                                    <label><input type="checkbox" id="cb_dataprakiraanmusim" name="tags" onclick="toggle_dataprakiraanmusim()"><span></span>Data prakiraan musim</label>
-                                                    <label><input type="checkbox" id="cb_dataklasifikasiiklim" name="tags" onclick="toggle_dataklasifikasiiklim()"><span></span>Data klasifikasi iklim</label>
-                                                    <label><input type="checkbox" id="cb_dataradiasimatahari" name="tags" onclick="toggle_dataradiasimatahari()"><span></span>Data radiasi matahari</label>
-                                                    <label><input type="checkbox" id="cb_unsurcuacalainnya" name="tags" onclick="toggle_unsurcuacalainnya()"><span></span>Unsur cuaca lainnya</label>
+                                                    <label><input type="checkbox" id="cb_datakecepatananginmaksimum" name="cb_datakecepatananginmaksimums" onclick="toggle_datakecepatananginmaksimum()"><span></span>Data kecepatan angin maksimum</label>
+                                                    <label><input type="checkbox" id="cb_datalamapenyinaranmatahari" name="cb_datalamapenyinaranmataharis" onclick="toggle_datalamapenyinaranmatahari()"><span></span>Data lama penyinaran matahari</label>
+                                                    <label><input type="checkbox" id="cb_dataprakiraanmusim" name="cb_dataprakiraanmusims" onclick="toggle_dataprakiraanmusim()"><span></span>Data prakiraan musim</label>
+                                                    <label><input type="checkbox" id="cb_dataklasifikasiiklim" name="cb_dataklasifikasiiklims" onclick="toggle_dataklasifikasiiklim()"><span></span>Data klasifikasi iklim</label>
+                                                    <label><input type="checkbox" id="cb_dataradiasimatahari" name="cb_dataradiasimataharis" onclick="toggle_dataradiasimatahari()"><span></span>Data radiasi matahari</label>
+                                                    <label><input type="checkbox" id="cb_unsurcuacalainnya" name="cb_unsurcuacalainnyas" onclick="toggle_unsurcuacalainnya()"><span></span>Unsur cuaca lainnya</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -487,13 +487,13 @@
                                                     <div class="col-sm-3">\
                                                         <div>\
                                                             <strong>Latitude</strong>\
-                                                            <input type="number" aria-required="true" name="latitude_petir[0]" value="{{ old('latitude_petir') }}"\
+                                                            <input type="text" aria-required="true" name="latitude_petir[0]" value="{{ old('latitude_petir') }}"\
                                                                 class="form-control">\
                                                                 <div class="spacer-10"></div>\
                                                         </div>\
                                                         <div>\
                                                             <strong>Longitude</strong>\
-                                                            <input type="number" aria-required="true"\
+                                                            <input type="text" aria-required="true"\
                                                                 name="longitude_petir[0]" value="{{ old('longitude_petir') }}" class="form-control">\
                                                         </div>\
                                                         <div class="spacer-10"></div>\
@@ -537,13 +537,13 @@
                                                     <div class="col-sm-3">\
                                                         <div>\
                                                             <strong>Latitude</strong>\
-                                                            <input type="number" aria-required="true" name="latitude_petir['+id+']" value="{{ old('latitude_petir') }}"\
+                                                            <input type="text" aria-required="true" name="latitude_petir['+id+']" value="{{ old('latitude_petir') }}"\
                                                                 required="" class="form-control">\
                                                                 <div class="spacer-10"></div>\
                                                         </div>\
                                                         <div>\
                                                             <strong>Longitude</strong>\
-                                                            <input type="number" aria-required="true" value="{{ old('longitude_petir') }}"\
+                                                            <input type="text" aria-required="true" value="{{ old('longitude_petir') }}"\
                                                                 name="longitude_petir['+id+']" required="" class="form-control">\
                                                         </div>\
                                                         <div class="spacer-10"></div>\
@@ -1057,7 +1057,7 @@
                     if (document.getElementById("cb_datasuhuudaraminimum").checked) {
                         var newField = document.createElement("div");
                         newField.setAttribute("id", "field_datasuhuudaraminimum");
-                        newField.innerHTML = '<div class="row col-sm-12" id="datasuDiv_datasuhuudaraminimum">\
+                        newField.innerHTML = '<div class="row col-sm-12" id="datasuhuudaraminimum">\
                                             <div class="spacer-10"></div>\
                                             <div class="col-sm-12">\
                                                 <h4 class="semibold">Data suhu udara minimum</h4>\
@@ -1071,19 +1071,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea required="" class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_suDiv_datasuhuudaraminimum[0]" value="{{ old('lokasi_suDiv_datasuhuudaraminimum') }}"></textarea>\
+                                                            name="lokasi_suhuudaraminimum[0]" value="{{ old('lokasi_suhuudaraminimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                                required="" name="tgl_dari_suDiv_datasuhuudaraminimum[0]" value="{{ old('tgl_dari_suDiv_datasuhuudaraminimum') }}">\
+                                                                required="" name="tgl_dari_suhuudaraminimum[0]" value="{{ old('tgl_dari_suhuudaraminimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                                required="" name="tgl_sampai_suDiv_datasuhuudaraminimum[0]" value="{{ old('tgl_sampai_suDiv_datasuhuudaraminimum') }}">\
+                                                                required="" name="tgl_sampai_suhuudaraminimum[0]" value="{{ old('tgl_sampai_suhuudaraminimum') }}">\
                                                     </div>\
                                                 </div>\
                                             </div>\
@@ -1108,19 +1108,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea required="" class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_suDiv_datasuhuudaraminimum['+id+']" value="{{ old('lokasi_suDiv_datasuhuudaraminimum') }}"></textarea>\
+                                                            name="lokasi_suhuudaraminimum['+id+']" value="{{ old('lokasi_suhuudaraminimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                                required="" name="tgl_dari_suDiv_datasuhuudaraminimum['+id+']" value="{{ old('tgl_dari_suDiv_datasuhuudaraminimum') }}">\
+                                                                required="" name="tgl_dari_suhuudaraminimum['+id+']" value="{{ old('tgl_dari_suhuudaraminimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                                required="" name="tgl_sampai_suDiv_datasuhuudaraminimum['+id+']" value="{{ old('tgl_sampai_suDiv_datasuhuudaraminimum') }}">\
+                                                                required="" name="tgl_sampai_suhuudaraminimum['+id+']" value="{{ old('tgl_sampai_suhuudaraminimum') }}">\
                                                     </div>\
                                                     <div class="spacer-5"></div>\
                                                 </div>')
@@ -1874,8 +1874,8 @@
                                             </div>\
                                             <div class="row col-sm-12">\
                                                 <div class="col-sm-12">\
-                                                    <textarea name="" required="" class="form-control autosize" style="width: 100%"\
-                                                        placeholder="Deskripsi unsur cuaca" name="deskripsi_unsurcuaca"></textarea>\
+                                                    <textarea required="" class="form-control autosize" style="width: 100%"\
+                                                        placeholder="Deskripsi unsur cuaca" name="deskripsi_unsurcuacalainnya"></textarea>\
                                                     <div class="spacer-10"></div>\
                                                 </div>\
                                                 <div id="input_unsurcuacalainnya">\
@@ -1891,12 +1891,12 @@
                                                                 <div class="spacer-5"></div>\
                                                                 <div>\
                                                                     <strong>Dari</strong>\
-                                                                    <input class="form-control" size="16" type="date" required=""name="dari_unsurcuacalainnya[0]" value="{{ old('dari_unsurcuacalainnya') }}">\
+                                                                    <input class="form-control" size="16" type="date" required=""name="tgl_dari_unsurcuacalainnya[0]" value="{{ old('tgl_dari_unsurcuacalainnya') }}">\
                                                                 </div>\
                                                                         <div class="spacer-5"></div>\
                                                                         <strong>Sampai</strong>\
                                                                         <input class="form-control" size="16" type="date"\
-                                                                                required="" name="sampai_unsurcuacalainnya[0]" value="{{ old('sampai_unsurcuacalainnya') }}">\
+                                                                                required="" name="tgl_sampai_unsurcuacalainnya[0]" value="{{ old('tgl_sampai_unsurcuacalainnya') }}">\
                                                             </div>\
                                                         </div>\
                                                     </div>\
@@ -1930,7 +1930,7 @@
                                                                 class="form-control"\
                                                                 style="width: 100%; height: 90px"\
                                                                 name="lokasi_unsurcuacalainnya['+id+']"\
-                                                                value="" ></textarea>\
+                                                                value="{{ old('lokasi_unsurcuacalainnya') }}" ></textarea>\
                                                             </div>\
                                                             <div class="col-sm-6">\
                                                               <div class="spacer-5"></div>\
@@ -1941,8 +1941,8 @@
                                                                   size="16"\
                                                                   type="date"\
                                                                   required=""\
-                                                                  name="dari_unsurcuacalainnya['+id+']"\
-                                                                  value="" />\
+                                                                  name="tgl_dari_unsurcuacalainnya['+id+']"\
+                                                                  value="value="{{ old('tgl_dari_unsurcuacalainnya') }}"" />\
                                                               </div>\
                                                               <div class="spacer-5"></div>\
                                                               <div>\
@@ -1952,8 +1952,8 @@
                                                                   size="16"\
                                                                   type="date"\
                                                                   required=""\
-                                                                  name="sampai_unsurcuacalainnya['+id+']"\
-                                                                  value="" />\
+                                                                  name="tgl_sampai_unsurcuacalainnya['+id+']"\
+                                                                  value="{{ old('tgl_sampai_unsurcuacalainnya') }}" />\
                                                               </div>\
                                                             </div>\
                                                           </div>\

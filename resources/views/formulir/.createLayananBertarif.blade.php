@@ -40,13 +40,13 @@
                                                     <div class="col-sm-3">\
                                                         <div>\
                                                             <strong>Latitude</strong>\
-                                                            <input type="number" aria-required="true" name="latitude[]" value="{{ old('latitude') }}"\
+                                                            <input type="text" aria-required="true" name="latitude[]" value="{{ old('latitude') }}"\
                                                                 class="form-control">\
                                                                 <div class="spacer-10"></div>\
                                                         </div>\
                                                         <div>\
                                                             <strong>Longitude</strong>\
-                                                            <input type="number" aria-required="true"\
+                                                            <input type="text" aria-required="true"\
                                                                 name="longitude[]" value="{{ old('longitude') }}" class="form-control">\
                                                         </div>\
                                                         <div class="spacer-10"></div>\

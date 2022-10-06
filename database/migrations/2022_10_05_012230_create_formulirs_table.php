@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('telepon');
             $table->string('email');
             $table->string('surat_pengantar');
-            $table->string('deskripsi')->nullable();
+            $table->longText('deskripsi')->nullable();
             $table->timestamps();
         });
     }
