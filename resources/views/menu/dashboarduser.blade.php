@@ -1,6 +1,10 @@
 @extends('layout.master')
 @section('menu-title', 'Dashboard')
 @section('dashboard', 'page-arrow active-page')
+@section('css')
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+@endsection
+
 @section('content')
     <div class="inner-padding">
         <div class="row">
@@ -36,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <table class="table tablesorter" id="tablesorting-1">
+        {{-- <table class="table" id="myTable">
             <colgroup>
                 <col style="width: 17.4%;">
                 <col style="width: 17.4%;">
@@ -49,13 +53,13 @@
                     <th data-column="0" class="tablesorter-header" tabindex="0" unselectable="on"
                         style="user-select: none;">
                         <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
-                            <div class="tablesorter-header-inner">Rendering engine</div>
+                            <div class="tablesorter-header-inner">Jenis permintan</div>
                         </div>
                     </th>
                     <th class="filter-select filter-exact tablesorter-header bootstrap-header" data-placeholder="Browsers"
                         data-column="1" tabindex="0" unselectable="on" style="user-select: none;">
                         <div class="tablesorter-wrapper" style="position:relative;height:100%;width:100%">
-                            <div class="tablesorter-header-inner">Browser</div>
+                            <div class="tablesorter-header-inner">Tanggal di buat</div>
                         </div>
                     </th>
                     <th data-column="2" class="tablesorter-header bootstrap-header" tabindex="0" unselectable="on"
@@ -79,6 +83,10 @@
                 </tr>
 
             </thead>
+            <tbody>
+                <td>cek</td>
+                <td>bek</td>
+            </tbody>
             <tbody>
                 <tr class="odd">
                     <td>Trident</td>
@@ -506,8 +514,51 @@
                     </td>
                 </tr>
             </tfoot>
+        </table> --}}
+        <table class="table" id="myTable">
+            <thead style="background-color:#6666;">
+                <tr>
+                    <th scope="col">Jenis permintan</th>
+                    <th scope="col">Tanggal permintaan</th>
+                    <th scope="col">Status</th>
+                    {{-- <th scope="col">Keterangan</th>
+                    <th scope="col">Aksi</th> --}}
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($permintaans as $item)
+                    <tr>
+                        <td>{{ $item->jenis_permintaan }}</td>
+                        <td>{{ $item->created_at->format('d/m/Y') }}</td>
+                        <td>
+                                @if($item->status_form == 1)
+                                <span class='label label-default'>Permintaan Baru</span>
+                                @elseif($item->status_form == 2)
+                                <span class='label label-primary'>Diterima</span>
+                                @elseif($item->status_form == 3)
+                                <span class='label label-success'>Selesai</span>
+                                @elseif($item->status_form == 4)
+                                <span class='label label-warning'>Menunggu Pembayaran</span>
+                                @elseif($item->status_form == 5)
+                                <span class='label label-warning'>Menunggu Pembayaran Ulang</span>
+                                @elseif($item->status_form == 6)
+                                <span class='label label-danger'>Ditolak</span>
+                                @endif
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
         </table>
-
     </div>
 
 @endsection
+
+@push('scripts')
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable();
+            
+        } );
+    </script>
+@endpush

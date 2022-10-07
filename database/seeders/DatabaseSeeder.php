@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Seeders;
+
+use App\Models\Formulir;
 use App\Models\Jeniskegiatan;
 use Illuminate\Database\Seeder;
 
@@ -13,26 +15,244 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Jeniskegiatan::create([
-            'jenis_kegiatan' => 'Kegiatan Penanggulangan Bencana',
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan keagamaan',
+            'status_form' =>'1',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
         ]);
-        Jeniskegiatan::create([
-            'jenis_kegiatan' => 'Kegiatan Sosial',
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan sosial',
+            'status_form' =>'2',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
         ]);
-        Jeniskegiatan::create([
-            'jenis_kegiatan' => 'Kegiatan Keagamaan',
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan keagamaan',
+            'status_form' =>'3',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
         ]);
-        Jeniskegiatan::create([
-            'jenis_kegiatan' => 'Kegiatan Pertahanan dan Keamanan',
+
+        Formulir::create([
+            'jenis_permintaan' =>'layanan bertarif',
+            'status_form' =>'4',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
         ]);
-        Jeniskegiatan::create([
-            'jenis_kegiatan' => 'Kegiatan Pendidikan/Penelitian non Komersil',
+        
+        Formulir::create([
+            'jenis_permintaan' =>'layanan bertarif',
+            'status_form' =>'5',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
         ]);
-        Jeniskegiatan::create([
-            'jenis_kegiatan' => 'Kegiatan Pemerintahan Pusat atau Daerah',
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan sosial',
+            'status_form' =>'6',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
         ]);
-        Jeniskegiatan::create([
-            'jenis_kegiatan' => 'Layanan Bertarif'
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan keagamaan',
+            'status_form' =>'1',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan sosial',
+            'status_form' =>'2',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan keagamaan',
+            'status_form' =>'3',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'layanan bertarif',
+            'status_form' =>'4',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+        
+        Formulir::create([
+            'jenis_permintaan' =>'layanan bertarif',
+            'status_form' =>'5',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan sosial',
+            'status_form' =>'6',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan keagamaan',
+            'status_form' =>'1',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan sosial',
+            'status_form' =>'2',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan keagamaan',
+            'status_form' =>'3',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'layanan bertarif',
+            'status_form' =>'4',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+        
+        Formulir::create([
+            'jenis_permintaan' =>'layanan bertarif',
+            'status_form' =>'5',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan sosial',
+            'status_form' =>'6',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan keagamaan',
+            'status_form' =>'1',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan sosial',
+            'status_form' =>'2',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan keagamaan',
+            'status_form' =>'3',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'layanan bertarif',
+            'status_form' =>'4',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+        
+        Formulir::create([
+            'jenis_permintaan' =>'layanan bertarif',
+            'status_form' =>'5',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan sosial',
+            'status_form' =>'6',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan keagamaan',
+            'status_form' =>'1',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan sosial',
+            'status_form' =>'2',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan keagamaan',
+            'status_form' =>'3',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'layanan bertarif',
+            'status_form' =>'4',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+        
+        Formulir::create([
+            'jenis_permintaan' =>'layanan bertarif',
+            'status_form' =>'5',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
+        ]);
+
+        Formulir::create([
+            'jenis_permintaan' =>'kegiatan sosial',
+            'status_form' =>'6',
+            'nama' =>'test seed',
+            'telepon' =>'252525',
+            'email'=>'test@gmail.com',
         ]);
     }
 }

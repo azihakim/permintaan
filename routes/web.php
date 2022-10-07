@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LayananbertarifController;
 use App\Http\Controllers\KeagamaanController;
+use App\Http\Controllers\DashboarduserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,9 +65,9 @@ Route::get('kegiatan-pertahanan-keamanan', function () {
     return view('formulir.createPertahanandanKeamanan');
 });
 
-Route::get('dashboard', function () {
-    return view('menu.dashboard');
-});
+// Route::get('dashboard', function () {
+//     return view('menu.dashboarduser');
+// });
 
 Route::get('formulir', function () {
     return view('menu.formulirPermintaan');
@@ -87,3 +88,5 @@ Route::get('layanan-bertarif', function () {
 Route::resource('/bertarif', LayananbertarifController::class);
 
 Route::resource('/keagamaan', KeagamaanController::class);
+
+Route::resource('/dashboard', DashboarduserController::class);

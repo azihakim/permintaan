@@ -69,7 +69,6 @@ class KeagamaanController extends Controller
             }
             DB::table('datapermintaans')->insert($save_data); 
 
-<<<<<<< Updated upstream
             // $save_hujan=[];
             // foreach($data['lokasi_harihujan'] as $key=>$value){
             //     $save_hujan[]=[
@@ -80,7 +79,7 @@ class KeagamaanController extends Controller
             //     ];
             // }
             // DB::table('dataharihujans')->insert($save_hujan);        
-=======
+
             $save_hujan=[];
             foreach($data['lokasi_harihujan'] as $key=>$value){
                 $save_hujan[]=[
@@ -91,8 +90,7 @@ class KeagamaanController extends Controller
                     'tgl_sampai'    => $data['tgl_sampai_harihujan'][$key]
                 ];
             }
-            DB::table('datapermintaans')->insert($save_hujan);        
->>>>>>> Stashed changes
+            DB::table('datapermintaans')->insert($save_hujan);
 
 
             return redirect()->back()->with('status', 'Data Berhasil Di input');
