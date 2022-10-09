@@ -331,9 +331,14 @@ class LayananbertarifController extends Controller
      * @param  \App\Models\Layananbertarif  $layananbertarif
      * @return \Illuminate\Http\Response
      */
-    public function edit(Layananbertarif $layananbertarif)
+    public function edit($id)
     {
         //
+        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+        $formulir = Formulir::where("id", $id)->get();
+        // dd($jenis_data);
+        // return response()->json($data);
+        return view('formulir.editLayananBertarif', compact('formulir', 'datapermintaan'));
 
     }
 

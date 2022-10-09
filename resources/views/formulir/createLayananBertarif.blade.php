@@ -22,7 +22,6 @@
                                             {{ session('status') }}
                                             </div>
                                         @endif
-                                        <legend>Formulir</legend>
                                         <div class="spacer-10"></div>
                                         {{-- Start data diri --}}
                                         <div class="row">

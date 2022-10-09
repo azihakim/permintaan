@@ -35,6 +35,31 @@
     border-radius: 3px;
 }
 
+/* hover button */
+.df_btn {
+	background-color: #6666;
+	color: #fff;
+	transition: background-color 1s;
+}
+  
+.df_btn.ubah:hover {
+	background-color: #f1aa2e;
+}
+
+.df_btn.hapus:hover {
+	background-color: #d93d39;
+}
+
+.df_btn.detail:hover {
+	background-color: #41b9dd;
+}
+
+.df_btn:focus,
+.df_btn:active {
+	background-color: black;
+	transition: none;
+}
+
 /* Icons */
 
 [class*=" fa-"], 

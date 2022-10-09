@@ -85,6 +85,10 @@ Route::get('layanan-bertarif', function () {
     return view('formulir.createLayananBertarif');
 });
 
+Route::get('ubah', function () {
+    return view('formulir.editLayananBertarif');
+});
+
 Route::resource('/bertarif', LayananbertarifController::class);
 
 Route::resource('/keagamaan', KeagamaanController::class);
