@@ -16,7 +16,8 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <form action="{{ route('bertarif.store') }}" method="POST">
+                            <form action="{{ url('bertarif/{bertarif}') }}" method="POST">
+                                @method('PATCH')
                                 @csrf
                                     {{-- Start data permintaan  --}}
                                     
@@ -27,12 +28,13 @@
                                         <h4 class="bold">Data curah hujan rata-rata</h4>
                                     @endif
                                     <div class="spacer-10"></div>
+                                    <input type="hidden" name="id_df[]" value={{ "$item->id" }}>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <label>Lokasi</label>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input type="text" name="lokasi" class="form-control" value="{{ $item->lokasi }}">
+                                            <input type="text" name="lokasi_{{ $item->jenis_data }}[]" class="form-control" value="{{ $item->lokasi }}">
                                         </div>
                                     </div>
                                     <div class="spacer-10"></div>
@@ -43,14 +45,14 @@
                                         <div>
                                             <div class="col-sm-2">
                                                 <input class="form-control" size="16" type="date"
-                                                name="tgl_dari_petir[0]" required="" value="{{ $item->tgl_dari }}">
+                                                name="tgl_dari_{{ $item->jenis_data }}[]" required="" value="{{ $item->tgl_dari }}">
                                             </div>
                                         </div>
                                         <div class="col-sm-1"><label>Sampai</label></div>
                                         <div>
                                             <div class="col-sm-2">
                                                 <input class="form-control" size="16" type="date"
-                                                name="tgl_dari_petir[0]" required="" value="{{ $item->tgl_sampai  }}">
+                                                name="tgl_sampai_{{ $item->jenis_data }}[]" required="" value="{{ $item->tgl_sampai  }}">
                                             </div>
                                         </div>
                                     </div> 
@@ -98,7 +100,7 @@
                                             </div>
                                         </div>
                                     {{-- End syarat permohonan data --}}
-                                    @endforeach
+                                    
                                     <div class="spacer-40"></div>
                                     <hr>
                                     <div class="spacer-20"></div>
@@ -112,14 +114,14 @@
                                     <div class="spacer-10"></div>
                                     <div class="row col-sm-12">
                                         <div class="col-sm-12">
-                                            <textarea name="deskripsi" value="{{ old('deskripsi') }}" class="form-control" style="height: 150px;"></textarea>
+                                            <textarea name="deskripsi" value="" class="form-control" style="height: 150px;">{{ $item->deskripsi }}</textarea>
                                             <div class="helper-text-box">
                                                 <div class="form-helper">Silahkan masukkan deskripsi jika tidak ada
                                                     pilihan di formulir</div>
                                             </div><!-- End .helper-text-box -->
                                         </div>
                                     </div>
-
+                                    @endforeach
                                     {{-- End deskripsi permintaan data --}}
 
 
@@ -129,12 +131,11 @@
                                     <hr>
                                     <div class="spacer-20"></div>
                                     <div class="row">
-                                        {{-- <div class="col-sm-3"><label><input type="checkbox" name="html"
-                                                    required=""><span></span>
-                                                Accept our <a href="#" class="boldunderline">terms</a>?</label>
-                                        </div> --}}
-                                        <div class="col-sm-9">
-                                            <button type="submit" class="btn btn-default pull-right">Kirim</button>
+                                        <div class="col-sm-6">
+                                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i></a>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button type="submit" class="btn btn-default btn-lg pull-right">Perbarui</button>
                                         </div>
                                     </div>
                                 <div class="spacer-40"></div>

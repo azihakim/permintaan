@@ -331,7 +331,7 @@ class LayananbertarifController extends Controller
      * @param  \App\Models\Layananbertarif  $layananbertarif
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Datapermintaan $datapermintaan)
     {
         //
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
@@ -351,7 +351,29 @@ class LayananbertarifController extends Controller
      */
     public function update(Request $request, Layananbertarif $layananbertarif)
     {
-        //
+        // dd('berhasil');
+        // data hari hujan
+            foreach ($request->lokasi_dataharihujan as $key => $value) {
+                $harihujan = Datapermintaan::where('id', $request->id_df[$key]);
+                $harihujan->update([   
+                'lokasi'        => $request->lokasi_dataharihujan[$key],
+                'tgl_dari'      => $request->tgl_dari_dataharihujan[$key],
+                'tgl_sampai'    => $request->tgl_sampai_dataharihujan[$key]
+                ]);
+            }
+        // // data curah hujan rata-rata
+        // if ($request->exists("cb_datacurahhujanrataratas")){
+        //     $curahhujanratarata= count($request->lokasi_curahhujanratarata);
+        //     for($i = 0; $i < $curahhujanratarata ; $i++){
+        //         Datapermintaan::update([
+        //         'formulir_id'   => $layananbertarif->id,
+        //         'jenis_data'    => "data curah hujan rata-rata",
+        //         'lokasi'        => $request->lokasi_curahhujanratarata[$i],
+        //         'tgl_dari'      => $request->tgl_dari_curahhujanratarata[$i],
+        //         'tgl_sampai'    => $request->tgl_sampai_curahhujanratarata[$i]
+        //         ]);
+        //     }
+        // }
     }
 
     /**
