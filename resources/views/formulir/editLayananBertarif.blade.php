@@ -28,7 +28,7 @@
                                         <h4 class="bold">Data curah hujan rata-rata</h4>
                                     @endif
                                     <div class="spacer-10"></div>
-                                    <input type="hidden" name="id_df[]" value={{ "$item->id" }}>
+                                    <input type="text" name="id_df_{{ $item->jenis_data }}[]" value={{ "$item->id" }}>
                                     <div class="row">
                                         <div class="col-sm-3">
                                             <label>Lokasi</label>

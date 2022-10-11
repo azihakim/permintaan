@@ -94,3 +94,8 @@ Route::resource('/bertarif', LayananbertarifController::class);
 Route::resource('/keagamaan', KeagamaanController::class);
 
 Route::resource('/dashboard', DashboarduserController::class);
+// Route::get('/dashboarduser', function () {
+//     return redirect('/dashboard');
+// });
+
+Route::get('/dashboarduser',[DashboarduserController::class, 'index'])->name('dashboarduser');

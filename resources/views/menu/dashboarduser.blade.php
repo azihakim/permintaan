@@ -7,6 +7,11 @@
 
 @section('content')
     <div class="inner-padding">
+        @if(session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif
         <div class="row">
             <div class="col-sm-12">
                 <div class="dropdown">

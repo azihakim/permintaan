@@ -91,7 +91,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $curahhujanratarata ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data curah hujan rata-rata",
+                    'jenis_data'    => "datacurahhujanratarata",
                     'lokasi'        => $request->lokasi_curahhujanratarata[$i],
                     'tgl_dari'      => $request->tgl_dari_curahhujanratarata[$i],
                     'tgl_sampai'    => $request->tgl_sampai_curahhujanratarata[$i]
@@ -349,31 +349,66 @@ class LayananbertarifController extends Controller
      * @param  \App\Models\Layananbertarif  $layananbertarif
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Layananbertarif $layananbertarif)
+    public function update(Request $request, $permintaans)
     {
-        // dd('berhasil');
+        // $data = $request->all();
+        // dd($data);  
         // data hari hujan
-            foreach ($request->lokasi_dataharihujan as $key => $value) {
-                $harihujan = Datapermintaan::where('id', $request->id_df[$key]);
-                $harihujan->update([   
-                'lokasi'        => $request->lokasi_dataharihujan[$key],
-                'tgl_dari'      => $request->tgl_dari_dataharihujan[$key],
-                'tgl_sampai'    => $request->tgl_sampai_dataharihujan[$key]
-                ]);
-            }
-        // // data curah hujan rata-rata
-        // if ($request->exists("cb_datacurahhujanrataratas")){
-        //     $curahhujanratarata= count($request->lokasi_curahhujanratarata);
-        //     for($i = 0; $i < $curahhujanratarata ; $i++){
-        //         Datapermintaan::update([
-        //         'formulir_id'   => $layananbertarif->id,
-        //         'jenis_data'    => "data curah hujan rata-rata",
-        //         'lokasi'        => $request->lokasi_curahhujanratarata[$i],
-        //         'tgl_dari'      => $request->tgl_dari_curahhujanratarata[$i],
-        //         'tgl_sampai'    => $request->tgl_sampai_curahhujanratarata[$i]
+        // $a = $request->lokasi_dataharihujan;
+        // if (isset($a)){
+        //     foreach ($request->lokasi_dataharihujan as $key => $value) {
+        //         $harihujan = Datapermintaan::where('id', $request->id_df[$key]);
+        //         $harihujan->update([   
+        //         'lokasi'        => $request->lokasi_dataharihujan[$key],
+        //         'tgl_dari'      => $request->tgl_dari_dataharihujan[$key],
+        //         'tgl_sampai'    => $request->tgl_sampai_dataharihujan[$key]
+        //         ]);
+        //     }
+        // }    
+        // $b = $request->lokasi_datacurahhujanratarata;
+        // data curah hujan rata-rata
+        // if (isset($b)){
+        //     foreach ($request->lokasi_datacurahhujanratarata as $key => $value) {
+        //         $curahhujanratarata= Datapermintaan::where('id', $request->id_df[$key]);
+        //         $curahhujanratarata->update([
+        //         'lokasi'        => $request->lokasi_datacurahhujanratarata[$key],
+        //         'tgl_dari'      => $request->tgl_dari_datacurahhujanratarata[$key],
+        //         'tgl_sampai'    => $request->tgl_sampai_datacurahhujanratarata[$key]
         //         ]);
         //     }
         // }
+
+        // data hari hujan
+        $a = $request->lokasi_dataharihujan;
+        if (isset($a)){
+            // $harihujan= count($request->lokasi_dataharihujan);
+            for($i = 0; $i < count($request->lokasi_dataharihujan) ; $i++){
+                $harihujan = Datapermintaan::where('id', $request->id_df_dataharihujan[$i]);
+                $harihujan->update([ 
+                'lokasi'        => $request->lokasi_dataharihujan[$i],
+                'tgl_dari'      => $request->tgl_dari_dataharihujan[$i],
+                'tgl_sampai'    => $request->tgl_sampai_dataharihujan[$i]
+                ]);
+            }
+    }
+
+    // data curah hujan rata-rata
+        $b = $request->lokasi_datacurahhujanratarata;
+    if (isset($b)){
+        // $curahhujanratarata= count($request->lokasi_curahhujanratarata);
+        for($i = 0; $i < count($request->lokasi_datacurahhujanratarata) ; $i++){
+            $curahhujanratarata = Datapermintaan::where('id', $request->id_df_datacurahhujanratarata[$i]);
+            $curahhujanratarata->update([
+            'lokasi'        => $request->lokasi_datacurahhujanratarata[$i],
+            'tgl_dari'      => $request->tgl_dari_datacurahhujanratarata[$i],
+            'tgl_sampai'    => $request->tgl_sampai_datacurahhujanratarata[$i]
+            ]);
+        }
+    }
+
+
+    // return redirect('dashboarduser')->with('status', 'Data Berhasil Di update');
+    return redirect()->route('dashboarduser')->with('status', 'Data Berhasil Di update');
     }
 
     /**
