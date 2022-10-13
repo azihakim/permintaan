@@ -61,7 +61,7 @@ class LayananbertarifController extends Controller
                     for($i = 0; $i < $petir ; $i++){
                         Datapermintaan::create([
                                 'formulir_id'   => $layananbertarif->id,
-                                'jenis_data'    => 'data petir',
+                                'jenis_data'    => 'datapetir',
                                 'lokasi'        => $request->lokasi_petir[$i],
                                 'latitude'      => $request->latitude_petir[$i],
                                 'longitude'     => $request->longitude_petir[$i],
@@ -77,7 +77,7 @@ class LayananbertarifController extends Controller
                     for($i = 0; $i < $harihujan ; $i++){
                         Datapermintaan::create([
                         'formulir_id'   => $layananbertarif->id,
-                        'jenis_data'    => "data hari hujan",
+                        'jenis_data'    => "dataharihujan",
                         'lokasi'        => $request->lokasi_harihujan[$i],
                         'tgl_dari'      => $request->tgl_dari_harihujan[$i],
                         'tgl_sampai'    => $request->tgl_sampai_harihujan[$i]
@@ -105,7 +105,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $curahhujanmaksimum ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data curah hujan maksimum",
+                    'jenis_data'    => "datacurahhujanmaksimum",
                     'lokasi'        => $request->lokasi_curahhujanmaksimum[$i],
                     'tgl_dari'      => $request->tgl_dari_curahhujanmaksimum[$i],
                     'tgl_sampai'    => $request->tgl_sampai_curahhujanmaksimum[$i]
@@ -119,7 +119,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $curahhujanbulanan ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data curah hujan bulanan",
+                    'jenis_data'    => "datacurahhujanbulanan",
                     'lokasi'        => $request->lokasi_curahhujanbulanan[$i],
                     'tgl_dari'      => $request->tgl_dari_curahhujanbulanan[$i],
                     'tgl_sampai'    => $request->tgl_sampai_curahhujanbulanan[$i]
@@ -133,7 +133,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $suhuudararatarata ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data suhu udara rata-rata",
+                    'jenis_data'    => "datasuhuudararatarata",
                     'lokasi'        => $request->lokasi_suhuudararatarata[$i],
                     'tgl_dari'      => $request->tgl_dari_suhuudararatarata[$i],
                     'tgl_sampai'    => $request->tgl_sampai_suhuudararatarata[$i]
@@ -147,7 +147,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $suhuudaramaksimum ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data suhu udara maksimum",
+                    'jenis_data'    => "datasuhuudaramaksimum",
                     'lokasi'        => $request->lokasi_suhuudaramaksimum[$i],
                     'tgl_dari'      => $request->tgl_dari_suhuudaramaksimum[$i],
                     'tgl_sampai'    => $request->tgl_sampai_suhuudaramaksimum[$i]
@@ -161,7 +161,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $suhuudaraminimum ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data suhu udara minimum",
+                    'jenis_data'    => "datasuhuudaraminimum",
                     'lokasi'        => $request->lokasi_suhuudaraminimum[$i],
                     'tgl_dari'      => $request->tgl_dari_suhuudaraminimum[$i],
                     'tgl_sampai'    => $request->tgl_sampai_suhuudaraminimum[$i]
@@ -175,7 +175,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $kelembapanudararatarata ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data kelembapan udara rata-rata",
+                    'jenis_data'    => "datakelembapanudararatarata",
                     'lokasi'        => $request->lokasi_kelembapanudararatarata[$i],
                     'tgl_dari'      => $request->tgl_dari_kelembapanudararatarata[$i],
                     'tgl_sampai'    => $request->tgl_sampai_kelembapanudararatarata[$i]
@@ -189,7 +189,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $kelembapanudaramaksimum ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data kelembapan udara maksimum",
+                    'jenis_data'    => "datakelembapanudaramaksimum",
                     'lokasi'        => $request->lokasi_kelembapanudaramaksimum[$i],
                     'tgl_dari'      => $request->tgl_dari_kelembapanudaramaksimum[$i],
                     'tgl_sampai'    => $request->tgl_sampai_kelembapanudaramaksimum[$i]
@@ -203,7 +203,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $kelembapanudaraminimum ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data kelembapan udara minimum",
+                    'jenis_data'    => "datakelembapanudaraminimum",
                     'lokasi'        => $request->lokasi_kelembapanudaraminimum[$i],
                     'tgl_dari'      => $request->tgl_dari_kelembapanudaraminimum[$i],
                     'tgl_sampai'    => $request->tgl_sampai_kelembapanudaraminimum[$i]
@@ -217,7 +217,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $kecepatandanarahangin ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data kecepatan dan arah angin",
+                    'jenis_data'    => "datakecepatandanarahangin",
                     'lokasi'        => $request->lokasi_kecepatandanarahangin[$i],
                     'tgl_dari'      => $request->tgl_dari_kecepatandanarahangin[$i],
                     'tgl_sampai'    => $request->tgl_sampai_kecepatandanarahangin[$i]
@@ -231,7 +231,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $kecepatananginmaksimum ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data kecepatan angin maksimum",
+                    'jenis_data'    => "datakecepatananginmaksimum",
                     'lokasi'        => $request->lokasi_kecepatananginmaksimum[$i],
                     'tgl_dari'      => $request->tgl_dari_kecepatananginmaksimum[$i],
                     'tgl_sampai'    => $request->tgl_sampai_kecepatananginmaksimum[$i]
@@ -245,7 +245,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $lamapenyinaranmatahari ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data lama penyinaran matahari",
+                    'jenis_data'    => "datalamapenyinaranmatahari",
                     'lokasi'        => $request->lokasi_lamapenyinaranmatahari[$i],
                     'tgl_dari'      => $request->tgl_dari_lamapenyinaranmatahari[$i],
                     'tgl_sampai'    => $request->tgl_sampai_lamapenyinaranmatahari[$i]
@@ -259,7 +259,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $prakiraanmusim ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data prakiraan musim",
+                    'jenis_data'    => "dataprakiraanmusim",
                     'lokasi'        => $request->lokasi_prakiraanmusim[$i],
                     'tgl_dari'      => $request->tgl_dari_prakiraanmusim[$i],
                     'tgl_sampai'    => $request->tgl_sampai_prakiraanmusim[$i]
@@ -273,7 +273,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $klasifikasiiklim ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data klasifikasi iklim",
+                    'jenis_data'    => "dataklasifikasiiklim",
                     'lokasi'        => $request->lokasi_klasifikasiiklim[$i],
                     'tgl_dari'      => $request->tgl_dari_klasifikasiiklim[$i],
                     'tgl_sampai'    => $request->tgl_sampai_klasifikasiiklim[$i]
@@ -287,7 +287,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $radiasimatahari ; $i++){
                     Datapermintaan::create([
                     'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "data radiasi matahari",
+                    'jenis_data'    => "dataradiasimatahari",
                     'lokasi'        => $request->lokasi_radiasimatahari[$i],
                     'tgl_dari'      => $request->tgl_dari_radiasimatahari[$i],
                     'tgl_sampai'    => $request->tgl_sampai_radiasimatahari[$i]
@@ -301,7 +301,7 @@ class LayananbertarifController extends Controller
                 for($i = 0; $i < $unsurcuacalainnya ; $i++){
                     Datapermintaan::create([
                     'formulir_id'          => $layananbertarif->id,
-                    'jenis_data'           => "unsur cuaca lainnya",
+                    'jenis_data'           => "unsurcuacalainnya",
                     'unsurcuacalain'       => $request->deskripsi_unsurcuacalainnya,
                     'lokasi'               => $request->lokasi_unsurcuacalainnya[$i],
                     'tgl_dari'             => $request->tgl_dari_unsurcuacalainnya[$i],
@@ -349,39 +349,40 @@ class LayananbertarifController extends Controller
      * @param  \App\Models\Layananbertarif  $layananbertarif
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $permintaans)
+    public function update(Request $request, $id)
     {
         // $data = $request->all();
         // dd($data);  
-        // data hari hujan
-        // $a = $request->lokasi_dataharihujan;
-        // if (isset($a)){
-        //     foreach ($request->lokasi_dataharihujan as $key => $value) {
-        //         $harihujan = Datapermintaan::where('id', $request->id_df[$key]);
-        //         $harihujan->update([   
-        //         'lokasi'        => $request->lokasi_dataharihujan[$key],
-        //         'tgl_dari'      => $request->tgl_dari_dataharihujan[$key],
-        //         'tgl_sampai'    => $request->tgl_sampai_dataharihujan[$key]
-        //         ]);
-        //     }
-        // }    
-        // $b = $request->lokasi_datacurahhujanratarata;
-        // data curah hujan rata-rata
-        // if (isset($b)){
-        //     foreach ($request->lokasi_datacurahhujanratarata as $key => $value) {
-        //         $curahhujanratarata= Datapermintaan::where('id', $request->id_df[$key]);
-        //         $curahhujanratarata->update([
-        //         'lokasi'        => $request->lokasi_datacurahhujanratarata[$key],
-        //         'tgl_dari'      => $request->tgl_dari_datacurahhujanratarata[$key],
-        //         'tgl_sampai'    => $request->tgl_sampai_datacurahhujanratarata[$key]
-        //         ]);
-        //     }
-        // }
+        // data diri
+        $this->validate($request,[
+            'deskripsi'    =>'required',
+            'surat_pengantar'    =>'required'
+        ]);
+        $data = Formulir::find($id);
+        $data->deskripsi = $request->input('deskripsi');
+        $data->surat_pengantar = $request->input('surat_pengantar');
+        $data->update();
+
+        
+
+        // data petir
+        $cek_datapetir = $request->lokasi_datapetir;
+        if (isset($cek_datapetir)){
+            for($i = 0; $i < count($request->lokasi_datapetir) ; $i++){
+                $petir = Datapermintaan::where('id', $request->id_df_datapetir[$i]);
+                $petir->update([
+                            'lokasi'        => $request->lokasi_datapetir[$i],
+                            'latitude'      => $request->latitude_datapetir[$i],
+                            'longitude'     => $request->longitude_datapetir[$i],
+                            'tgl_dari'      => $request->tgl_dari_datapetir[$i],
+                            'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
+                ]);
+            }
+        }
 
         // data hari hujan
-        $a = $request->lokasi_dataharihujan;
-        if (isset($a)){
-            // $harihujan= count($request->lokasi_dataharihujan);
+        $cek_dataharihujan = $request->lokasi_dataharihujan;
+        if (isset($cek_dataharihujan)){
             for($i = 0; $i < count($request->lokasi_dataharihujan) ; $i++){
                 $harihujan = Datapermintaan::where('id', $request->id_df_dataharihujan[$i]);
                 $harihujan->update([ 
@@ -390,25 +391,219 @@ class LayananbertarifController extends Controller
                 'tgl_sampai'    => $request->tgl_sampai_dataharihujan[$i]
                 ]);
             }
-    }
-
-    // data curah hujan rata-rata
-        $b = $request->lokasi_datacurahhujanratarata;
-    if (isset($b)){
-        // $curahhujanratarata= count($request->lokasi_curahhujanratarata);
-        for($i = 0; $i < count($request->lokasi_datacurahhujanratarata) ; $i++){
-            $curahhujanratarata = Datapermintaan::where('id', $request->id_df_datacurahhujanratarata[$i]);
-            $curahhujanratarata->update([
-            'lokasi'        => $request->lokasi_datacurahhujanratarata[$i],
-            'tgl_dari'      => $request->tgl_dari_datacurahhujanratarata[$i],
-            'tgl_sampai'    => $request->tgl_sampai_datacurahhujanratarata[$i]
-            ]);
         }
-    }
+
+        // data curah hujan rata-rata
+        $cek_datacurahhujanratarata = $request->lokasi_datacurahhujanratarata;
+        if (isset($cek_datacurahhujanratarata)){
+            for($i = 0; $i < count($request->lokasi_datacurahhujanratarata) ; $i++){
+                $curahhujanratarata = Datapermintaan::where('id', $request->id_df_datacurahhujanratarata[$i]);
+                $curahhujanratarata->update([
+                'lokasi'        => $request->lokasi_datacurahhujanratarata[$i],
+                'tgl_dari'      => $request->tgl_dari_datacurahhujanratarata[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datacurahhujanratarata[$i]
+                ]);
+            }
+        }
+
+        // data curah hujan maksimum
+        $cek_datacurahhujanmaksimum = $request->lokasi_datacurahhujanmaksimum;
+        if (isset($cek_datacurahhujanmaksimum)){
+            for($i = 0; $i < count($request->lokasi_datacurahhujanmaksimum) ; $i++){
+                $curahhujanmaksimum = Datapermintaan::where('id', $request->id_df_datacurahhujanmaksimum[$i]);
+                $curahhujanmaksimum->update([
+                'lokasi'        => $request->lokasi_datacurahhujanmaksimum[$i],
+                'tgl_dari'      => $request->tgl_dari_datacurahhujanmaksimum[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datacurahhujanmaksimum[$i]
+                ]);
+            }
+        }
+
+        // data curah hujan bulanan
+        $cek_datacurahhujanbulanan = $request->lokasi_datacurahhujanbulanan;
+        if (isset($cek_datacurahhujanbulanan)){
+            for($i = 0; $i < count($request->lokasi_datacurahhujanbulanan) ; $i++){
+                $curahhujanbulanan = Datapermintaan::where('id', $request->id_df_datacurahhujanbulanan[$i]);
+                $curahhujanbulanan->update([
+                'lokasi'        => $request->lokasi_datacurahhujanbulanan[$i],
+                'tgl_dari'      => $request->tgl_dari_datacurahhujanbulanan[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datacurahhujanbulanan[$i]
+                ]);
+            }
+        }
+
+        // data suhu udara rata-rata
+        $cek_datasuhuudararatarata = $request->lokasi_datasuhuudararatarata;
+        if (isset($cek_datasuhuudararatarata)){
+            for($i = 0; $i < count($request->lokasi_datasuhuudararatarata) ; $i++){
+                $suhuudararatarata = Datapermintaan::where('id', $request->id_df_datasuhuudararatarata[$i]);
+                $suhuudararatarata->update([
+                'lokasi'        => $request->lokasi_datasuhuudararatarata[$i],
+                'tgl_dari'      => $request->tgl_dari_datasuhuudararatarata[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datasuhuudararatarata[$i]
+                ]);
+            }
+        }
+
+        // data suhu udara maksimum
+        $cek_datasuhuudaramaksimum = $request->lokasi_datasuhuudaramaksimum;
+        if (isset($cek_datasuhuudaramaksimum)){
+            for($i = 0; $i < count($request->lokasi_datasuhuudaramaksimum) ; $i++){
+                $suhuudaramaksimum = Datapermintaan::where('id', $request->id_df_datasuhuudaramaksimum[$i]);
+                $suhuudaramaksimum->update([
+                'lokasi'        => $request->lokasi_datasuhuudaramaksimum[$i],
+                'tgl_dari'      => $request->tgl_dari_datasuhuudaramaksimum[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datasuhuudaramaksimum[$i]
+                ]);
+            }
+        }
+
+        // data suhu udara minimum
+        $cek_datasuhuudaramaksimum = $request->lokasi_datasuhuudaramaksimum;
+        if (isset($cek_datasuhuudaramaksimum)){
+            for($i = 0; $i < count($request->lokasi_datasuhuudaramaksimum) ; $i++){
+                $suhuudaramaksimum = Datapermintaan::where('id', $request->id_df_datasuhuudaramaksimum[$i]);
+                $suhuudaramaksimum->update([
+                'lokasi'        => $request->lokasi_datasuhuudaramaksimum[$i],
+                'tgl_dari'      => $request->tgl_dari_datasuhuudaramaksimum[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datasuhuudaramaksimum[$i]
+                ]);
+            }
+        }
+
+        // data kelembapan udara rata-rata
+        $cek_datakelembapanudararatarata = $request->lokasi_datakelembapanudararatarata;
+        if (isset($cek_datakelembapanudararatarata)){
+            for($i = 0; $i < count($request->lokasi_datakelembapanudararatarata) ; $i++){
+                $kelembapanudararatarata = Datapermintaan::where('id', $request->id_df_datakelembapanudararatarata[$i]);
+                $kelembapanudararatarata->update([
+                'lokasi'        => $request->lokasi_datakelembapanudararatarata[$i],
+                'tgl_dari'      => $request->tgl_dari_datakelembapanudararatarata[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datakelembapanudararatarata[$i]
+                ]);
+            }
+        }
+
+        // data kelembapan udara maksimum
+        $cek_datakelembapanudaramaksimum = $request->lokasi_datakelembapanudaramaksimum;
+        if (isset($cek_datakelembapanudaramaksimum)){
+            for($i = 0; $i < count($request->lokasi_datakelembapanudaramaksimum) ; $i++){
+                $kelembapanudaramaksimum = Datapermintaan::where('id', $request->id_df_datakelembapanudaramaksimum[$i]);
+                $kelembapanudaramaksimum->update([
+                'lokasi'        => $request->lokasi_datakelembapanudaramaksimum[$i],
+                'tgl_dari'      => $request->tgl_dari_datakelembapanudaramaksimum[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datakelembapanudaramaksimum[$i]
+                ]);
+            }
+        }
+
+        // data kelembapan udara minimum
+        $cek_datakelembapanudaraminimum = $request->lokasi_datakelembapanudaraminimum;
+        if (isset($cek_datakelembapanudaraminimum)){
+            for($i = 0; $i < count($request->lokasi_datakelembapanudaraminimum) ; $i++){
+                $kelembapanudaraminimum = Datapermintaan::where('id', $request->id_df_datakelembapanudaraminimum[$i]);
+                $kelembapanudaraminimum->update([
+                'lokasi'        => $request->lokasi_datakelembapanudaraminimum[$i],
+                'tgl_dari'      => $request->tgl_dari_datakelembapanudaraminimum[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datakelembapanudaraminimum[$i]
+                ]);
+            }
+        }
+
+        // data kecepatan dan arah angin
+        $cek_datakecepatandanarahangin = $request->lokasi_datakecepatandanarahangin;
+        if (isset($cek_datakecepatandanarahangin)){
+            for($i = 0; $i < count($request->lokasi_datakecepatandanarahangin) ; $i++){
+                $kecepatandanarahangin = Datapermintaan::where('id', $request->id_df_datakecepatandanarahangin[$i]);
+                $kecepatandanarahangin->update([
+                'lokasi'        => $request->lokasi_datakecepatandanarahangin[$i],
+                'tgl_dari'      => $request->tgl_dari_datakecepatandanarahangin[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datakecepatandanarahangin[$i]
+                ]);
+            }
+        }
+
+        // data kecepatan angin maksimum
+        $cek_datakecepatananginmaksimum = $request->lokasi_datakecepatananginmaksimum;
+        if (isset($cek_datakecepatananginmaksimum)){
+            for($i = 0; $i < count($request->lokasi_datakecepatananginmaksimum) ; $i++){
+                $kecepatananginmaksimum = Datapermintaan::where('id', $request->id_df_datakecepatananginmaksimum[$i]);
+                $kecepatananginmaksimum->update([
+                'lokasi'        => $request->lokasi_datakecepatananginmaksimum[$i],
+                'tgl_dari'      => $request->tgl_dari_datakecepatananginmaksimum[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datakecepatananginmaksimum[$i]
+                ]);
+            }
+        }
+
+        // data lama penyinaran matahari
+        $cek_datalamapenyinaranmatahari = $request->lokasi_datalamapenyinaranmatahari;
+        if (isset($cek_datalamapenyinaranmatahari)){
+            for($i = 0; $i < count($request->lokasi_datalamapenyinaranmatahari) ; $i++){
+                $lamapenyinaranmatahari = Datapermintaan::where('id', $request->id_df_datalamapenyinaranmatahari[$i]);
+                $lamapenyinaranmatahari->update([
+                'lokasi'        => $request->lokasi_datalamapenyinaranmatahari[$i],
+                'tgl_dari'      => $request->tgl_dari_datalamapenyinaranmatahari[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datalamapenyinaranmatahari[$i]
+                ]);
+            }
+        }
+
+        // data prakiraan musim
+        $cek_dataprakiraanmusim = $request->lokasi_dataprakiraanmusim;
+        if (isset($cek_dataprakiraanmusim)){
+            for($i = 0; $i < count($request->lokasi_dataprakiraanmusim) ; $i++){
+                $prakiraanmusim = Datapermintaan::where('id', $request->id_df_dataprakiraanmusim[$i]);
+                $prakiraanmusim->update([
+                'lokasi'        => $request->lokasi_dataprakiraanmusim[$i],
+                'tgl_dari'      => $request->tgl_dari_dataprakiraanmusim[$i],
+                'tgl_sampai'    => $request->tgl_sampai_dataprakiraanmusim[$i]
+                ]);
+            }
+        }
+
+        // data klasifikasi iklim
+        $cek_dataklasifikasiiklim = $request->lokasi_dataklasifikasiiklim;
+        if (isset($cek_dataklasifikasiiklim)){
+            for($i = 0; $i < count($request->lokasi_dataklasifikasiiklim) ; $i++){
+                $klasifikasiiklim = Datapermintaan::where('id', $request->id_df_dataklasifikasiiklim[$i]);
+                $klasifikasiiklim->update([
+                'lokasi'        => $request->lokasi_dataklasifikasiiklim[$i],
+                'tgl_dari'      => $request->tgl_dari_dataklasifikasiiklim[$i],
+                'tgl_sampai'    => $request->tgl_sampai_dataklasifikasiiklim[$i]
+                ]);
+            }
+        }
+
+        // data radiasi matahari
+        $cek_dataradiasimatahari = $request->lokasi_dataradiasimatahari;
+        if (isset($cek_dataradiasimatahari)){
+            for($i = 0; $i < count($request->lokasi_dataradiasimatahari) ; $i++){
+                $radiasimatahari = Datapermintaan::where('id', $request->id_df_dataradiasimatahari[$i]);
+                $radiasimatahari->update([
+                'lokasi'        => $request->lokasi_dataradiasimatahari[$i],
+                'tgl_dari'      => $request->tgl_dari_dataradiasimatahari[$i],
+                'tgl_sampai'    => $request->tgl_sampai_dataradiasimatahari[$i]
+                ]);
+            }
+        }
+
+        // unsur cuaca lainnya
+        $cek_unsurcuacalainnya = $request->lokasi_unsurcuacalainnya;
+        if (isset($cek_unsurcuacalainnya)){
+            for($i = 0; $i < count($request->lokasi_unsurcuacalainnya) ; $i++){
+                $kelembapanudararatarata = Datapermintaan::where('id', $request->id_df_unsurcuacalainnya[$i]);
+                $kelembapanudararatarata->update([
+                'lokasi'        => $request->lokasi_unsurcuacalainnya[$i],
+                'tgl_dari'      => $request->tgl_dari_unsurcuacalainnya[$i],
+                'tgl_sampai'    => $request->tgl_sampai_unsurcuacalainnya[$i]
+                ]);
+            }
+        }
 
 
-    // return redirect('dashboarduser')->with('status', 'Data Berhasil Di update');
-    return redirect()->route('dashboarduser')->with('status', 'Data Berhasil Di update');
+        // return redirect('dashboarduser')->with('status', 'Data Berhasil Di update');
+        return redirect()->route('dashboarduser')->with('status', 'Data Berhasil Di update');
     }
 
     /**

@@ -1888,14 +1888,15 @@
                                                             </div>\
                                                             <div class="col-sm-6">\
                                                                 <div class="spacer-5"></div>\
-                                                                <div>\
+                                                                <div class="col-sm-5">\
                                                                     <strong>Dari</strong>\
                                                                     <input class="form-control" size="16" type="date" required=""name="tgl_dari_unsurcuacalainnya[0]" value="{{ old('tgl_dari_unsurcuacalainnya') }}">\
                                                                 </div>\
-                                                                        <div class="spacer-5"></div>\
-                                                                        <strong>Sampai</strong>\
-                                                                        <input class="form-control" size="16" type="date"\
-                                                                                required="" name="tgl_sampai_unsurcuacalainnya[0]" value="{{ old('tgl_sampai_unsurcuacalainnya') }}">\
+                                                                    <div class="spacer-5"></div>\
+                                                                    <div class="col-sm-5">\
+                                                                    <strong>Sampai</strong>\
+                                                                    <input class="form-control" size="16" type="date"\
+                                                                        required="" name="tgl_sampai_unsurcuacalainnya[0]" value="{{ old('tgl_sampai_unsurcuacalainnya') }}">\
                                                             </div>\
                                                         </div>\
                                                     </div>\
@@ -1933,7 +1934,7 @@
                                                             </div>\
                                                             <div class="col-sm-6">\
                                                               <div class="spacer-5"></div>\
-                                                              <div>\
+                                                              <div class="col-sm-5">\
                                                                 <strong>Dari</strong>\
                                                                 <input\
                                                                   class="form-control"\
@@ -1944,7 +1945,7 @@
                                                                   value="value="{{ old('tgl_dari_unsurcuacalainnya') }}"" />\
                                                               </div>\
                                                               <div class="spacer-5"></div>\
-                                                              <div>\
+                                                              <div class="col-sm-5">\
                                                                 <strong>Sampai</strong>\
                                                                 <input\
                                                                   class="form-control"\
