@@ -70,12 +70,22 @@
                                                 <h4 class="bold">Data hari hujan</h4>
                                             @elseif($item->jenis_data == "datacurahhujanratarata")
                                                 <h4 class="bold">Data curah hujan rata-rata</h4>
-                                            @elseif($item->jenis_data == "datacurahhujanratarata")
-                                                <h4 class="bold">Data curah hujan rata-rata</h4>
                                             @elseif($item->jenis_data == "datacurahhujanmaksimum")
                                                 <h4 class="bold">Data curah hujan maksimum</h4>
-                                            @elseif($item->jenis_data == "datacurahhujanminimum")
-                                                <h4 class="bold">Data curah hujan minimum</h4>
+                                            @elseif($item->jenis_data == "datacurahhujanbulanan")
+                                                <h4 class="bold">Data curah hujan bulanan</h4>
+                                            @elseif($item->jenis_data == "datasuhuudararatarata")
+                                                <h4 class="bold">Data suhu udara rata-rata</h4>
+                                            @elseif($item->jenis_data == "datasuhuudaramaksimum")
+                                                <h4 class="bold">Data suhu udara maksimum</h4>
+                                            @elseif($item->jenis_data == "datasuhuudaraminimum")
+                                                <h4 class="bold">Data suhu udara minimum</h4>
+                                            @elseif($item->jenis_data == "datakelembapanudararatarata")
+                                                <h4 class="bold">Data kelembapan udara rata-rata</h4>
+                                            @elseif($item->jenis_data == "datakelembapanudaramaksimum")
+                                                <h4 class="bold">Data kelembapan udara maksimum</h4>
+                                            @elseif($item->jenis_data == "datakelembapanudaraminimum")
+                                                <h4 class="bold">Data kelembapan udara minimum</h4>
                                             @elseif($item->jenis_data == "datakelembapanudararatarata")
                                                 <h4 class="bold">Data kelembapan udara rata-rata</h4>
                                             @elseif($item->jenis_data == "datakelembapanudaramaksimum")
@@ -100,14 +110,13 @@
                                         </div>
                                         <div>
                                             <div class="row group col-sm-12 ">
-                                                <div class="">
-                                                    <div class="col-sm-6">
-                                                        <strong>Lokasi</strong>
-                                                        <textarea class="form-control" style="width: 100% ; height: 90px"
-                                                        name="lokasi_{{ $item->jenis_data }}[]" required="">{{ $item->lokasi }}</textarea>
-                                                            <div class="spacer-10"></div>
-                                                    </div>
                                                     @if($item->jenis_data == "datapetir")
+                                                        <div class="col-sm-6">
+                                                            <strong>Lokasi</strong>
+                                                            <textarea class="form-control autosize" style="width: 100% ; height: 90px"
+                                                            name="lokasi_{{ $item->jenis_data }}[]" required="">{{ $item->lokasi }}</textarea>
+                                                            <div class="spacer-10"></div>
+                                                        </div>
                                                         <div class="col-sm-3">
                                                             <div>
                                                                 <strong>Latitude</strong>
@@ -131,7 +140,47 @@
                                                             name="tgl_sampai_{{ $item->jenis_data }}[]" required="" value="{{ $item->tgl_sampai }}">
                                                         </div>
                                                     @elseif($item->jenis_data == 'unsurcuacalainnya')
+                                                    <div class="row col-sm-12">
+                                                        <div class="spacer-10"></div>
+                                                        <div class="row col-sm-12">
+                                                            <div class="col-sm-12">
+                                                                <textarea required="" class="form-control autosize" style="width: 48% ; height: 28px"
+                                                                    name="deskripsi_{{ $item->jenis_data }}[]">{{ $item->unsurcuacalain }}</textarea>
+                                                            </div>
+                                                            <div>
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <div class="spacer-5"></div>
+                                                                        <div class="col-sm-6">
+                                                            <strong>Lokasi</strong>
+                                                            <textarea class="form-control autosize" style="width: 100% ; height: 28px"
+                                                            name="lokasi_{{ $item->jenis_data }}[]" required="">{{ $item->lokasi }}</textarea>
+                                                                <div class="spacer-10"></div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <strong>Dari</strong>
+                                                            <input class="form-control" size="16" type="date"
+                                                                    required="" name="tgl_dari_{{ $item->jenis_data }}[]" value="{{ $item->tgl_dari }}">
+                                                            <div class="spacer-10"></div>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <strong>Sampai</strong>
+                                                            <input class="form-control" size="16" type="date"
+                                                                    required="" name="tgl_sampai_{{ $item->jenis_data }}[]" value="{{ $item->tgl_sampai }}">
+                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="spacer-10"></div>
+                                                    </div>
                                                     @else
+                                                        <div class="col-sm-6">
+                                                            <strong>Lokasi</strong>
+                                                            <textarea class="form-control autosize" style="width: 100% ; height: 28px"
+                                                            name="lokasi_{{ $item->jenis_data }}[]" required="">{{ $item->lokasi }}</textarea>
+                                                                <div class="spacer-10"></div>
+                                                        </div>
                                                         <div class="col-sm-3">
                                                             <strong>Dari</strong>
                                                             <input class="form-control" size="16" type="date"
@@ -144,7 +193,6 @@
                                                                     required="" name="tgl_sampai_{{ $item->jenis_data }}[]" value="{{ $item->tgl_sampai }}">
                                                         </div>
                                                     @endif
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -168,7 +216,7 @@
                                                     <label>Surat pengantar</label>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <embed src="{{ $item->surat_pengantar }}" type="application/pdf">
+                                                    <embed src="{{ asset('storage/' . $item->surat_pengantar) }}" type="application/pdf">
                                                     <div class="helper-text-box">
                                                         {{-- <a value="{{ $item->surat_pengantar }}">file</a> --}}
                                                         {{-- <input type="text" name="surat_pengantar" id="" value="{{ $item->jenis_permintaan }}"> --}}

@@ -354,14 +354,14 @@ class LayananbertarifController extends Controller
         // $data = $request->all();
         // dd($data);  
         // data diri
-        $this->validate($request,[
-            'deskripsi'    =>'required',
-            'surat_pengantar'    =>'required'
-        ]);
-        $data = Formulir::find($id);
-        $data->deskripsi = $request->input('deskripsi');
-        $data->surat_pengantar = $request->input('surat_pengantar');
-        $data->update();
+        // $this->validate($request,[
+        //     'deskripsi'    =>'required',
+        //     'surat_pengantar'    =>'required'
+        // ]);
+        // $data = Formulir::find($id);
+        // $data->deskripsi = $request->input('deskripsi');
+        // $data->surat_pengantar = $request->input('surat_pengantar');
+        // $data->update();
 
         
 
@@ -592,8 +592,9 @@ class LayananbertarifController extends Controller
         $cek_unsurcuacalainnya = $request->lokasi_unsurcuacalainnya;
         if (isset($cek_unsurcuacalainnya)){
             for($i = 0; $i < count($request->lokasi_unsurcuacalainnya) ; $i++){
-                $kelembapanudararatarata = Datapermintaan::where('id', $request->id_df_unsurcuacalainnya[$i]);
-                $kelembapanudararatarata->update([
+                $unsurcuacalainnya = Datapermintaan::where('id', $request->id_df_unsurcuacalainnya[$i]);
+                $unsurcuacalainnya->update([
+                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya[$i],
                 'lokasi'        => $request->lokasi_unsurcuacalainnya[$i],
                 'tgl_dari'      => $request->tgl_dari_unsurcuacalainnya[$i],
                 'tgl_sampai'    => $request->tgl_sampai_unsurcuacalainnya[$i]

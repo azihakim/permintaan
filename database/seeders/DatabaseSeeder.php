@@ -17,12 +17,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Formulir::create([
-            'jenis_permintaan' =>'kegiatan keagamaan',
+            'jenis_permintaan' =>'layanan bertarif',
             'status_form' =>'1',
-            'nama' =>'test seed',
+            'nama' =>'layananbertarif',
             'telepon' =>'252525',
             'email'=>'test@gmail.com',
         ]);
+
+        // Datapermintaan::create([
+        //     'formulir_id' =>'1',
+        //     'jenis_data' =>'data petir',
+        //     'lokasi' =>'lokasi petir 1',
+        //     'latitude' =>'latitude 111',
+        //     'longitude' =>'longitude 111',
+        //     'tgl_dari' =>'2022-10-7',
+        //     'tgl_sampai' =>'2022-09-30',
+        // ]);
 
         Formulir::create([
             'jenis_permintaan' =>'kegiatan sosial',
@@ -64,14 +74,6 @@ class DatabaseSeeder extends Seeder
             'email'=>'test@gmail.com',
         ]);
 
-        Datapermintaan::create([
-            'formulir_id' =>'4',
-            'jenis_data' =>'data petir',
-            'lokasi' =>'lokasi petir 1',
-            'latitude' =>'latitude 111',
-            'longitude' =>'longitude 111',
-            'tgl_dari' =>'2022-10-7',
-            'tgl_sampai' =>'2022-09-30',
-        ]);
+        
     }
 }
