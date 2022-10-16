@@ -15,7 +15,7 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <form action="{{ route('bertarif.store') }}" method="POST">
+                                <form action="{{ route('bertarif.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                         @if(session('status'))
                                             <div class="alert alert-success">
@@ -57,7 +57,6 @@
                                                 <input type="email" name="email" class="form-control" name="email" value="{{ old('email') }}">
                                             </div>
                                         </div> 
-                                        
                                         {{-- End data diri --}}
 
                                         <div class="spacer-40"></div>
@@ -387,6 +386,7 @@
                                                     <label>Surat pengantar</label>
                                                 </div>
                                                 <div class="col-sm-6">
+                                                    {{-- <input type="file" name="surat_pengantar" id=""> --}}
                                                     <input type="file" accept="application/pdf" name="surat_pengantar">
                                                     <div class="helper-text-box">
                                                         <div class="form-helper-header">Format
@@ -428,12 +428,12 @@
                                         <hr>
                                         <div class="spacer-20"></div>
                                         <div class="row">
-                                            {{-- <div class="col-sm-3"><label><input type="checkbox" name="html"
-                                                        required=""><span></span>
-                                                    Accept our <a href="#" class="boldunderline">terms</a>?</label>
-                                            </div> --}}
-                                            <div class="col-sm-9">
-                                                <button type="submit" class="btn btn-default pull-right">Kirim</button>
+                                                <div class="col-sm-6">
+                                                    <a onclick="history.back()" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i></a>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <button type="submit" class="btn btn-default btn-lg pull-right">Kirim</button>
+                                                </div>
                                             </div>
                                         </div>
                                     <div class="spacer-40"></div>

@@ -9,6 +9,7 @@ use App\Models\Formulir;
 use App\Models\Datapermintaan;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Input\Input;
 
 class LayananbertarifController extends Controller
 {
@@ -45,13 +46,17 @@ class LayananbertarifController extends Controller
             // dd($data);   
 
             // data diri
+
+            $ext = $request->surat_pengantar->getClientOriginalExtension();
+            $file = "surat_pengantar-".time().".".$ext;
+            $request->surat_pengantar->storeAs('public/dokumen', $file);
             $layananbertarif = new Formulir();
             $layananbertarif->jenis_permintaan = "layanan bertarif";
             $layananbertarif->status_form = "1";
             $layananbertarif->nama = $data['nama'];
             $layananbertarif->telepon = $data['telepon'];
             $layananbertarif->email = $data['email'];
-            $layananbertarif->surat_pengantar = $data['surat_pengantar'];
+            $layananbertarif->surat_pengantar = $file;
             $layananbertarif->deskripsi = $data['deskripsi'];
             $layananbertarif->save();
             
@@ -320,9 +325,12 @@ class LayananbertarifController extends Controller
      * @param  \App\Models\Layananbertarif  $layananbertarif
      * @return \Illuminate\Http\Response
      */
-    public function show(Layananbertarif $layananbertarif)
+    public function show(Layananbertarif $layananbertarif, $id)
     {
         //
+        $formulir = Formulir::find($id);
+        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+        return view('formulir.showLayananBertarif', compact('formulir', 'datapermintaan'));
     }
 
     /**
@@ -331,11 +339,13 @@ class LayananbertarifController extends Controller
      * @param  \App\Models\Layananbertarif  $layananbertarif
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, Datapermintaan $datapermintaan)
+    public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
         //
+        // $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+        // $formulir = Formulir::where("id", $id)->get();
+        $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        $formulir = Formulir::where("id", $id)->get();
         // dd($jenis_data);
         // return response()->json($data);
         return view('formulir.editLayananBertarif', compact('formulir', 'datapermintaan'));
@@ -349,20 +359,28 @@ class LayananbertarifController extends Controller
      * @param  \App\Models\Layananbertarif  $layananbertarif
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        // $data = $request->all();
-        // dd($data);  
-        // data diri
-        // $this->validate($request,[
-        //     'deskripsi'    =>'required',
-        //     'surat_pengantar'    =>'required'
-        // ]);
-        // $data = Formulir::find($id);
+    public function update(Request $request, $id, Formulir $formulir)
+    {   
+            $formulir = Formulir::find($id);
+            $formulir ->deskripsi = $request->input('deskripsi');
+            // $data = $request->all();
+            // dd($data);  
+            $formulir->save();
+        
+        // $data = Formulir::where($id);
         // $data->deskripsi = $request->input('deskripsi');
-        // $data->surat_pengantar = $request->input('surat_pengantar');
-        // $data->update();
-
+        // $data->save();
+        // dd($id);  
+        // data diri
+        // $data = $request([
+        //     input('deskripsi'), 'surat_pengantar'
+        // ]);
+        // $i = 0;
+        // $data = Formulir::where('id', $request->id_form);;
+        // $data->deskripsi = $request->input('deskripsi');
+        // Formulir::where('id', $id)->update($data);
+        // $data->save();
+        
         
 
         // data petir
@@ -459,14 +477,14 @@ class LayananbertarifController extends Controller
         }
 
         // data suhu udara minimum
-        $cek_datasuhuudaramaksimum = $request->lokasi_datasuhuudaramaksimum;
-        if (isset($cek_datasuhuudaramaksimum)){
-            for($i = 0; $i < count($request->lokasi_datasuhuudaramaksimum) ; $i++){
-                $suhuudaramaksimum = Datapermintaan::where('id', $request->id_df_datasuhuudaramaksimum[$i]);
-                $suhuudaramaksimum->update([
-                'lokasi'        => $request->lokasi_datasuhuudaramaksimum[$i],
-                'tgl_dari'      => $request->tgl_dari_datasuhuudaramaksimum[$i],
-                'tgl_sampai'    => $request->tgl_sampai_datasuhuudaramaksimum[$i]
+        $cek_datasuhuudaraminimum = $request->lokasi_datasuhuudaraminimum;
+        if (isset($cek_datasuhuudaraminimum)){
+            for($i = 0; $i < count($request->lokasi_datasuhuudaraminimum) ; $i++){
+                $suhuudaraminimum = Datapermintaan::where('id', $request->id_df_datasuhuudaraminimum[$i]);
+                $suhuudaraminimum->update([
+                'lokasi'        => $request->lokasi_datasuhuudaraminimum[$i],
+                'tgl_dari'      => $request->tgl_dari_datasuhuudaraminimum[$i],
+                'tgl_sampai'    => $request->tgl_sampai_datasuhuudaraminimum[$i]
                 ]);
             }
         }
