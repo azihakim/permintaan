@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('termometer_maksimum_dan_minimums', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('roles', ['admin', 'observer', 'masyarakat', 'ketua']);
-            $table->rememberToken();
+            $table->double('max1')->nullable();
+            $table->double('reset1')->nullable();
+            $table->double('max2')->nullable();
+            $table->double('reset2')->nullable();
+            $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('termometer_maksimum_dan_minimums');
     }
 };
