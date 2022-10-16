@@ -87,3 +87,7 @@ Route::get('layanan-bertarif', function () {
 Route::resource('/bertarif', LayananbertarifController::class);
 
 Route::resource('/keagamaan', KeagamaanController::class);
+
+Route::get('pencatatan', function () {
+    return view('layout.master-pencatatan');
+});

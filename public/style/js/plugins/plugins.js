@@ -14,48 +14,48 @@
  * This is part of a themeforest file                            *
  * ************************************************************* *
  */
-   
+
 $(document).ready(function($){
-	
+
 	// NOTICE:
-	// some parts are wrapped inside a if statment, for those who 
+	// some parts are wrapped inside a if statment, for those who
 	// dont know why this is...it is because this if statment will
 	// check if the selector is present on the page. Without this check
 	// the plugins will run into an error(downside of third party plugins).
 	// if($('#selector').length){ // run the code }
 
-	
+
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : nanoGress
 	 * Description : Lightweight nano progressbar.
 	 * File Name   : nanogress.js
-	 * Plugin Url  : 
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	// end can befound in the main.js file at the bottom
-	$.nanoGress.start();
-	
-	// notification page
-	$('#nanogress-body-trigger').click(function(e){
-		$.nanoGress.start();
-		setTimeout(function(){
-			$.nanoGress.end();	
-		},4000);
-        e.preventDefault();	
-	});
-	$('#nanogress-target-trigger').click(function(e){
-		$.nanoGress.start({target: $(this)});
-		setTimeout(function(){
-			$.nanoGress.end();	
-		},4000);
-		e.preventDefault();	
-	});
-	
+	// $.nanoGress.start();
+
+	// // notification page
+	// $('#nanogress-body-trigger').click(function(e){
+	// 	$.nanoGress.start();
+	// 	setTimeout(function(){
+	// 		$.nanoGress.end();
+	// 	},4000);
+    //     e.preventDefault();
+	// });
+	// $('#nanogress-target-trigger').click(function(e){
+	// 	$.nanoGress.start({target: $(this)});
+	// 	setTimeout(function(){
+	// 		$.nanoGress.end();
+	// 	},4000);
+	// 	e.preventDefault();
+	// });
+
 	/* THIRD PARTY ----------------------------------------------------------- */
 
 	/**
@@ -63,21 +63,21 @@ $(document).ready(function($){
 	 * Description : jQuery layout UI
 	 * File Name   : layout.js
 	 * Plugin Url  : http://layout.jquery-dev.net/index.cfm
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core/ jQuery UI
 	 * Developer   : Richard
-	**/	
-	
+	**/
+
 	if($('#jquery-layout-1').length){
-		$("#jquery-layout-1").layout({ 
-			applyDefaultStyles: false, 
+		$("#jquery-layout-1").layout({
+			applyDefaultStyles: false,
 			east__size:"50%",
 			onresize_end: function(){
-				// need to (re)initialize a plugin(s), do it here 
-			} 	
+				// need to (re)initialize a plugin(s), do it here
+			}
 		});
 	}
-	
+
 	/* THIRD PARTY ----------------------------------------------------------- */
 
 	/**
@@ -85,10 +85,10 @@ $(document).ready(function($){
 	 * Description : Masonry layout plugin
 	 * File Name   : masonry.pkgd.js
 	 * Plugin Url  : http://masonry.desandro.com/
-	 * Updated     : --/--/----	
-	 * Dependency  : 
+	 * Updated     : --/--/----
+	 * Dependency  :
 	 * Developer   : Richard
-	**/	
+	**/
 
 	$('#mansory-container').masonry({
 		columnWidth: 20,
@@ -97,31 +97,31 @@ $(document).ready(function($){
 	});
 
 	/* THIRD PARTY ----------------------------------------------------------- */
-		
+
 	/**
 	 * Name        : H5F
 	 * Description : Crossbrowser support form forms
 	 * Url         : https://github.com/ryanseddon/H5F
-	 * Version     : 1.0	
+	 * Version     : 1.0
 	 * Updated     :
 	 * Dependency  : h5f.js
-	 * Developer   : Mark	 
+	 * Developer   : Mark
 	**/
 
 	H5F.setup(document.getElementsByName("form"));
-	
+
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Bootstrap tabs extend
 	 * Description : Extend the bootstrap tabs plugin with AJAX and responsive mode
 	 * File Name   : bootstraptabsextend.js
-	 * Plugin Url  : 
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	$('#res-tabs').bootstrapTabsExtend({
 		responsive: true,
 		responsiveClass: 'ext-tabs-responsive-mode',
@@ -133,17 +133,17 @@ $(document).ready(function($){
 	});
 
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Simple Select
 	 * Description : Lightweigth select styling plugin
 	 * File Name   : simpleselect.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	$('.shortcut-menu, .simpleselect').simpleSelect({
 		icon:'<i class="fa fa-caret-down"></i>',
 		onChange:function(ui){
@@ -153,17 +153,17 @@ $(document).ready(function($){
 	});
 
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Power Wizard
 	 * Description : Step wizard.
 	 * File Name   : powerwizard.js
-	 * Plugin Url  : 
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	$('.powerwizard').powerWizard({
 		containerSelector:'.powerwizard-content',
 		stepsSelector:'.powerwizard-step',
@@ -200,22 +200,22 @@ $(document).ready(function($){
 
 		    var minChar     = 2;
 			var returnFalse = false;
-			
+
 		    $(ui.step).find('.required').each(function(){
 				if($(this).is(':checkbox')){
-					if($(this).is(':checked')){					
-						$(this).parent().removeClass('has-error');	
+					if($(this).is(':checked')){
+						$(this).parent().removeClass('has-error');
 					}else{
-						$(this).parent().addClass('has-error');	
-						returnFalse = true;					
-					}	
+						$(this).parent().addClass('has-error');
+						returnFalse = true;
+					}
 				}else{
-					if($(this).val().length > minChar){					
-						$(this).parent().removeClass('has-error');	
+					if($(this).val().length > minChar){
+						$(this).parent().removeClass('has-error');
 					}else{
-						$(this).parent().addClass('has-error');	
-						returnFalse = true;					
-					}	
+						$(this).parent().addClass('has-error');
+						returnFalse = true;
+					}
 				}
 			});
 			if(returnFalse === true){
@@ -224,11 +224,11 @@ $(document).ready(function($){
 				}
 				return false;
 			}else{
-				$(ui.step).find('.alert-wrap').remove();	
+				$(ui.step).find('.alert-wrap').remove();
 			}
-			
+
 		}
-	});	
+	});
 
 	/* THIRD PARTY ----------------------------------------------------------- */
 
@@ -236,51 +236,51 @@ $(document).ready(function($){
 	 * Name        : jQuery knob
 	 * Description : Circular stats
 	 * File Name   : knob.js
-	 * Plugin Url  : http://anthonyterrien.com/knob/ 
-	 * Updated     : --/--/----	
+	 * Plugin Url  : http://anthonyterrien.com/knob/
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Richard
-	**/	
-	
+	**/
+
 	$(".knob").knob();
-   
+
 	/* THIRD PARTY ----------------------------------------------------------- */
 
 	/**
 	 * Name        : Holder.js
 	 * Description : Image replacement
 	 * File Name   : holder.js
-	 * Plugin Url  : imsky.github.com/holder/  
-	 * Updated     : --/--/----	
+	 * Plugin Url  : imsky.github.com/holder/
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
-	
+	**/
+
 	Holder.add_theme("karma-grey", {
-		background:"#222", 
-		foreground:"#bbb", 
-		size:11, 
+		background:"#222",
+		foreground:"#bbb",
+		size:11,
 		font: "Arial"
 	});
 
 	/* THIRD PARTY ----------------------------------------------------------- */
-	
+
 	/**
 	 * Name        : Bootstrap select2
 	 * Description : Bootstrap select styling and management
 	 * File Name   : select2.js
 	 * Plugin Url  : ivaynberg.github.com/select2/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
+	**/
 
 	$(".select2").select2({
 		minimumResultsForSearch: 5
 	});
 	// used for tags/tokens inside a input
 	$(".select-token").select2({
-		tags:["User Interface", "jQuery", "Coffeescript", "Testing", "Mobile", "Respnsive"], 
+		tags:["User Interface", "jQuery", "Coffeescript", "Testing", "Mobile", "Respnsive"],
 		width: 'off'
 	});
 
@@ -290,57 +290,57 @@ $(document).ready(function($){
 	 * Name        : Bootstrap modal
 	 * Description : Bootstrap modal
 	 * File Name   : bootstrap.js
-	 * Plugin Url  : www.getbootstrap.com  
-	 * Updated     : --/--/----	
+	 * Plugin Url  : www.getbootstrap.com
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
-	
+	**/
+
 	$('#modal-update-trigger').click(function(e){
 		$('#modal-update').modal();
 		e.preventDefault();
-	});	
+	});
 
      // demos
 	$('#modal-trigger-1').click(function(e){
 		$('#dialog-demo-1').modal();
 		e.preventDefault();
-	});	
-	
+	});
+
      // media manager
 	$('#cmanager-dummy-preview-trigger').click(function(e){
 		$('#cmanager-dummy-preview').modal();
 		e.preventDefault();
-	});	
-	
+	});
+
 	/* BOOTSTRAP ----------------------------------------------------------- */
-	
+
 	/** NOTICE: not the default bootstrap typeahead **/
-	
+
 	/**
 	 * Name        : Bootstrap typeahead
 	 * Description : Bootstrap typeahead(better version)
 	 * File Name   : typeahead.js
-	 * Plugin Url  : http://twitter.github.com/typeahead.js/ 
-	 * Updated     : --/--/----	
+	 * Plugin Url  : http://twitter.github.com/typeahead.js/
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	var ts = ['test', 'javascript', 'project', 'help','admin','cms','cmr','java','jquery','json', 'html5', 'help','hello','document','adobe','Buy this theme','Karma']
-	
+
 	// Toolbar 1
 	$('#typeahead-toolbar-1').typeahead({
 		name: 'toolbar',
 		local: ts
 	});
-	
+
 	// Toolbar 2
 	$('#typeahead-toolbar-2').typeahead({
 		name: 'toolbar',
 		local: ts
 	});
-	
+
 	// Main search
 	$('#typeahead-sidebar-search').typeahead({
 		name: 'sidebar-search',
@@ -355,43 +355,43 @@ $(document).ready(function($){
 		engine: Hogan //needed for the templating
 		//ttl_ms: 1 // there's a bug right now that prevents it from being set to 0, will be fixed in v0.8.2
 	});
-		
+
 	/* BOOTSTRAP ----------------------------------------------------------- */
-	
+
 	/**
 	 * Name        : Bootstrap dropdown
 	 * Description : Bootstrap dropdown menu's and buttons
 	 * File Name   : bootstrap.js
-	 * Plugin Url  : www.getbootstrap.com  
-	 * Updated     : --/--/----	
+	 * Plugin Url  : www.getbootstrap.com
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
-	
+	**/
+
 	// notice that the dropdown plugin has been called true the data attributes,
 	// but because of the lak of options on the plugin we have to call it again,
-	// as we need some other plugins to work with the dropdown plugin, 
+	// as we need some other plugins to work with the dropdown plugin,
 	// so this is the only solution for now.
-	
+
 	$('.dropdown-toggle').dropdown();
 
     /* BOOTSTRAP ----------------------------------------------------------- */
-	 
+
 	/**
 	 * Name        : Bootstrap Tabs
 	 * Description : Bootstrap tabs
 	 * File Name   : bootstrap.js
-	 * Plugin Url  : www.getbootstrap.com 
-	 * Updated     : --/--/----	
+	 * Plugin Url  : www.getbootstrap.com
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
-				
+	**/
+
 	$('.ext-tabs-sidebar a, .ext-tabs-cmanager a, .ext-tabs a, .ext-tabs-vertical a, .ext-dropdown-tabs-ul a, .ext-tabs-vertical a').click(function(e){
 		e.preventDefault();
 		$(this).tab('show');
 	});
-	
+
 	// This is a easy way to transform a button group into tabs.
 	$('.ext-tabs-btn-group a').click(function(e){
 		e.preventDefault();
@@ -400,33 +400,33 @@ $(document).ready(function($){
 	});
 
 	/* THIRD PARTY ----------------------------------------------------------- */
-	
+
 	/**
 	 * Name        : vTicker
 	 * Description : A text ticker.
 	 * File Name   : vticker.js
 	 * Plugin Url  : http://richhollis.github.io/vticker/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Brandon
-	**/	
-	
+	**/
+
 	if($('.vticker').length){
     	$('.vticker').vTicker();
 	}
-	
+
 	/* THIRD PARTY ----------------------------------------------------------- */
-	
+
 	/**
 	 * Name        : Tablesorter
 	 * Description : Table sorting plugin(bootstrap example)
 	 * File Name   : tablesorter.js
 	 * Plugin Url  : http://tablesorter.com
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Brandon
-	**/	
-	
+	**/
+
 	$.extend($.tablesorter.themes.bootstrap, {
 		// these classes are added to the table. To see other table classes available,
 		// look here: http://twitter.github.com/bootstrap/base-css.html#tables
@@ -444,10 +444,10 @@ $(document).ready(function($){
 		even       : '', // odd row zebra striping
 		odd        : ''  // even row zebra striping
 	});
-	
+
 	// call the tablesorter plugin and apply the uitheme widget
 	$('#tablesorting-1').tablesorter({
-		theme          : "bootstrap", // this will 
+		theme          : "bootstrap", // this will
 		widthFixed     : true,
 		headerTemplate : '{content} {icon}', // new in v2.7. Needed to add the bootstrap icon!
 		// widget code contained in the jquery.tablesorter.widgets.js file
@@ -476,16 +476,16 @@ $(document).ready(function($){
 	});
 
     /* BOOTSTRAP ----------------------------------------------------------- */
-	 
+
 	/**
 	 * Name        : Bootstrap Tooltip
 	 * Description : Bootstrap tooltip
 	 * File Name   : bootstrap.js
-	 * Plugin Url  : www.getbootstrap.com  
-	 * Updated     : --/--/----	
+	 * Plugin Url  : www.getbootstrap.com
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/				
+	**/
 
 	$('.tooltip-top, .table-tooltip').tooltip({
 		placement: 'top',
@@ -503,34 +503,34 @@ $(document).ready(function($){
 		placement: 'left',
 		container: 'body'
 	});
-			
+
 	/* THIRD PARTY ----------------------------------------------------------- */
-	
+
 	/**
 	 * Name        : CKEditor
 	 * Description : WYSIWYG editor
 	 * File Name   : ckeditor.js
 	 * Plugin Url  : http://ckeditor.com/
-	 * Updated     : --/--/----	
-	 * Dependency  : 
+	 * Updated     : --/--/----
+	 * Dependency  :
 	 * Developer   : Brandon
-	**/	
-	
+	**/
+
     if($('#editor1').length){
 		CKEDITOR.replace( 'editor1', {
 			uiColor: '#eeeeee'
 		});
-		
+
 		// This code is generally not necessary, but it is here to demonstrate
 		// how to customize specific editor instances on the fly. This fits well
 		// this demo because we have editable elements (like headers) that
 		// require less features.
-	
+
 		// The "instanceCreated" event is fired for every editor instance created.
 		CKEDITOR.on( 'instanceCreated', function( event ) {
 			var editor = event.editor,
 				element = editor.element;
-	
+
 			// Customize editors for headers and tag list.
 			// These editors don't need features like smileys, templates, iframes etc.
 			if ( element.is( 'h1', 'h2', 'h3' ) || element.getAttribute( 'id' ) == 'taglist' ) {
@@ -539,12 +539,12 @@ $(document).ready(function($){
 				// execution. This makes it possible to change the
 				// configurations before the editor initialization takes place.
 				editor.on( 'configLoaded', function() {
-	
+
 					// Remove unnecessary plugins to make the editor simpler.
 					editor.config.removePlugins = 'colorbutton,find,flash,font,' +
 						'forms,iframe,image,newpage,removeformat,' +
 						'smiley,specialchar,stylescombo,templates';
-	
+
 					// Rearrange the layout of the toolbar.
 					editor.config.toolbarGroups = [
 						{ name: 'editing',		groups: [ 'basicstyles', 'links' ] },
@@ -556,52 +556,52 @@ $(document).ready(function($){
 			}
 		});
 	}
-  
+
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Main Menu
 	 * Description : Main drop down menu located in the sidebar(s)
 	 * File Name   : mainmenu.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
-	 	 	
+	**/
+
 	$('.sidebar-nav-v1, .sidebar-nav-v2').mainMenu({
 		closeClass: 'fa-caret-down',
 		openClass: 'fa-caret-left',
-		speed: 400	
+		speed: 400
 	});
-	
+
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Easy File Tree
 	 * Description : File tree layout
 	 * File Name   : easyfiletree.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	$('.easyfiletree').easyFileTree({
-		speed: 200	
+		speed: 200
 	});
-	
+
 	/* THIRD PARTY  ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Tiny srollbar
 	 * Description : Styled scrollbar
 	 * File Name   : tinycrollbar.js
 	 * Plugin Url  : http://baijs.nl/tinyscrollbar/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
+	**/
 
 	/*
 	* Vertical scrollbar
@@ -611,7 +611,7 @@ $(document).ready(function($){
 	.wrapInner('<div class="overview">')
 	.wrapInner('<div class="viewport">')
 	.prepend('<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>');
-	// run plugin	
+	// run plugin
 	if($('.scrollbar-y').length){
 		$('.scrollbar-y').tinyscrollbar({
 			size:190// container height = 200px, scrollbar offset = 5px
@@ -627,7 +627,7 @@ $(document).ready(function($){
 	.append('<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>');
 	// run plugin
 	if($('.scrollbar-x').length){
-		$('.scrollbar-x').tinyscrollbar({ 
+		$('.scrollbar-x').tinyscrollbar({
 			axis: 'x'
 		});
 	}
@@ -635,19 +635,19 @@ $(document).ready(function($){
 	if($('#ext-dropdown-chat').length){
 		$('#ext-dropdown-chat .btn').click(function(e){
 			$(this).parents('.dropup, .dropdown').find('.ext-dropdown-chat-window').tinyscrollbar({size:210});
-		});	
+		});
 	}
 	// demo chat
 	if($('#ext-dropdown-chat-1, #ext-dropdown-chat-2, #ext-dropdown-chat-3, #ext-dropdown-chat-4, #ext-dropdown-chat-5, #ext-dropdown-chat-6').length){
 		$('.ext-dropdown-chat-btn').click(function(e){
 			$(this).parents('.dropup, .dropdown').find('.ext-dropdown-chat-window').tinyscrollbar({size:210});
-		});	
+		});
 	}
 	// dropdown/dropup scrollbar demo's
 	$('#trigger-scrollbar-1,#trigger-scrollbar-2,#trigger-scrollbar-3,#trigger-scrollbar-4,#trigger-scrollbar-5,#trigger-scrollbar-6').click(function(e){
 		// notice we call the plugin twice, as the first time it wont get the dimensions right
 		$(this).parent().find('.scrollbar-y').tinyscrollbar().tinyscrollbar({size:190});
-	});	
+	});
 	// reset if the screen gets resized
 	$(window).resize(function(){
 		// need to call the separtly
@@ -662,211 +662,211 @@ $(document).ready(function($){
 	$('.ext-tabs-sidebar a').click(function(){
 		$('.scrollbar-y').tinyscrollbar();
 	});
-	
+
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Lock screen
 	 * Description : Screen lock with 3 different types of lock/unlock
 	 * File Name   : lockscreen.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery UI, jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	/**
 	* Form.
-	**/	
+	**/
 	$('#lockscreen-form-trigger').click(function(e){
-		
-		
+
+
 		$('#lockscreen-form').find('.lockscreen-modal').append('<div class="lockscreen-loader"></div>');
-		
+
 		/**
 		* Show the box.
-		**/	
+		**/
 		$('#lockscreen-form').show();
 		/**
 		* Run unlockscreen.
-		**/	
+		**/
 		$('#lockscreen-form').find('.lockscreen-placeholder').lockScreen({
-			type:'form',           
-			unlockText: 'Type something...',   
-			delayUnlock: 200,       
-			unlockAt: 100,         
-			submitText:'Unlock',    
+			type:'form',
+			unlockText: 'Type something...',
+			delayUnlock: 200,
+			unlockAt: 100,
+			submitText:'Unlock',
 			formAction:'ajax/lockscreen.php',
-			minChar:3,      
-			start:function(){},     
+			minChar:3,
+			start:function(){},
 			fail:function(){
 				$('#lockscreen-form').find('.alert').remove();
 				$('#lockscreen-form .lockscreen-modal').prepend('<div class="alert alert-danger">Type some more!</div>');
-			},      
-			success:function(){ 
-				$('#lockscreen-form').find('.alert').remove(); 
+			},
+			success:function(){
+				$('#lockscreen-form').find('.alert').remove();
 				$('#lockscreen-form').find('.lockscreen-loader').show();
 				setTimeout(function(){
 					$('#lockscreen-form').find('.lockscreen-loader').hide();
 					$('#lockscreen-form').hide();
 				},3000);
 			}
-		});		
-		e.preventDefault();
-	});
-	
-	/**
-	* Button.
-	**/	
-	$('#lockscreen-button-trigger').click(function(e){
-		/**
-		* Show the box.
-		**/	
-		$('#lockscreen-button').show();
-		/**
-		* Run unlockscreen.
-		**/	
-		$('#lockscreen-button').find('.lockscreen-placeholder').lockScreen({
-			type:'button',           
-			unlockText: 'Unlock',   
-			delayUnlock: 200,       
-			unlockAt: 100,         
-			submitText:'Click to unlock',    
-			formAction:'',  
-			minChar:3,         
-			start:function(){},     
-			fail:function(){},      
-			success:function(){      
-				$.nanoGress.start({target: '.lockscreen-modal'});
-				$.nanoGress.end({onEnd:function(){
-					$('#lockscreen-button').hide();	
-				}});
-			}
-		});		
-		e.preventDefault();
-	});
-	
-	/**
-	* Slider.
-	**/	
-	$('#lockscreen-slider-trigger').click(function(e){
-		/**
-		* Show the box.
-		**/	
-		$('#lockscreen-slider').show();
-		/**
-		* Run unlockscreen.
-		**/	
-		$('#lockscreen-slider').find('.lockscreen-placeholder').lockScreen({
-			type:'slider',           
-			unlockText: 'Unlock',   
-			delayUnlock: 200,       
-			unlockAt: 100,         
-			submitText:'Login',    
-			formAction:'', 
-			minChar:3,          
-			start:function(){},     
-			fail:function(){},      
-			success:function(){      
-				$.nanoGress.start({target: '.lockscreen-modal'});
-				$.nanoGress.end({onEnd:function(){
-					$('#lockscreen-slider').hide();	
-				}});
-			}
-		});	
-		e.preventDefault();
-	});
-	
-	/**
-	* Form(target location).
-	**/	
-	$('#lockscreen-target-trigger').click(function(e){
-		/**
-		* Show the box.
-		**/	
-		$('#lockscreen-target').show();
-		/**
-		* Run unlockscreen.
-		**/	
-		$('#lockscreen-target').find('.lockscreen-placeholder').lockScreen({
-			type:'form',           
-			unlockText: 'Type something...',   
-			delayUnlock: 200,       
-			unlockAt: 100,         
-			submitText:'Login',    
-			formAction:'ajax/lockscreen.php', 
-			minChar:3,          
-			start:function(){},     
-			fail:function(){},      
-			success:function(){
-				$.nanoGress.start({target: '#lockscreen-target'});
-				$.nanoGress.end({onEnd:function(){
-					$('#lockscreen-target').hide();	
-				}});
-			}
-		});	
+		});
 		e.preventDefault();
 	});
 
-	
+	/**
+	* Button.
+	**/
+	$('#lockscreen-button-trigger').click(function(e){
+		/**
+		* Show the box.
+		**/
+		$('#lockscreen-button').show();
+		/**
+		* Run unlockscreen.
+		**/
+		$('#lockscreen-button').find('.lockscreen-placeholder').lockScreen({
+			type:'button',
+			unlockText: 'Unlock',
+			delayUnlock: 200,
+			unlockAt: 100,
+			submitText:'Click to unlock',
+			formAction:'',
+			minChar:3,
+			start:function(){},
+			fail:function(){},
+			success:function(){
+				$.nanoGress.start({target: '.lockscreen-modal'});
+				$.nanoGress.end({onEnd:function(){
+					$('#lockscreen-button').hide();
+				}});
+			}
+		});
+		e.preventDefault();
+	});
+
+	/**
+	* Slider.
+	**/
+	$('#lockscreen-slider-trigger').click(function(e){
+		/**
+		* Show the box.
+		**/
+		$('#lockscreen-slider').show();
+		/**
+		* Run unlockscreen.
+		**/
+		$('#lockscreen-slider').find('.lockscreen-placeholder').lockScreen({
+			type:'slider',
+			unlockText: 'Unlock',
+			delayUnlock: 200,
+			unlockAt: 100,
+			submitText:'Login',
+			formAction:'',
+			minChar:3,
+			start:function(){},
+			fail:function(){},
+			success:function(){
+				$.nanoGress.start({target: '.lockscreen-modal'});
+				$.nanoGress.end({onEnd:function(){
+					$('#lockscreen-slider').hide();
+				}});
+			}
+		});
+		e.preventDefault();
+	});
+
+	/**
+	* Form(target location).
+	**/
+	$('#lockscreen-target-trigger').click(function(e){
+		/**
+		* Show the box.
+		**/
+		$('#lockscreen-target').show();
+		/**
+		* Run unlockscreen.
+		**/
+		$('#lockscreen-target').find('.lockscreen-placeholder').lockScreen({
+			type:'form',
+			unlockText: 'Type something...',
+			delayUnlock: 200,
+			unlockAt: 100,
+			submitText:'Login',
+			formAction:'ajax/lockscreen.php',
+			minChar:3,
+			start:function(){},
+			fail:function(){},
+			success:function(){
+				$.nanoGress.start({target: '#lockscreen-target'});
+				$.nanoGress.end({onEnd:function(){
+					$('#lockscreen-target').hide();
+				}});
+			}
+		});
+		e.preventDefault();
+	});
+
+
     /* BOOTSTRAP ----------------------------------------------------------- */
-	 
+
 	/**
 	 * Name        : Bootstrap Datepicker
 	 * Description : Bootstrap dropdown datepicker
 	 * File Name   : datepicker.js
 	 * Plugin Url  : https://github.com/eternicode/bootstrap-datepicker
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
+	**/
 
 	$('#datepicker-1, #datepicker-2, #datepicker-3, #datepicker-4, #datepicker-form-1, #datepicker-form-2').datepicker({
 		format: 'mm-dd-yyyy'
 	});
 
     /* BOOTSTRAP ----------------------------------------------------------- */
-	 
+
 	/**
 	 * Name        : Bootstrap File upload
 	 * Description : Bootstrap styeld file upload input
 	 * File Name   : bootstrap-fileupload.js
 	 * Plugin Url  : jasny.github.com/bootstrap/javascript.html
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	// plugin is called with a datasets as this line will case an error
 	// (waiting for an plugin update)
-	
+
     //$('.fileupload').fileupload();
 
     /* BOOTSTRAP ----------------------------------------------------------- */
-	 
+
 	/**
 	 * Name        : Bootstrap Masked input
 	 * Description : Bootstrap masked inpots
 	 * File Name   : bootstrap-maskinput.js
 	 * Plugin Url  : jasny.github.com/bootstrap/javascript.html
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
-	
+	**/
+
 	$('.inputmask').inputmask();
-	
+
     /* BOOTSTRAP ----------------------------------------------------------- */
-	 
+
 	/**
 	 * Name        : Bootstrap Carousel
 	 * Description : Bootstrap animated carousel
 	 * File Name   : bootstrap.js
 	 * Plugin Url  : twitter.github.com/bootstrap/javascript.html
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
+	**/
 
 	$('.carousel').carousel({
 		interval: 5000,
@@ -874,45 +874,45 @@ $(document).ready(function($){
 	});
 
 	/* THIRD PARTY ----------------------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Full Calendar
 	 * Description : Calendar plugin
 	 * File Name   : fullcalendar.js
-	 * Plugin Url  : http://arshaw.com/fullcalendar/ 
-	 * Updated     : --/--/----	
+	 * Plugin Url  : http://arshaw.com/fullcalendar/
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Brandon
-	**/	
-	
+	**/
+
 	/* initialize the external events
 	-----------------------------------------------------------------*/
 
 	$('.calendar-events .single-cal-event').each(function() {
-	
+
 		// create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
 		// it doesn't need to have a start or end
 		var eventObject = {
 			title: $.trim($(this).text()) // use the element's text as the event title
 		};
-		
+
 		// store the Event Object in the DOM element so we can get to it later
 		$(this).data('eventObject', eventObject);
-		
+
 		// make the event draggable using jQuery UI
 		$(this).draggable({
 			zIndex: 999,
 			revert: true,      // will cause the event to go back to its
 			revertDuration: 0  //  original position after the drag
 		});
-		
+
 	});
 
 	var date = new Date();
 	var d    = date.getDate();
 	var m    = date.getMonth();
 	var y    = date.getFullYear();
-	
+
 	$('#calendar').fullCalendar({
 		header: {
 			left: 'prev,next today',
@@ -968,17 +968,17 @@ $(document).ready(function($){
 		],
 		droppable: true, // this allows things to be dropped onto the calendar !!!
 		drop: function(date, allDay, jsEvent, ui) { // this function is called when something is dropped
-		
+
 			// retrieve the dropped element's stored Event Object
 			var originalEventObject = $(this).data('eventObject');
-			
+
 			// we need to copy it, so that multiple events don't have a reference to the same object
 			var copiedEventObject = $.extend({}, originalEventObject);
-			
+
 			// assign it the date that was reported
 			copiedEventObject.start = date;
 			copiedEventObject.allDay = allDay;
-			
+
 			// render the event on the calendar
 			// the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
 			$('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
@@ -988,30 +988,30 @@ $(document).ready(function($){
 				// if so, remove the element from the "Draggable Events" list
 				$(this).remove();
 			}
-			
+
 		}
 	});
 
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Auto Save Forms
-	 * Description : Saves the content of a form to the localstorage if the 
+	 * Description : Saves the content of a form to the localstorage if the
 	                 browsers gets refreshed to soon or by accident
 	 * File Name   : autosaveform.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	$('#autosavethisform').autoSaveForms({
 		saveTime: 500,
 		expireAfter: 1,
 		onSave: function(ui){
 			//ui.item(element)
 			//ui.output(string)
-			
+
 			// notify plugin
 			$.e_notify.growl({
 				 text: 'The form has been auto saved!',
@@ -1029,22 +1029,22 @@ $(document).ready(function($){
 			});
 		}
 	});
-	
+
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Responsive helper
-	 * Description : Helper plugin which counts the total width from the 
+	 * Description : Helper plugin which counts the total width from the
 	                 containers direct children and ads/removes a class
-					 (container or/and children). Build mainly for the 
+					 (container or/and children). Build mainly for the
 					 layouts which has a 'pull-left' and 'pull-right' class.
 	 * File Name   : responsivetables.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  :jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	$('.responsive-helper').responsiveHelper({
 		containerClass:'',
 		childrenClass: 'block',
@@ -1055,40 +1055,40 @@ $(document).ready(function($){
 			//ui.item(element)
 		}
 	});
-		
+
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Responsive tables
-	 * Description : Responsive tables with column sorting 
+	 * Description : Responsive tables with column sorting
 	 * File Name   : responsivetables.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  :jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	// tables.html
 	$('#tb1').responsiveTables({
 		columnManage: true,
 		exclude:'',
 		menuIcon: '<i class="fa fa-bars"></i>',
 		startBreakpoint: function(ui){
-			//ui.item(element)	
+			//ui.item(element)
 		},
 		endBreakpoint: function(ui){
-			//ui.item(element)	
+			//ui.item(element)
 		},
 		onColumnManage: function(){}
 	});
-	
+
 	// ticketssupport.html
 	$('#tb2').responsiveTables({
 		columnManage: false,
 		exclude: '.table-collapsible, .table-collapsible-open',
 		menuIcon: '<i class="fa fa-bars"></i>',
 		startBreakpoint: function(ui){
-			//ui.item(element)	
+			//ui.item(element)
 			ui.item.find('label').parents('.rt-responsive-row').hide();
 		},
 		endBreakpoint: function(ui){
@@ -1127,67 +1127,67 @@ $(document).ready(function($){
 		},
 		onColumnManage: function(){}
 	});
-	
+
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Chained inputs
 	 * Description : Group inputs and auto focus if maxlength is reached
 	 * File Name   : chainedinputs.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	$('.groupedform').chainedInputs({
 		maxLength: 5,
 		onEndBlur: true,
 		onSwitch: function(ui){
 			//ui.item(element)
 		},
-		onEnd: function(){}	
+		onEnd: function(){}
 	});
-	
+
     /* BOOTSTRAP ----------------------------------------------------------- */
-	 
+
 	/**
 	 * Name        : Bootstrap Colorpicker
 	 * Description : Bootstrap dropdown color picker
 	 * File Name   : bootstrap.js
 	 * Plugin Url  : http://www.eyecon.ro/bootstrap-colorpicker/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
-	
+	**/
+
 	$('#colorpicker-1, #colorpicker-2').colorpicker();
 
     /* BOOTSTRAP ----------------------------------------------------------- */
-	 
+
 	/**
 	 * Name        : Bootstrap Timepicker
 	 * Description : Bootstrap dropdown time picker
 	 * File Name   : timepicker.js
 	 * Plugin Url  : http://jdewit.github.com/bootstrap-timepicker/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
-		
+	**/
+
 	$('#timepicker1').timepicker();
-		
+
 	/* THIRD PARTY ----------------------------------------------------------- */
-		   
+
 	/**
 	 * Name        : noUiSlider
 	 * Description : Lightweight range slider
 	 * File Name   : nouislider.js
 	 * Plugin Url  : refreshless.com/nouislider/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Brandon
-	**/	
+	**/
 
 	$("#slider-1").noUiSlider({
 		range: [0, 100],
@@ -1195,22 +1195,22 @@ $(document).ready(function($){
 		handles: 1,
 		connect: "lower"
 	});
-	
+
 	$("#slider-2").noUiSlider({
 		range: [0, 100],
 		start: 50,
 		handles: 1,
 		orientation: "vertical"
-	}); 
-	
+	});
+
 	$("#slider-3").noUiSlider({
 		range: [0, 1],
 	    start: 0,
 	    step: 1,
 		handles: 1,
 		connect: "lower",
-	}); 
-	
+	});
+
 	$("#slider-4").noUiSlider({
 		range: [0, 100],
 		start: [60],
@@ -1219,8 +1219,8 @@ $(document).ready(function($){
 		serialization: {
 			to: [$("#slider-4-field-from")]
 		}
-	}); 
-	
+	});
+
 	$("#slider-5").noUiSlider({
 		range: [0, 100],
 		start: [50, 70],
@@ -1228,8 +1228,8 @@ $(document).ready(function($){
 		serialization: {
 			to: [$("#slider-5-field-to"),$("#slider-5-field-from")]
 		}
-	}); 
-	
+	});
+
 	$("#slider-6").noUiSlider({
 		range: [0, 10],
 		start: [3],
@@ -1240,8 +1240,8 @@ $(document).ready(function($){
 			to: [$("#slider-6-field-from")],
 			resolution: 1
 		}
-	}); 
-	
+	});
+
 	$("#slider-7").noUiSlider({
 		range: [0, 100],
 		start: 20,
@@ -1251,8 +1251,8 @@ $(document).ready(function($){
 			to: [$("#slider-7-field-from")],
 			resolution: 1
 		}
-	}); 
-		
+	});
+
 	$("#slider-8").noUiSlider({
 		range: [0, 100],
 		start: 80,
@@ -1262,8 +1262,8 @@ $(document).ready(function($){
 			to: [$("#slider-8-field-from")],
 			resolution: 1
 		}
-	}); 
-		
+	});
+
 	$("#slider-9").noUiSlider({
 		range: [0, 100],
 		start: 60,
@@ -1273,8 +1273,8 @@ $(document).ready(function($){
 			to: [$("#slider-9-field-from")],
 			resolution: 1
 		}
-	}); 
-			
+	});
+
 	$("#slider-10").noUiSlider({
 		range: [0, 100],
 		start: 20,
@@ -1284,8 +1284,8 @@ $(document).ready(function($){
 			to: [$("#slider-10-field-from")],
 			resolution: 1
 		}
-	}); 
-	
+	});
+
 	$("#slider-11").noUiSlider({
 		range: [0, 100],
 		start: 50,
@@ -1295,47 +1295,47 @@ $(document).ready(function($){
 			to: [$("#slider-11-field-from")],
 			resolution: 1
 		}
-	}); 
-	
+	});
+
 	/* THIRD PARTY ----------------------------------------------------------- */
-		   
+
 	/**
 	 * Name        : jQuery Autosize
 	 * Description : A plugin to enable automatic height for textarea elements.
 	 * File Name   : nouislider.js
 	 * Plugin Url  : refreshless.com/nouislider/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Brandon
 	**/
-		
+
 	$('.autosize').autosize({
 		className:'mirroredText'
-	});  
+	});
 
 	/* THIRD PARTY ----------------------------------------------------------- */
-		   
+
 	/**
 	 * Name        : jQuery lightbox
 	 * Description : Lightbox with several custom styles and support for videos
 	 * File Name   : magnific-popup.js
 	 * Plugin Url  : http://dimsemenov.com/plugins/magnific-popup/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Brandon
 	**/
-		
+
 	$('.lightbox').magnificPopup({
 		type:'image',
 		callbacks: {
 			open: function(){
-			  // remove the marginright from the body added by this plugin	
+			  // remove the marginright from the body added by this plugin
 			  $('html').css({marginRight: 0});
 			},
 			close: function(){ }
 		  }
 	});
-	
+
 	$('.lightbox-group-1').magnificPopup({
 		type:'image',
 		gallery: {
@@ -1348,13 +1348,13 @@ $(document).ready(function($){
 		},
 		callbacks: {
 			open: function(){
-			  // remove the margin right from the body added by this plugin	
+			  // remove the margin right from the body added by this plugin
 			  $('html').css({marginRight: 0});
 			},
 			close: function(){ }
 		  }
 	});
-	
+
 	$('.lightbox-iframe').magnificPopup({
 		disableOn: 700,
         type: 'iframe',
@@ -1364,7 +1364,7 @@ $(document).ready(function($){
 		fixedContentPos: false,
 		callbacks: {
 			open: function(){
-			  // remove the padding right from the body added by this plugin	
+			  // remove the padding right from the body added by this plugin
 			  $('html').css({paddingRight: 0});
 			},
 			close: function(){ }
@@ -1372,47 +1372,47 @@ $(document).ready(function($){
     });
 
 	/* THIRD PARTY ----------------------------------------------------------- */
-		   
+
 	/**
 	 * Name        : MixItUp
 	 * Description : Sorting and filtering plugin
 	 * File Name   : mixitup.js
 	 * Plugin Url  : http://mixitup.io/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Brandon
 	**/
-	
+
 	$('#mix-1').mixitup({
 		targetSelector: '.mix',
 		filterSelector: '#filter-1 .filter',
 		sortSelector: '#filter-1 .sort',
 		onMixEnd:function(){
-			$('.lightbox').magnificPopup({type:'image'});	
+			$('.lightbox').magnificPopup({type:'image'});
 		}
 	});
-	
+
 	$('#mix-2').mixitup({
 		targetSelector: '.mix',
 		filterSelector: '#filter-2 .filter',
 		sortSelector: '#filter-2 .sort',
 		onMixEnd:function(){
-			$('.lightbox').magnificPopup({type:'image'});	
+			$('.lightbox').magnificPopup({type:'image'});
 		}
 	});
 
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Checkbox toggle
 	 * Description : Allow mass toggle/un-toggle with a click
 	 * File Name   : ccheckboxtoggle.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	$('#checkboxtoggle-1').checkboxToggle({
 		trigger: '.checkbox-master',
 		exclude: '.exclude-toggle',
@@ -1421,14 +1421,14 @@ $(document).ready(function($){
 			//ui.item(element)
 			//ui.state(boolean)
 			//ui.total(number)
-			
+
 			$('#checkboxtoggle-1').find('.checkboxtoggle-placeholder').children().text(ui.total);
 		},
 		onSelect:function(ui){
 			//ui.item(element)
 			//ui.state(boolean)
 			//ui.total(number)
-			
+
 			$('#checkboxtoggle-1').find('.checkboxtoggle-placeholder').children().text(ui.total);
 		}
 	});
@@ -1455,7 +1455,7 @@ $(document).ready(function($){
 			//ui.item(element)
 			//ui.state(boolean)
 			//ui.total(integer)
-			
+
 			/* how you can use a indicator class
 			if(ui.state){
 				$(ui.item).parents('table').find('tbody').children('tr').children('td:first-child').has('label').addClass('tr-selected');
@@ -1468,7 +1468,7 @@ $(document).ready(function($){
 			//ui.item(element)
 			//ui.state(boolean)
 			//ui.total(integer)
-			
+
 			/* how you can use a indicator class
 			if(ui.state){
 				$(ui.item).parents('td').addClass('tr-selected');
@@ -1478,19 +1478,19 @@ $(document).ready(function($){
 			*/
 		}
 	});
-	
+
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Notify
 	 * Description : Notifications plugin(growl, loader and notification)
 	 * File Name   : notify.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	/* Sticky */
 	$('#open-growl-1').click(function(e){
 		 $.e_notify.growl({
@@ -1508,10 +1508,10 @@ $(document).ready(function($){
 			 className:'',
 			 onShow: function(){},
 			 onHide: function(){}
-		});	
-		e.preventDefault();	
+		});
+		e.preventDefault();
 	});
-	
+
 	/* Auto hide */
 	$('#open-growl-2').click(function(e){
 		 $.e_notify.growl({
@@ -1530,9 +1530,9 @@ $(document).ready(function($){
 			 onShow: function(){},
 			 onHide: function(){}
 		});
-		e.preventDefault();	
+		e.preventDefault();
 	});
-	
+
 	/* Only text */
 	$('#open-growl-3').click(function(e){
 		 $.e_notify.growl({
@@ -1549,9 +1549,9 @@ $(document).ready(function($){
 			 onShow: function(){},
 			 onHide: function(){}
 		});
-		e.preventDefault();	
-	});	
-	
+		e.preventDefault();
+	});
+
 	/* Max 6 open */
 	$('#open-growl-4').click(function(e){
 		 $.e_notify.growl({
@@ -1568,9 +1568,9 @@ $(document).ready(function($){
 			 onShow: function(){},
 			 onHide: function(){}
 		});
-		e.preventDefault();	
-	});	
-	
+		e.preventDefault();
+	});
+
 	/* Custom class*/
 	$('#open-growl-5').click(function(e){
 		 $.e_notify.growl({
@@ -1588,10 +1588,10 @@ $(document).ready(function($){
 			 className:'growl-white',
 			 onShow: function(){},
 			 onHide: function(){}
-		});	
-		e.preventDefault();	
+		});
+		e.preventDefault();
 	});
-	
+
 	/* Callbacks */
 	$('#open-growl-6').click(function(e){
 		 $.e_notify.growl({
@@ -1609,9 +1609,9 @@ $(document).ready(function($){
 			 onShow: function(){alert('Callback on show...')},
 			 onHide: function(){alert('Callback on hide...')}
 		});
-		e.preventDefault();	
-	});	
-	
+		e.preventDefault();
+	});
+
 	/* Remove all */
 	$('#open-growl-7').click(function(e){
 		 $.e_notify.clear({
@@ -1619,11 +1619,11 @@ $(document).ready(function($){
 			 beforeClear: function(){alert('You can use a callback before removing...')},
 			 afterClear: function(){alert('You can use a callback after removing...')}
 		});
-		e.preventDefault();	
-	});	
+		e.preventDefault();
+	});
 
     /* LOADER */
-	
+
     /* Basic */
 	$('#open-loader-1').click(function(e){
 		$.e_notify.loader({
@@ -1636,11 +1636,11 @@ $(document).ready(function($){
 			 opacity: 0.5,
 			 onShow: function(){},
 			 onHide: function(){}
-		});	
-		e.preventDefault();	
-	});	
-	
-	/* No opacity $ other position */		
+		});
+		e.preventDefault();
+	});
+
+	/* No opacity $ other position */
 	$('#open-loader-2').click(function(e){
 		$.e_notify.loader({
 			 image: 'images/loaders/type4/light/56.gif',
@@ -1653,9 +1653,9 @@ $(document).ready(function($){
 			 onShow: function(){},
 			 onHide: function(){}
 		});
-		e.preventDefault();		
-	});	
-	
+		e.preventDefault();
+	});
+
     /* Callbacks */
 	$('#open-loader-3').click(function(e){
 		$.e_notify.loader({
@@ -1669,8 +1669,8 @@ $(document).ready(function($){
 			 onShow: function(){alert('Callback on show...')},
 			 onHide: function(){alert('Callback on hide...')}
 		});
-		e.preventDefault();		
-	});	
+		e.preventDefault();
+	});
 
 	/* NOTIFICATION */
 
@@ -1690,9 +1690,9 @@ $(document).ready(function($){
 			 onShow: function(){},
 			 onHide: function(){}
 		});
-		e.preventDefault();	
-	});	
-	
+		e.preventDefault();
+	});
+
 	/* Bottom */
 	$('#open-notification-2').click(function(e){
 		 $.e_notify.notification({
@@ -1709,9 +1709,9 @@ $(document).ready(function($){
 			 onShow: function(){},
 			 onHide: function(){}
 		});
-		e.preventDefault();	
-	});	
-			
+		e.preventDefault();
+	});
+
 	/* Target */
 	$('#open-notification-3').click(function(e){
 		 $.e_notify.notification({
@@ -1728,9 +1728,9 @@ $(document).ready(function($){
 			 onShow: function(){},
 			 onHide: function(){}
 		});
-		e.preventDefault();	
-	});	
-	
+		e.preventDefault();
+	});
+
 	/* Auto hide */
 	$('#open-notification-4').click(function(e){
 		 $.e_notify.notification({
@@ -1747,9 +1747,9 @@ $(document).ready(function($){
 			 onShow: function(){},
 			 onHide: function(){}
 		});
-		e.preventDefault();	
-	});	
-	
+		e.preventDefault();
+	});
+
 	/* Callbacks */
 	$('#open-notification-5').click(function(e){
 		 $.e_notify.notification({
@@ -1766,9 +1766,9 @@ $(document).ready(function($){
 			 onShow: function(){alert('Callback on show...')},
 			 onHide: function(){alert('Callback on hide...')}
 		});
-		e.preventDefault();	
-	});	
-	
+		e.preventDefault();
+	});
+
 	/* Remove all */
 	$('#open-notification-6').click(function(e){
 		 $.e_notify.clear({
@@ -1776,31 +1776,31 @@ $(document).ready(function($){
 			 beforeClear: function(){alert('You can use a callback before removing...')},
 			 afterClear: function(){alert('You can use a callback after removing...')}
 		});
-		e.preventDefault();	
-	});	
+		e.preventDefault();
+	});
 
 	/* THIRD PARTY ----------------------------------------------------------- */
-		   
+
 	/**
 	 * Name        : jQuery UI sortable
 	 * Description : Used to create portlets
 	 * File Name   : prettyphoto.js
 	 * Plugin Url  : http://jqueryui.com/sortable/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery UI
 	 * Developer   : Brandon
-	**/	 
-	 
+	**/
+
 	 // sidebar
-	 $('.sidebar .portlets').sortable({ 
+	 $('.sidebar .portlets').sortable({
 	 	axis: "y",
 		revert: true,
 		handle: '.portlet-header' ,
 		cancel:'.btn',
-		zIndex: 2000 
+		zIndex: 2000
 	 });
 	 // regular
-	 $('.portlets-col').sortable({ 
+	 $('.portlets-col').sortable({
 	 	connectWith: '.portlets-col',
 		revert: true,
 		handle: '.portlet-header' ,
@@ -1817,34 +1817,34 @@ $(document).ready(function($){
 	 * Name        : Password Strength Indicator
 	 * Description : Password strength meter
 	 * File Name   : jquery.pwstrength.js
-	 * Plugin Url  : matoilic.github.com/jquery.pwstrength 
-	 * Updated     : --/--/----	
+	 * Plugin Url  : matoilic.github.com/jquery.pwstrength
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Richard
-	**/	
-	
-	$('.password').pwstrength(); 
-	
+	**/
+
+	$('.password').pwstrength();
+
 	$('.password').keyup(function(e){
 		if($(this).val().length != 0){
-			$('#pwindicator').show();	
+			$('#pwindicator').show();
 		}else{
-			$('#pwindicator').hide();	
+			$('#pwindicator').hide();
 		}
-	}); 
+	});
 
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Auto expand
 	 * Description : Auto expand a textarea on focus
 	 * File Name   : autoexpand.js
-	 * Plugin Url  :  
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
-	
+	**/
+
 	$('.auto-expand').autoExpand({
 		speed: 200,
 		height:150,
@@ -1856,46 +1856,46 @@ $(document).ready(function($){
 			//ui.item(element)
 		}
 	});
-	
+
     /* BOOTSTRAP ----------------------------------------------------------- */
-	 
+
 	/**
 	 * Name        : Bootbox
 	 * Description : Bootstrap alert/confirm/prompt box
 	 * File Name   : bootbox.js
 	 * Plugin Url  : http://bootboxjs.com/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core, bootstrap
 	 * Developer   : Richard
-	**/	
+	**/
 
 	$('#bootbox-alert-trigger').click(function(){
 		bootbox.alert("Hello world!", function() {});
 	});
-	
+
 	$('#bootbox-confirm-trigger').click(function(){
-		bootbox.confirm("Are you sure?", function(result) { }); 
+		bootbox.confirm("Are you sure?", function(result) { });
 	});
-	
+
 	$('#bootbox-prompt-trigger').click(function(){
 		bootbox.prompt("What is your name?", function(result) {});
 	});
-	
+
 	/* THIRD PARTY ----------------------------------------------------------- */
 
 	/**
 	 * Name        : Flot
-	 * Description : Plotting library 
+	 * Description : Plotting library
 	 * File Name   : flot.js
 	 * Plugin Url  : http://www.flotcharts.org/
-	 * Updated     : --/--/----	
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Brandon
-	**/	
+	**/
 
 	/* chart 1 */
 	if($('#chart-bars-1').length){
-	
+
 		var d11 = [];
 		for (var i = 0; i <= 24; i += 1) {
 			d11.push([i, parseInt(Math.random() * 30)]);
@@ -1905,16 +1905,16 @@ $(document).ready(function($){
 		for (var i = 0; i <= 24; i += 1) {
 			d12.push([i, parseInt(Math.random() * 30)]);
 		}
-					 
-		$.plot("#chart-bars-1", 
-		[d11, d12], 
+
+		$.plot("#chart-bars-1",
+		[d11, d12],
 			{
 			series: {
 				bars: {
 					show: true,
 					barWidth: 0.7,
 					align: "center",
-					lineWidth: 1.0,					
+					lineWidth: 1.0,
 				}
 			},
 			xaxis: {
@@ -1931,27 +1931,27 @@ $(document).ready(function($){
 			colors: ['#000','#999']
 		});
 	}
-	
+
 	/* chart 2 */
 	if($('#chart-mixed-1').length){
-		
+
 		var d1 = [];
 		for (var i = 1; i <= 14; i += 1)
 		d1.push([i, parseInt(Math.random() * 18000)]);
-		
+
 		var d2 = [];
 		for (var i = 1; i <= 14; i += 1)
 		d2.push([i, parseInt(Math.random() * 22800)]);
-		
+
 		var d3 = [];
 		for (var i = 1; i <= 14; i += 1)
 		d3.push([i, parseInt(Math.random() * 14600)]);
-		
+
 		var d4 = [];
 		for (var i = 1; i <= 14; i += 1)
 		d4.push([i, parseInt(Math.random() * 20900)]);
-		
-		$.plot("#chart-mixed-1", 
+
+		$.plot("#chart-mixed-1",
 			[
 				{
 					label: "ThemeForest",
@@ -1978,7 +1978,7 @@ $(document).ready(function($){
 					lines: { show: true, lineWidth: 2 },
 					color: "#999"
 				}
-			], 			
+			],
 			{
 				series	:	{ lines: { show: true }, points: { show: true }, curvedLines: { active: true } },
 				grid	:	{ hoverable: true, clickable: false, color: '#333', borderWidth:1.0, borderColor:'#222'},
@@ -1987,38 +1987,38 @@ $(document).ready(function($){
 			}
 		);
 	}
-	
+
 	/* chart 3 */
 	if($('#chart-rt-1').length){
-	
+
 		var container = $("#chart-rt-1");
-	
+
 		// Determine how many data points to keep based on the placeholder's initial size;
 		// this gives us a nice high-res plot while avoiding more than one point per pixel.
-	
+
 		var maximum = container.outerWidth() / 2 || 300;
 
 		var data = [];
-	
+
 		function getRandomData() {
-	
+
 			if (data.length) {
 				data = data.slice(1);
 			}
-	
+
 			while (data.length < maximum) {
 				var previous = data.length ? data[data.length - 1] : 50;
 				var y = previous + Math.random() * 10 - 5;
 				data.push(y < 0 ? 0 : y > 100 ? 100 : y);
 			}
-	
+
 			// zip the generated y values with the x values
-	
+
 			var res = [];
 			for (var i = 0; i < data.length; ++i) {
 				res.push([i, data[i]])
 			}
-	
+
 			return res;
 		}
 
@@ -2050,39 +2050,39 @@ $(document).ready(function($){
 			},
 			colors: ['#222']
 		});
-	
+
 		// Create the demo X and Y axis labels
-	
+
 		//var yaxisLabel = $('<div class="axisLabel yaxisLabel"></div>')
 			//.text("Response Time (ms)")
 			//.appendTo(container);
-	
+
 		// Since CSS transforms use the top-left corner of the label as the transform origin,
 		// we need to center the y-axis label by shifting it down by half its width.
 		// Subtract 20 to factor the chart's bottom margin into the centering.
-	
+
 		//yaxisLabel.css("margin-top", yaxisLabel.width() / 2 - 20);
-	
+
 		// Update the random dataset at 25FPS for a smoothly-animating chart
-	
+
 		setInterval(function updateRandom() {
 			series[0].data = getRandomData();
 			plot.setData(series);
 			plot.draw();
-		}, 40);	 
+		}, 40);
 	}
-	
+
 	/* CUSTOM/PREMIUM PLUGIN ----------------------------------------------- */
-		   
+
 	/**
 	 * Name        : Tiny Context menu
 	 * Description : Right click menu
 	 * File Name   : tinycontextmenu.js
-	 * Plugin Url  : 
-	 * Updated     : --/--/----	
+	 * Plugin Url  :
+	 * Updated     : --/--/----
 	 * Dependency  : jQuery core
 	 * Developer   : Mark
-	**/	
+	**/
 
 	$('#tiny-context-menu').tinyContextMenu({
 		container: '#tcm-demo-1',
