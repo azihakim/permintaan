@@ -88,6 +88,6 @@ Route::resource('/bertarif', LayananbertarifController::class);
 
 Route::resource('/keagamaan', KeagamaanController::class);
 
-Route::get('pencatatan', function () {
-    return view('layout.master-pencatatan');
+Route::get('pencatatan-agromet', function () {
+    return view('pencatatan.agromet');
 });
