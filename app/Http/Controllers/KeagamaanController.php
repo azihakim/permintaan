@@ -46,7 +46,21 @@ class KeagamaanController extends Controller
             $data = $request->all();
             // dd($data);
 
-            // data formulir
+            // data diri
+            $ext = $request->surat_pernyataan->getClientOriginalExtension();
+            $file = "surat_pernyataan-".time().".".$ext;
+            $request->surat_pernyataan->storeAs('public/dokumen', $file);
+            $keagamaan = new Formulir();
+            $keagamaan->jenis_permintaan = "kegiatan keagamaan";
+            $keagamaan->status_form = "1";
+            $keagamaan->nama_kegiatan= $data['nama_kegiatan'];
+            $keagamaan->telepon = $data['telepon'];
+            $keagamaan->email = $data['email'];
+            $keagamaan->surat_pernyataan = $file;
+            $keagamaan->deskripsi = $data['deskripsi'];
+            $keagamaan->save();
+
+
             $keagamaan = new Formulir();
             $keagamaan->nama = $data['nama_kegiatan'];
             $keagamaan->telepon = $data['telepon'];
@@ -60,7 +74,7 @@ class KeagamaanController extends Controller
                         if($value != null ){
                             $save_data=[
                                 'formulir_id'   => $keagamaan->id,
-                                'jenis_data'        => "data petir",
+                                'jenis_data'    => "datapetir",
                                 'lokasi'        => $value,
                                 'latitude'      => $data['latitude_petir'][$key],
                                 'longitude'     => $data['longitude_petir'][$key],

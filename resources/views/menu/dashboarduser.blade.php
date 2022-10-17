@@ -172,20 +172,38 @@
                         </td>
                         <td></td>
                         <td>
-                            <div class="col-sm-4">
-                                <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
-                            </div>
-                            @if($item->status_form == 1)
+                            @if($item->status_form == 1 and $item->jenis_permintaan == 'layananbertarif'){
                                 <div class="col-sm-4">
-                                    <form>
+                                    <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('bertarif/' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
                                         @csrf
                                         <input type="hidden" name="_method" value="DELETE"> 
-                                        <a type="button" class="btn btn-default">Hapus</a>
+                                        <button class="btn btn-default">Hapus</button>
                                     </form>  
                                 </div>
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id . '/edit') }}">Ubah</a>
                                 </div>
+                            }
+                            @elseif($item->status_form == 1 and $item->jenis_permintaan == 'keagamaan'){
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('bertarif/' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+                            }
                             @endif
                         </td>
                     </tr>

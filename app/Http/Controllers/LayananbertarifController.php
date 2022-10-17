@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Dataharihujan;
 use Illuminate\Http\Request;
 use App\Models\Layananbertarif;
 use App\Models\Formulir;
@@ -327,7 +325,6 @@ class LayananbertarifController extends Controller
      */
     public function show(Layananbertarif $layananbertarif, $id)
     {
-        //
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
         return view('formulir.showLayananBertarif', compact('formulir', 'datapermintaan'));
@@ -341,15 +338,9 @@ class LayananbertarifController extends Controller
      */
     public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
-        //
-        // $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        // $formulir = Formulir::where("id", $id)->get();
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        // dd($jenis_data);
-        // return response()->json($data);
         return view('formulir.editLayananBertarif', compact('formulir', 'datapermintaan'));
-
     }
 
     /**
@@ -631,8 +622,10 @@ class LayananbertarifController extends Controller
      * @param  \App\Models\Layananbertarif  $layananbertarif
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Layananbertarif $layananbertarif)
+    public function destroy(Layananbertarif $layananbertarif, $id)
     {
-        //
+        Formulir::find($id)->delete();
+        Datapermintaan::where("formulir_id", $id)->delete();
+        return redirect()->back();
     }
 }
