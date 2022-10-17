@@ -6,6 +6,8 @@ use App\Models\Keagamaan;
 use App\Models\Daftarpermintaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Formulir;
+use App\Models\Datapermintaan;
 
 class KeagamaanController extends Controller
 {
@@ -45,52 +47,30 @@ class KeagamaanController extends Controller
             // dd($data);
 
             // data formulir
-            $keagamaan = new Keagamaan();
-            $keagamaan->nama_kegiatan = $data['nama_kegiatan'];
+            $keagamaan = new Formulir();
+            $keagamaan->nama = $data['nama_kegiatan'];
             $keagamaan->telepon = $data['telepon'];
             $keagamaan->email = $data['email'];
-            $keagamaan->surat_pernyataan = $data['surat_pernyataan'];
+            $keagamaan->surat_pengantar = $data['surat_pernyataan'];
             $keagamaan->deskripsi = $data['deskripsi'];
             $keagamaan->save();
 
-            $save_data=[];
-            if($request->exists("cb_datapetir")){
+            if($request->exists("cb_datapetirs")){
                     foreach($data['lokasi_petir'] as $key=>$value){
-                        $save_data[]=[
-                            'formulir_id'   => $keagamaan->id,
-                            'jenis_data'        => "data petir",
-                            'lokasi'        => $value,
-                            'latitude'      => $data['latitude_petir'][$key],
-                            'longitude'     => $data['longitude_petir'][$key],
-                            'tgl_dari'      => $data['tgl_dari_petir'][$key],
-                            'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
-                        ];
+                        if($value != null ){
+                            $save_data=[
+                                'formulir_id'   => $keagamaan->id,
+                                'jenis_data'        => "data petir",
+                                'lokasi'        => $value,
+                                'latitude'      => $data['latitude_petir'][$key],
+                                'longitude'     => $data['longitude_petir'][$key],
+                                'tgl_dari'      => $data['tgl_dari_petir'][$key],
+                                'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
+                            ];
+                            DB::table('datapermintaans')->insert($save_data); 
+                        }
                     }
             }
-            DB::table('datapermintaans')->insert($save_data); 
-
-            // $save_hujan=[];
-            // foreach($data['lokasi_harihujan'] as $key=>$value){
-            //     $save_hujan[]=[
-            //         'formulir_id'   => $keagamaan->id,
-            //         'lokasi_harihujan'        => $value,
-            //         'tgl_dari_harihujan'      => $data['tgl_dari_harihujan'][$key],
-            //         'tgl_sampai_harihujan'    => $data['tgl_sampai_harihujan'][$key]
-            //     ];
-            // }
-            // DB::table('dataharihujans')->insert($save_hujan);        
-
-            $save_hujan=[];
-            foreach($data['lokasi_harihujan'] as $key=>$value){
-                $save_hujan[]=[
-                    'formulir_id'   => $keagamaan->id,
-                    'jenis_data'        => "data hujan",
-                    'lokasi'        => $value,
-                    'tgl_dari'      => $data['tgl_dari_harihujan'][$key],
-                    'tgl_sampai'    => $data['tgl_sampai_harihujan'][$key]
-                ];
-            }
-            DB::table('datapermintaans')->insert($save_hujan);
 
 
             return redirect()->back()->with('status', 'Data Berhasil Di input');

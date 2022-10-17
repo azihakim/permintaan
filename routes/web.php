@@ -5,6 +5,8 @@ use App\Http\Controllers\KeagamaanController;
 use App\Http\Controllers\DashboarduserController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ResponlayananbertarifController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -99,3 +101,5 @@ Route::resource('/dashboard', DashboarduserController::class);
 // });
 
 Route::get('/dashboarduser',[DashboarduserController::class, 'index'])->name('dashboarduser');
+
+Route::resource('/respon-bertarif', ResponlayananbertarifController::class);

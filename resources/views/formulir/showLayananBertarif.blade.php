@@ -211,11 +211,11 @@
                                         <div class="spacer-10"></div>
                                         <div class="col-sm-12">
                                             <div class="row">
-                                                <div class="col-sm-3">
-                                                    <label>Surat pengantar</label>
+                                                <div class="col-sm-3">gi
+                                                    <label><a href="{{ asset('storage/surat_pengantar-1665938360.pdf') }}">Surat pengantar</a></label>
                                                 </div>
                                                 <div class="col-sm-9">
-                                                    <embed src="dokumen/{{ $formulir->surat_pengantar }}" style="width: 100%">
+                                                    <embed src="{{ asset('storage/surat_pengantar-1665938360.pdf') }}   " style="width: 100%">
                                                         <a href="{{ asset('storage/dokumen/' . $formulir->surat_pengantar) }}">download</a>
                                                 </div>
                                             </div>
