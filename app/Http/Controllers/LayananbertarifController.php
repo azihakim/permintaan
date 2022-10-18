@@ -44,12 +44,11 @@ class LayananbertarifController extends Controller
             // dd($data);   
 
             // data diri
-
             $ext = $request->surat_pengantar->getClientOriginalExtension();
             $file = "surat_pengantar-".time().".".$ext;
             $request->surat_pengantar->storeAs('public/dokumen', $file);
             $layananbertarif = new Formulir();
-            $layananbertarif->jenis_permintaan = "layanan bertarif";
+            $layananbertarif->jenis_permintaan = "Layanan bertarif";
             $layananbertarif->status_form = "1";
             $layananbertarif->nama = $data['nama'];
             $layananbertarif->telepon = $data['telepon'];
@@ -313,8 +312,9 @@ class LayananbertarifController extends Controller
                 }
             }
 
-
-            return redirect()->back()->with('status', 'Data Berhasil Di input');
+            
+             return redirect('dashboarduser')->with('status', 'Data berhasil di simpan');
+            // return redirect()->back()->with('status', 'Data Berhasil Di input');
     }
 
     /**
@@ -358,22 +358,6 @@ class LayananbertarifController extends Controller
             // dd($data);  
             $formulir->save();
         
-        // $data = Formulir::where($id);
-        // $data->deskripsi = $request->input('deskripsi');
-        // $data->save();
-        // dd($id);  
-        // data diri
-        // $data = $request([
-        //     input('deskripsi'), 'surat_pengantar'
-        // ]);
-        // $i = 0;
-        // $data = Formulir::where('id', $request->id_form);;
-        // $data->deskripsi = $request->input('deskripsi');
-        // Formulir::where('id', $id)->update($data);
-        // $data->save();
-        
-        
-
         // data petir
         $cek_datapetir = $request->lokasi_datapetir;
         if (isset($cek_datapetir)){
@@ -612,8 +596,7 @@ class LayananbertarifController extends Controller
         }
 
 
-        // return redirect('dashboarduser')->with('status', 'Data Berhasil Di update');
-        return redirect()->route('dashboarduser')->with('status', 'Data Berhasil Di update');
+        return redirect('dashboarduser')->with('status', 'Data Berhasil Di update');
     }
 
     /**

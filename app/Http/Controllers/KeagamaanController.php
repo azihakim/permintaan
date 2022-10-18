@@ -53,21 +53,21 @@ class KeagamaanController extends Controller
             $keagamaan = new Formulir();
             $keagamaan->jenis_permintaan = "kegiatan keagamaan";
             $keagamaan->status_form = "1";
-            $keagamaan->nama_kegiatan= $data['nama_kegiatan'];
+            $keagamaan->nama= $data['nama_kegiatan'];
             $keagamaan->telepon = $data['telepon'];
             $keagamaan->email = $data['email'];
-            $keagamaan->surat_pernyataan = $file;
+            $keagamaan->surat_pengantar = $file;
             $keagamaan->deskripsi = $data['deskripsi'];
             $keagamaan->save();
 
 
-            $keagamaan = new Formulir();
-            $keagamaan->nama = $data['nama_kegiatan'];
-            $keagamaan->telepon = $data['telepon'];
-            $keagamaan->email = $data['email'];
-            $keagamaan->surat_pengantar = $data['surat_pernyataan'];
-            $keagamaan->deskripsi = $data['deskripsi'];
-            $keagamaan->save();
+            // $keagamaan = new Formulir();
+            // $keagamaan->nama = $data['nama_kegiatan'];
+            // $keagamaan->telepon = $data['telepon'];
+            // $keagamaan->email = $data['email'];
+            // $keagamaan->surat_pengantar = $data['surat_pernyataan'];
+            // $keagamaan->deskripsi = $data['deskripsi'];
+            // $keagamaan->save();
 
             if($request->exists("cb_datapetirs")){
                     foreach($data['lokasi_petir'] as $key=>$value){

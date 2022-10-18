@@ -14,9 +14,11 @@ class ResponlayananbertarifController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('admin.respon', compact('respon'));
+        $formulir = Formulir::find($id);
+        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+        return view('admin.respon', compact('formulir', 'datapermintaan'));
     }
 
     /**

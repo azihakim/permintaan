@@ -99,13 +99,13 @@
                                                     <div class="col-sm-3">\
                                                         <div>\
                                                             <strong>Latitude</strong>\
-                                                            <input type="number" name="latitude_petir[1]" value="{{ old('latitude_petir') }}"\
+                                                            <input type="text" name="latitude_petir[1]" value="{{ old('latitude_petir') }}"\
                                                                 class="form-control">\
                                                                 <div class="spacer-10"></div>\
                                                         </div>\
                                                         <div>\
                                                             <strong>Longitude</strong>\
-                                                            <input type="number"\
+                                                            <input type="text"\
                                                                 name="longitude_petir[1]" value="{{ old('longitude_petir') }}" class="form-control">\
                                                         </div>\
                                                         <div class="spacer-10"></div>\
@@ -131,13 +131,13 @@
                                                     <div class="col-sm-3">\
                                                         <div>\
                                                             <strong>Latitude</strong>\
-                                                            <input type="number" name="latitude_petir[2]" value="{{ old('latitude_petir') }}"\
+                                                            <input type="text" name="latitude_petir[2]" value="{{ old('latitude_petir') }}"\
                                                                 class="form-control">\
                                                                 <div class="spacer-10"></div>\
                                                         </div>\
                                                         <div>\
                                                             <strong>Longitude</strong>\
-                                                            <input type="number"\
+                                                            <input type="text"\
                                                                 name="longitude_petir[2]" value="{{ old('longitude_petir') }}" class="form-control">\
                                                         </div>\
                                                         <div class="spacer-10"></div>\

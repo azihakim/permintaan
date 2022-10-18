@@ -172,7 +172,7 @@
                         </td>
                         <td></td>
                         <td>
-                            @if($item->status_form == 1 and $item->jenis_permintaan == 'layananbertarif'){
+                            @if($item->status_form == 1 and $item->jenis_permintaan == 'Layanan bertarif')
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
                                 </div>
@@ -187,8 +187,8 @@
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id . '/edit') }}">Ubah</a>
                                 </div>
-                            }
-                            @elseif($item->status_form == 1 and $item->jenis_permintaan == 'keagamaan'){
+                            
+                            @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan keagamaan')
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
                                 </div>
@@ -203,7 +203,7 @@
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id . '/edit') }}">Ubah</a>
                                 </div>
-                            }
+
                             @endif
                         </td>
                     </tr>
