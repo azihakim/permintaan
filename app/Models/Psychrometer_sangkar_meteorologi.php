@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Psychrometer_sangkar_meteorologi extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Termometer_maksimum_dan_minimum extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

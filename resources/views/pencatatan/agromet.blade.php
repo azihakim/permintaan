@@ -79,16 +79,50 @@
             margin-right: -80px;
         }
 
+        @media (max-width: 991px) {
+            .mt-5 {
+                margin-top: 5px;
+            }
+        }
+
         @media (min-width: 992px) {
+            .p-0 {
+                padding: 0;
+            }
+
+            .px-5 {
+                padding: 0 5px;
+            }
+
             .ml-12 {
                 margin-left: 12px;
             }
         }
     </style>
+    {{-- Toastr --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 @endpush
 
 @push('scripts')
     @livewireScripts
+    <script>
+        Livewire.on('dataStore', () => {
+            $('#form1').modal('hide');
+        })
+    </script>
+    {{-- Toastr --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    {{-- Alert --}}
+    <script>
+        window.addEventListener('alert', event => {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+            }
+            toastr.success(event.detail.success);
+        });
+    </script>
 @endpush
 @section('contents-pencatatan')
     <div>

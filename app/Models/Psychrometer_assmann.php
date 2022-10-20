@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Psychrometer_assmann extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

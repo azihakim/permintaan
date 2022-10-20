@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Radiasi extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+    public function pencatatans(){
+        return $this->belongsTo(Pencatatan::class, 'pencatatans_id', 'id');
+    }
 }

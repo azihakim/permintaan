@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Lama_penyinaran extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }

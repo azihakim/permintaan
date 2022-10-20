@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Suhu_tanah extends Model
 {
     use HasFactory;
+    protected $guarded = [];
 }
