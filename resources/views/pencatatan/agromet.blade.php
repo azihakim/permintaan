@@ -27,6 +27,14 @@
             margin-right: 10px;
         }
 
+        .ml-8 {
+            margin-left: -8px;
+        }
+
+        .mr-8 {
+            margin-right: -8px;
+        }
+
         .mr-10 {
             margin-right: -10px;
         }
@@ -49,6 +57,14 @@
 
         .mr-28 {
             margin-right: -28px;
+        }
+
+        .mr-32 {
+            margin-right: -32px;
+        }
+
+        .mr-34 {
+            margin-right: -34px;
         }
 
         .mr-36 {
@@ -108,6 +124,12 @@
     <script>
         Livewire.on('dataStore', () => {
             $('#form1').modal('hide');
+        })
+    </script>
+    <script>
+        Livewire.on('dataFailure', () => {
+            alert("Gagal");
+            // $('#form1').scrollTop(0);
         })
     </script>
     {{-- Toastr --}}

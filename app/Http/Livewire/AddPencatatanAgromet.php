@@ -11,6 +11,7 @@ use App\Models\Psychrometer_sangkar_meteorologi;
 use App\Models\Radiasi;
 use App\Models\Suhu_min_rumput;
 use App\Models\User;
+use Illuminate\Support\Facades\Http;
 use Livewire\Component;
 
 class AddPencatatanAgromet extends Component
@@ -66,6 +67,7 @@ class AddPencatatanAgromet extends Component
 
     // Radiasi
     public $i1;
+
 
 
     public function render()
@@ -157,9 +159,13 @@ class AddPencatatanAgromet extends Component
         Kondisi_cuaca_dan_tanah::create($dataKondisiCuacaDanTanah);
         Suhu_min_rumput::create($dataSuhuMinRumput);
         Radiasi::create($dataRadiasi);
-        $this->reset();
-        $this->emit('dataStore');
-        $this->dispatchBrowserEvent('alert', ['success'=>'Data Berhasil Disimpan!']);
-
+        if (response()->json()->getStatusCode() >= 200 && response()->json()->getStatusCode() <=300) {
+            $this->reset();
+            $this->emit('dataStore');
+            $this->dispatchBrowserEvent('alert', ['success'=>'Data Berhasil Disimpan!']);
+        } else {
+            $this->emit('dataFailure');
+            $this->dispatchBrowserEvent('alert', ['success'=>'Data Berhasil Disimpan!']);
+        }
     }
 }

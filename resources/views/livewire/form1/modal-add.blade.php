@@ -15,12 +15,24 @@
                                 <label>Observer</label>
                             </div>
                             <div class="col-sm-4">
-                                <select name="" id="" class="form-control" wire:model="observer">
+                                <select name="" id="" class="form-control" wire:model="observer"
+                                    required>
                                     <option value="" selected hidden>Pilih Observer</option>
                                     @foreach ($observers as $observer)
                                         <option value="{{ $observer->id }}">{{ $observer->name }}</option>
                                     @endforeach
                                 </select>
+                                @error('observer')
+                                    <div class="has-error">
+                                        <span style="margin-right: 5px;"
+                                            class="glyphicon glyphicon-remove form-control-feedback"
+                                            aria-hidden="true"></span><label class="control-label"
+                                            for="inputError2">{{ $message }}</label>
+                                    </div>
+                                    <script>
+                                        $('#form1').scrollTop(0);
+                                    </script>
+                                @enderror
                             </div>
                         </div>
                         <div class="spacer-10"></div>
@@ -36,13 +48,15 @@
                                         <label for="">Tbk</label>
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
-                                        <input class="form-control" type="number" wire:model="tbk11">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="tbk11">
                                     </div>
                                     <div class="col-md-2 label-mr-8">
                                         <label for="">Tbb</label>
                                     </div>
                                     <div class="col-md-4 px-16">
-                                        <input class="form-control" type="number" wire:model="tbb11">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="tbb11">
                                     </div>
                                 </div>
                             </div>
@@ -54,13 +68,15 @@
                                         <label for="">Tbk</label>
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
-                                        <input class="form-control" type="number" wire:model="tbk12">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="tbk12">
                                     </div>
                                     <div class="col-md-2 label-mr-8">
                                         <label for="">Tbb</label>
                                     </div>
                                     <div class="col-md-4 px-16">
-                                        <input class="form-control" type="number" wire:model="tbb12">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="tbb12">
                                     </div>
                                 </div>
                             </div>
@@ -72,13 +88,15 @@
                                         <label for="">Tbk</label>
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
-                                        <input class="form-control" type="number" wire:model="tbk13">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="tbk13">
                                     </div>
                                     <div class="col-md-2 label-mr-8">
                                         <label for="">Tbb</label>
                                     </div>
                                     <div class="col-md-4 px-16">
-                                        <input class="form-control" type="number" wire:model="tbb13">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="tbb13">
                                     </div>
                                 </div>
                             </div>
@@ -90,13 +108,15 @@
                                         <label for="">Tbk</label>
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
-                                        <input class="form-control" type="number" wire:model="tbk14">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="tbk14">
                                     </div>
                                     <div class="col-md-2 label-mr-8">
                                         <label for="">Tbb</label>
                                     </div>
                                     <div class="col-md-4 px-16">
-                                        <input class="form-control" type="number" wire:model="tbb14">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="tbb14">
                                     </div>
                                 </div>
                             </div>
@@ -113,15 +133,15 @@
                                         <label for="">Cup Counter</label>
                                     </div>
                                     <div class="col-md-3 px-35">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="cup_counter11">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="cup_counter11">
                                     </div>
                                     <div class="col-md-4 mr-15">
                                         <label for="">Kec. Rata<sup>2</sup> Cup Counter</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="">
                                     </div>
                                 </div>
                             </div>
@@ -132,15 +152,15 @@
                                         <label for="">Cup Counter</label>
                                     </div>
                                     <div class="col-md-3 px-35">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="cup_counter12">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="cup_counter12">
                                     </div>
                                     <div class="col-md-4 mr-15">
                                         <label for="">Kec. Rata<sup>2</sup> Cup Counter</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="">
                                     </div>
                                 </div>
                             </div>
@@ -151,15 +171,15 @@
                                         <label for="">Arah</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="arah11">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="arah11">
                                     </div>
                                     <div class="col-md-3 mr-12">
                                         <label for="">Kecepatan</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="kecepatan11">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="kecepatan11">
                                     </div>
                                 </div>
                             </div>
@@ -170,15 +190,15 @@
                                         <label for="">Arah</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="arah12">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="arah12">
                                     </div>
                                     <div class="col-md-3 mr-12">
                                         <label for="">Kecepatan</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="kecepatan12">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="kecepatan12">
                                     </div>
                                 </div>
                             </div>
@@ -189,15 +209,15 @@
                                         <label for="">Arah</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="arah13">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="arah13">
                                     </div>
                                     <div class="col-md-3 mr-12">
                                         <label for="">Kecepatan</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="kecepatan13">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="kecepatan13">
                                     </div>
                                 </div>
                             </div>
@@ -215,15 +235,15 @@
                                         <label for="">H</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="h1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="h1">
                                     </div>
                                     <div class="col-md-3 mr-50">
                                         <label for="">EV</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="ev1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="ev1">
                                     </div>
                                 </div>
                             </div>
@@ -234,8 +254,8 @@
                                         <label for="">CH</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="ch1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="ch1">
                                     </div>
                                 </div>
                             </div>
@@ -246,22 +266,22 @@
                                         <label for="">T</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="t1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="t1">
                                     </div>
                                     <div class="col-md-2 mr-40">
                                         <label for="">Max</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="max1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="max1">
                                     </div>
                                     <div class="col-md-2 mr-40">
                                         <label for="">Min</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="min1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="min1">
                                     </div>
                                 </div>
                             </div>
@@ -277,29 +297,29 @@
                                         <label for="">Suhu</label>
                                     </div>
                                     <div class="col-md-2 px-36 mr-12">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="suhu1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="suhu1">
                                     </div>
                                     <div class="col-md-1 mrP-10">
                                         <label for="">Barometer</label>
                                     </div>
                                     <div class="col-md-2 px-36 mr-10">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="barometer1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="barometer1">
                                     </div>
                                     <div class="col-md-1 mr-28">
                                         <label for="">QFE</label>
                                     </div>
                                     <div class="col-md-2 px-36 mr-10">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="qfe1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="qfe1">
                                     </div>
                                     <div class="col-md-1 mr-28">
                                         <label for="">QFF</label>
                                     </div>
                                     <div class="col-md-2 px-36">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="qff1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="qff1">
                                     </div>
                                 </div>
                             </div>
@@ -316,15 +336,15 @@
                                         <label for="">Kode Tanah</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="kode_tanah1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="kode_tanah1">
                                     </div>
                                     <div class="col-md-3 pr-0">
                                         <label for="">Kode Cuaca</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="kode_cuaca1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="kode_cuaca1">
                                     </div>
                                 </div>
                             </div>
@@ -340,16 +360,16 @@
                                         <label for="">Pembacaan</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="pembacaan1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="pembacaan1">
                                     </div>
                                     <div class="col-md-3 mr-36">
                                         <label for="">Reset</label>
                                     </div>
 
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="reset1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="reset1">
                                     </div>
                                 </div>
                             </div>
@@ -365,8 +385,8 @@
                                         <label for="">I</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input class="form-control" type="number" name="" id=""
-                                            wire:model="i1">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="i1">
                                     </div>
                                 </div>
                             </div>
