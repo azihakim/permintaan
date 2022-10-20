@@ -352,11 +352,11 @@ class LayananbertarifController extends Controller
      */
     public function update(Request $request, $id, Formulir $formulir)
     {   
-            $formulir = Formulir::find($id);
-            $formulir ->deskripsi = $request->input('deskripsi');
-            // $data = $request->all();
-            // dd($data);  
-            $formulir->save();
+        $formulir = Formulir::find($id);
+        $formulir ->deskripsi = $request->input('deskripsi');
+        // $data = $request->all();
+        // dd($data);  
+        $formulir->save();
         
         // data petir
         $cek_datapetir = $request->lokasi_datapetir;

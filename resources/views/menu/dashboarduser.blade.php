@@ -5,101 +5,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('stye/DataTables/datatables.min.css') }}"/>
 @endsection
 
-{{-- @section('content')
-    <div class="inner-padding">
-        @if(session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-        @endif
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="dropdown">
-                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
-                        Tambah Permintaan
-                        <i class="fa fa-plus-square"></i>
-                    </a>
-                    <ul role="menu" class="dropdown-menu">
-                        <li>
-                            <a href="{{ url('kegiatan-penanggulangan-bencana') }}">Kegiatan Penanggulangan Bencana</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('kegiatan-pendidikan') }}">Kegiatan Pendidikan/Penelitian non Komersil</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('kegiatan-pemerintahan') }}">Kegiatan Pemerintahan Pusat atau Daerah</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('kegiatan-pertahanan-keamanan') }}">Kegiatan Pertahanan dan Keamanan</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('kegiatan-keagamaan') }}">Kegiatan Keagamaan</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('kegiatan-sosial') }}">Kegiatan Sosial</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('layanan-bertarif') }}">Kegiatan Bertarif</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <table class="table">
-            <thead style="background-color:#6666;">
-                <tr>
-                    <th scope="col">Jenis permintan</th>
-                    <th scope="col">Tanggal permintaan</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Keterangan</th>
-                    <th colspan="3">Aksi</th> 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($permintaans as $item)
-                    <tr>
-                        <td>{{ $item->jenis_permintaan }}</td>
-                        <td>{{ $item->created_at->format('d/m/Y') }}</td>
-                        <td>
-                                @if($item->status_form == 1)
-                                <span class='label label-default'>Permintaan Baru</span>
-                                @elseif($item->status_form == 2)
-                                <span class='label label-primary'>Diterima</span>
-                                @elseif($item->status_form == 3)
-                                <span class='label label-success'>Selesai</span>
-                                @elseif($item->status_form == 4)
-                                <span class='label label-warning'>Menunggu Pembayaran</span>
-                                @elseif($item->status_form == 5)
-                                <span class='label label-warning'>Menunggu Pembayaran Ulang</span>
-                                @elseif($item->status_form == 6)
-                                <span class='label label-danger'>Ditolak</span>
-                                @endif
-                        </td>
-                        <td>
-                            @if($item->status_form == 1)
-                            <form>
-                                @csrf
-                                <input type="hidden" name="_method" value="DELETE"> 
-                                <a type="button" class="btn df_btn hapus">Hapus</a>
-                            </form>  
-                        </td>  
-                            @elseif($item->status_form == 6)
-                            @endif
-                        <td>
-                            <a type="button" class="btn df_btn ubah" href="{{ url('bertarif/' . $item->id . '/edit') }}">Ubah</a>
-                        </td>   
-                        <td> 
-                            <a type="button" class="btn df_btn detail" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="spacer-25"></div>
-    </div>
-
-@endsection --}}
-
 @section('content')
     <div class="inner-padding">
         @if(session('status'))
@@ -157,17 +62,18 @@
                         <td>{{ $item->created_at->format('d/m/Y') }}</td>
                         <td>
                                 @if($item->status_form == 1)
-                                <span class='label label-default'>Permintaan Baru</span>
+                                <span class='label label-default' title="Permintaan berhasil dikirim dan menunggu konfirmasi admin">
+                                    Permintaan Baru</span>
                                 @elseif($item->status_form == 2)
-                                <span class='label label-primary'>Diterima</span>
+                                <span class='label label-primary' title="Permintaan berhasil diterima dan menunggu data diproses">Diterima</span>
                                 @elseif($item->status_form == 3)
-                                <span class='label label-success'>Selesai</span>
+                                <span class='label label-success' title="Permintaan selesai di proses">Selesai</span>
                                 @elseif($item->status_form == 4)
-                                <span class='label label-warning'>Menunggu Pembayaran</span>
+                                <span class='label label-warning' title="Menunggu pembayaran sesuai jumlah pada billing yang tersedia">Menunggu Pembayaran</span>
                                 @elseif($item->status_form == 5)
-                                <span class='label label-warning'>Menunggu Pembayaran Ulang</span>
+                                <span class='label label-warning' title="Menunggu pembayaran ulang">Menunggu Pembayaran Ulang</span>
                                 @elseif($item->status_form == 6)
-                                <span class='label label-danger'>Ditolak</span>
+                                <span class='label label-danger' title="Permintaan di tolak, untuk penjelasan ada diketerangan">Ditolak</span>
                                 @endif
                         </td>
                         <td></td>
@@ -190,10 +96,10 @@
                             
                             @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan keagamaan')
                                 <div class="col-sm-4">
-                                    <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
+                                    <a type="button" class="btn btn-default" href="{{ url('keagamaan/' . $item->id) }}">Detail</a>
                                 </div>
                                 <div class="col-sm-4">
-                                    <form action="{{ url('bertarif/' . $item->id) }} " method="POST"
+                                    <form action="{{ url('keagamaan/' . $item->id) }} " method="POST"
                                         onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
                                         @csrf
                                         <input type="hidden" name="_method" value="DELETE"> 
@@ -201,9 +107,88 @@
                                     </form>  
                                 </div>
                                 <div class="col-sm-4">
-                                    <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id . '/edit') }}">Ubah</a>
+                                    <a type="button" class="btn btn-default" href="{{ url('keagamaan/' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+                            
+                            @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan penanggulangan bencana')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('#' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+                            
+                            @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan pendidikan')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('#' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+                            
+                            @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan pemerintahan')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('#' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id . '/edit') }}">Ubah</a>
                                 </div>
 
+                            @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan pertahanan keamanan')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('#' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+                            
+                            @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan sosial')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('#' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
                             @endif
                         </td>
                     </tr>
