@@ -15,19 +15,19 @@
                                 <label>Observer</label>
                             </div>
                             <div class="col-sm-4">
-                                <select name="" id="" class="form-control" wire:model="observer"
+                                <select name="" id="" class="form-control" wire:model="observer1"
                                     required>
                                     <option value="" selected hidden>Pilih Observer</option>
                                     @foreach ($observers as $observer)
                                         <option value="{{ $observer->id }}">{{ $observer->name }}</option>
                                     @endforeach
                                 </select>
-                                @error('observer')
+                                @error('observer1')
                                     <div class="has-error">
                                         <span style="margin-right: 5px;"
                                             class="glyphicon glyphicon-remove form-control-feedback"
-                                            aria-hidden="true"></span><label class="control-label"
-                                            for="inputError2">{{ $message }}</label>
+                                            aria-hidden="true"></span><label class="control-label" for="inputError2">The
+                                            observer field is required.</label>
                                     </div>
                                     <script>
                                         $('#form1').scrollTop(0);
@@ -242,7 +242,7 @@
                                         <label for="">EV</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" step="any" min="0"
+                                        <input class="form-control" type="number" step="any" min=0
                                             name="" id="" wire:model="ev1">
                                     </div>
                                 </div>

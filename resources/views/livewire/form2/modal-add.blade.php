@@ -14,19 +14,19 @@
                                 <label>Observer</label>
                             </div>
                             <div class="col-sm-4">
-                                <select name="" id="" class="form-control" wire:model="observer"
+                                <select name="" id="" class="form-control" wire:model="observer2"
                                     required>
                                     <option value="" selected hidden>Pilih Observer</option>
                                     @foreach ($observers as $observer)
                                         <option value="{{ $observer->id }}">{{ $observer->name }}</option>
                                     @endforeach
                                 </select>
-                                @error('observer')
+                                @error('observer2')
                                     <div class="has-error">
                                         <span style="margin-right: 5px;"
                                             class="glyphicon glyphicon-remove form-control-feedback"
-                                            aria-hidden="true"></span><label class="control-label"
-                                            for="inputError2">{{ $message }}</label>
+                                            aria-hidden="true"></span><label class="control-label" for="inputError2">The
+                                            observer field is required.</label>
                                     </div>
                                     <script>
                                         $('#form2').scrollTop(0);
@@ -235,14 +235,14 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="h2">
+                                            name="" id="" wire:model="h2_openpan">
                                     </div>
                                     <div class="col-md-3 mr-50">
                                         <label for="">EV</label>
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="ev2">
+                                            name="" id="" wire:model="ev2_openpan">
                                     </div>
                                 </div>
                             </div>
@@ -576,21 +576,21 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="h2">
+                                            step="any" min="0" wire:model="h2_piche">
                                     </div>
                                     <div class="col-md-1 pr-0">
                                         <label for="">H2</label>
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="h22">
+                                            step="any" min="0" wire:model="h22_piche">
                                     </div>
                                     <div class="col-md-1 pr-0">
                                         <label for="">EV</label>
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="ev">
+                                            step="any" min="0" wire:model="ev2_piche">
                                     </div>
                                 </div>
                             </div>

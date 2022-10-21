@@ -5,7 +5,7 @@
             <input type="date" name="" id="" class="form-control" wire:model="tanggal">
         </div>
         <div class="col-md-3 px-5 mt-5">
-            <select name="" id="" class="form-control" wire:model="waktu">
+            <select name="" id="" class="form-control" wire:model="jenisForm">
                 <option value="" selected="" hidden="">Waktu</option>
                 <option value="form1">07.01</option>
                 <option value="form2">07.31</option>
@@ -19,9 +19,9 @@
                 <option value="formHujan3">19.01</option>
             </select>
         </div>
-        @if ($tanggal != '' && $waktu != '')
+        @if ($tanggal != '' && $jenisForm != '')
             <div class="col-md-4 p-0 mt-5">
-                <a href="" class="btn btn-default" data-toggle="modal" data-target="#{{ $waktu }}"
+                <a href="" class="btn btn-default" data-toggle="modal" data-target="#{{ $jenisForm }}"
                     data-tanggal="{{ $tanggal }}">Tambah
                     +</a>
             </div>

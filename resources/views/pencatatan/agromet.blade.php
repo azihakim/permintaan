@@ -124,12 +124,7 @@
     <script>
         Livewire.on('dataStore', () => {
             $('#form1').modal('hide');
-        })
-    </script>
-    <script>
-        Livewire.on('dataFailure', () => {
-            alert("Gagal");
-            // $('#form1').scrollTop(0);
+            $('#form2').modal('hide');
         })
     </script>
     {{-- Toastr --}}
