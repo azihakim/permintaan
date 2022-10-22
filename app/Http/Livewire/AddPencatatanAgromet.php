@@ -154,7 +154,38 @@ class AddPencatatanAgromet extends Component
     public function storeForm1(){
         $this->validate([
             'observer1' => 'required',
-            'tanggal' => 'required'
+            'tanggal' => 'required',
+            'tbk11' => 'numeric|nullable',
+            'tbb11' => 'numeric|nullable',
+            'tbk12' => 'numeric|nullable',
+            'tbb12' => 'numeric|nullable',
+            'tbk13' => 'numeric|nullable',
+            'tbb13' => 'numeric|nullable',
+            'tbk14' => 'numeric|nullable',
+            'tbb14' => 'numeric|nullable',
+            'cup_counter11' => 'numeric|nullable',
+            'cup_counter12' => 'numeric|nullable',
+            'arah11' => 'numeric|nullable',
+            'kecepatan11' => 'numeric|nullable',
+            'arah12' => 'numeric|nullable',
+            'kecepatan12' => 'numeric|nullable',
+            'arah13' => 'numeric|nullable',
+            'kecepatan13' => 'numeric|nullable',
+            'h1' => 'numeric|nullable',
+            'ev1' => 'numeric|nullable',
+            'ch1' => 'numeric|nullable',
+            't1' => 'numeric|nullable',
+            'max1' => 'numeric|nullable',
+            'min1' => 'numeric|nullable',
+            'suhu1' => 'numeric|nullable',
+            'barometer1' => 'numeric|nullable',
+            'qfe1' => 'numeric|nullable',
+            'qff1' => 'numeric|nullable',
+            'kode_tanah1' => 'numeric|nullable',
+            'kode_cuaca1' => 'numeric|nullable',
+            'pembacaan1' => 'numeric|nullable',
+            'reset1' => 'numeric|nullable',
+            'i1' => 'numeric|nullable'
         ]);
 
         $dataPencatatan = [
@@ -163,22 +194,21 @@ class AddPencatatanAgromet extends Component
             'users_id' => $this->observer1
         ];
 
-        // Pencatatan::create($dataPencatatan);
-        // $this->idPencatatan = Pencatatan::all()->last()->id;
+        Pencatatan::create($dataPencatatan);
+        // dd($simpan);
+        $this->idPencatatan = Pencatatan::all()->last()->id;
 
         $dataPsychrometerSangkarMeteorologi = [
-            'tbk1' => ($this->tbk11),
-            'tbb1' => gettype($this->tbb11),
-            'tbk2' => gettype($this->tbk12),
-            'tbb2' => gettype($this->tbb12),
-            'tbk3' => gettype($this->tbk13),
-            'tbb3' => gettype($this->tbb13),
-            'tbk4' => gettype($this->tbk14),
-            'tbb4' => gettype($this->tbb14),
-            // 'pencatatans_id' => $this->idPencatatan
+            'tbk1' => $this->tbk11,
+            'tbb1' => $this->tbb11,
+            'tbk2' => $this->tbk12,
+            'tbb2' => $this->tbb12,
+            'tbk3' => $this->tbk13,
+            'tbb3' => $this->tbb13,
+            'tbk4' => $this->tbk14,
+            'tbb4' => $this->tbb14,
+            'pencatatans_id' => $this->idPencatatan
         ];
-
-        dd($dataPsychrometerSangkarMeteorologi);
 
         $dataAngin = [
             'cup_counter1' => $this->cup_counter11,
