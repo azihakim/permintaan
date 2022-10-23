@@ -40,11 +40,11 @@ class KeagamaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
-                
-            
+        //  
             $data = $request->all();
             // dd($data);
+
+            // $file = $request->validate('surat_pernyataan => max:50000');
 
             // data diri
             $ext = $request->surat_pernyataan->getClientOriginalExtension();
@@ -53,10 +53,10 @@ class KeagamaanController extends Controller
             $keagamaan = new Formulir();
             $keagamaan->jenis_permintaan = "Kegiatan keagamaan";
             $keagamaan->status_form = "1";
-            $keagamaan->nama= $data['nama_kegiatan'];
+            $keagamaan->nama_kegiatan= $data['nama_kegiatan'];
             $keagamaan->telepon = $data['telepon'];
             $keagamaan->email = $data['email'];
-            $keagamaan->surat_pengantar = $file;
+            $keagamaan->surat_pernyataan = $file;
             $keagamaan->deskripsi = $data['deskripsi'];
             $keagamaan->save();
 
@@ -334,7 +334,7 @@ class KeagamaanController extends Controller
             }
         }
 
-        return redirect()->back()->with('status', 'Data Berhasil Di input');
+        return redirect('dashboarduser')->with('status', 'Data berhasil di kirim');
     }
 
     /**
@@ -360,7 +360,7 @@ class KeagamaanController extends Controller
     {
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.editKeagamanaan', compact('formulir', 'datapermintaan'));
+        return view('formulir.editKeagamaan', compact('formulir', 'datapermintaan'));
     }
 
     /**
@@ -374,10 +374,27 @@ class KeagamaanController extends Controller
     {   
         $formulir = Formulir::find($id);
         $formulir ->deskripsi = $request->input('deskripsi');
-        // $data = $request->all();
-        // dd($data);  
+        $formulir ->nama_kegiatan = $request->input('nama_kegiatan');
+        $file_name = $formulir->surat_pernyataan;
+        $file_path = public_path('storage/dokumen/' . $file_name);
+
+        if ($request->hasFile('surat_pernyataan')){
+            unlink($file_path);
+
+            $f = $request->file('surat_pernyataan');
+            $file_ext = $f->getClientOriginalExtension();
+            $file_name = "surat_pernyataan-".time(). "." . $file_ext;
+            $file_path = public_path('storage/dokumen');
+            $f->move($file_path, $file_name);
+            $formulir->surat_pernyataan = $file_name;
+        } else{
+            $formulir->surat_pernyataan =$request->old_file;
+        }
+
         $formulir->save();
-        
+        // $data = $request->all();
+        // dd($data);
+
         // data petir
         $cek_datapetir = $request->lokasi_datapetir;
         if (isset($cek_datapetir)){

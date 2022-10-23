@@ -254,11 +254,16 @@
                                                     <label>Surat pengantar</label>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <embed src="dokumen/{{ $formulir->surat_pengantar }}" style="width: 100%">
-                                                        <a download href="{{ asset('storage/dokumen/' . $formulir->surat_pengantar) }}">download</a>
-                                                    <div class="helper-text-box">
-                                                        {{-- <a value="{{ $item->surat_pengantar }}">file</a> --}}
-                                                        {{-- <input type="text" name="surat_pengantar" id="" value="{{ $item->jenis_permintaan }}"> --}}
+                                                    <div class="file-bar">
+                                                        <a href="{{ asset('storage/dokumen/' . $formulir->surat_pengantar) }}" target="_blank">
+                                                            <div class="file-bar-icon">
+                                                                <i class="fa fa-download"></i>
+                                                            </div>
+                                                            <div class="file-bar-info">
+                                                                <h5>Unduh file</h5>
+                                                                <span class="label label-default">.pdf</span>
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

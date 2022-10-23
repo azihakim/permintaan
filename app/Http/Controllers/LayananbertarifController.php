@@ -50,7 +50,7 @@ class LayananbertarifController extends Controller
             $layananbertarif = new Formulir();
             $layananbertarif->jenis_permintaan = "Layanan bertarif";
             $layananbertarif->status_form = "1";
-            $layananbertarif->nama = $data['nama'];
+            $layananbertarif->nama_kegiatan = $data['nama'];
             $layananbertarif->telepon = $data['telepon'];
             $layananbertarif->email = $data['email'];
             $layananbertarif->surat_pengantar = $file;

@@ -62,8 +62,7 @@
                         <td>{{ $item->created_at->format('d/m/Y') }}</td>
                         <td>
                                 @if($item->status_form == 1)
-                                <span class='label label-default' title="Permintaan berhasil dikirim dan menunggu konfirmasi admin">
-                                    Permintaan Baru</span>
+                                <span class='label label-default demo-tip tooltip-top' title="Permintaan berhasil dikirim dan menunggu konfirmasi admin">Permintaan Baru</span>                                    
                                 @elseif($item->status_form == 2)
                                 <span class='label label-primary' title="Permintaan berhasil diterima dan menunggu data diproses">Diterima</span>
                                 @elseif($item->status_form == 3)
@@ -203,10 +202,10 @@
                         <button class="btn next"><i class="fa fa-arrow-right"></i></button>
                         <button class="btn last"><i class="fa fa-step-forward"></i></button>
                         <select class="pagesize input-xs" title="Select page size">
-                            <option selected="selected" value="5">5</option>
-                            <option value="10">10</option>
+                            <option selected="selected" value="10">10</option>
                             <option value="20">20</option>
                             <option value="30">30</option>
+                            <option value="40">40</option>
                         </select>
                         <select class="pagenum input-xs" title="Select page number"></select>
                     </td>

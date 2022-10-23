@@ -717,7 +717,7 @@
                     if (document.getElementById("cb_datasuhuudaraminimum").checked) {
                         var newField = document.createElement("div");
                         newField.setAttribute("id", "field_datasuhuudaraminimum");
-                        newField.innerHTML = '<div class="row col-sm-12" id="datasuDiv_datasuhuudaraminimum">\
+                        newField.innerHTML = '<div class="row col-sm-12" id="datasuhuudaraminimum">\
                                             <div class="spacer-20"></div>\
                                             <div class="col-sm-12">\
                                                 <h4 class="semibold">Data suhu udara minimum</h4>\
@@ -731,19 +731,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" required="" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_suDiv_datasuhuudaraminimum[0]" value="{{ old('lokasi_suDiv_datasuhuudaraminimum') }}"></textarea>\
+                                                            name="lokasi_suhuudaraminimum[0]" value="{{ old('lokasi_suhuudaraminimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_suDiv_datasuhuudaraminimum[0]" required="" value="{{ old('tgl_dari_suDiv_datasuhuudaraminimum') }}">\
+                                                             name="tgl_dari_suhuudaraminimum[0]" required="" value="{{ old('tgl_dari_suhuudaraminimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_suDiv_datasuhuudaraminimum[0]" required="" value="{{ old('tgl_sampai_suDiv_datasuhuudaraminimum') }}">\
+                                                             name="tgl_sampai_suhuudaraminimum[0]" required="" value="{{ old('tgl_sampai_suhuudaraminimum') }}">\
                                                     </div>\
                                                 </div>\
                                                 <div class="row group col-sm-12" id="add_datasuhuudaraminimum[1]">\
@@ -751,19 +751,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_suDiv_datasuhuudaraminimum[1]" value="{{ old('lokasi_suDiv_datasuhuudaraminimum') }}"></textarea>\
+                                                            name="lokasi_suhuudaraminimum[1]" value="{{ old('lokasi_suhuudaraminimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_suDiv_datasuhuudaraminimum[1]" value="{{ old('tgl_dari_suDiv_datasuhuudaraminimum') }}">\
+                                                             name="tgl_dari_suhuudaraminimum[1]" value="{{ old('tgl_dari_suhuudaraminimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_suDiv_datasuhuudaraminimum[1]" value="{{ old('tgl_sampai_suDiv_datasuhuudaraminimum') }}">\
+                                                             name="tgl_sampai_suhuudaraminimum[1]" value="{{ old('tgl_sampai_suhuudaraminimum') }}">\
                                                     </div>\
                                                     <div class="spacer-5"></div>\
                                                 </div>\
@@ -772,19 +772,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_suDiv_datasuhuudaraminimum[2]" value="{{ old('lokasi_suDiv_datasuhuudaraminimum') }}"></textarea>\
+                                                            name="lokasi_suhuudaraminimum[2]" value="{{ old('lokasi_suhuudaraminimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_suDiv_datasuhuudaraminimum[2]" value="{{ old('tgl_dari_suDiv_datasuhuudaraminimum') }}">\
+                                                             name="tgl_dari_suhuudaraminimum[2]" value="{{ old('tgl_dari_suhuudaraminimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_suDiv_datasuhuudaraminimum[2]" value="{{ old('tgl_sampai_suDiv_datasuhuudaraminimum') }}">\
+                                                             name="tgl_sampai_suhuudaraminimum[2]" value="{{ old('tgl_sampai_suhuudaraminimum') }}">\
                                                     </div>\
                                                     <div class="spacer-5"></div>\
                                                 </div>\
@@ -899,7 +899,7 @@
                     if (document.getElementById("cb_datakelembapanudaramaksimum").checked) {
                         var newField = document.createElement("div");
                         newField.setAttribute("id", "field_datakelembapanudaramaksimum");
-                        newField.innerHTML = '<div class="row col-sm-12" id="datakelemDiv_datakelembapanudaramaksimum">\
+                        newField.innerHTML = '<div class="row col-sm-12" id="datakelembapanudaramaksimum">\
                                             <div class="spacer-20"></div>\
                                             <div class="col-sm-12">\
                                                 <h4 class="semibold">Data kelembapan udara maksimum</h4>\
@@ -913,19 +913,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" required="" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_kelemDiv_datakelembapanudaramaksimum[0]" value="{{ old('lokasi_kelemDiv_datakelembapanudaramaksimum') }}"></textarea>\
+                                                            name="lokasi_kelembapanudaramaksimum[0]" value="{{ old('lokasi_kelembapanudaramaksimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_kelemDiv_datakelembapanudaramaksimum[0]" required="" value="{{ old('tgl_dari_kelemDiv_datakelembapanudaramaksimum') }}">\
+                                                             name="tgl_dari_kelembapanudaramaksimum[0]" required="" value="{{ old('tgl_dari_kelembapanudaramaksimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_kelemDiv_datakelembapanudaramaksimum[0]" required="" value="{{ old('tgl_sampai_kelemDiv_datakelembapanudaramaksimum') }}">\
+                                                             name="tgl_sampai_kelembapanudaramaksimum[0]" required="" value="{{ old('tgl_sampai_kelembapanudaramaksimum') }}">\
                                                     </div>\
                                                 </div>\
                                                 <div class="row group col-sm-12" id="add_datakelembapanudaramaksimum[1]">\
@@ -933,19 +933,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_kelemDiv_datakelembapanudaramaksimum[1]" value="{{ old('lokasi_kelemDiv_datakelembapanudaramaksimum') }}"></textarea>\
+                                                            name="lokasi_kelembapanudaramaksimum[1]" value="{{ old('lokasi_kelembapanudaramaksimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_kelemDiv_datakelembapanudaramaksimum[1]" value="{{ old('tgl_dari_kelemDiv_datakelembapanudaramaksimum') }}">\
+                                                             name="tgl_dari_kelembapanudaramaksimum[1]" value="{{ old('tgl_dari_kelembapanudaramaksimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_kelemDiv_datakelembapanudaramaksimum[1]" value="{{ old('tgl_sampai_kelemDiv_datakelembapanudaramaksimum') }}">\
+                                                             name="tgl_sampai_kelembapanudaramaksimum[1]" value="{{ old('tgl_sampai_kelembapanudaramaksimum') }}">\
                                                     </div>\
                                                     <div class="spacer-5"></div>\
                                                 </div>\
@@ -954,19 +954,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_kelemDiv_datakelembapanudaramaksimum[2]" value="{{ old('lokasi_kelemDiv_datakelembapanudaramaksimum') }}"></textarea>\
+                                                            name="lokasi_kelembapanudaramaksimum[2]" value="{{ old('lokasi_kelembapanudaramaksimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_kelemDiv_datakelembapanudaramaksimum[2]" value="{{ old('tgl_dari_kelemDiv_datakelembapanudaramaksimum') }}">\
+                                                             name="tgl_dari_kelembapanudaramaksimum[2]" value="{{ old('tgl_dari_kelembapanudaramaksimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_kelemDiv_datakelembapanudaramaksimum[2]" value="{{ old('tgl_sampai_kelemDiv_datakelembapanudaramaksimum') }}">\
+                                                             name="tgl_sampai_kelembapanudaramaksimum[2]" value="{{ old('tgl_sampai_kelembapanudaramaksimum') }}">\
                                                     </div>\
                                                     <div class="spacer-5"></div>\
                                                 </div>\
@@ -990,7 +990,7 @@
                     if (document.getElementById("cb_datakelembapanudaraminimum").checked) {
                         var newField = document.createElement("div");
                         newField.setAttribute("id", "field_datakelembapanudaraminimum");
-                        newField.innerHTML = '<div class="row col-sm-12" id="datakelemDiv_datakelembapanudaraminimum">\
+                        newField.innerHTML = '<div class="row col-sm-12" id="datakelembapanudaraminimum">\
                                             <div class="spacer-20"></div>\
                                             <div class="col-sm-12">\
                                                 <h4 class="semibold">Data kelembapan udara minimum</h4>\
@@ -1004,19 +1004,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" required="" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_kelemDiv_datakelembapanudaraminimum[0]" value="{{ old('lokasi_kelemDiv_datakelembapanudaraminimum') }}"></textarea>\
+                                                            name="lokasi_kelembapanudaraminimum[0]" value="{{ old('lokasi_kelembapanudaraminimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_kelemDiv_datakelembapanudaraminimum[0]" required="" value="{{ old('tgl_dari_kelemDiv_datakelembapanudaraminimum') }}">\
+                                                             name="tgl_dari_kelembapanudaraminimum[0]" required="" value="{{ old('tgl_dari_kelembapanudaraminimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_kelemDiv_datakelembapanudaraminimum[0]" required="" value="{{ old('tgl_sampai_kelemDiv_datakelembapanudaraminimum') }}">\
+                                                             name="tgl_sampai_kelembapanudaraminimum[0]" required="" value="{{ old('tgl_sampai_kelembapanudaraminimum') }}">\
                                                     </div>\
                                                 </div>\
                                                 <div class="row group col-sm-12" id="add_datakelembapanudaraminimum[1]">\
@@ -1024,19 +1024,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_kelemDiv_datakelembapanudaraminimum[1]" value="{{ old('lokasi_kelemDiv_datakelembapanudaraminimum') }}"></textarea>\
+                                                            name="lokasi_kelembapanudaraminimum[1]" value="{{ old('lokasi_kelembapanudaraminimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_kelemDiv_datakelembapanudaraminimum[1]" value="{{ old('tgl_dari_kelemDiv_datakelembapanudaraminimum') }}">\
+                                                             name="tgl_dari_kelembapanudaraminimum[1]" value="{{ old('tgl_dari_kelembapanudaraminimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_kelemDiv_datakelembapanudaraminimum[1]" value="{{ old('tgl_sampai_kelemDiv_datakelembapanudaraminimum') }}">\
+                                                             name="tgl_sampai_kelembapanudaraminimum[1]" value="{{ old('tgl_sampai_kelembapanudaraminimum') }}">\
                                                     </div>\
                                                     <div class="spacer-5"></div>\
                                                 </div>\
@@ -1045,19 +1045,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_kelemDiv_datakelembapanudaraminimum[2]" value="{{ old('lokasi_kelemDiv_datakelembapanudaraminimum') }}"></textarea>\
+                                                            name="lokasi_kelembapanudaraminimum[2]" value="{{ old('lokasi_kelembapanudaraminimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_kelemDiv_datakelembapanudaraminimum[2]" value="{{ old('tgl_dari_kelemDiv_datakelembapanudaraminimum') }}">\
+                                                             name="tgl_dari_kelembapanudaraminimum[2]" value="{{ old('tgl_dari_kelembapanudaraminimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_kelemDiv_datakelembapanudaraminimum[2]" value="{{ old('tgl_sampai_kelemDiv_datakelembapanudaraminimum') }}">\
+                                                             name="tgl_sampai_kelembapanudaraminimum[2]" value="{{ old('tgl_sampai_kelembapanudaraminimum') }}">\
                                                     </div>\
                                                     <div class="spacer-5"></div>\
                                                 </div>\
@@ -1172,7 +1172,7 @@
                     if (document.getElementById("cb_datakecepatananginmaksimum").checked) {
                         var newField = document.createElement("div");
                         newField.setAttribute("id", "field_datakecepatananginmaksimum");
-                        newField.innerHTML = '<div class="row col-sm-12" id="datakeceDiv_datakecepatananginmaksimum">\
+                        newField.innerHTML = '<div class="row col-sm-12" id="data_kecepatananginmaksimum">\
                                             <div class="spacer-20"></div>\
                                             <div class="col-sm-12">\
                                                 <h4 class="semibold">Data kecepatan angin maksimum</h4>\
@@ -1186,19 +1186,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" required="" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_keceDiv_datakecepatananginmaksimum[0]" value="{{ old('lokasi_keceDiv_datakecepatananginmaksimum') }}"></textarea>\
+                                                            name="lokasi_kecepatananginmaksimum[0]" value="{{ old('lokasi_kecepatananginmaksimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_keceDiv_datakecepatananginmaksimum[0]" required="" value="{{ old('tgl_dari_keceDiv_datakecepatananginmaksimum') }}">\
+                                                             name="tgl_dari_kecepatananginmaksimum[0]" required="" value="{{ old('tgl_dari_kecepatananginmaksimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_keceDiv_datakecepatananginmaksimum[0]" required="" value="{{ old('tgl_sampai_keceDiv_datakecepatananginmaksimum') }}">\
+                                                             name="tgl_sampai_kecepatananginmaksimum[0]" required="" value="{{ old('tgl_sampai_kecepatananginmaksimum') }}">\
                                                     </div>\
                                                 </div>\
                                                 <div class="row group col-sm-12" id="add_datakecepatananginmaksimum[1]">\
@@ -1206,19 +1206,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_keceDiv_datakecepatananginmaksimum[1]" value="{{ old('lokasi_keceDiv_datakecepatananginmaksimum') }}"></textarea>\
+                                                            name="lokasi_kecepatananginmaksimum[1]" value="{{ old('lokasi_kecepatananginmaksimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_keceDiv_datakecepatananginmaksimum[1]" value="{{ old('tgl_dari_keceDiv_datakecepatananginmaksimum') }}">\
+                                                             name="tgl_dari_kecepatananginmaksimum[1]" value="{{ old('tgl_dari_kecepatananginmaksimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_keceDiv_datakecepatananginmaksimum[1]" value="{{ old('tgl_sampai_keceDiv_datakecepatananginmaksimum') }}">\
+                                                             name="tgl_sampai_kecepatananginmaksimum[1]" value="{{ old('tgl_sampai_kecepatananginmaksimum') }}">\
                                                     </div>\
                                                     <div class="spacer-5"></div>\
                                                 </div>\
@@ -1227,19 +1227,19 @@
                                                     <div class="col-sm-6">\
                                                         <strong>Lokasi</strong>\
                                                         <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_keceDiv_datakecepatananginmaksimum[2]" value="{{ old('lokasi_keceDiv_datakecepatananginmaksimum') }}"></textarea>\
+                                                            name="lokasi_kecepatananginmaksimum[2]" value="{{ old('lokasi_kecepatananginmaksimum') }}"></textarea>\
                                                             <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Dari</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_dari_keceDiv_datakecepatananginmaksimum[2]" value="{{ old('tgl_dari_keceDiv_datakecepatananginmaksimum') }}">\
+                                                             name="tgl_dari_kecepatananginmaksimum[2]" value="{{ old('tgl_dari_kecepatananginmaksimum') }}">\
                                                         <div class="spacer-10"></div>\
                                                     </div>\
                                                     <div class="col-sm-3">\
                                                         <strong>Sampai</strong>\
                                                         <input class="form-control" size="16" type="date"\
-                                                             name="tgl_sampai_keceDiv_datakecepatananginmaksimum[2]" value="{{ old('tgl_sampai_keceDiv_datakecepatananginmaksimum') }}">\
+                                                             name="tgl_sampai_kecepatananginmaksimum[2]" value="{{ old('tgl_sampai_kecepatananginmaksimum') }}">\
                                                     </div>\
                                                     <div class="spacer-5"></div>\
                                                 </div>\
@@ -1632,7 +1632,7 @@
                                                 <div class="row col-sm-12">\
                                                     <div class="col-sm-12">\
                                                     <textarea\
-                                                        name=""\
+                                                        name="deskripsi_unsurcuacalainnya"\
                                                     \
                                                         class="form-control autosize"\
                                                         style="width: 100%"\
@@ -1661,7 +1661,7 @@
                                                                 size="16"\
                                                                 type="date"\
                                                             \
-                                                                name="dari_unsurcuacalainnya[0]" required=""\
+                                                                name="tgl_dari_unsurcuacalainnya[0]" required=""\
                                                                 value="" />\
                                                             </div>\
                                                             <div class="spacer-5"></div>\
@@ -1671,7 +1671,7 @@
                                                             size="16"\
                                                             type="date"\
                                                         \
-                                                            name="sampai_unsurcuacalainnya[0]" required=""\
+                                                            name="tgl_sampai_unsurcuacalainnya[0]" required=""\
                                                             value="" />\
                                                         </div>\
                                                         </div>\
@@ -1700,7 +1700,7 @@
                                                                     size="16"\
                                                                     type="date"\
                                                                 \
-                                                                    name="dari_unsurcuacalainnya[1]"\
+                                                                    name="tgl_dari_unsurcuacalainnya[1]"\
                                                                     value="" />\
                                                                 </div>\
                                                                 <div class="spacer-5"></div>\
@@ -1711,7 +1711,7 @@
                                                                     size="16"\
                                                                     type="date"\
                                                                 \
-                                                                    name="sampai_unsurcuacalainnya[1]"\
+                                                                    name="tgl_sampai_unsurcuacalainnya[1]"\
                                                                     value="" />\
                                                                 </div>\
                                                             </div>\
@@ -1743,7 +1743,7 @@
                                                                     size="16"\
                                                                     type="date"\
                                                                 \
-                                                                    name="dari_unsurcuacalainnya[2]"\
+                                                                    name="tgl_dari_unsurcuacalainnya[2]"\
                                                                     value="" />\
                                                                 </div>\
                                                                 <div class="spacer-5"></div>\
@@ -1754,7 +1754,7 @@
                                                                     size="16"\
                                                                     type="date"\
                                                                 \
-                                                                    name="sampai_unsurcuacalainnya[2]"\
+                                                                    name="tgl_sampai_unsurcuacalainnya[2]"\
                                                                     value="" />\
                                                                 </div>\
                                                             </div>\

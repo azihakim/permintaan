@@ -69,8 +69,8 @@
                     <label><input type="checkbox" id="cb_dataharihujan" name="cb_dataharihujans" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
                     <label><input type="checkbox" id="cb_datacurahhujanratarata" name="cb_datacurahhujanrataratas" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
                     <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="cb_datacurahhujanmaksimums" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
-                    <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="cb_datacurahhujanbulanan" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
-                    <label><input type="checkbox" id="cb_datasuhuudararatarata" name="cb_datasuhuudararatarata" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
+                    <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="cb_datacurahhujanbulanans" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
+                    <label><input type="checkbox" id="cb_datasuhuudararatarata" name="cb_datasuhuudararataratas" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
                 </div>
                 <div class="spacer-10"></div>
             </div>

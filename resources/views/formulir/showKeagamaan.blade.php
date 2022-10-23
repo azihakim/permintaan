@@ -28,10 +28,10 @@
                                     <div class="spacer-10"></div>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <label>Nama</label>
+                                            <label>Nama kegiatan</label>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input type="text" aria-required="true" name="nama" disabled value="{{ $formulir->nama }}"
+                                            <input type="text" aria-required="true" name="nama" disabled value="{{ $formulir->nama_kegiatan }}"
                                                 class="form-control">
                                         </div>
                                     </div>
