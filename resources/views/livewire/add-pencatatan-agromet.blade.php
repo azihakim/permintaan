@@ -34,4 +34,7 @@
     @include('livewire.form5.modal-add')
     @include('livewire.form6.modal-add')
     @include('livewire.form7.modal-add')
+    @include('livewire.form-hujan1.modal-add')
+    @include('livewire.form-hujan2.modal-add')
+    @include('livewire.form-hujan3.modal-add')
 </div>

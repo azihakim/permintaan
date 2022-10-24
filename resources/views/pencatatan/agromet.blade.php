@@ -27,8 +27,16 @@
             margin-right: 10px;
         }
 
+        .ml-5 {
+            margin-left: -5px;
+        }
+
         .ml-8 {
             margin-left: -8px;
+        }
+
+        .mr-6 {
+            margin-right: -6px;
         }
 
         .mr-8 {
@@ -125,6 +133,14 @@
         Livewire.on('dataStore', () => {
             $('#form1').modal('hide');
             $('#form2').modal('hide');
+            $('#form3').modal('hide');
+            $('#form4').modal('hide');
+            // $('#form5').modal('hide');
+            // $('#form6').modal('hide');
+            // $('#form7').modal('hide');
+            $('#formHujan1').modal('hide');
+            $('#formHujan2').modal('hide');
+            $('#formHujan3').modal('hide');
         })
     </script>
     {{-- Toastr --}}
