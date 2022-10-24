@@ -60,9 +60,9 @@ class KeagamaanController extends Controller
             $keagamaan->deskripsi = $data['deskripsi'];
             $keagamaan->save();
 
-            // data petir
-            if($request->exists("cb_datapetirs")){
-                    foreach($data['lokasi_petir'] as $key=>$value){
+        // data petir
+        if($request->exists("cb_datapetirs")){
+                foreach($data['lokasi_petir'] as $key=>$value){
                         if($value != null ){
                             $save_data=[
                                 'formulir_id'   => $keagamaan->id,
@@ -75,11 +75,11 @@ class KeagamaanController extends Controller
                             ];
                             DB::table('datapermintaans')->insert($save_data); 
                         }
-                    }
-            }
+                }
+        }
 
-            // data hari hujan
-            if ($request->exists("cb_dataharihujans")){
+        // data hari hujan
+        if ($request->exists("cb_dataharihujans")){
                 foreach($data['lokasi_harihujan'] as $key=>$value){
                     if($value != null){
                         Datapermintaan::create([
@@ -91,7 +91,7 @@ class KeagamaanController extends Controller
                         ]);
                     }
                 }
-            }
+        }
 
         // data curah hujan rata-rata
         if ($request->exists("cb_datacurahhujanrataratas")){

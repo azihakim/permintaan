@@ -39,9 +39,8 @@ class LayananbertarifController extends Controller
      */
     public function store(Request $request)
     {
-
             $data = $request->all();
-            // dd($data);   
+            dd($data);   
 
             // data diri
             $ext = $request->surat_pengantar->getClientOriginalExtension();
@@ -314,7 +313,6 @@ class LayananbertarifController extends Controller
 
             
              return redirect('dashboarduser')->with('status', 'Data berhasil di simpan');
-            // return redirect()->back()->with('status', 'Data Berhasil Di input');
     }
 
     /**
@@ -354,6 +352,21 @@ class LayananbertarifController extends Controller
     {   
         $formulir = Formulir::find($id);
         $formulir ->deskripsi = $request->input('deskripsi');
+        $file_name = $formulir->surat_pengantar;
+        $file_path = public_path('storage/dokumen/' . $file_name);
+
+        if ($request->hasFile('surat_pengantar')){
+            unlink($file_path);
+
+            $f = $request->file('surat_pengantar');
+            $file_ext = $f->getClientOriginalExtension();
+            $file_name = "surat_pengantar-".time(). "." . $file_ext;
+            $file_path = public_path('storage/dokumen');
+            $f->move($file_path, $file_name);
+            $formulir->surat_pengantar = $file_name;
+        } else{
+            $formulir->surat_pengantar =$request->old_file;
+        }
         // $data = $request->all();
         // dd($data);  
         $formulir->save();

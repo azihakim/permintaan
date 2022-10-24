@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LayananbertarifController;
 use App\Http\Controllers\KeagamaanController;
+use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\DashboarduserController;
 use Illuminate\Support\Facades\Route;
 
@@ -96,10 +97,9 @@ Route::resource('/bertarif', LayananbertarifController::class);
 Route::resource('/keagamaan', KeagamaanController::class);
 
 Route::resource('/dashboard', DashboarduserController::class);
-// Route::get('/dashboarduser', function () {
-//     return redirect('/dashboard');
-// });
 
-Route::get('/dashboarduser',[DashboarduserController::class, 'index'])->name('dashboarduser');
+Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboarduser');
 
 Route::resource('/respon-bertarif', ResponlayananbertarifController::class);
+
+Route::resource('/pendidikan', PendidikanController::class);
