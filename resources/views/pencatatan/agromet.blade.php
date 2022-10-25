@@ -137,7 +137,7 @@
             $('#form4').modal('hide');
             $('#form5').modal('hide');
             $('#form6').modal('hide');
-            // $('#form7').modal('hide');
+            $('#form7').modal('hide');
             $('#formHujan1').modal('hide');
             $('#formHujan2').modal('hide');
             $('#formHujan3').modal('hide');

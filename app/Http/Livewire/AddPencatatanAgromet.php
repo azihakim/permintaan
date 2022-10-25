@@ -326,6 +326,32 @@ class AddPencatatanAgromet extends Component
     public $ev2_piche6 = null;
     /* ---------- End Form 6 ---------- */
 
+    /* ---------- Form 7 ---------- */
+    // Psychrometer Sangkar Meteorologi
+    public $tbk71 = null;
+    public $tbb71 = null;
+    public $tbk72 = null;
+    public $tbb72 = null;
+    public $tbk73 = null;
+    public $tbb73 = null;
+    public $tbk74 = null;
+    public $tbb74 = null;
+    // Angin
+    public $cup_counter71 = null;
+    public $cup_counter72 = null;
+    public $arah71 = null;
+    public $kecepatan71 = null;
+    public $arah72 = null;
+    public $kecepatan72 = null;
+    public $arah73 = null;
+    public $kecepatan73 = null;
+    // Termometer Maksimum dan Minimum
+    public $max71 = null;
+    public $reset71 = null;
+    public $max72 = null;
+    public $reset72 = null;
+    /* ---------- End Form 7 ---------- */
+
     /* ---------- Form Hujan ---------- */
     // Form Hujan 1
     public $ch_hujan1 = null;
@@ -1088,6 +1114,81 @@ class AddPencatatanAgromet extends Component
         $this->reset();
         $this->emit('dataStore');
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 17.31 Berhasil Disimpan!']);
+    }
+
+    public function storeForm7(){
+        $this->validate([
+            'observer7' => 'required',
+            'tanggal' => 'required',
+            'tbk71' => 'numeric|nullable',
+            'tbb71' => 'numeric|nullable',
+            'tbk72' => 'numeric|nullable',
+            'tbb72' => 'numeric|nullable',
+            'tbk73' => 'numeric|nullable',
+            'tbb73' => 'numeric|nullable',
+            'tbk74' => 'numeric|nullable',
+            'tbb74' => 'numeric|nullable',
+            'cup_counter71' => 'numeric|nullable',
+            'cup_counter72' => 'numeric|nullable',
+            'arah71' => 'numeric|nullable',
+            'kecepatan71' => 'numeric|nullable',
+            'arah72' => 'numeric|nullable',
+            'kecepatan72' => 'numeric|nullable',
+            'arah73' => 'numeric|nullable',
+            'kecepatan73' => 'numeric|nullable',
+            'max71' => 'numeric|nullable',
+            'reset71' => 'numeric|nullable',
+            'max72' => 'numeric|nullable',
+            'reset72' => 'numeric|nullable',
+        ]);
+
+        $dataPencatatan = [
+            'tanggal' => $this->tanggal,
+            'waktu' => $this->waktu7,
+            'users_id' => $this->observer7
+        ];
+
+        Pencatatan::create($dataPencatatan);
+        $this->idPencatatan = Pencatatan::all()->last()->id;
+
+        $dataPsychrometerSangkarMeteorologi = [
+            'tbk1' => $this->tbk71,
+            'tbb1' => $this->tbb71,
+            'tbk2' => $this->tbk72,
+            'tbb2' => $this->tbb72,
+            'tbk3' => $this->tbk73,
+            'tbb3' => $this->tbb73,
+            'tbk4' => $this->tbk74,
+            'tbb4' => $this->tbb74,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        $dataAngin = [
+            'cup_counter1' => $this->cup_counter71,
+            'cup_counter2' => $this->cup_counter72,
+            'arah1' => $this->arah71,
+            'kecepatan1' => $this->kecepatan71,
+            'arah2' => $this->arah72,
+            'kecepatan2' => $this->kecepatan72,
+            'arah3' => $this->arah73,
+            'kecepatan3' => $this->kecepatan73,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        $dataTermometerMaksimumDanMinimum = [
+            'max1' => $this->max71,
+            'reset1' => $this->reset71,
+            'max2' => $this->max72,
+            'reset2' => $this->reset72,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        Psychrometer_sangkar_meteorologi::create($dataPsychrometerSangkarMeteorologi);
+        Angin::create($dataAngin);
+        Termometer_maksimum_dan_minimum::create($dataTermometerMaksimumDanMinimum);
+        $this->reset();
+        $this->emit('dataStore');
+        $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 18.01 Berhasil Disimpan!']);
     }
 
     public function storeFormHujan1(){
