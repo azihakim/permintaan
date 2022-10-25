@@ -13,6 +13,7 @@ use App\Models\Psychrometer_sangkar_meteorologi;
 use App\Models\Radiasi;
 use App\Models\Suhu_min_rumput;
 use App\Models\Suhu_tanah;
+use App\Models\Termometer_maksimum_dan_minimum;
 use App\Models\User;
 use Livewire\Component;
 
@@ -263,6 +264,67 @@ class AddPencatatanAgromet extends Component
     public $kode_tanah5 = null;
     public $kode_cuaca5 = null;
     /* ---------- End Form 5 ---------- */
+
+    /* ---------- Form 6 ---------- */
+    // Psychrometer Sangkar Meteorologi
+    public $tbk61 = null;
+    public $tbb61 = null;
+    public $tbk62 = null;
+    public $tbb62 = null;
+    public $tbk63 = null;
+    public $tbb63 = null;
+    public $tbk64 = null;
+    public $tbb64 = null;
+    // Angin
+    public $cup_counter61 = null;
+    public $cup_counter62 = null;
+    public $arah61 = null;
+    public $kecepatan61 = null;
+    public $arah62 = null;
+    public $kecepatan62 = null;
+    public $arah63 = null;
+    public $kecepatan63 = null;
+    // Open Pan
+    public $h2_openpan6 = null;
+    public $ev2_openpan6 = null;
+    public $ch6 = null;
+    public $t6 = null;
+    public $max6 = null;
+    public $min6 = null;
+    // Psychrometer Assmann
+    public $bb61 = null;
+    public $bk61 = null;
+    public $bb62 = null;
+    public $bk62 = null;
+    public $bb63 = null;
+    public $bk63 = null;
+    public $bb64 = null;
+    public $bk64 = null;
+    public $bb65 = null;
+    public $bk65 = null;
+    public $bb66 = null;
+    public $bk66 = null;
+    public $bb67 = null;
+    public $bk67 = null;
+    // Suhu Tanah
+    public $berumput61 = null;
+    public $gundul61 = null;
+    public $berumput62 = null;
+    public $gundul62 = null;
+    public $berumput63 = null;
+    public $gundul63 = null;
+    public $berumput64 = null;
+    public $gundul64 = null;
+    public $berumput65 = null;
+    public $gundul65 = null;
+    public $berumput66 = null;
+    public $gundul66 = null;
+    public $berumput67 = null;
+    public $gundul67 = null;
+    // Piche Evaporimeter
+    public $h2_piche6 = null;
+    public $ev2_piche6 = null;
+    /* ---------- End Form 6 ---------- */
 
     /* ---------- Form Hujan ---------- */
     // Form Hujan 1
@@ -755,6 +817,277 @@ class AddPencatatanAgromet extends Component
         $this->reset();
         $this->emit('dataStore');
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 13.31 Berhasil Disimpan!']);
+    }
+
+    public function storeForm5(){
+        $this->validate([
+            'observer5' => 'required',
+            'tanggal' => 'required',
+            'tbk51' => 'numeric|nullable',
+            'tbb51' => 'numeric|nullable',
+            'tbk52' => 'numeric|nullable',
+            'tbb52' => 'numeric|nullable',
+            'tbk53' => 'numeric|nullable',
+            'tbb53' => 'numeric|nullable',
+            'tbk54' => 'numeric|nullable',
+            'tbb54' => 'numeric|nullable',
+            'cup_counter51' => 'numeric|nullable',
+            'cup_counter52' => 'numeric|nullable',
+            'arah51' => 'numeric|nullable',
+            'kecepatan51' => 'numeric|nullable',
+            'arah52' => 'numeric|nullable',
+            'kecepatan52' => 'numeric|nullable',
+            'arah53' => 'numeric|nullable',
+            'kecepatan53' => 'numeric|nullable',
+            'berumput51' => 'numeric|nullable',
+            'gundul51' => 'numeric|nullable',
+            'berumput52' => 'numeric|nullable',
+            'gundul52' => 'numeric|nullable',
+            'berumput53' => 'numeric|nullable',
+            'gundul53' => 'numeric|nullable',
+            'berumput54' => 'numeric|nullable',
+            'gundul54' => 'numeric|nullable',
+            'berumput55' => 'numeric|nullable',
+            'gundul55' => 'numeric|nullable',
+            'berumput56' => 'numeric|nullable',
+            'gundul56' => 'numeric|nullable',
+            'berumput57' => 'numeric|nullable',
+            'gundul57' => 'numeric|nullable',
+            'max51' => 'numeric|nullable',
+            'reset51' => 'numeric|nullable',
+            'max52' => 'numeric|nullable',
+            'reset52' => 'numeric|nullable',
+            'kode_tanah5' => 'numeric|nullable',
+            'kode_cuaca5' => 'numeric|nullable'
+        ]);
+
+        $dataPencatatan = [
+            'tanggal' => $this->tanggal,
+            'waktu' => $this->waktu5,
+            'users_id' => $this->observer5
+        ];
+
+        Pencatatan::create($dataPencatatan);
+        $this->idPencatatan = Pencatatan::all()->last()->id;
+
+        $dataPsychrometerSangkarMeteorologi = [
+            'tbk1' => $this->tbk51,
+            'tbb1' => $this->tbb51,
+            'tbk2' => $this->tbk52,
+            'tbb2' => $this->tbb52,
+            'tbk3' => $this->tbk53,
+            'tbb3' => $this->tbb53,
+            'tbk4' => $this->tbk54,
+            'tbb4' => $this->tbb54,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        $dataAngin = [
+            'cup_counter1' => $this->cup_counter51,
+            'cup_counter2' => $this->cup_counter52,
+            'arah1' => $this->arah51,
+            'kecepatan1' => $this->kecepatan51,
+            'arah2' => $this->arah52,
+            'kecepatan2' => $this->kecepatan52,
+            'arah3' => $this->arah53,
+            'kecepatan3' => $this->kecepatan53,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        $dataSuhuTanah = [
+            'berumput1' => $this->berumput51,
+            'gundul1' => $this->gundul51,
+            'berumput2' => $this->berumput52,
+            'gundul2' => $this->gundul52,
+            'berumput3' => $this->berumput53,
+            'gundul3' => $this->gundul53,
+            'berumput4' => $this->berumput54,
+            'gundul4' => $this->gundul54,
+            'berumput5' => $this->berumput55,
+            'gundul5' => $this->gundul55,
+            'berumput6' => $this->berumput56,
+            'gundul6' => $this->gundul56,
+            'berumput7' => $this->berumput57,
+            'gundul7' => $this->gundul57,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        $dataTermometerMaksimumDanMinimum = [
+            'max1' => $this->max51,
+            'reset1' => $this->reset51,
+            'max2' => $this->max52,
+            'reset2' => $this->reset52,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+         $dataKondisiCuacaDanTanah = [
+            'kode_tanah' => $this->kode_tanah5,
+            'kode_cuaca' => $this->kode_cuaca5,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        Psychrometer_sangkar_meteorologi::create($dataPsychrometerSangkarMeteorologi);
+        Angin::create($dataAngin);
+        Suhu_tanah::create($dataSuhuTanah);
+        Termometer_maksimum_dan_minimum::create($dataTermometerMaksimumDanMinimum);
+        Kondisi_cuaca_dan_tanah::create($dataKondisiCuacaDanTanah);
+        $this->reset();
+        $this->emit('dataStore');
+        $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 14.01 Berhasil Disimpan!']);
+    }
+
+    public function storeForm6(){
+        $this->validate([
+            'observer6' => 'required',
+            'tanggal' => 'required',
+            'tbk61' => 'numeric|nullable',
+            'tbb61' => 'numeric|nullable',
+            'tbk62' => 'numeric|nullable',
+            'tbb62' => 'numeric|nullable',
+            'tbk63' => 'numeric|nullable',
+            'tbb63' => 'numeric|nullable',
+            'tbk64' => 'numeric|nullable',
+            'tbb64' => 'numeric|nullable',
+            'cup_counter61' => 'numeric|nullable',
+            'cup_counter62' => 'numeric|nullable',
+            'arah61' => 'numeric|nullable',
+            'kecepatan61' => 'numeric|nullable',
+            'arah62' => 'numeric|nullable',
+            'kecepatan62' => 'numeric|nullable',
+            'arah63' => 'numeric|nullable',
+            'kecepatan63' => 'numeric|nullable',
+            'h2_openpan6' => 'numeric|nullable',
+            'ev2_openpan6' => 'numeric|nullable',
+            'ch6' => 'numeric|nullable',
+            't6' => 'numeric|nullable',
+            'max6' => 'numeric|nullable',
+            'min6' => 'numeric|nullable',
+            'bb61' => 'numeric|nullable',
+            'bk61' => 'numeric|nullable',
+            'bb62' => 'numeric|nullable',
+            'bk62' => 'numeric|nullable',
+            'bb63' => 'numeric|nullable',
+            'bk63' => 'numeric|nullable',
+            'bb64' => 'numeric|nullable',
+            'bk64' => 'numeric|nullable',
+            'bb65' => 'numeric|nullable',
+            'bk65' => 'numeric|nullable',
+            'bb66' => 'numeric|nullable',
+            'bk66' => 'numeric|nullable',
+            'bb67' => 'numeric|nullable',
+            'bk67' => 'numeric|nullable',
+            'berumput61' => 'numeric|nullable',
+            'gundul61' => 'numeric|nullable',
+            'berumput62' => 'numeric|nullable',
+            'gundul62' => 'numeric|nullable',
+            'berumput63' => 'numeric|nullable',
+            'gundul63' => 'numeric|nullable',
+            'berumput64' => 'numeric|nullable',
+            'gundul64' => 'numeric|nullable',
+            'berumput65' => 'numeric|nullable',
+            'gundul65' => 'numeric|nullable',
+            'berumput66' => 'numeric|nullable',
+            'gundul66' => 'numeric|nullable',
+            'berumput67' => 'numeric|nullable',
+            'gundul67' => 'numeric|nullable',
+            'h2_piche6' => 'numeric|nullable',
+            'ev2_piche6' => 'numeric|nullable'
+        ]);
+
+        $dataPencatatan = [
+            'tanggal' => $this->tanggal,
+            'waktu' => $this->waktu6,
+            'users_id' => $this->observer6
+        ];
+
+        Pencatatan::create($dataPencatatan);
+        $this->idPencatatan = Pencatatan::all()->last()->id;
+
+        $dataPsychrometerSangkarMeteorologi = [
+            'tbk1' => $this->tbk61,
+            'tbb1' => $this->tbb61,
+            'tbk2' => $this->tbk62,
+            'tbb2' => $this->tbb62,
+            'tbk3' => $this->tbk63,
+            'tbb3' => $this->tbb63,
+            'tbk4' => $this->tbk64,
+            'tbb4' => $this->tbb64,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        $dataAngin = [
+            'cup_counter1' => $this->cup_counter61,
+            'cup_counter2' => $this->cup_counter62,
+            'arah1' => $this->arah61,
+            'kecepatan1' => $this->kecepatan61,
+            'arah2' => $this->arah62,
+            'kecepatan2' => $this->kecepatan62,
+            'arah3' => $this->arah63,
+            'kecepatan3' => $this->kecepatan63,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        $dataOpenPan = [
+            'h' => $this->h2_openpan6,
+            'ev' => $this->ev2_openpan6,
+            'ch' => $this->ch6,
+            't' => $this->t6,
+            'max' => $this->max6,
+            'min' => $this->min6,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        $dataPsychrometerAssmann = [
+            'bb1' => $this->bb61,
+            'bk1' => $this->bk61,
+            'bb2' => $this->bb62,
+            'bk2' => $this->bk62,
+            'bb3' => $this->bb63,
+            'bk3' => $this->bk63,
+            'bb4' => $this->bb64,
+            'bk4' => $this->bk64,
+            'bb5' => $this->bb65,
+            'bk5' => $this->bk65,
+            'bb6' => $this->bb66,
+            'bk6' => $this->bk66,
+            'bb7' => $this->bb67,
+            'bk7' => $this->bk67,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        $dataSuhuTanah = [
+            'berumput1' => $this->berumput61,
+            'gundul1' => $this->gundul61,
+            'berumput2' => $this->berumput62,
+            'gundul2' => $this->gundul62,
+            'berumput3' => $this->berumput63,
+            'gundul3' => $this->gundul63,
+            'berumput4' => $this->berumput64,
+            'gundul4' => $this->gundul64,
+            'berumput5' => $this->berumput65,
+            'gundul5' => $this->gundul65,
+            'berumput6' => $this->berumput66,
+            'gundul6' => $this->gundul66,
+            'berumput7' => $this->berumput67,
+            'gundul7' => $this->gundul67,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        $dataPicheEvaporimeter = [
+            'h' => $this->h2_piche6,
+            'ev' => $this->ev2_piche6,
+            'pencatatans_id' => $this->idPencatatan
+        ];
+
+        Psychrometer_sangkar_meteorologi::create($dataPsychrometerSangkarMeteorologi);
+        Angin::create($dataAngin);
+        Open_pan::create($dataOpenPan);
+        Psychrometer_assmann::create($dataPsychrometerAssmann);
+        Suhu_tanah::create($dataSuhuTanah);
+        Piche_evaporimeter::create($dataPicheEvaporimeter);
+        $this->reset();
+        $this->emit('dataStore');
+        $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 17.31 Berhasil Disimpan!']);
     }
 
     public function storeFormHujan1(){
