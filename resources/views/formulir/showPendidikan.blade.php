@@ -16,9 +16,6 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <form action="{{ url('pendidikan/' . $formulir->id) }}" method="POST" enctype="multipart/form-data">
-                                @method('PATCH')
-                                @csrf
                                 <div class="spacer-10"></div>
                                     {{-- Start data diri --}}
                                     <div class="row">
@@ -154,19 +151,19 @@
                                                                         <div class="spacer-5"></div>
                                                                         <div class="col-sm-6">
                                                             <strong>Lokasi</strong>
-                                                            <textarea class="form-control autosize" style="width: 100% ; height: 28px"
+                                                            <textarea disabled class="form-control autosize" style="width: 100% ; height: 28px"
                                                             name="lokasi_{{ $item->jenis_data }}[]">{{ $item->lokasi }}</textarea>
                                                                 <div class="spacer-10"></div>
                                                         </div>
                                                         <div class="col-sm-3">
                                                             <strong>Dari</strong>
-                                                            <input class="form-control" size="16" type="date"
+                                                            <input disabled class="form-control" size="16" type="date"
                                                                  name="tgl_dari_{{ $item->jenis_data }}[]" value="{{ $item->tgl_dari }}">
                                                             <div class="spacer-10"></div>
                                                         </div>
                                                         <div class="col-sm-3">
                                                             <strong>Sampai</strong>
-                                                            <input class="form-control" size="16" type="date"
+                                                            <input disabled class="form-control" size="16" type="date"
                                                                  name="tgl_sampai_{{ $item->jenis_data }}[]" value="{{ $item->tgl_sampai }}">
                                                         </div>
                                                                     </div>
@@ -178,19 +175,19 @@
                                                     @else
                                                         <div class="col-sm-6">
                                                             <strong>Lokasi</strong>
-                                                            <textarea class="form-control autosize" style="width: 100% ; height: 28px"
+                                                            <textarea disabled class="form-control autosize" style="width: 100% ; height: 28px"
                                                             name="lokasi_{{ $item->jenis_data }}[]">{{ $item->lokasi }}</textarea>
                                                                 <div class="spacer-10"></div>
                                                         </div>
                                                         <div class="col-sm-3">
                                                             <strong>Dari</strong>
-                                                            <input class="form-control" size="16" type="date"
+                                                            <input disabled class="form-control" size="16" type="date"
                                                                  name="tgl_dari_{{ $item->jenis_data }}[]" value="{{ $item->tgl_dari }}">
                                                             <div class="spacer-10"></div>
                                                         </div>
                                                         <div class="col-sm-3">
                                                             <strong>Sampai</strong>
-                                                            <input class="form-control" size="16" type="date"
+                                                            <input disabled class="form-control" size="16" type="date"
                                                                  name="tgl_sampai_{{ $item->jenis_data }}[]" value="{{ $item->tgl_sampai }}">
                                                         </div>
                                                     @endif
@@ -232,22 +229,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Upload surat proposal baru</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="hidden" name="old_proposal" value="{{ $formulir->surat_proposal }}">
-                                                        <input type="file" accept="application/pdf" name="surat_proposal">
-                                                        <div class="helper-text-box">
-                                                            <div class="form-helper-header">Format
-                                                                file:<code>.pdf</code>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -269,22 +250,6 @@
                                                                     <span class="label label-default">.pdf</span>
                                                                 </div>
                                                             </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Upload surat pengantar baru</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="hidden" name="old_pengantar" value="{{ $formulir->surat_pengantar }}">
-                                                        <input type="file" accept="application/pdf" name="surat_pengantar">
-                                                        <div class="helper-text-box">
-                                                            <div class="form-helper-header">Format
-                                                                file:<code>.pdf</code>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -314,22 +279,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Upload surat pernyataan baru</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="hidden" name="old_pernyataan" value="{{ $formulir->surat_pernyataan }}">
-                                                        <input type="file" accept="application/pdf" name="surat_pernyataan">
-                                                        <div class="helper-text-box">
-                                                            <div class="form-helper-header">Format
-                                                                file:<code>.pdf</code>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         {{-- End syarat permohonan data --}}
                                         
@@ -346,7 +295,7 @@
                                         <div class="spacer-10"></div>
                                         <div class="row col-sm-12">
                                             <div class="col-sm-12">
-                                                <textarea name="deskripsi" class="form-control" style="height: 150px;">{{ $formulir->deskripsi }}</textarea>
+                                                <textarea disabled name="deskripsi" class="form-control" style="height: 150px;">{{ $formulir->deskripsi }}</textarea>
                                                 <div class="helper-text-box">
                                                     <div class="form-helper">Silahkan masukkan deskripsi jika tidak ada
                                                         pilihan di formulir</div>
@@ -366,7 +315,6 @@
                                             </div>
                                         </div>
                                     <div class="spacer-40"></div>
-                                     </form>
                                     {{-- End data dan informasi yang dibutuhkan --}}
                         </div>
                     </div>

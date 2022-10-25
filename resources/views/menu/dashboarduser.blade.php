@@ -127,7 +127,7 @@
                             
                             @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan pendidikan dan penelitian')
                                 <div class="col-sm-4">
-                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id) }}">Detail</a>
+                                    <a type="button" class="btn btn-default" href="{{ url('pendidikan/' . $item->id) }}">Detail</a>
                                 </div>
                                 <div class="col-sm-4">
                                     <form action="{{ url('pendidikan/' . $item->id) }} " method="POST"
