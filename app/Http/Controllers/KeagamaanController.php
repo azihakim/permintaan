@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Keagamaan;
-use App\Models\Daftarpermintaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Formulir;
@@ -334,7 +332,7 @@ class KeagamaanController extends Controller
             }
         }
 
-        return redirect('dashboarduser')->with('status', 'Data berhasil di kirim');
+        return redirect('dashboard')->with('status', 'Data berhasil di kirim');
     }
 
     /**
@@ -631,7 +629,7 @@ class KeagamaanController extends Controller
                 ]);
             }
         }
-        return redirect('dashboarduser')->with('status', 'Data Berhasil Di update');
+        return redirect('dashboard')->with('status', 'Data Berhasil Di update');
     }
 
     /**

@@ -11,12 +11,12 @@
                         <h2>Formulir Permintaan</h2>
                             <div class="spacer-5"></div>
                         <h3>
-                            <span class="text-muted">Kegiatan Pendidikan dan Penelitian non Komersial</span>
+                            <span class="text-muted">Kegiatan Pemerintahan Pusat dan Daerah</span>
                         </h3>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <form action="{{ url('pendidikan/' . $formulir->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('pemerintahan/' . $formulir->id) }}" method="POST" enctype="multipart/form-data">
                                 @method('PATCH')
                                 @csrf
                                 <div class="spacer-10"></div>
@@ -29,7 +29,7 @@
                                     <div class="spacer-10"></div>
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <label>Nama kegiatan</label>
+                                            <label>Nama</label>
                                         </div>
                                         <div class="col-sm-9">
                                             <input type="text" aria-required="true" name="nama_kegiatan" value="{{ $formulir->nama_kegiatan }}"
@@ -204,22 +204,16 @@
                                     <hr>
                                     <div class="spacer-20"></div>
                                     {{-- Start syarat permohonan data --}}
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h4 class="bold">Syarat permohonan data</h4>
-                                            </div>
-                                        </div>
-                                        <div class="spacer-10"></div>
-                                        {{-- Surat proposal --}}
+                                        {{-- Surat kerja sama --}}
                                         <div>
                                             <div class="col-sm-12">
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <label>Surat proposal</label>
+                                                        <label>Surat Perjanjian Kerjasama dengan BMKG tentang kebutuhan informasi MKKuG</label>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="file-bar">
-                                                            <a href="{{ asset('storage/dokumen/' . $formulir->surat_proposal) }}" target="_blank">
+                                                            <a href="{{ asset('storage/dokumen/' . $formulir->surat_kerjasama) }}" target="_blank">
                                                                 <div class="file-bar-icon">
                                                                     <i class="fa fa-download"></i>
                                                                 </div>
@@ -235,11 +229,11 @@
                                             <div class="col-sm-12">
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <label>Upload surat proposal baru</label>
+                                                        <label>Upload surat kerja sama baru</label>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <input type="hidden" name="old_proposal" value="{{ $formulir->surat_proposal }}">
-                                                        <input type="file" accept="application/pdf" name="surat_proposal">
+                                                        <input type="hidden" name="old_kerjasama" value="{{ $formulir->surat_kerjasama }}">
+                                                        <input type="file" accept="application/pdf" name="surat_kerjasama">
                                                         <div class="helper-text-box">
                                                             <div class="form-helper-header">Format
                                                                 file:<code>.pdf</code>
@@ -290,47 +284,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        <div class="spacer-10"></div>
-                                        {{-- Surat pernyataan --}}
-                                        <div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Surat pernyataan</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="file-bar">
-                                                            <a href="{{ asset('storage/dokumen/' . $formulir->surat_pernyataan) }}" target="_blank">
-                                                                <div class="file-bar-icon">
-                                                                    <i class="fa fa-download"></i>
-                                                                </div>
-                                                                <div class="file-bar-info">
-                                                                    <h5>Unduh file</h5>
-                                                                    <span class="label label-default">.pdf</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Upload surat pernyataan baru</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="hidden" name="old_pernyataan" value="{{ $formulir->surat_pernyataan }}">
-                                                        <input type="file" accept="application/pdf" name="surat_pernyataan">
-                                                        <div class="helper-text-box">
-                                                            <div class="form-helper-header">Format
-                                                                file:<code>.pdf</code>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         {{-- End syarat permohonan data --}}
                                         
                                         <div class="spacer-40"></div>
@@ -367,7 +320,7 @@
                                         </div>
                                     <div class="spacer-40"></div>
                                      </form>
-                        {{-- End data dan informasi yang dibutuhkan --}}
+                                    {{-- End data dan informasi yang dibutuhkan --}}
                         </div>
                     </div>
                 </div>

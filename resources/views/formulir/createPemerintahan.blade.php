@@ -1,9 +1,9 @@
 @extends('layout.formulir')
-@section('form-title', 'Kegiatan Pemerintahan Pusat atau Daerah')
+@section('form-title', 'Kegiatan Pemerintahan Pusat dan Daerah')
 
 
 @section('form')
-<form action="{{ route('pemerintahan.store') }}" method="POST">
+<form action="{{ route('pemerintahan.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="spacer-10"></div>
         {{-- Start data diri --}}
@@ -23,7 +23,7 @@
             <label>Nama</label>
         </div>
         <div class="col-sm-9">
-            <input type="text" aria-required="true" name="instansi" required="" class="form-control">
+            <input type="text" aria-required="true" name="nama" required="" class="form-control ">
         </div>
     </div>
     <div class="spacer-10"></div>
@@ -65,36 +65,36 @@
             </div>
             <div class="col-sm-4">
                 <div class="stacked-labels">
-                    <label><input type="checkbox" id="cb_datapetir" name="tags" onclick="toggle_datapetir()"><span></span>Data petir</label>
-                    <label><input type="checkbox" id="cb_dataharihujan" name="tags" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
-                    <label><input type="checkbox" id="cb_datacurahhujanratarata" name="tags" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
-                    <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="tags" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
-                    <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="tags" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
-                    <label><input type="checkbox" id="cb_datasuhuudararatarata" name="tags" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
+                    <label><input type="checkbox" id="cb_datapetir" name="cb_datapetirs" onclick="toggle_datapetir()"><span></span>Data petir</label>
+                    <label><input type="checkbox" id="cb_dataharihujan" name="cb_dataharihujans" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
+                    <label><input type="checkbox" id="cb_datacurahhujanratarata" name="cb_datacurahhujanrataratas" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
+                    <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="cb_datacurahhujanmaksimums" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
+                    <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="cb_datacurahhujanbulanans" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
+                    <label><input type="checkbox" id="cb_datasuhuudararatarata" name="cb_datasuhuudararataratas" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
                 </div>
                 <div class="spacer-10"></div>
             </div>
 
             <div class="col-sm-4">
                 <div class="stacked-labels">
-                    <label><input type="checkbox" id="cb_datasuhuudaramaksimum" name="tags" onclick="toggle_datasuhuudaramaksimum()"><span></span>Data suhu udara maksimum</label>
-                    <label><input type="checkbox" id="cb_datasuhuudaraminimum" name="tags" onclick="toggle_datasuhuudaraminimum()"><span></span>Data suhu udara minimum</label>
-                    <label><input type="checkbox" id="cb_datakelembapanudararatarata" name="tags" onclick="toggle_datakelembapanudararatarata()"><span></span>Data kelembapan udara rata-rata</label>
-                    <label><input type="checkbox" id="cb_datakelembapanudaramaksimum" name="tags" onclick="toggle_datakelembapanudaramaksimum()"><span></span>Data kelembapan udara maksimum</label>
-                    <label><input type="checkbox" id="cb_datakelembapanudaraminimum" name="tags" onclick="toggle_datakelembapanudaraminimum()"><span></span>Data kelembapan udara minimum</label>
-                    <label><input type="checkbox" id="cb_datakecepatandanarahangin" name="tags" onclick="toggle_datakecepatandanarahangin()"><span></span>Data kecepatan dan arah angin</label>
+                    <label><input type="checkbox" id="cb_datasuhuudaramaksimum" name="cb_datasuhuudaramaksimums" onclick="toggle_datasuhuudaramaksimum()"><span></span>Data suhu udara maksimum</label>
+                    <label><input type="checkbox" id="cb_datasuhuudaraminimum" name="cb_datasuhuudaraminimums" onclick="toggle_datasuhuudaraminimum()"><span></span>Data suhu udara minimum</label>
+                    <label><input type="checkbox" id="cb_datakelembapanudararatarata" name="cb_datakelembapanudararataratas" onclick="toggle_datakelembapanudararatarata()"><span></span>Data kelembapan udara rata-rata</label>
+                    <label><input type="checkbox" id="cb_datakelembapanudaramaksimum" name="cb_datakelembapanudaramaksimums" onclick="toggle_datakelembapanudaramaksimum()"><span></span>Data kelembapan udara maksimum</label>
+                    <label><input type="checkbox" id="cb_datakelembapanudaraminimum" name="cb_datakelembapanudaraminimums" onclick="toggle_datakelembapanudaraminimum()"><span></span>Data kelembapan udara minimum</label>
+                    <label><input type="checkbox" id="cb_datakecepatandanarahangin" name="cb_datakecepatandanarahangins" onclick="toggle_datakecepatandanarahangin()"><span></span>Data kecepatan dan arah angin</label>
                 </div>
                 <div class="spacer-10"></div>
             </div>
 
             <div class="col-sm-4">
                 <div class="stacked-labels">
-                    <label><input type="checkbox" id="cb_datakecepatananginmaksimum" name="tags" onclick="toggle_datakecepatananginmaksimum()"><span></span>Data kecepatan angin maksimum</label>
-                    <label><input type="checkbox" id="cb_datalamapenyinaranmatahari" name="tags" onclick="toggle_datalamapenyinaranmatahari()"><span></span>Data lama penyinaran matahari</label>
-                    <label><input type="checkbox" id="cb_dataprakiraanmusim" name="tags" onclick="toggle_dataprakiraanmusim()"><span></span>Data prakiraan musim</label>
-                    <label><input type="checkbox" id="cb_dataklasifikasiiklim" name="tags" onclick="toggle_dataklasifikasiiklim()"><span></span>Data klasifikasi iklim</label>
-                    <label><input type="checkbox" id="cb_dataradiasimatahari" name="tags" onclick="toggle_dataradiasimatahari()"><span></span>Data radiasi matahari</label>
-                    <label><input type="checkbox" id="cb_unsurcuacalainnya" name="tags" onclick="toggle_unsurcuacalainnya()"><span></span>Unsur cuaca lainnya</label>
+                    <label><input type="checkbox" id="cb_datakecepatananginmaksimum" name="cb_datakecepatananginmaksimums" onclick="toggle_datakecepatananginmaksimum()"><span></span>Data kecepatan angin maksimum</label>
+                    <label><input type="checkbox" id="cb_datalamapenyinaranmatahari" name="cb_datalamapenyinaranmataharis" onclick="toggle_datalamapenyinaranmatahari()"><span></span>Data lama penyinaran matahari</label>
+                    <label><input type="checkbox" id="cb_dataprakiraanmusim" name="cb_dataprakiraanmusims" onclick="toggle_dataprakiraanmusim()"><span></span>Data prakiraan musim</label>
+                    <label><input type="checkbox" id="cb_dataklasifikasiiklim" name="cb_dataklasifikasiiklims" onclick="toggle_dataklasifikasiiklim()"><span></span>Data klasifikasi iklim</label>
+                    <label><input type="checkbox" id="cb_dataradiasimatahari" name="cb_dataradiasimataharis" onclick="toggle_dataradiasimatahari()"><span></span>Data radiasi matahari</label>
+                    <label><input type="checkbox" id="cb_unsurcuacalainnya" name="cb_unsurcuacalainnyas" onclick="toggle_unsurcuacalainnya()"><span></span>Unsur cuaca lainnya</label>
                 </div>
             </div>
         </div>
@@ -170,39 +170,35 @@
                 <h4 class="bold">Syarat permohonan data</h4>
             </div>
         </div>
-        <div class="spacer-10"></div>
-        <div class="col-sm-12">
+            <div class="spacer-10"></div>
             <div class="row">
                 <div class="col-sm-6">
-                    <label>Surat perjanjian kerjasama dengan BMKG tentang kebutuhan
-                        informasi MKKuG</label>
+                    <label>perjanjian kerjasama dengan BMKG tentang kebutuhan informasi MKKuG</label>
                 </div>
                 <div class="col-sm-6">
-                    <input type="file" accept="application/pdf" name="surat_perjanjian">
+                    <input required type="file" accept="application/pdf" name="surat_kerjasama">
                     <div class="helper-text-box">
-                        <div class="form-helper-header">
-                            Format file:<code>.pdf</code>
-                        </div>
+                            <div class="form-helper-header">Format
+                                file:<code>.pdf</code>
+                            </div>
                     </div>
                 </div>
             </div>
     
             <div class="spacer-10"></div>
-    
             <div class="row">
                 <div class="col-sm-6">
                     <label>Surat pengantar</label>
                 </div>
                 <div class="col-sm-6">
-                    <input type="file" accept="application/pdf" name="surat_pengantar">
+                    <input required type="file" accept="application/pdf" name="surat_pengantar">
                     <div class="helper-text-box">
-                        <div class="form-helper-header">
-                            Format file:<code>.pdf</code>
-                        </div>
+                            <div class="form-helper-header">Format
+                                file:<code>.pdf</code>
+                            </div>
                     </div>
                 </div>
             </div>
-    
         </div>
         {{-- End syarat permohonan data --}}
         <div class="spacer-40"></div>
@@ -242,72 +238,4 @@
     
     <div class="spacer-40"></div>
 </form>
-@endsection
-
-
-@section('datadiri')
-    <div class="row">
-        <div class="col-sm-3">
-            <h4 class="bold">Data diri</h4>
-        </div>
-    </div>
-    <div class="spacer-10"></div>
-    <div class="row">
-        <div class="col-sm-3">
-            <label>Nama</label>
-        </div>
-        <div class="col-sm-9">
-            <input type="text" aria-required="true" name="instansi" required="" class="form-control">
-        </div>
-    </div>
-    <div class="spacer-10"></div>
-    <div class="row">
-        <div class="col-sm-3">
-            <label>Nomor telepon</label>
-        </div>
-        <div class="col-sm-9">
-            <input type="telepon" name="telepon" class="form-control">
-        </div>
-    </div>
-    <div class="spacer-10"></div>
-    <div class="row">
-        <div class="col-sm-3">
-            <label>Email</label>
-        </div>
-        <div class="col-sm-9">
-            <input type="email" name="email" class="form-control">
-        </div>
-    </div>
-@endsection
-
-@section('syarat')
-    <div class="row">
-        <div class="col-sm-12">
-            <h4 class="bold">Syarat permohonan data</h4>
-        </div>
-    </div>
-    <div class="spacer-10"></div>
-    <div class="col-sm-12">
-        <div class="row">
-            <div class="col-sm-6">
-                <label>Surat perjanjian kerjasama dengan BMKG tentang kebutuhan
-                    informasi MKKuG</label>
-            </div>
-            <div class="col-sm-6">
-                <input type="file">
-            </div>
-        </div>
-
-        <div class="spacer-10"></div>
-
-        <div class="row">
-            <div class="col-sm-6">
-                <label>Surat pengantar</label>
-            </div>
-            <div class="col-sm-6">
-                <input type="file">
-            </div>
-        </div>
-
-    </div>
 @endsection

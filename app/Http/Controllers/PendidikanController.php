@@ -56,7 +56,7 @@ class PendidikanController extends Controller
 
 
         $formulir = new Formulir();
-        $formulir->jenis_permintaan = "Kegiatan pendidikan dan penelitian";
+        $formulir->jenis_permintaan = "Kegiatan pendidikan/penelitian non komersil";
         $formulir->status_form = "1";
         $formulir->nama_kegiatan = $data['nama'];
         $formulir->telepon = $data['telepon'];
@@ -679,7 +679,7 @@ class PendidikanController extends Controller
                 ]);
             }
         }
-        return redirect('dashboarduser')->with('status', 'Data Berhasil Di update');
+        return redirect('dashboard')->with('status', 'Data Berhasil Di update');
         
     }
 

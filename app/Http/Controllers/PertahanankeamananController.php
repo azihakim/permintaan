@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Pertahanankeamanan;
 use Illuminate\Http\Request;
-use App\Models\Layananbertarif;
+use Illuminate\Support\Facades\DB;
 use App\Models\Formulir;
 use App\Models\Datapermintaan;
-use Illuminate\Contracts\Validation\Rule;
-use Illuminate\Support\Facades\DB;
-use Symfony\Component\Console\Input\Input;
 
-class LayananbertarifController extends Controller
+class PertahanankeamananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,8 @@ class LayananbertarifController extends Controller
      */
     public function index()
     {
-        return view('formulir.createLayananBertarif', compact('bertarif'));
+        //
+        return view('formulir.createPertahanankeamanan', compact('pertahanankeamanan'));
     }
 
     /**
@@ -39,338 +39,362 @@ class LayananbertarifController extends Controller
      */
     public function store(Request $request)
     {
+        //  
             $data = $request->all();
             // dd($data);
 
+            // $file = $request->validate('surat_perintah => max:50000');
+
             // data diri
-            $ext = $request->surat_pengantar->getClientOriginalExtension();
-            $file = "surat_pengantar-".time().".".$ext;
-            $request->surat_pengantar->storeAs('public/dokumen', $file);
-            $layananbertarif = new Formulir();
-            $layananbertarif->jenis_permintaan = "Layanan bertarif";
-            $layananbertarif->status_form = "1";
-            $layananbertarif->nama_kegiatan = $data['nama'];
-            $layananbertarif->telepon = $data['telepon'];
-            $layananbertarif->email = $data['email'];
-            $layananbertarif->surat_pengantar = $file;
-            $layananbertarif->deskripsi = $data['deskripsi'];
-            $layananbertarif->save();
-            
-            // data petir
-            if($request->exists("cb_datapetirs")){
-                $petir = count($request->lokasi_petir);
-                    for($i = 0; $i < $petir ; $i++){
+            $ext = $request->surat_perintah->getClientOriginalExtension();
+            $file = "surat_perintah-".time().".".$ext;
+            $request->surat_perintah->storeAs('public/dokumen', $file);
+            $formulir = new Formulir();
+            $formulir->jenis_permintaan = "Kegiatan pertahanan dan keamanan";
+            $formulir->status_form = "1";
+            $formulir->nama_kegiatan= $data['nama_kegiatan'];
+            $formulir->telepon = $data['telepon'];
+            $formulir->email = $data['email'];
+            $formulir->surat_perintah = $file;
+            $formulir->deskripsi = $data['deskripsi'];
+            $formulir->save();
+
+        // data petir
+        if($request->exists("cb_datapetirs")){
+                foreach($data['lokasi_petir'] as $key=>$value){
+                        if($value != null ){
+                            $save_data=[
+                                'formulir_id'   => $formulir->id,
+                                'jenis_data'    => "datapetir",
+                                'lokasi'        => $value,
+                                'latitude'      => $data['latitude_petir'][$key],
+                                'longitude'     => $data['longitude_petir'][$key],
+                                'tgl_dari'      => $data['tgl_dari_petir'][$key],
+                                'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
+                            ];
+                            DB::table('datapermintaans')->insert($save_data); 
+                        }
+                }
+        }
+
+        // data hari hujan
+        if ($request->exists("cb_dataharihujans")){
+                foreach($data['lokasi_harihujan'] as $key=>$value){
+                    if($value != null){
                         Datapermintaan::create([
-                                'formulir_id'   => $layananbertarif->id,
-                                'jenis_data'    => 'datapetir',
-                                'lokasi'        => $request->lokasi_petir[$i],
-                                'latitude'      => $request->latitude_petir[$i],
-                                'longitude'     => $request->longitude_petir[$i],
-                                'tgl_dari'      => $request->tgl_dari_petir[$i],
-                                'tgl_sampai'    => $request->tgl_sampai_petir[$i]
-                        ]);
-                    }
-            }
-            
-            // data hari hujan
-            if ($request->exists("cb_dataharihujans")){
-                    $harihujan= count($request->lokasi_harihujan);
-                    for($i = 0; $i < $harihujan ; $i++){
-                        Datapermintaan::create([
-                        'formulir_id'   => $layananbertarif->id,
+                        'formulir_id'   => $formulir->id,
                         'jenis_data'    => "dataharihujan",
-                        'lokasi'        => $request->lokasi_harihujan[$i],
-                        'tgl_dari'      => $request->tgl_dari_harihujan[$i],
-                        'tgl_sampai'    => $request->tgl_sampai_harihujan[$i]
+                        'lokasi'        => $request->lokasi_harihujan[$key],
+                        'tgl_dari'      => $request->tgl_dari_harihujan[$key],
+                        'tgl_sampai'    => $request->tgl_sampai_harihujan[$key]
                         ]);
                     }
-            }
+                }
+        }
 
-            // data curah hujan rata-rata
-            if ($request->exists("cb_datacurahhujanrataratas")){
-                $curahhujanratarata= count($request->lokasi_curahhujanratarata);
-                for($i = 0; $i < $curahhujanratarata ; $i++){
+        // data curah hujan rata-rata
+        if ($request->exists("cb_datacurahhujanrataratas")){
+            foreach($data['lokasi_curahhujanratarata'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datacurahhujanratarata",
-                    'lokasi'        => $request->lokasi_curahhujanratarata[$i],
-                    'tgl_dari'      => $request->tgl_dari_curahhujanratarata[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_curahhujanratarata[$i]
+                    'lokasi'        => $request->lokasi_curahhujanratarata[$key],
+                    'tgl_dari'      => $request->tgl_dari_curahhujanratarata[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_curahhujanratarata[$key]
                     ]);
                 }
             }
+        }
 
-            // data curah hujan maksimum
-            if ($request->exists("cb_datacurahhujanmaksimums")){
-                $curahhujanmaksimum= count($request->lokasi_curahhujanmaksimum);
-                for($i = 0; $i < $curahhujanmaksimum ; $i++){
+        // data curah hujan maksimum
+        if ($request->exists("cb_datacurahhujanmaksimums")){
+            foreach($data['lokasi_curahhujanmaksimum'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datacurahhujanmaksimum",
-                    'lokasi'        => $request->lokasi_curahhujanmaksimum[$i],
-                    'tgl_dari'      => $request->tgl_dari_curahhujanmaksimum[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_curahhujanmaksimum[$i]
+                    'lokasi'        => $request->lokasi_curahhujanmaksimum[$key],
+                    'tgl_dari'      => $request->tgl_dari_curahhujanmaksimum[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_curahhujanmaksimum[$key]
                     ]);
                 }
             }
+        }
 
-            // data curah hujan bulanan
-            if ($request->exists("cb_datacurahhujanbulanans")){
-                $curahhujanbulanan= count($request->lokasi_curahhujanbulanan);
-                for($i = 0; $i < $curahhujanbulanan ; $i++){
+        // data curah hujan bulanan
+        if ($request->exists("cb_datacurahhujanbulanans")){
+            foreach($data['lokasi_curahhujanbulanan'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datacurahhujanbulanan",
-                    'lokasi'        => $request->lokasi_curahhujanbulanan[$i],
-                    'tgl_dari'      => $request->tgl_dari_curahhujanbulanan[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_curahhujanbulanan[$i]
+                    'lokasi'        => $request->lokasi_curahhujanbulanan[$key],
+                    'tgl_dari'      => $request->tgl_dari_curahhujanbulanan[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_curahhujanbulanan[$key]
                     ]);
                 }
             }
+        }
 
-            // data suhu udara rata-rata
-            if ($request->exists("cb_datasuhuudararataratas")){
-                $suhuudararatarata= count($request->lokasi_suhuudararatarata);
-                for($i = 0; $i < $suhuudararatarata ; $i++){
+        // data suhu udara rata-rata
+        if ($request->exists("cb_datasuhuudararataratas")){
+            foreach($data['lokasi_suhuudararatarata'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datasuhuudararatarata",
-                    'lokasi'        => $request->lokasi_suhuudararatarata[$i],
-                    'tgl_dari'      => $request->tgl_dari_suhuudararatarata[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_suhuudararatarata[$i]
+                    'lokasi'        => $request->lokasi_suhuudararatarata[$key],
+                    'tgl_dari'      => $request->tgl_dari_suhuudararatarata[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_suhuudararatarata[$key]
                     ]);
                 }
             }
+        }
 
-            // data suhu udara maksimum
-            if ($request->exists("cb_datasuhuudaramaksimums")){
-                $suhuudaramaksimum= count($request->lokasi_suhuudaramaksimum);
-                for($i = 0; $i < $suhuudaramaksimum ; $i++){
+        // data suhu udara maksimum
+        if ($request->exists("cb_datasuhuudaramaksimums")){
+                foreach($data['lokasi_suhuudaramaksimum'] as $key=>$value){
+                    if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datasuhuudaramaksimum",
-                    'lokasi'        => $request->lokasi_suhuudaramaksimum[$i],
-                    'tgl_dari'      => $request->tgl_dari_suhuudaramaksimum[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_suhuudaramaksimum[$i]
+                    'lokasi'        => $request->lokasi_suhuudaramaksimum[$key],
+                    'tgl_dari'      => $request->tgl_dari_suhuudaramaksimum[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_suhuudaramaksimum[$key]
                     ]);
                 }
             }
+        }
 
-            // data suhu udara minimum
-            if ($request->exists("cb_datasuhuudaraminimums")){
-                $suhuudaraminimum= count($request->lokasi_suhuudaraminimum);
-                for($i = 0; $i < $suhuudaraminimum ; $i++){
+        // data suhu udara minimum
+        if ($request->exists("cb_datasuhuudaraminimums")){
+                foreach($data['lokasi_suhuudaraminimum'] as $key=>$value){
+                    if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datasuhuudaraminimum",
-                    'lokasi'        => $request->lokasi_suhuudaraminimum[$i],
-                    'tgl_dari'      => $request->tgl_dari_suhuudaraminimum[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_suhuudaraminimum[$i]
+                    'lokasi'        => $request->lokasi_suhuudaraminimum[$key],
+                    'tgl_dari'      => $request->tgl_dari_suhuudaraminimum[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_suhuudaraminimum[$key]
                     ]);
                 }
             }
+        }
 
-            // data kelembapan udara rata-rata
-            if ($request->exists("cb_datakelembapanudararataratas")){
-                $kelembapanudararatarata= count($request->lokasi_kelembapanudararatarata);
-                for($i = 0; $i < $kelembapanudararatarata ; $i++){
+        // data kelembapan udara rata-rata
+        if ($request->exists("cb_datakelembapanudararataratas")){
+            foreach($data['lokasi_kelembapanudararatarata'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datakelembapanudararatarata",
-                    'lokasi'        => $request->lokasi_kelembapanudararatarata[$i],
-                    'tgl_dari'      => $request->tgl_dari_kelembapanudararatarata[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_kelembapanudararatarata[$i]
+                    'lokasi'        => $request->lokasi_kelembapanudararatarata[$key],
+                    'tgl_dari'      => $request->tgl_dari_kelembapanudararatarata[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_kelembapanudararatarata[$key]
                     ]);
                 }
             }
+        }
 
-            // data kelembapan udara maksimum
-            if ($request->exists("cb_datakelembapanudaramaksimums")){
-                $kelembapanudaramaksimum= count($request->lokasi_kelembapanudaramaksimum);
-                for($i = 0; $i < $kelembapanudaramaksimum ; $i++){
+        // data kelembapan udara maksimum
+        if ($request->exists("cb_datakelembapanudaramaksimums")){
+            foreach($data['lokasi_kelembapanudaramaksimum'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datakelembapanudaramaksimum",
-                    'lokasi'        => $request->lokasi_kelembapanudaramaksimum[$i],
-                    'tgl_dari'      => $request->tgl_dari_kelembapanudaramaksimum[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_kelembapanudaramaksimum[$i]
+                    'lokasi'        => $request->lokasi_kelembapanudaramaksimum[$key],
+                    'tgl_dari'      => $request->tgl_dari_kelembapanudaramaksimum[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_kelembapanudaramaksimum[$key]
                     ]);
                 }
             }
+        }
 
-            // data kelembapan udara minimum
-            if ($request->exists("cb_datakelembapanudaraminimums")){
-                $kelembapanudaraminimum= count($request->lokasi_kelembapanudaraminimum);
-                for($i = 0; $i < $kelembapanudaraminimum ; $i++){
+        // data kelembapan udara minimum
+        if ($request->exists("cb_datakelembapanudaraminimums")){
+            foreach($data['lokasi_kelembapanudaraminimum'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datakelembapanudaraminimum",
-                    'lokasi'        => $request->lokasi_kelembapanudaraminimum[$i],
-                    'tgl_dari'      => $request->tgl_dari_kelembapanudaraminimum[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_kelembapanudaraminimum[$i]
+                    'lokasi'        => $request->lokasi_kelembapanudaraminimum[$key],
+                    'tgl_dari'      => $request->tgl_dari_kelembapanudaraminimum[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_kelembapanudaraminimum[$key]
                     ]);
                 }
             }
+        }
 
-            // data kecepatan dan arah angin
-            if ($request->exists("cb_datakecepatandanarahangins")){
-                $kecepatandanarahangin= count($request->lokasi_kecepatandanarahangin);
-                for($i = 0; $i < $kecepatandanarahangin ; $i++){
-                    Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
-                    'jenis_data'    => "datakecepatandanarahangin",
-                    'lokasi'        => $request->lokasi_kecepatandanarahangin[$i],
-                    'tgl_dari'      => $request->tgl_dari_kecepatandanarahangin[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_kecepatandanarahangin[$i]
-                    ]);
+        // data kecepatan dan arah angin
+        if ($request->exists("cb_datakecepatandanarahangins")){
+            foreach($data['lokasi_kecepatandanarahangin'] as $key=>$value){
+                if($value != null){
+                Datapermintaan::create([
+                'formulir_id'   => $formulir->id,
+                'jenis_data'    => "datakecepatandanarahangin",
+                'lokasi'        => $request->lokasi_kecepatandanarahangin[$key],
+                'tgl_dari'      => $request->tgl_dari_kecepatandanarahangin[$key],
+                'tgl_sampai'    => $request->tgl_sampai_kecepatandanarahangin[$key]
+                ]);
                 }
             }
+        }
 
-            // data kecepatan angin maksimum
-            if ($request->exists("cb_datakecepatananginmaksimums")){
-                $kecepatananginmaksimum= count($request->lokasi_kecepatananginmaksimum);
-                for($i = 0; $i < $kecepatananginmaksimum ; $i++){
+        // data kecepatan angin maksimum
+        if ($request->exists("cb_datakecepatananginmaksimums")){
+            foreach($data['lokasi_kecepatananginmaksimum'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datakecepatananginmaksimum",
-                    'lokasi'        => $request->lokasi_kecepatananginmaksimum[$i],
-                    'tgl_dari'      => $request->tgl_dari_kecepatananginmaksimum[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_kecepatananginmaksimum[$i]
+                    'lokasi'        => $request->lokasi_kecepatananginmaksimum[$key],
+                    'tgl_dari'      => $request->tgl_dari_kecepatananginmaksimum[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_kecepatananginmaksimum[$key]
                     ]);
                 }
             }
+        }
 
-            // data lama penyinaran matahari
-            if ($request->exists("cb_datalamapenyinaranmataharis")){
-                $lamapenyinaranmatahari= count($request->lokasi_lamapenyinaranmatahari);
-                for($i = 0; $i < $lamapenyinaranmatahari ; $i++){
+        // data lama penyinaran matahari
+        if ($request->exists("cb_datalamapenyinaranmataharis")){
+            foreach($data['lokasi_lamapenyinaranmatahari'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datalamapenyinaranmatahari",
-                    'lokasi'        => $request->lokasi_lamapenyinaranmatahari[$i],
-                    'tgl_dari'      => $request->tgl_dari_lamapenyinaranmatahari[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_lamapenyinaranmatahari[$i]
+                    'lokasi'        => $request->lokasi_lamapenyinaranmatahari[$key],
+                    'tgl_dari'      => $request->tgl_dari_lamapenyinaranmatahari[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_lamapenyinaranmatahari[$key]
                     ]);
                 }
             }
+        }
 
-            // data prakiraan musim
-            if ($request->exists("cb_dataprakiraanmusims")){
-                $prakiraanmusim= count($request->lokasi_prakiraanmusim);
-                for($i = 0; $i < $prakiraanmusim ; $i++){
+        // data prakiraan musim
+        if ($request->exists("cb_dataprakiraanmusims")){
+            foreach($data['lokasi_prakiraanmusim'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "dataprakiraanmusim",
-                    'lokasi'        => $request->lokasi_prakiraanmusim[$i],
-                    'tgl_dari'      => $request->tgl_dari_prakiraanmusim[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_prakiraanmusim[$i]
+                    'lokasi'        => $request->lokasi_prakiraanmusim[$key],
+                    'tgl_dari'      => $request->tgl_dari_prakiraanmusim[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_prakiraanmusim[$key]
                     ]);
                 }
             }
+        }
 
-            // data klasifikasi iklim
-            if ($request->exists("cb_dataklasifikasiiklims")){
-                $klasifikasiiklim= count($request->lokasi_klasifikasiiklim);
-                for($i = 0; $i < $klasifikasiiklim ; $i++){
+        // data klasifikasi iklim
+        if ($request->exists("cb_dataklasifikasiiklims")){
+            foreach($data['lokasi_klasifikasiiklim'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "dataklasifikasiiklim",
-                    'lokasi'        => $request->lokasi_klasifikasiiklim[$i],
-                    'tgl_dari'      => $request->tgl_dari_klasifikasiiklim[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_klasifikasiiklim[$i]
+                    'lokasi'        => $request->lokasi_klasifikasiiklim[$key],
+                    'tgl_dari'      => $request->tgl_dari_klasifikasiiklim[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_klasifikasiiklim[$key]
                     ]);
                 }
             }
+        }
 
-            // data radiasi matahari
-            if ($request->exists("cb_dataradiasimataharis")){
-                $radiasimatahari= count($request->lokasi_radiasimatahari);
-                for($i = 0; $i < $radiasimatahari ; $i++){
+        // data radiasi matahari
+        if ($request->exists("cb_dataradiasimataharis")){
+            foreach($data['lokasi_radiasimatahari'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $layananbertarif->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "dataradiasimatahari",
-                    'lokasi'        => $request->lokasi_radiasimatahari[$i],
-                    'tgl_dari'      => $request->tgl_dari_radiasimatahari[$i],
-                    'tgl_sampai'    => $request->tgl_sampai_radiasimatahari[$i]
+                    'lokasi'        => $request->lokasi_radiasimatahari[$key],
+                    'tgl_dari'      => $request->tgl_dari_radiasimatahari[$key],
+                    'tgl_sampai'    => $request->tgl_sampai_radiasimatahari[$key]
                     ]);
                 }
             }
+        }
 
-            // unsur cuaca lainnya
-            if ($request->exists("cb_unsurcuacalainnyas")){
-                $unsurcuacalainnya= count($request->lokasi_unsurcuacalainnya);
-                for($i = 0; $i < $unsurcuacalainnya ; $i++){
+        // unsur cuaca lainnya
+        if ($request->exists("cb_unsurcuacalainnyas")){
+            foreach($data['lokasi_unsurcuacalainnya'] as $key=>$value){
+                if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'          => $layananbertarif->id,
+                    'formulir_id'          => $formulir->id,
                     'jenis_data'           => "unsurcuacalainnya",
                     'unsurcuacalain'       => $request->deskripsi_unsurcuacalainnya,
-                    'lokasi'               => $request->lokasi_unsurcuacalainnya[$i],
-                    'tgl_dari'             => $request->tgl_dari_unsurcuacalainnya[$i],
-                    'tgl_sampai'           => $request->tgl_sampai_unsurcuacalainnya[$i]
+                    'lokasi'               => $request->lokasi_unsurcuacalainnya[$key],
+                    'tgl_dari'             => $request->tgl_dari_unsurcuacalainnya[$key],
+                    'tgl_sampai'           => $request->tgl_sampai_unsurcuacalainnya[$key]
                     ]);
                 }
             }
+        }
 
-            
-             return redirect('dashboard')->with('status', 'Data berhasil di simpan');
+        return redirect('dashboard')->with('status', 'Data berhasil di kirim');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Layananbertarif  $layananbertarif
+     * @param  \App\Models\Pertahanankeamanan  $pertahanankeamanan
      * @return \Illuminate\Http\Response
      */
-    public function show(Layananbertarif $layananbertarif, $id)
+    public function show($id)
     {
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.showLayananBertarif', compact('formulir', 'datapermintaan'));
+        return view('formulir.showPertahanankeamanan', compact('formulir', 'datapermintaan'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Layananbertarif  $layananbertarif
+     * @param  \App\Models\Pertahanankeamanan  $pertahanankeamanan
      * @return \Illuminate\Http\Response
      */
     public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
+        //
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.editLayananBertarif', compact('formulir', 'datapermintaan'));
+        return view('formulir.editPertahanankeamanan', compact('formulir', 'datapermintaan'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Layananbertarif  $layananbertarif
+     * @param  \App\Models\Pertahanankeamanan  $pertahanankeamanan
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id, Formulir $formulir)
     {   
         $formulir = Formulir::find($id);
         $formulir ->deskripsi = $request->input('deskripsi');
-        $file_name = $formulir->surat_pengantar;
+        $formulir ->nama_kegiatan = $request->input('nama_kegiatan');
+        $file_name = $formulir->surat_perintah;
         $file_path = public_path('storage/dokumen/' . $file_name);
 
-        if ($request->hasFile('surat_pengantar')){
+        if ($request->hasFile('surat_perintah')){
             unlink($file_path);
 
-            $f = $request->file('surat_pengantar');
+            $f = $request->file('surat_perintah');
             $file_ext = $f->getClientOriginalExtension();
-            $file_name = "surat_pengantar-".time(). "." . $file_ext;
+            $file_name = "surat_perintah-".time(). "." . $file_ext;
             $file_path = public_path('storage/dokumen');
             $f->move($file_path, $file_name);
-            $formulir->surat_pengantar = $file_name;
+            $formulir->surat_perintah = $file_name;
         } else{
-            $formulir->surat_pengantar =$request->old_file;
+            $formulir->surat_perintah =$request->old_file;
         }
-        // $data = $request->all();
-        // dd($data);  
+
         $formulir->save();
-        
+        // $data = $request->all();
+        // dd($data);
+
         // data petir
         $cek_datapetir = $request->lokasi_datapetir;
         if (isset($cek_datapetir)){
@@ -607,18 +631,16 @@ class LayananbertarifController extends Controller
                 ]);
             }
         }
-
-
         return redirect('dashboard')->with('status', 'Data Berhasil Di update');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Layananbertarif  $layananbertarif
+     * @param  \App\Models\Pertahanankeamanan  $pertahanankeamanan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Layananbertarif $layananbertarif, $id)
+    public function destroy($id)
     {
         Formulir::find($id)->delete();
         Datapermintaan::where("formulir_id", $id)->delete();

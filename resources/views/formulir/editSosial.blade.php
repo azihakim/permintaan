@@ -11,12 +11,12 @@
                         <h2>Formulir Permintaan</h2>
                             <div class="spacer-5"></div>
                         <h3>
-                            <span class="text-muted">Kegiatan Pendidikan dan Penelitian non Komersial</span>
+                            <span class="text-muted">Kegiatan Sosial</span>
                         </h3>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <form action="{{ url('pendidikan/' . $formulir->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ url('sosial/' . $formulir->id) }}" method="POST" enctype="multipart/form-data">
                                 @method('PATCH')
                                 @csrf
                                 <div class="spacer-10"></div>
@@ -210,122 +210,37 @@
                                             </div>
                                         </div>
                                         <div class="spacer-10"></div>
-                                        {{-- Surat proposal --}}
-                                        <div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Surat proposal</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="file-bar">
-                                                            <a href="{{ asset('storage/dokumen/' . $formulir->surat_proposal) }}" target="_blank">
-                                                                <div class="file-bar-icon">
-                                                                    <i class="fa fa-download"></i>
-                                                                </div>
-                                                                <div class="file-bar-info">
-                                                                    <h5>Unduh file</h5>
-                                                                    <span class="label label-default">.pdf</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label>Surat permintaan</label>
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Upload surat proposal baru</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="hidden" name="old_proposal" value="{{ $formulir->surat_proposal }}">
-                                                        <input type="file" accept="application/pdf" name="surat_proposal">
-                                                        <div class="helper-text-box">
-                                                            <div class="form-helper-header">Format
-                                                                file:<code>.pdf</code>
+                                                <div class="col-sm-6">
+                                                    <div class="file-bar">
+                                                        <a href="{{ asset('storage/dokumen/' . $formulir->surat_permintaan) }}" target="_blank">
+                                                            <div class="file-bar-icon">
+                                                                <i class="fa fa-download"></i>
                                                             </div>
-                                                        </div>
+                                                            <div class="file-bar-info">
+                                                                <h5>Unduh file</h5>
+                                                                <span class="label label-default">.pdf</span>
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="spacer-10"></div>
-                                        {{-- Surat pengantar --}}
-                                        <div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Surat pengantar</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="file-bar">
-                                                            <a href="{{ asset('storage/dokumen/' . $formulir->surat_pengantar) }}" target="_blank">
-                                                                <div class="file-bar-icon">
-                                                                    <i class="fa fa-download"></i>
-                                                                </div>
-                                                                <div class="file-bar-info">
-                                                                    <h5>Unduh file</h5>
-                                                                    <span class="label label-default">.pdf</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <label>Upload surat permintaan baru</label>
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Upload surat pengantar baru</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="hidden" name="old_pengantar" value="{{ $formulir->surat_pengantar }}">
-                                                        <input type="file" accept="application/pdf" name="surat_pengantar">
-                                                        <div class="helper-text-box">
-                                                            <div class="form-helper-header">Format
-                                                                file:<code>.pdf</code>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="spacer-10"></div>
-                                        {{-- Surat pernyataan --}}
-                                        <div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Surat pernyataan</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="file-bar">
-                                                            <a href="{{ asset('storage/dokumen/' . $formulir->surat_pernyataan) }}" target="_blank">
-                                                                <div class="file-bar-icon">
-                                                                    <i class="fa fa-download"></i>
-                                                                </div>
-                                                                <div class="file-bar-info">
-                                                                    <h5>Unduh file</h5>
-                                                                    <span class="label label-default">.pdf</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <label>Upload surat pernyataan baru</label>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <input type="hidden" name="old_pernyataan" value="{{ $formulir->surat_pernyataan }}">
-                                                        <input type="file" accept="application/pdf" name="surat_pernyataan">
-                                                        <div class="helper-text-box">
-                                                            <div class="form-helper-header">Format
-                                                                file:<code>.pdf</code>
-                                                            </div>
+                                                <div class="col-sm-6">
+                                                    <input type="hidden" name="old_file" value="{{ $formulir->surat_permintaan }}">
+                                                    <input type="file" accept="application/pdf" name="surat_permintaan">
+                                                    <div class="helper-text-box">
+                                                        <div class="form-helper-header">Format
+                                                            file:<code>.pdf</code>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -367,7 +282,7 @@
                                         </div>
                                     <div class="spacer-40"></div>
                                      </form>
-                        {{-- End data dan informasi yang dibutuhkan --}}
+                                    {{-- End data dan informasi yang dibutuhkan --}}
                         </div>
                     </div>
                 </div>

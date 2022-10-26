@@ -1,9 +1,9 @@
 @extends('layout.formulir')
-@section('form-title', 'Kegiatan Sosial')
+@section('form-title', 'Kegiatan Pertahanan dan Keamanan')
 
 
 @section('form')
-<form action="{{ route('sosial.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('pertahanankeamanan.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="spacer-10"></div>
         {{-- Start data diri --}}
@@ -20,7 +20,7 @@
     <div class="spacer-10"></div>
     <div class="row">
         <div class="col-sm-3">
-            <label>Nama kegiatan</label>
+            <label>Nama</label>
         </div>
         <div class="col-sm-9">
             <input type="text" aria-required="true" name="nama_kegiatan" required="" class="form-control">
@@ -174,10 +174,10 @@
         <div class="col-sm-12">
             <div class="row">
                 <div class="col-sm-6">
-                    <label>Surat permintaan ditanda tangani camat/pejabat setingkat</label>
+                    <label>Surat Perintah dari pimpinan Instansi yang membidangi pertahanan/keamanan</label>
                 </div>
                 <div class="col-sm-6">
-                    <input required type="file" accept="application/pdf" name="surat_permintaan">
+                    <input required type="file" accept="application/pdf" name="surat_perintah">
                     <div class="helper-text-box">
                         <div class="form-helper-header">
                             Format file:<code>.pdf</code>

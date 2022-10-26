@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\LayananbertarifController;
 use App\Http\Controllers\KeagamaanController;
+use App\Http\Controllers\SosialController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\DashboarduserController;
+use App\Http\Controllers\PertahanankeamananController;
+use App\Http\Controllers\PemerintahanController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ResponlayananbertarifController;
@@ -65,7 +68,7 @@ Route::get('kegiatan-pemerintahan', function () {
 });
 
 Route::get('kegiatan-pertahanan-keamanan', function () {
-    return view('formulir.createPertahanandanKeamanan');
+    return view('formulir.createPertahanankeamanan');
 });
 
 // Route::get('dashboard', function () {
@@ -103,3 +106,9 @@ Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashbo
 Route::resource('/respon-bertarif', ResponlayananbertarifController::class);
 
 Route::resource('/pendidikan', PendidikanController::class);
+
+Route::resource('/sosial', SosialController::class);
+
+Route::resource('/pertahanankeamanan', PertahanankeamananController::class);
+
+Route::resource('/pemerintahan', PemerintahanController::class);
