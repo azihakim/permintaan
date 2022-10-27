@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('radiasis', function (Blueprint $table) {
             $table->id();
-            $table->double('i')->nullable();
+            $table->double('i')->unsigned()->nullable();
             $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('psychrometer_sangkar_meteorologis', function (Blueprint $table) {
             $table->id();
-            $table->double('tbk1')->nullable();
-            $table->double('tbb1')->nullable();
-            $table->double('tbk2')->nullable();
-            $table->double('tbb2')->nullable();
-            $table->double('tbk3')->nullable();
-            $table->double('tbb3')->nullable();
-            $table->double('tbk4')->nullable();
-            $table->double('tbb4')->nullable();
+            $table->double('tbk1')->unsigned()->nullable();
+            $table->double('tbb1')->unsigned()->nullable();
+            $table->double('tbk2')->unsigned()->nullable();
+            $table->double('tbb2')->unsigned()->nullable();
+            $table->double('tbk3')->unsigned()->nullable();
+            $table->double('tbb3')->unsigned()->nullable();
+            $table->double('tbk4')->unsigned()->nullable();
+            $table->double('tbb4')->unsigned()->nullable();
             $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

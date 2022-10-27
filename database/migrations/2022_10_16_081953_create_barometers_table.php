@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('barometers', function (Blueprint $table) {
             $table->id();
-            $table->double('suhu')->nullable();
-            $table->double('barometer')->nullable();
-            $table->double('qfe')->nullable();
-            $table->double('qff')->nullable();
+            $table->double('suhu')->unsigned()->nullable();
+            $table->double('barometer')->unsigned()->nullable();
+            $table->double('qfe')->unsigned()->nullable();
+            $table->double('qff')->unsigned()->nullable();
             $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

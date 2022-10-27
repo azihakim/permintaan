@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('kondisi_cuaca_dan_tanahs', function (Blueprint $table) {
             $table->id();
-            $table->integer('kode_tanah')->nullable();
-            $table->integer('kode_cuaca')->nullable();
+            $table->integer('kode_tanah')->unsigned()->nullable();
+            $table->integer('kode_cuaca')->unsigned()->nullable();
             $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

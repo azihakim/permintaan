@@ -46,319 +46,319 @@ class AddPencatatanAgromet extends Component
 
     /* ---------- Form 1 ---------- */
     // Psychrometer Sangkar Meteorologi
-    public $tbk11 = null;
-    public $tbb11 = null;
-    public $tbk12 = null;
-    public $tbb12 = null;
-    public $tbk13 = null;
-    public $tbb13 = null;
-    public $tbk14 = null;
-    public $tbb14 = null;
+    public $tbk11 = 0;
+    public $tbb11 = 0;
+    public $tbk12 = 0;
+    public $tbb12 = 0;
+    public $tbk13 = 0;
+    public $tbb13 = 0;
+    public $tbk14 = 0;
+    public $tbb14 = 0;
     // Angin
-    public $cup_counter11 = null;
-    public $cup_counter12 = null;
-    public $arah11 = null;
-    public $kecepatan11 = null;
-    public $arah12 = null;
-    public $kecepatan12 = null;
-    public $arah13 = null;
-    public $kecepatan13 = null;
+    public $cup_counter11 = 0;
+    public $cup_counter12 = 0;
+    public $arah11 = 0;
+    public $kecepatan11 = 0;
+    public $arah12 = 0;
+    public $kecepatan12 = 0;
+    public $arah13 = 0;
+    public $kecepatan13 = 0;
     // Open Pan
-    public $h1 = null;
-    public $ev1 = null;
-    public $ch1 = null;
-    public $t1 = null;
-    public $max1 = null;
-    public $min1 = null;
+    public $h1 = 0;
+    public $ev1 = 0;
+    public $ch1 = 0;
+    public $t1 = 0;
+    public $max1 = 0;
+    public $min1 = 0;
     // Barometer
-    public $suhu1 = null;
-    public $barometer1 = null;
-    public $qfe1 = null;
-    public $qff1 = null;
+    public $suhu1 = 0;
+    public $barometer1 = 0;
+    public $qfe1 = 0;
+    public $qff1 = 0;
     // Kondisi Cuaca dan Tanah
-    public $kode_tanah1 = null;
-    public $kode_cuaca1 = null;
+    public $kode_tanah1 = 0;
+    public $kode_cuaca1 = 0;
     // Suhu Min Rumput
-    public $pembacaan1 = null;
-    public $reset1 = null;
+    public $pembacaan1 = 0;
+    public $reset1 = 0;
     // Radiasi
-    public $i1 = null;
+    public $i1 = 0;
     /* ---------- End Form 1 ---------- */
 
     /* ---------- Form 2 ---------- */
     // Psychrometer Sangkar Meteorologi
-    public $tbk21 = null;
-    public $tbb21 = null;
-    public $tbk22 = null;
-    public $tbb22 = null;
-    public $tbk23 = null;
-    public $tbb23 = null;
-    public $tbk24 = null;
-    public $tbb24 = null;
+    public $tbk21 = 0;
+    public $tbb21 = 0;
+    public $tbk22 = 0;
+    public $tbb22 = 0;
+    public $tbk23 = 0;
+    public $tbb23 = 0;
+    public $tbk24 = 0;
+    public $tbb24 = 0;
     // Angin
-    public $cup_counter21 = null;
-    public $cup_counter22 = null;
-    public $arah21 = null;
-    public $kecepatan21 = null;
-    public $arah22 = null;
-    public $kecepatan22 = null;
-    public $arah23 = null;
-    public $kecepatan23 = null;
+    public $cup_counter21 = 0;
+    public $cup_counter22 = 0;
+    public $arah21 = 0;
+    public $kecepatan21 = 0;
+    public $arah22 = 0;
+    public $kecepatan22 = 0;
+    public $arah23 = 0;
+    public $kecepatan23 = 0;
     // Open Pan
-    public $h2_openpan = null;
-    public $ev2_openpan = null;
-    public $ch2 = null;
-    public $t2 = null;
-    public $max2 = null;
-    public $min2 = null;
+    public $h2_openpan = 0;
+    public $ev2_openpan = 0;
+    public $ch2 = 0;
+    public $t2 = 0;
+    public $max2 = 0;
+    public $min2 = 0;
     // Psychrometer Assmann
-    public $bb21 = null;
-    public $bk21 = null;
-    public $bb22 = null;
-    public $bk22 = null;
-    public $bb23 = null;
-    public $bk23 = null;
-    public $bb24 = null;
-    public $bk24 = null;
-    public $bb25 = null;
-    public $bk25 = null;
-    public $bb26 = null;
-    public $bk26 = null;
-    public $bb27 = null;
-    public $bk27 = null;
+    public $bb21 = 0;
+    public $bk21 = 0;
+    public $bb22 = 0;
+    public $bk22 = 0;
+    public $bb23 = 0;
+    public $bk23 = 0;
+    public $bb24 = 0;
+    public $bk24 = 0;
+    public $bb25 = 0;
+    public $bk25 = 0;
+    public $bb26 = 0;
+    public $bk26 = 0;
+    public $bb27 = 0;
+    public $bk27 = 0;
     // Suhu Tanah
-    public $berumput21 = null;
-    public $gundul21 = null;
-    public $berumput22 = null;
-    public $gundul22 = null;
-    public $berumput23 = null;
-    public $gundul23 = null;
-    public $berumput24 = null;
-    public $gundul24 = null;
-    public $berumput25 = null;
-    public $gundul25 = null;
-    public $berumput26 = null;
-    public $gundul26 = null;
-    public $berumput27 = null;
-    public $gundul27 = null;
+    public $berumput21 = 0;
+    public $gundul21 = 0;
+    public $berumput22 = 0;
+    public $gundul22 = 0;
+    public $berumput23 = 0;
+    public $gundul23 = 0;
+    public $berumput24 = 0;
+    public $gundul24 = 0;
+    public $berumput25 = 0;
+    public $gundul25 = 0;
+    public $berumput26 = 0;
+    public $gundul26 = 0;
+    public $berumput27 = 0;
+    public $gundul27 = 0;
     // Piche Evaporimeter
-    public $h2_piche = null;
-    public $h22_piche = null;
-    public $ev2_piche = null;
+    public $h2_piche = 0;
+    public $h22_piche = 0;
+    public $ev2_piche = 0;
     /* ---------- End Form 2 ---------- */
 
         /* ---------- Form 3 ---------- */
     // Psychrometer Sangkar Meteorologi
-    public $tbk31 = null;
-    public $tbb31 = null;
-    public $tbk32 = null;
-    public $tbb32 = null;
-    public $tbk33 = null;
-    public $tbb33 = null;
-    public $tbk34 = null;
-    public $tbb34 = null;
-    public $ch3 = null;
+    public $tbk31 = 0;
+    public $tbb31 = 0;
+    public $tbk32 = 0;
+    public $tbb32 = 0;
+    public $tbk33 = 0;
+    public $tbb33 = 0;
+    public $tbk34 = 0;
+    public $tbb34 = 0;
+    public $ch3 = 0;
     /* ---------- End Form 3 ---------- */
 
     /* ---------- Form 4 ---------- */
     // Psychrometer Sangkar Meteorologi
-    public $tbk41 = null;
-    public $tbb41 = null;
-    public $tbk42 = null;
-    public $tbb42 = null;
-    public $tbk43 = null;
-    public $tbb43 = null;
-    public $tbk44 = null;
-    public $tbb44 = null;
+    public $tbk41 = 0;
+    public $tbb41 = 0;
+    public $tbk42 = 0;
+    public $tbb42 = 0;
+    public $tbk43 = 0;
+    public $tbb43 = 0;
+    public $tbk44 = 0;
+    public $tbb44 = 0;
     // Angin
-    public $cup_counter41 = null;
-    public $cup_counter42 = null;
-    public $arah41 = null;
-    public $kecepatan41 = null;
-    public $arah42 = null;
-    public $kecepatan42 = null;
-    public $arah43 = null;
-    public $kecepatan43 = null;
+    public $cup_counter41 = 0;
+    public $cup_counter42 = 0;
+    public $arah41 = 0;
+    public $kecepatan41 = 0;
+    public $arah42 = 0;
+    public $kecepatan42 = 0;
+    public $arah43 = 0;
+    public $kecepatan43 = 0;
     // Open Pan
-    public $h2_openpan4 = null;
-    public $ev2_openpan4 = null;
-    public $ch4 = null;
-    public $t4 = null;
-    public $max4 = null;
-    public $min4 = null;
+    public $h2_openpan4 = 0;
+    public $ev2_openpan4 = 0;
+    public $ch4 = 0;
+    public $t4 = 0;
+    public $max4 = 0;
+    public $min4 = 0;
     // Psychrometer Assmann
-    public $bb41 = null;
-    public $bk41 = null;
-    public $bb42 = null;
-    public $bk42 = null;
-    public $bb43 = null;
-    public $bk43 = null;
-    public $bb44 = null;
-    public $bk44 = null;
-    public $bb45 = null;
-    public $bk45 = null;
-    public $bb46 = null;
-    public $bk46 = null;
-    public $bb47 = null;
-    public $bk47 = null;
+    public $bb41 = 0;
+    public $bk41 = 0;
+    public $bb42 = 0;
+    public $bk42 = 0;
+    public $bb43 = 0;
+    public $bk43 = 0;
+    public $bb44 = 0;
+    public $bk44 = 0;
+    public $bb45 = 0;
+    public $bk45 = 0;
+    public $bb46 = 0;
+    public $bk46 = 0;
+    public $bb47 = 0;
+    public $bk47 = 0;
     // Suhu Tanah
-    public $berumput41 = null;
-    public $gundul41 = null;
-    public $berumput42 = null;
-    public $gundul42 = null;
-    public $berumput43 = null;
-    public $gundul43 = null;
-    public $berumput44 = null;
-    public $gundul44 = null;
-    public $berumput45 = null;
-    public $gundul45 = null;
-    public $berumput46 = null;
-    public $gundul46 = null;
-    public $berumput47 = null;
-    public $gundul47 = null;
+    public $berumput41 = 0;
+    public $gundul41 = 0;
+    public $berumput42 = 0;
+    public $gundul42 = 0;
+    public $berumput43 = 0;
+    public $gundul43 = 0;
+    public $berumput44 = 0;
+    public $gundul44 = 0;
+    public $berumput45 = 0;
+    public $gundul45 = 0;
+    public $berumput46 = 0;
+    public $gundul46 = 0;
+    public $berumput47 = 0;
+    public $gundul47 = 0;
     // Piche Evaporimeter
-    public $h2_piche4 = null;
-    public $ev2_piche4 = null;
+    public $h2_piche4 = 0;
+    public $ev2_piche4 = 0;
     /* ---------- End Form 4 ---------- */
 
     /* ---------- Form 5 ---------- */
     // Psychrometer Sangkar Meteorologi
-    public $tbk51 = null;
-    public $tbb51 = null;
-    public $tbk52 = null;
-    public $tbb52 = null;
-    public $tbk53 = null;
-    public $tbb53 = null;
-    public $tbk54 = null;
-    public $tbb54 = null;
+    public $tbk51 = 0;
+    public $tbb51 = 0;
+    public $tbk52 = 0;
+    public $tbb52 = 0;
+    public $tbk53 = 0;
+    public $tbb53 = 0;
+    public $tbk54 = 0;
+    public $tbb54 = 0;
     // Angin
-    public $cup_counter51 = null;
-    public $cup_counter52 = null;
-    public $arah51 = null;
-    public $kecepatan51 = null;
-    public $arah52 = null;
-    public $kecepatan52 = null;
-    public $arah53 = null;
-    public $kecepatan53 = null;
+    public $cup_counter51 = 0;
+    public $cup_counter52 = 0;
+    public $arah51 = 0;
+    public $kecepatan51 = 0;
+    public $arah52 = 0;
+    public $kecepatan52 = 0;
+    public $arah53 = 0;
+    public $kecepatan53 = 0;
     // Suhu Tanah
-    public $berumput51 = null;
-    public $gundul51 = null;
-    public $berumput52 = null;
-    public $gundul52 = null;
-    public $berumput53 = null;
-    public $gundul53 = null;
-    public $berumput54 = null;
-    public $gundul54 = null;
-    public $berumput55 = null;
-    public $gundul55 = null;
-    public $berumput56 = null;
-    public $gundul56 = null;
-    public $berumput57 = null;
-    public $gundul57 = null;
+    public $berumput51 = 0;
+    public $gundul51 = 0;
+    public $berumput52 = 0;
+    public $gundul52 = 0;
+    public $berumput53 = 0;
+    public $gundul53 = 0;
+    public $berumput54 = 0;
+    public $gundul54 = 0;
+    public $berumput55 = 0;
+    public $gundul55 = 0;
+    public $berumput56 = 0;
+    public $gundul56 = 0;
+    public $berumput57 = 0;
+    public $gundul57 = 0;
     // Termometer Maksimum dan Minimum
-    public $max51 = null;
-    public $reset51 = null;
-    public $max52 = null;
-    public $reset52 = null;
+    public $max51 = 0;
+    public $reset51 = 0;
+    public $max52 = 0;
+    public $reset52 = 0;
     // Kondisi Cuaca dan Tanah
-    public $kode_tanah5 = null;
-    public $kode_cuaca5 = null;
+    public $kode_tanah5 = 0;
+    public $kode_cuaca5 = 0;
     /* ---------- End Form 5 ---------- */
 
     /* ---------- Form 6 ---------- */
     // Psychrometer Sangkar Meteorologi
-    public $tbk61 = null;
-    public $tbb61 = null;
-    public $tbk62 = null;
-    public $tbb62 = null;
-    public $tbk63 = null;
-    public $tbb63 = null;
-    public $tbk64 = null;
-    public $tbb64 = null;
+    public $tbk61 = 0;
+    public $tbb61 = 0;
+    public $tbk62 = 0;
+    public $tbb62 = 0;
+    public $tbk63 = 0;
+    public $tbb63 = 0;
+    public $tbk64 = 0;
+    public $tbb64 = 0;
     // Angin
-    public $cup_counter61 = null;
-    public $cup_counter62 = null;
-    public $arah61 = null;
-    public $kecepatan61 = null;
-    public $arah62 = null;
-    public $kecepatan62 = null;
-    public $arah63 = null;
-    public $kecepatan63 = null;
+    public $cup_counter61 = 0;
+    public $cup_counter62 = 0;
+    public $arah61 = 0;
+    public $kecepatan61 = 0;
+    public $arah62 = 0;
+    public $kecepatan62 = 0;
+    public $arah63 = 0;
+    public $kecepatan63 = 0;
     // Open Pan
-    public $h2_openpan6 = null;
-    public $ev2_openpan6 = null;
-    public $ch6 = null;
-    public $t6 = null;
-    public $max6 = null;
-    public $min6 = null;
+    public $h2_openpan6 = 0;
+    public $ev2_openpan6 = 0;
+    public $ch6 = 0;
+    public $t6 = 0;
+    public $max6 = 0;
+    public $min6 = 0;
     // Psychrometer Assmann
-    public $bb61 = null;
-    public $bk61 = null;
-    public $bb62 = null;
-    public $bk62 = null;
-    public $bb63 = null;
-    public $bk63 = null;
-    public $bb64 = null;
-    public $bk64 = null;
-    public $bb65 = null;
-    public $bk65 = null;
-    public $bb66 = null;
-    public $bk66 = null;
-    public $bb67 = null;
-    public $bk67 = null;
+    public $bb61 = 0;
+    public $bk61 = 0;
+    public $bb62 = 0;
+    public $bk62 = 0;
+    public $bb63 = 0;
+    public $bk63 = 0;
+    public $bb64 = 0;
+    public $bk64 = 0;
+    public $bb65 = 0;
+    public $bk65 = 0;
+    public $bb66 = 0;
+    public $bk66 = 0;
+    public $bb67 = 0;
+    public $bk67 = 0;
     // Suhu Tanah
-    public $berumput61 = null;
-    public $gundul61 = null;
-    public $berumput62 = null;
-    public $gundul62 = null;
-    public $berumput63 = null;
-    public $gundul63 = null;
-    public $berumput64 = null;
-    public $gundul64 = null;
-    public $berumput65 = null;
-    public $gundul65 = null;
-    public $berumput66 = null;
-    public $gundul66 = null;
-    public $berumput67 = null;
-    public $gundul67 = null;
+    public $berumput61 = 0;
+    public $gundul61 = 0;
+    public $berumput62 = 0;
+    public $gundul62 = 0;
+    public $berumput63 = 0;
+    public $gundul63 = 0;
+    public $berumput64 = 0;
+    public $gundul64 = 0;
+    public $berumput65 = 0;
+    public $gundul65 = 0;
+    public $berumput66 = 0;
+    public $gundul66 = 0;
+    public $berumput67 = 0;
+    public $gundul67 = 0;
     // Piche Evaporimeter
-    public $h2_piche6 = null;
-    public $ev2_piche6 = null;
+    public $h2_piche6 = 0;
+    public $ev2_piche6 = 0;
     /* ---------- End Form 6 ---------- */
 
     /* ---------- Form 7 ---------- */
     // Psychrometer Sangkar Meteorologi
-    public $tbk71 = null;
-    public $tbb71 = null;
-    public $tbk72 = null;
-    public $tbb72 = null;
-    public $tbk73 = null;
-    public $tbb73 = null;
-    public $tbk74 = null;
-    public $tbb74 = null;
+    public $tbk71 = 0;
+    public $tbb71 = 0;
+    public $tbk72 = 0;
+    public $tbb72 = 0;
+    public $tbk73 = 0;
+    public $tbb73 = 0;
+    public $tbk74 = 0;
+    public $tbb74 = 0;
     // Angin
-    public $cup_counter71 = null;
-    public $cup_counter72 = null;
-    public $arah71 = null;
-    public $kecepatan71 = null;
-    public $arah72 = null;
-    public $kecepatan72 = null;
-    public $arah73 = null;
-    public $kecepatan73 = null;
+    public $cup_counter71 = 0;
+    public $cup_counter72 = 0;
+    public $arah71 = 0;
+    public $kecepatan71 = 0;
+    public $arah72 = 0;
+    public $kecepatan72 = 0;
+    public $arah73 = 0;
+    public $kecepatan73 = 0;
     // Termometer Maksimum dan Minimum
-    public $max71 = null;
-    public $reset71 = null;
-    public $max72 = null;
-    public $reset72 = null;
+    public $max71 = 0;
+    public $reset71 = 0;
+    public $max72 = 0;
+    public $reset72 = 0;
     /* ---------- End Form 7 ---------- */
 
     /* ---------- Form Hujan ---------- */
     // Form Hujan 1
-    public $ch_hujan1 = null;
+    public $ch_hujan1 = 0;
     // Form Hujan 2
-    public $ch_hujan2 = null;
+    public $ch_hujan2 = 0;
     // Form Hujan 3
-    public $ch_hujan3 = null;
+    public $ch_hujan3 = 0;
     /* ---------- End Form Hujan ---------- */
 
 
@@ -413,7 +413,6 @@ class AddPencatatanAgromet extends Component
         ];
 
         Pencatatan::create($dataPencatatan);
-        // dd($simpan);
         $this->idPencatatan = Pencatatan::all()->last()->id;
 
         $dataPsychrometerSangkarMeteorologi = [

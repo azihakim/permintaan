@@ -9,4 +9,7 @@ class Psychrometer_sangkar_meteorologi extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    public function pencatatans(){
+        return $this->belongsTo(Pencatatan::class, 'pencatatans_id', 'id');
+    }
 }

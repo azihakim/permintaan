@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('suhu_min_rumputs', function (Blueprint $table) {
             $table->id();
-            $table->double('pembacaan')->nullable();
-            $table->double('reset')->nullable();
+            $table->double('pembacaan')->unsigned()->nullable();
+            $table->double('reset')->unsigned()->nullable();
             $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('open_pans', function (Blueprint $table) {
             $table->id();
-            $table->double('h')->nullable();
-            $table->double('ev')->nullable();
-            $table->double('ch')->nullable();
-            $table->double('t')->nullable();
-            $table->double('max')->nullable();
-            $table->double('min')->nullable();
+            $table->double('h')->unsigned()->nullable();
+            $table->double('ev')->unsigned()->nullable();
+            $table->double('ch')->unsigned()->nullable();
+            $table->double('t')->unsigned()->nullable();
+            $table->double('max')->unsigned()->nullable();
+            $table->double('min')->unsigned()->nullable();
             $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
