@@ -1,8 +1,17 @@
 <div>
     {{-- Because she competes with no one, no one can compete with her. --}}
     @include('livewire.form1.modal-edit')
-    @if ($clearFilter != false)
-        <button wire:click="clear" class="btn btn-default">X Clear Filter</button>
+    @include('livewire.form2.modal-edit')
+    @include('livewire.form3.modal-edit')
+    @include('livewire.form4.modal-edit')
+    @include('livewire.form5.modal-edit')
+    @include('livewire.form6.modal-edit')
+    @include('livewire.form7.modal-edit')
+    @include('livewire.form-hujan1.modal-edit')
+    @include('livewire.form-hujan2.modal-edit')
+    @include('livewire.form-hujan3.modal-edit')
+    @if ($clear == true)
+        <button wire:click="clearFilter" class="btn btn-default">X Clear Filter</button>
     @endif
     <table class="table table-bordered table-striped">
         <thead>

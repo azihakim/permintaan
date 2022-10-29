@@ -147,7 +147,7 @@ class AddPencatatanAgromet extends Component
     public $ev2_piche = 0;
     /* ---------- End Form 2 ---------- */
 
-        /* ---------- Form 3 ---------- */
+    /* ---------- Form 3 ---------- */
     // Psychrometer Sangkar Meteorologi
     public $tbk31 = 0;
     public $tbb31 = 0;
