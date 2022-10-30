@@ -301,14 +301,18 @@
         {{-- End data dan informasi yang dibutuhkan --}}
 
         <div class="spacer-40"></div>
-
+        <hr>
         <div class="spacer-20"></div>
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
+                <a onclick="history.back()" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i></a>
+            </div>
+            
+            <div class="col-sm-6">
                 <button type="submit" class="btn btn-default btn-lg pull-right">Kirim</button>
             </div>
         </div>
-    
-    <div class="spacer-40"></div>
+
+        <div class="spacer-40"></div>
 </form>
 @endsection

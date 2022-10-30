@@ -111,10 +111,10 @@
                             
                             @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan penanggulangan bencana')
                                 <div class="col-sm-4">
-                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id) }}">Detail</a>
+                                    <a type="button" class="btn btn-default" href="{{ url('penanggulanganbencana/' . $item->id) }}">Detail</a>
                                 </div>
                                 <div class="col-sm-4">
-                                    <form action="{{ url('#' . $item->id) }} " method="POST"
+                                    <form action="{{ url('penanggulanganbencana/' . $item->id) }} " method="POST"
                                         onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
                                         @csrf
                                         <input type="hidden" name="_method" value="DELETE"> 
@@ -122,7 +122,7 @@
                                     </form>  
                                 </div>
                                 <div class="col-sm-4">
-                                    <a type="button" class="btn btn-default" href="{{ url('#' . $item->id . '/edit') }}">Ubah</a>
+                                    <a type="button" class="btn btn-default" href="{{ url('penanggulanganbencana/' . $item->id . '/edit') }}">Ubah</a>
                                 </div>
                             
                             @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan pendidikan/penelitian non komersil')

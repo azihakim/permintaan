@@ -7,6 +7,7 @@ use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\DashboarduserController;
 use App\Http\Controllers\PertahanankeamananController;
 use App\Http\Controllers\PemerintahanController;
+use App\Http\Controllers\PenanggulanganbencanaController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ResponlayananbertarifController;
@@ -112,3 +113,5 @@ Route::resource('/sosial', SosialController::class);
 Route::resource('/pertahanankeamanan', PertahanankeamananController::class);
 
 Route::resource('/pemerintahan', PemerintahanController::class);
+
+Route::resource('/penanggulanganbencana', PenanggulanganbencanaController::class);
