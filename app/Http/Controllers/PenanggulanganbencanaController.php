@@ -50,7 +50,7 @@ class PenanggulanganbencanaController extends Controller
             $file = "surat_pengantar-".time().".".$ext;
             $request->surat_pengantar->storeAs('public/dokumen', $file);
             $sosial = new Formulir();
-            $sosial->jenis_permintaan = "Kegiatan penanggulangan bencana";
+            $sosial->jenis_pengantar = "Kegiatan sosial";
             $sosial->status_form = "1";
             $sosial->nama_kegiatan= $data['nama_kegiatan'];
             $sosial->telepon = $data['telepon'];
