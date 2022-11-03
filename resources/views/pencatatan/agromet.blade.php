@@ -141,6 +141,16 @@
             $('#formHujan1').modal('hide');
             $('#formHujan2').modal('hide');
             $('#formHujan3').modal('hide');
+            $('#editFormHujan1').modal('hide');
+            $('#editFormHujan2').modal('hide');
+            $('#editFormHujan3').modal('hide');
+            $('#editForm1').modal('hide');
+            $('#editForm2').modal('hide');
+            $('#editForm3').modal('hide');
+            $('#editForm4').modal('hide');
+            $('#editForm5').modal('hide');
+            $('#editForm6').modal('hide');
+            $('#editForm7').modal('hide');
         })
     </script>
     {{-- Toastr --}}
@@ -155,6 +165,33 @@
             }
             toastr.success(event.detail.success);
         });
+    </script>
+
+    {{-- Sweet Alert --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.addEventListener('dataDeleteConfirmation', event => {
+            console.log(event);
+            Swal.fire({
+                title: 'Apakah Kamu yakin?',
+                text: "Produk akan kamu hapus?",
+                icon: 'warning',
+                fontSize: 20,
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emit('productDestroy');
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            })
+        })
     </script>
 @endpush
 @section('contents-pencatatan')

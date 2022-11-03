@@ -945,7 +945,7 @@ class AddPencatatanAgromet extends Component
             'pencatatans_id' => $this->idPencatatan
         ];
 
-         $dataKondisiCuacaDanTanah = [
+        $dataKondisiCuacaDanTanah = [
             'kode_tanah' => $this->kode_tanah5,
             'kode_cuaca' => $this->kode_cuaca5,
             'pencatatans_id' => $this->idPencatatan

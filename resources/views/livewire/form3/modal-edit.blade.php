@@ -242,7 +242,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary pull-right" wire:click.prevent="storeForm3">Submit</button>
+                    <button class="btn btn-primary pull-right" wire:click.prevent="updateForm3">Submit</button>
                 </div>
             </div>
         </div>

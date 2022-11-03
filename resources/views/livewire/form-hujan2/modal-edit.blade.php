@@ -67,7 +67,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary pull-right" wire:click.prevent="storeFormHujan2">Submit</button>
+                    <button class="btn btn-primary pull-right" wire:click.prevent="updateFormHujan2">Submit</button>
                 </div>
             </div>
         </div>

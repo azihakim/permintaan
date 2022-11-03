@@ -489,7 +489,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-default" data-dismiss="modal">Cancel</button>
-                    <button class="btn btn-primary pull-right" wire:click.prevent="storeForm7">Submit</button>
+                    <button class="btn btn-primary pull-right" wire:click.prevent="updateForm7">Submit</button>
                 </div>
             </div>
         </div>

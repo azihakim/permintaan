@@ -1186,7 +1186,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button class="btn btn-primary pull-right" wire:click.prevent="storeForm2">Submit</button>
+                        <button class="btn btn-primary pull-right" wire:click.prevent="updateForm2">Submit</button>
                     </div>
                 </div>
             </div>
