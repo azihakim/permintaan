@@ -24,7 +24,7 @@
                                 <div class="showpassword-wrap">
                                     <input class="form-control input-lg" type="password" placeholder="Password"
                                         tabindex="2" />
-                                    <a href="#" id="showpassword-trigger" class="underline">Tampilkan sandi</a>
+                                    <a id="showpassword-trigger" class="underline">Tampilkan sandi</a>
                                 </div>
                             </div>
                         </div>

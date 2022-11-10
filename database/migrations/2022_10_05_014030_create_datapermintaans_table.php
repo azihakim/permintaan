@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->integer('formulir_id');
             $table->string('jenis_data');
-            $table->string('unsurcuacalain')->nullable();;
+            $table->string('unsurcuacalain')->nullable();
             $table->longText('lokasi');
-            $table->string('latitude')->nullable();;
-            $table->string('longitude')->nullable();;
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
             $table->date('tgl_dari');
             $table->date('tgl_sampai');
             $table->timestamps();

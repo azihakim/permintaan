@@ -72,7 +72,7 @@ class PenanggulanganbencanaController extends Controller
                                 'tgl_dari'      => $data['tgl_dari_petir'][$key],
                                 'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
                             ];
-                            DB::table('datapermintaans')->insert($save_data); 
+                            DB::table('datapermintaans')->create($save_data);
                         }
                 }
         }

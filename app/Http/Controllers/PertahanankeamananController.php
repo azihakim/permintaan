@@ -63,16 +63,15 @@ class PertahanankeamananController extends Controller
         if($request->exists("cb_datapetirs")){
                 foreach($data['lokasi_petir'] as $key=>$value){
                         if($value != null ){
-                            $save_data=[
+                            Datapermintaan::create([
                                 'formulir_id'   => $formulir->id,
                                 'jenis_data'    => "datapetir",
-                                'lokasi'        => $value,
-                                'latitude'      => $data['latitude_petir'][$key],
-                                'longitude'     => $data['longitude_petir'][$key],
-                                'tgl_dari'      => $data['tgl_dari_petir'][$key],
-                                'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
-                            ];
-                            DB::table('datapermintaans')->insert($save_data); 
+                                'lokasi'        => $request->lokasi_petir[$key],    
+                                'latitude'      => $request->latitude_petir[$key],
+                                'longitude'     => $request->longitude_petir[$key],
+                                'tgl_dari'      => $request->tgl_dari_petir[$key],
+                                'tgl_sampai'    => $request->tgl_sampai_petir[$key]
+                            ]);
                         }
                 }
         }

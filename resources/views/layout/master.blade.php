@@ -197,9 +197,15 @@
                                 <li class="@yield('akun')">
                                     <a href="{{ url('akun') }}">Akun<i class="fa fa-user"></i> </a>
                                 </li>
-                                <li>
-                                    <a href="#">Keluar<i class="fa fa-sign-out"></i> </a>
-                                </li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <li>
+                                        <a href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                            this.closest('form').submit();"><i
+                                                class="fa fa-sign-out"></i>{{ __('Keluar') }}</a>
+                                    </li>
+                                </form>
                                 <li class="seperator"></li> <!-- A seperator line -->
                                 <li>
                                     <strong>Hotline:</strong>

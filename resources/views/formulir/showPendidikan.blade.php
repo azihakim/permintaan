@@ -111,30 +111,30 @@
                                                     @if($item->jenis_data == "datapetir")
                                                         <div class="col-sm-6">
                                                             <strong>Lokasi</strong>
-                                                            <textarea class="form-control autosize" style="width: 100% ; height: 90px"
+                                                            <textarea disabled class="form-control autosize" style="width: 100% ; height: 90px"
                                                             name="lokasi_{{ $item->jenis_data }}[]">{{ $item->lokasi }}</textarea>
                                                             <div class="spacer-10"></div>
                                                         </div>
                                                         <div class="col-sm-3">
                                                             <div>
                                                                 <strong>Latitude</strong>
-                                                                <input type="text" aria-required="true" name="latitude_{{ $item->jenis_data }}[]" value="{{ $item->latitude }}"
+                                                                <input disabled type="text" aria-required="true" name="latitude_{{ $item->jenis_data }}[]" value="{{ $item->latitude }}"
                                                                     class="form-control">
                                                                     <div class="spacer-10"></div>
                                                             </div>
                                                             <div>
                                                                 <strong>Longitude</strong>
-                                                                <input type="text"
+                                                                <input type="text" disabled
                                                                     name="longitude_{{ $item->jenis_data }}[]" value="{{ $item->longitude }}" class="form-control">
                                                             </div>
                                                             <div class="spacer-10"></div>
                                                         </div>
                                                         <div class="col-sm-3">
                                                             <strong>Dari</strong>
-                                                            <input class="form-control" size="16" type="date" name="tgl_dari_{{ $item->jenis_data }}[]" value="{{ $item->tgl_dari }}">
+                                                            <input  disabled class="form-control" size="16" type="date" name="tgl_dari_{{ $item->jenis_data }}[]" value="{{ $item->tgl_dari }}">
                                                             <div class="spacer-10"></div>
                                                             <strong>Sampai</strong>
-                                                            <input class="form-control" size="16" type="date"
+                                                            <input disabled class="form-control" size="16" type="date"
                                                             name="tgl_sampai_{{ $item->jenis_data }}[]" value="{{ $item->tgl_sampai }}">
                                                         </div>
                                                     @elseif($item->jenis_data == 'unsurcuacalainnya')
@@ -309,9 +309,6 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <a onclick="history.back()" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i></a>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <button type="submit" class="btn btn-default btn-lg pull-right">Perbarui</button>
                                             </div>
                                         </div>
                                     <div class="spacer-40"></div>

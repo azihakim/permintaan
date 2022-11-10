@@ -103,7 +103,6 @@
 <body>
     <div class="clearfix">
         <div class="spacer-50"></div>
-        <div class="spacer-50"></div>
         <section class="content">
             @yield('content') {{-- content --}}
 
