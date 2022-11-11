@@ -188,7 +188,12 @@
                                 <label><input type="checkbox" tabindex="3"/><span></span> Remember?</label>
                             </div>
                             <div class="pull-right">
-                                <a href="forgot.html" class="underline">Forgot password</a>
+                                {{-- <a href="forgot.html" class="underline">Forgot password</a> --}}
+                                @if (Route::has('password.request'))
+                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                        {{ __('Lupa kata sandi?') }}
+                    </a>
+                @endif
                             </div>
                         </div>
                     </div>                    
@@ -196,7 +201,7 @@
                     <div class="row">
 						<div class="col-lg-12">
                         	<!-- just for the demo....replace this with an form element -->
-                        	<button class="btn btn-default form-control" tabindex="4">Sign in here</button>
+                        	<button class="btn btn-default form-control" tabindex="4">Masuk</button>
                             {{-- <x-primary-button class="btn btn-default form-control">
                                 {{ __('Log in') }}
                             </x-primary-button> --}}
@@ -207,16 +212,16 @@
 					<div class="spacer-40"></div>                    
                     <div class="row">
 						<div class="col-lg-12">
-    						<a href="signup.html" class="btn btn-block btn-success" tabindex="6">Sign up for an account, it's FREE!</a>
+    						<a href="{{ url('register') }}" class="btn btn-block btn-success" tabindex="6">Daftar akun baru</a>
                         </div>
                     </div>                     
                 </form>
             </div>
-        </div>
+        {{-- </div>
         <footer id="login-footer">
             <strong>Copyright © 2013 creativemilk.net</strong>
             <div class="spacer-5"></div>
             <small>Lorem ipsum dolor sit amet, islum consectetur adipiscing elit. All rights reserved.</small>
-        </footer>
+        </footer> --}}
     </div>
 @endsection

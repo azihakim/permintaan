@@ -86,3 +86,7 @@ Route::get('yes', function () {
 Route::get('respon', function () {
     return view('admin.respon');
 });
+
+Route::get('signup', function () {
+    return view('user.signup');
+});

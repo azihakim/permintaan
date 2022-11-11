@@ -202,8 +202,8 @@
                                     <li>
                                         <a href="route('logout')"
                                             onclick="event.preventDefault();
-                                                            this.closest('form').submit();"><i
-                                                class="fa fa-sign-out"></i>{{ __('Keluar') }}</a>
+                                                            this.closest('form').submit();">Keluar<i
+                                                class="fa fa-sign-out"></i></a>
                                     </li>
                                 </form>
                                 <li class="seperator"></li> <!-- A seperator line -->
