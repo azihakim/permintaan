@@ -36,17 +36,8 @@
                             </select>
                         </div>
                     </div>
-                    <div id="desk" style="display:none;">
-                        <div class="spacer-15"></div>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <label for="fcid-1">Deskripsi</label>
-                            </div>
-                            <div class="col-lg-8">
-                                <input aria-required="true" required="" class="form-control required" type="text"
-                                    placeholder="Deskripsi Instansi" id="">
-                            </div>
-                        </div>
+                    <div id="desk">
+                        
                     </div>
                     <div class="spacer-15"></div>
                     <div class="row">
@@ -106,7 +97,7 @@
         </div>
     </div>
     {{-- Toggle show element input --}}
-    <script>
+    {{-- <script>
         function toggle(value) {
             var x = document.getElementById("desk");
             if (value == "instansivertikal") {
@@ -117,5 +108,51 @@
                 x.style.display = "none";
             }
         }
-    </script>
+    </script> --}}
+<script>
+    // toggle deskripsi kategori instansi vertikal
+    const div_desk = document.getElementById('desk');
+    function toggle(value) {
+        if(value == "instansivertikal"){
+            var newField = document.createElement("div");
+            newField.setAttribute("id", "field_instansivertikal");
+            newField.innerHTML = '<div class="spacer-15"></div>\
+                        <div class="row">\
+                            <div class="col-lg-4">\
+                                <label for="fcid-1">Deskripsi</label>\
+                            </div>\
+                            <div class="col-lg-8">\
+                                <input aria-required="true" required="" class="form-control required" type="text"\
+                                    placeholder="Deskripsi Instansi" id="">\
+                            </div>\
+                        </div>';
+                        div_desk.append(newField);
+        }else{
+            $('#field_instansivertikal').remove();
+        }
+    }
+
+    // toggle deskripsi kategori lainnya
+    const div_desk = document.getElementById('desk');
+    function toggle(value) {
+        if(value == "lainnya"){
+            var newField = document.createElement("div");
+            newField.setAttribute("id", "field_lainnya");
+            newField.innerHTML = '<div class="spacer-15"></div>\
+                        <div class="row">\
+                            <div class="col-lg-4">\
+                                <label for="fcid-1">Deskripsi</label>\
+                            </div>\
+                            <div class="col-lg-8">\
+                                <input aria-required="true" required="" class="form-control required" type="text"\
+                                    placeholder="Deskripsi Kategori" id="">\
+                            </div>\
+                        </div>';
+                        div_desk.append(newField);
+        }else{
+            $('#field_lainnya').remove();
+        }
+    }
+</script>
+
 @endsection
