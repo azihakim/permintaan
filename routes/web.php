@@ -91,3 +91,7 @@ Route::resource('/keagamaan', KeagamaanController::class);
 Route::get('pencatatan-agromet', function () {
     return view('pencatatan.agromet');
 });
+
+Route::get('pencatatan-angin-10m-24jam', function () {
+    return view('pencatatan.angin-10m-24jam');
+});

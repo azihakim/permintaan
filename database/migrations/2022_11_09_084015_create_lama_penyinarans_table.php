@@ -27,7 +27,7 @@ return new class extends Migration
             $table->double('15-16')->nullable();
             $table->double('16-17')->nullable();
             $table->double('17-18')->nullable();
-            $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('pencatatan2s_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

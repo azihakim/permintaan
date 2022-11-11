@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('angin_10m_24jams', function (Blueprint $table) {
+        Schema::create('pencatatan2s', function (Blueprint $table) {
             $table->id();
-            $table->double('arah_terbanyak')->nullable();
-            $table->double('arah')->nullable();
-            $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->date('tanggal');
+            $table->foreignId('users_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('angin_10m_24jams');
+        Schema::dropIfExists('pencatatan2s');
     }
 };

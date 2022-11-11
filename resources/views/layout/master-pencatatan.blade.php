@@ -213,20 +213,21 @@
                     <div class="sidebar-module">
                         <nav class="sidebar-nav-v2">
                             <ul>
-                                <li class="page-arrow active-page">
+                                <li @yield('section-active')>
                                     <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard </a>
                                 </li>
-                                <li>
+                                <li class="@yield('menu-open-form-pendaftaran')">
                                     <a href="#"><i class="fa fa-envelope-o"></i> Form Pencatatan <i
-                                            class="fa fa-caret-left pull-right"></i></a>
+                                            class="fa @yield('fa-caret-down') pull-right"></i></a>
 
                                     <!-- * sub menu * -->
                                     <ul>
-                                        <li>
-                                            <a href="#">Form Agromet</a>
+                                        <li class="@yield('section-agromet-active')">
+                                            <a href="{{ url('pencatatan-agromet') }}">Form Agromet</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Form Angin 10M 24 Jam</a>
+                                        <li class="@yield('section-angin-10m-24jam-active')">
+                                            <a href="{{ url('pencatatan-angin-10m-24jam') }}">Form Angin 10M 24
+                                                Jam</a>
                                         </li>
                                         <li>
                                             <a href="#">Form Lama Penyinaran</a>

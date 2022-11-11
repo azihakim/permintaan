@@ -24,7 +24,7 @@ return new class extends Migration
             $table->double('sedot2')->nullable();
             $table->double('siram3')->nullable();
             $table->double('sedot3')->nullable();
-            $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('pencatatan2s_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
