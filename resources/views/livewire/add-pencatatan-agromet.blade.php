@@ -21,7 +21,7 @@
         </div>
         @if ($tanggal != '' && $jenisForm != '')
             <div class="col-md-4 p-0 mt-5">
-                <a href="" class="btn btn-default" data-toggle="modal" data-target="#{{ $jenisForm }}"
+                <a href="" class="btn btn-default m-0" data-toggle="modal" data-target="#{{ $jenisForm }}"
                     data-tanggal="{{ $tanggal }}">Tambah
                     +</a>
             </div>

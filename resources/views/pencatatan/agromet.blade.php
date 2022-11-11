@@ -1,10 +1,22 @@
 @extends('layout.master-pencatatan')
 
+@section('fa-caret-down', 'fa-caret-down')
+@section('menu-open-form-pendaftaran', 'menu-open')
+@section('section-agromet-active', 'page-arrow active-page')
+
 @push('styles')
     @livewireStyles
     <style>
+        .m-0 {
+            margin: 0;
+        }
+
         .pr-0 {
             padding-right: 0;
+        }
+
+        .pr-12 {
+            padding-right: 12px;
         }
 
         .px-16 {
@@ -174,16 +186,15 @@
             console.log(event);
             Swal.fire({
                 title: 'Apakah Kamu yakin?',
-                text: "Produk akan kamu hapus?",
+                text: "Data Pencatatan dengan Jam " + event.detail.pencatatan.waktu + " akan dihapus?",
                 icon: 'warning',
-                fontSize: 20,
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('productDestroy');
+                    Livewire.emit('dataDestroy');
                     Swal.fire(
                         'Deleted!',
                         'Your file has been deleted.',

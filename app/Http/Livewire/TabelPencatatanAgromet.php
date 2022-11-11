@@ -352,7 +352,7 @@ class TabelPencatatanAgromet extends Component
 
     // Pagination
     use WithPagination;
-    protected $listeners = ['dataStore' => 'render'];
+    protected $listeners = ['dataStore' => 'render', 'dataDestroy' => 'dataDestroyer'];
 
     // Filter Tabel
     public $filterWaktu;
@@ -1648,6 +1648,73 @@ class TabelPencatatanAgromet extends Component
         $this->idPencatatan = $id;
 
         $dataPencatatan = Pencatatan::find($id);
-        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan'=>$dataPencatatan]);
+        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan' => $dataPencatatan]);
+    }
+
+    public function deleteForm2($id){
+        $this->idPencatatan = $id;
+
+        $dataPencatatan = Pencatatan::find($id);
+        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan' => $dataPencatatan]);
+    }
+
+    public function deleteForm3($id){
+        $this->idPencatatan = $id;
+
+        $dataPencatatan = Pencatatan::find($id);
+        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan' => $dataPencatatan]);
+    }
+
+    public function deleteForm4($id){
+        $this->idPencatatan = $id;
+
+        $dataPencatatan = Pencatatan::find($id);
+        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan' => $dataPencatatan]);
+    }
+
+    public function deleteForm5($id){
+        $this->idPencatatan = $id;
+
+        $dataPencatatan = Pencatatan::find($id);
+        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan' => $dataPencatatan]);
+    }
+
+    public function deleteForm6($id){
+        $this->idPencatatan = $id;
+
+        $dataPencatatan = Pencatatan::find($id);
+        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan' => $dataPencatatan]);
+    }
+
+    public function deleteForm7($id){
+        $this->idPencatatan = $id;
+
+        $dataPencatatan = Pencatatan::find($id);
+        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan' => $dataPencatatan]);
+    }
+
+    public function deleteFormHujan1($id){
+        $this->idPencatatan = $id;
+
+        $dataPencatatan = Pencatatan::find($id);
+        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan' => $dataPencatatan]);
+    }
+
+    public function deleteFormHujan2($id){
+        $this->idPencatatan = $id;
+
+        $dataPencatatan = Pencatatan::find($id);
+        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan' => $dataPencatatan]);
+    }
+
+    public function deleteFormHujan3($id){
+        $this->idPencatatan = $id;
+
+        $dataPencatatan = Pencatatan::find($id);
+        $this->dispatchBrowserEvent('dataDeleteConfirmation', ['pencatatan' => $dataPencatatan]);
+    }
+
+    public function dataDestroyer(){
+        Pencatatan::find($this->idPencatatan)->delete();
     }
 }

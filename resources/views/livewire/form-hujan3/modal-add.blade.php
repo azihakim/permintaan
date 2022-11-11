@@ -39,25 +39,26 @@
                             <div class="col-sm-12">
                                 <label for="" style="text-decoration: underline;">Hujan</label>
                             </div>
-                            <div class="col-md-6>
+                            <div class="col-md-6">
                                 <div class="row">
-                                <div class="col-md-4">
-                                    <label for="">CH</label>
-                                </div>
-                                <div class="col-md-2 ml-5 pr-0">
-                                    <input class="form-control" type="number" step="any" min="0"
-                                        name="" id="" wire:model="ch_hujan3">
-                                    @error('ch_hujan3')
-                                        <div class="has-error">
-                                            <span style="margin-right: 5px;"
-                                                class="glyphicon glyphicon-remove form-control-feedback"
-                                                aria-hidden="true"></span><label class="control-label"
-                                                for="inputError2">{{ $message }}</label>
-                                        </div>
-                                        <script>
-                                            $('#formHujan3').scrollTop(0);
-                                        </script>
-                                    @enderror
+                                    <div class="col-md-4 ml-12">
+                                        <label for="">CH</label>
+                                    </div>
+                                    <div class="col-md-4 ml-5 pr-12">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="ch_hujan3">
+                                        @error('ch_hujan3')
+                                            <div class="has-error">
+                                                <span style="margin-right: 5px;"
+                                                    class="glyphicon glyphicon-remove form-control-feedback"
+                                                    aria-hidden="true"></span><label class="control-label"
+                                                    for="inputError2">{{ $message }}</label>
+                                            </div>
+                                            <script>
+                                                $('#formHujan3').scrollTop(0);
+                                            </script>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                         </div>
