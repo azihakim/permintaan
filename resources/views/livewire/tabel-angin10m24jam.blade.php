@@ -1,6 +1,9 @@
 <div>
     {{-- Nothing in the world is as soft and yielding as water. --}}
     @include('livewire.form-angin10m24jam.modal-edit')
+    @if ($clear == true)
+        <button wire:click="clearFilter" class="btn btn-default">X Clear Filter</button>
+    @endif
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -26,7 +29,7 @@
         <tbody>
             @foreach ($pencatatan as $index => $item)
                 <tr class="text-center" style="vertical-align: middle;">
-                    <td>{{ $index + 1 }}</td>
+                    <td>{{ $pencatatan->firstItem() + $index }}</td>
                     <td>{{ $item->tanggal }}</td>
                     <td>{{ $item->users->name }}</td>
                     <td>
@@ -40,9 +43,9 @@
         </tbody>
 
         <tfoot>
-            {{-- <tr>
-                {{ $pencatatan->links('custom-pagination-links-view') }}
-            </tr> --}}
+            <tr>
+                {{ $pencatatan->links('custom-pagination-links-view2') }}
+            </tr>
         </tfoot>
     </table>
 </div>

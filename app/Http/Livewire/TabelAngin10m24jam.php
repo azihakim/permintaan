@@ -6,6 +6,7 @@ use App\Models\Angin_10m_24jam;
 use App\Models\Pencatatan2;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class TabelAngin10m24jam extends Component
 {
@@ -20,15 +21,59 @@ class TabelAngin10m24jam extends Component
     public $total_visibility = 0;
     public $idPencatatan;
 
+    // Filter Tabel
     public $filterTanggal;
     public $filterObserver;
+
+    // Clear Filter
+    public $clear = '';
+
+    // Pagination
+    use WithPagination;
+
+    // Listeners
     protected $listeners = ['dataStore' => 'render', 'dataDestroy' => 'dataDestroyer'];
     public function render()
     {
+        if ($this->filterTanggal != null && $this->filterObserver != null) {
+            $dataPencatatan = Pencatatan2::where([
+                ['tanggal', $this->filterTanggal],
+                ['users_id', $this->filterObserver]
+            ])->orderBy('id','desc')->paginate(5);
+            $this->clear = true;
+        } else if ($this->filterTanggal != null) {
+            $dataPencatatan = Pencatatan2::where(
+                'tanggal', $this->filterTanggal)
+                ->orderBy('id','desc')->paginate(5);
+            $this->clear = true;
+        } else if ($this->filterObserver != null) {
+            $dataPencatatan = Pencatatan2::where('users_id', $this->filterObserver)
+            ->orderBy('id','desc')->paginate(5);
+            $this->clear = true;
+        }
+        else {
+            $dataPencatatan = Pencatatan2::orderBy('id','desc')->paginate(5);
+        }
         return view('livewire.tabel-angin10m24jam', [
             'observers' => User::where('roles', 'observer')->get(),
-            'pencatatan' => Pencatatan2::all()
+            'pencatatan' => $dataPencatatan,
+            'clear' => $this->clear
         ]);
+    }
+
+    public function clearFilter(){
+        $this->clear = '';
+        $this->filterTanggal = null;
+        $this->filterObserver = null;
+    }
+
+    public function updating(){
+        $this->resetPage();
+    }
+
+    public function paginationView()
+    {
+        return 'custom-pagination-links-view2';
     }
 
     public function editForm($pencatatan_id){

@@ -358,7 +358,8 @@ class TabelPencatatanAgromet extends Component
     public $filterWaktu;
     public $filterTanggal;
     public $filterObserver;
-    // public $dataPencatatan;
+
+    // Clear Filter
     public $clear = '';
     public function render()
     {
@@ -405,7 +406,6 @@ class TabelPencatatanAgromet extends Component
         else {
             $dataPencatatan = Pencatatan::orderBy('id','desc')->paginate(5);
         }
-        // dd($dataPencatatan);
 
         return view('livewire.tabel-pencatatan-agromet',[
             'pencatatan' => $dataPencatatan,
