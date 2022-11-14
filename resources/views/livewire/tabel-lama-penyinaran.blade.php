@@ -1,9 +1,6 @@
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
-    @include('livewire.form-angin10m24jam.modal-edit')
-    {{-- @php
-        dd($pencatatan);
-    @endphp --}}
+    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
+    @include('livewire.form-lama-penyinaran.modal-edit')
     @if ($clear == true)
         <button wire:click="clearFilter" class="btn btn-default">X Clear Filter</button>
     @endif
@@ -37,7 +34,7 @@
                     <td>{{ $item->users->name }}</td>
                     <td>
                         <a wire:click='editForm({{ $item->pencatatan2s_id }})' data-toggle='modal'
-                            data-target='#editFormAngin-10m-24jam' class='btn btn-warning' style='float: none;'>Edit</a>
+                            data-target='#editFormLamaPenyinaran' class='btn btn-warning' style='float: none;'>Edit</a>
                         <a wire:click='deleteForm({{ $item->pencatatan2s_id }})' class='btn btn-danger'
                             style='float: none;'>Delete</a>
                     </td>

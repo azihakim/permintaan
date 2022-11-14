@@ -1716,5 +1716,6 @@ class TabelPencatatanAgromet extends Component
 
     public function dataDestroyer(){
         Pencatatan::find($this->idPencatatan)->delete();
+        $this->resetPage();
     }
 }

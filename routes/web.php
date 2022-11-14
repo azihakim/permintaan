@@ -95,3 +95,7 @@ Route::get('pencatatan-agromet', function () {
 Route::get('pencatatan-angin-10m-24jam', function () {
     return view('pencatatan.angin-10m-24jam');
 });
+
+Route::get('pencatatan-lama-penyinaran', function () {
+    return view('pencatatan.lama-penyinaran');
+});

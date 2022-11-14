@@ -36,23 +36,24 @@ class TabelAngin10m24jam extends Component
     public function render()
     {
         if ($this->filterTanggal != null && $this->filterObserver != null) {
-            $dataPencatatan = Pencatatan2::where([
+            $dataPencatatan = Pencatatan2::join('angin_10m_24jams', 'pencatatan2s.id', '=', 'angin_10m_24jams.pencatatan2s_id')->where([
                 ['tanggal', $this->filterTanggal],
                 ['users_id', $this->filterObserver]
-            ])->orderBy('id','desc')->paginate(5);
+            ])->orderBy('pencatatan2s.id','desc')->paginate(5);
             $this->clear = true;
         } else if ($this->filterTanggal != null) {
-            $dataPencatatan = Pencatatan2::where(
+            $dataPencatatan = Pencatatan2::join('angin_10m_24jams', 'pencatatan2s.id', '=', 'angin_10m_24jams.pencatatan2s_id')->where(
                 'tanggal', $this->filterTanggal)
-                ->orderBy('id','desc')->paginate(5);
+                ->orderBy('pencatatan2s.id','desc')->paginate(5);
             $this->clear = true;
         } else if ($this->filterObserver != null) {
-            $dataPencatatan = Pencatatan2::where('users_id', $this->filterObserver)
-            ->orderBy('id','desc')->paginate(5);
+            $dataPencatatan = Pencatatan2::join('angin_10m_24jams', 'pencatatan2s.id', '=', 'angin_10m_24jams.pencatatan2s_id')->where('users_id', $this->filterObserver)
+            ->orderBy('pencatatan2s.id','desc')->paginate(5);
             $this->clear = true;
         }
         else {
-            $dataPencatatan = Pencatatan2::orderBy('id','desc')->paginate(5);
+            $dataPencatatan = Pencatatan2::join('angin_10m_24jams', 'pencatatan2s.id', '=', 'angin_10m_24jams.pencatatan2s_id')
+            ->orderBy('pencatatan2s.id','desc')->paginate(5);
         }
         return view('livewire.tabel-angin10m24jam', [
             'observers' => User::where('roles', 'observer')->get(),
@@ -97,7 +98,13 @@ class TabelAngin10m24jam extends Component
             'users_id' => $this->observer
         ];
 
+        $dataAngin10m24jam = [
+            'arah_terbanyak' => $this->arah_terbanyak,
+            'arah' => $this->arah
+        ];
+
         Pencatatan2::where('id', $this->idPencatatan)->update($dataPencatatan);
+        Angin_10m_24jam::where('pencatatan2s_id', $this->idPencatatan)->update($dataAngin10m24jam);
         $this->reset();
         $this->emit('dataStore');
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form Angin 10 M 24 Jam Berhasil Diubah!']);
@@ -112,5 +119,6 @@ class TabelAngin10m24jam extends Component
 
     public function dataDestroyer(){
         Pencatatan2::find($this->idPencatatan)->delete();
+        $this->resetPage();
     }
 }

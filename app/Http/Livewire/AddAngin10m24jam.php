@@ -7,9 +7,11 @@ use App\Models\Pencatatan;
 use App\Models\Pencatatan2;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class AddAngin10m24jam extends Component
 {
+    use WithPagination;
     public $tanggal;
     public $observer;
     public $kec_rata_rata = 0;

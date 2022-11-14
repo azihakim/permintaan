@@ -229,8 +229,8 @@
                                             <a href="{{ url('pencatatan-angin-10m-24jam') }}">Form Angin 10M 24
                                                 Jam</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Form Lama Penyinaran</a>
+                                        <li class="@yield('section-lama-penyinaran-active')">
+                                            <a href="{{ url('pencatatan-lama-penyinaran') }}">Form Lama Penyinaran</a>
                                         </li>
                                         <li>
                                             <a href="#">Form Lysimeter</a>
