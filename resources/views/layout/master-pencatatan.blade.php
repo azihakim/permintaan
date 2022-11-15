@@ -276,9 +276,8 @@
                 <div class="header-main-bottom">
                     <div class="pull-left">
                         <ul class="breadcrumb">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Library</a></li>
-                            <li class="active">Data</li>
+                            <li><a href="#">@yield('breadcrumb')</a></li>
+                            <li class="@yield('breadcrumb-active')">@yield('sub-breadcrumb')</li>
                         </ul><!-- End .breadcrumb -->
                     </div>
                     <div class="pull-right">

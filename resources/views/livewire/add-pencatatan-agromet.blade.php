@@ -25,6 +25,11 @@
                     data-tanggal="{{ $tanggal }}">Tambah
                     +</a>
             </div>
+        @else
+            <div class="col-md-4 p-0 mt-5">
+                <a href="" class="btn btn-disable m-0" data-toggle="modal" data-target="#">Tambah
+                    +</a>
+            </div>
         @endif
     </div>
     @include('livewire.form1.modal-add')

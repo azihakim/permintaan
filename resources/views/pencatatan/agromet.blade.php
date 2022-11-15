@@ -1,141 +1,19 @@
 @extends('layout.master-pencatatan')
 
 @section('title', 'Pencatatan Agromet')
+@section('breadcrumb', 'Form Pencatatan')
+@section('sub-breadcrumb', 'Form Agromet')
+@section('breadcrumb-active', 'active')
 @section('fa-caret-down', 'fa-caret-down')
 @section('menu-open-form-pendaftaran', 'menu-open')
 @section('section-agromet-active', 'page-arrow active-page')
 
 @push('styles')
     @livewireStyles
-    <style>
-        .m-0 {
-            margin: 0;
-        }
 
-        .pr-0 {
-            padding-right: 0;
-        }
+    {{-- CSS Form --}}
+    <link rel="stylesheet" href="{{ asset('style/css/form/styles.css') }}">
 
-        .pr-12 {
-            padding-right: 12px;
-        }
-
-        .px-16 {
-            padding: 0 16px;
-        }
-
-        .px-35 {
-            padding: 0 35px;
-        }
-
-        .px-36 {
-            padding: 0 36px;
-        }
-
-        .label-mr-8 {
-            margin-right: -8px;
-        }
-
-        .mrP-10 {
-            margin-right: 10px;
-        }
-
-        .ml-5 {
-            margin-left: -5px;
-        }
-
-        .ml-8 {
-            margin-left: -8px;
-        }
-
-        .mr-6 {
-            margin-right: -6px;
-        }
-
-        .mr-8 {
-            margin-right: -8px;
-        }
-
-        .mr-10 {
-            margin-right: -10px;
-        }
-
-        .mr-12 {
-            margin-right: -12px;
-        }
-
-        .mr-15 {
-            margin-right: -15px;
-        }
-
-        .mr-20 {
-            margin-right: -20px;
-        }
-
-        .mr-24 {
-            margin-right: -24px;
-        }
-
-        .mr-28 {
-            margin-right: -28px;
-        }
-
-        .mr-32 {
-            margin-right: -32px;
-        }
-
-        .mr-34 {
-            margin-right: -34px;
-        }
-
-        .mr-36 {
-            margin-right: -36px;
-        }
-
-        .mr-40 {
-            margin-right: -40px;
-        }
-
-        .mr-48 {
-            margin-right: -48px;
-        }
-
-        .mr-50 {
-            margin-right: -50px;
-        }
-
-        .mr-54 {
-            margin-right: -54px;
-        }
-
-        .mr-58 {
-            margin-right: -58px;
-        }
-
-        .mr-80 {
-            margin-right: -80px;
-        }
-
-        @media (max-width: 991px) {
-            .mt-5 {
-                margin-top: 5px;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .p-0 {
-                padding: 0;
-            }
-
-            .px-5 {
-                padding: 0 5px;
-            }
-
-            .ml-12 {
-                margin-left: 12px;
-            }
-        }
-    </style>
     {{-- Toastr --}}
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 @endpush
