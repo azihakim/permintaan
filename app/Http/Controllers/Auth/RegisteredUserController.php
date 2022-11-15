@@ -37,6 +37,7 @@ class RegisteredUserController extends Controller
         // dd($data);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'instansi' =>['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'kategori' =>['required', 'string', 'max:255'],
@@ -49,12 +50,13 @@ class RegisteredUserController extends Controller
         $request->ktp->storeAs('public/dokumen', $file);
         $user = User::create([
             'name' => $request->name,
+            'instansi' => $request->instansi,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'kategori' => $request->kategori,
             'desk_kategori' => $request->desk_kategori,
             'no_wa' => $request->no_wa,
-            'ktp' => $file
+            'ktp' => $file,
         ]);
 
         event(new Registered($user));

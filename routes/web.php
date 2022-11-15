@@ -83,10 +83,13 @@ Route::get('yes', function () {
     return view('user.logIn');
 });
 
-Route::get('respon', function () {
-    return view('admin.respon');
-});
+Route::resource('/respon', ResponlayananbertarifController::class)->middleware(['auth', 'verified'] );
+// Route::resource('respon-layanan', [ResponlayananbertarifController::class])->middleware(['auth', 'verified'] );
 
 Route::get('signup', function () {
     return view('user.signup');
 });
+
+Route::get('akun', function () {
+    return view('menu.akun');
+})->middleware(['auth', 'verified']);   

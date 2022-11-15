@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Layananbertarif;
 use App\Models\Formulir;
 use App\Models\Datapermintaan;
+use App\Models\Responlayananbertarif;
 
 class ResponlayananbertarifController extends Controller
 {
@@ -37,9 +38,10 @@ class ResponlayananbertarifController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         //
+        
     }
 
     /**
@@ -61,9 +63,10 @@ class ResponlayananbertarifController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         //
+        
     }
 
     /**
@@ -76,6 +79,11 @@ class ResponlayananbertarifController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->all();
+        // dd($data);
+        $respon = Formulir::find($id);
+        $respon->status_form = $data['status_form'];
+        $respon->save();
     }
 
     /**

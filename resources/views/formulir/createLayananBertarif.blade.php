@@ -35,8 +35,7 @@
                                                 <label>Nama</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="text" aria-required="true" name="nama" required="" value="{{ old('nama') }}"
-                                                    class="form-control">
+                                                <p>{{ Auth::user()->name }}</p>
                                             </div>
                                         </div>
                                         <div class="spacer-10"></div>
@@ -45,7 +44,7 @@
                                                 <label>Nomor telepon</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="telepon" name="telepon" class="form-control" value="{{ old('telepon') }}">
+                                                <p>{{ Auth::user()->no_wa }}</p>
                                             </div>
                                         </div>
                                         <div class="spacer-10"></div>
@@ -54,7 +53,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-sm-9">
-                                                <input type="email" name="email" class="form-control" name="email" value="{{ old('email') }}">
+                                                <p>{{ Auth::user()->email }}</p>
                                             </div>
                                         </div> 
                                         {{-- End data diri --}}

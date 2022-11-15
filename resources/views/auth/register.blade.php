@@ -88,6 +88,16 @@
                     <div class="spacer-15"></div>
                     <div class="row">
                         <div class="col-lg-4">
+                            <label>Asal instansi</label>
+                        </div>
+                        <div class="col-lg-8">
+                            <input aria-required="true" required class="form-control required" type="text"
+                                placeholder="Asal instansi" name="instansi" :value="old('instansi')">
+                        </div>
+                    </div>
+                    <div class="spacer-15"></div>
+                    <div class="row">
+                        <div class="col-lg-4">
                             <label for="fcid-2">Kategori</label>
                         </div>
                         <div class="col-lg-8">
@@ -112,7 +122,7 @@
                         </div>
                         <div class="col-lg-8">
                             <input aria-required="true" required class="form-control required" type="number"
-                                placeholder="Nomor Whatsapp" name="no_wa">
+                                placeholder="Nomor whatsapp" name="no_wa">
                         </div>
                     </div>
                     <div class="spacer-15"></div>
