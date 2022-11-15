@@ -1,5 +1,6 @@
 @extends('layout.master-pencatatan')
 
+@section('title', 'Pencatatan Angin 10 M 24 Jam')
 @section('fa-caret-down', 'fa-caret-down')
 @section('menu-open-form-pendaftaran', 'menu-open')
 @section('section-angin-10m-24jam-active', 'page-arrow active-page')

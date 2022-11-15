@@ -55,6 +55,6 @@ class AddAngin10m24jam extends Component
         Angin_10m_24jam::create($dataAngin10M24jam);
         $this->reset();
         $this->emit('dataStore');
-        $this->dispatchBrowserEvent('alert', ['success'=>'Data Berhasil Disimpan!']);
+        $this->dispatchBrowserEvent('alert', ['success'=>'Data Angin 10 M 24 Jam Berhasil Disimpan!']);
     }
 }

@@ -232,8 +232,8 @@
                                         <li class="@yield('section-lama-penyinaran-active')">
                                             <a href="{{ url('pencatatan-lama-penyinaran') }}">Form Lama Penyinaran</a>
                                         </li>
-                                        <li>
-                                            <a href="#">Form Lysimeter</a>
+                                        <li class="@yield('section-lysimeter-active')">
+                                            <a href="{{ url('pencatatan-lysimeter') }}">Form Lysimeter</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -299,7 +299,7 @@
                 <header id="header-sec">
                     <div class="inner-padding">
                         <div class="pull-left">
-                            <h2>Dashboard</h2>
+                            <h2>@yield('title')</h2>
                         </div>
                     </div><!-- End .inner-padding -->
                 </header><!-- End #header-sec -->

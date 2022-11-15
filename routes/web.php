@@ -99,3 +99,8 @@ Route::get('pencatatan-angin-10m-24jam', function () {
 Route::get('pencatatan-lama-penyinaran', function () {
     return view('pencatatan.lama-penyinaran');
 });
+
+Route::get('pencatatan-lysimeter', function () {
+    return view('pencatatan.lysimeter');
+});
+

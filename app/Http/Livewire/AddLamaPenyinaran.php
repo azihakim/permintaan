@@ -76,6 +76,6 @@ class AddLamaPenyinaran extends Component
         Lama_penyinaran::create($dataLamaPenyinaran);
         $this->reset();
         $this->emit('dataStore');
-        $this->dispatchBrowserEvent('alert', ['success'=>'Data Berhasil Disimpan!']);
+        $this->dispatchBrowserEvent('alert', ['success'=>'Data Lama Penyinaran Berhasil Disimpan!']);
     }
 }

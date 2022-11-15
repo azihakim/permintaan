@@ -1,9 +1,9 @@
 @extends('layout.master-pencatatan')
 
-@section('title', 'Pencatatan Lama Penyinaran')
+@section('title', 'Pencatatan Lysimeter')
 @section('fa-caret-down', 'fa-caret-down')
 @section('menu-open-form-pendaftaran', 'menu-open')
-@section('section-lama-penyinaran-active', 'page-arrow active-page')
+@section('section-lysimeter-active', 'page-arrow active-page')
 
 @push('styles')
     @livewireStyles
@@ -152,8 +152,8 @@
     @livewireScripts
     <script>
         Livewire.on('dataStore', () => {
-            $('#lama-penyinaran').modal('hide');
-            $('#editFormLamaPenyinaran').modal('hide');
+            $('#lysimeter').modal('hide');
+            $('#editFormLysimeter').modal('hide');
         })
     </script>
     {{-- Toastr --}}
@@ -177,7 +177,7 @@
             console.log(event);
             Swal.fire({
                 title: 'Apakah Kamu yakin?',
-                text: "Data Pencatatan Form Lama Penyinaran akan dihapus?",
+                text: "Data Pencatatan Form Lysimeter akan dihapus?",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -198,9 +198,9 @@
 @endpush
 @section('contents-pencatatan')
     <div>
-        @livewire('add-lama-penyinaran')
+        @livewire('add-lysimeter')
     </div>
     <div>
-        @livewire('tabel-lama-penyinaran')
+        @livewire('tabel-lysimeter')
     </div>
 @endsection

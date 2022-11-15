@@ -1,5 +1,6 @@
 @extends('layout.master-pencatatan')
 
+@section('title', 'Pencatatan Agromet')
 @section('fa-caret-down', 'fa-caret-down')
 @section('menu-open-form-pendaftaran', 'menu-open')
 @section('section-agromet-active', 'page-arrow active-page')
