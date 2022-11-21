@@ -83,7 +83,31 @@ class ResponlayananbertarifController extends Controller
         // dd($data);
         $respon = Formulir::find($id);
         $respon->status_form = $data['status_form'];
+        // $respon->respon_desk = $data['respon_desk'];
+        // if ($request->)
+
+        if($request->hasFile('respon_bill')){
+            $f = $request->file('respon_bill');
+            $file_ext_bill = $f->getClientOriginalExtension();
+            $file_name_bill = "Bill-".time().".". $file_ext_bill;
+            $file_path_bill = public_path('store/documen');
+            $f->move($file_path_bill, $file_name_bill);
+            $respon->respon_bill = $file_name_bill;
+        }
+        else{
+            // $ext_bill = $request->respon_bill->getClientOriginalExtension();
+            // $file_name_bill = "Bill-".time()."." . $ext_bill;
+            // $request->respon_bill->storeAs('public/documen', $file_name_bill);
+            // $respon->respon_bill = $file_name_bill;
+            $respon->respon_bill = $request->old_bill;
+            
+
+        }
+
+        
+
         $respon->save();
+        return back();
     }
 
     /**

@@ -31,7 +31,7 @@
                                             <label>Nama</label>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input type="text" aria-required="true" name="nama" disabled value="{{ $formulir->nama }}"
+                                            <input type="text" aria-required="true" name="nama" disabled value="{{ Auth::user()->name }}"
                                                 class="form-control">
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                                             <label>Nomor telepon</label>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input type="telepon" name="telepon" disabled class="form-control" value="{{ $formulir->telepon }}">
+                                            <input type="telepon" name="telepon" disabled class="form-control" value="{{ Auth::user()->no_wa }}">
                                         </div>
                                     </div>
                                     <div class="spacer-10"></div>
@@ -50,7 +50,7 @@
                                             <label>Email</label>
                                         </div>
                                         <div class="col-sm-9">
-                                            <input type="email" name="email" disabled class="form-control" name="email" value="{{ $formulir->email }}">
+                                            <input type="email" name="email" disabled class="form-control" name="email" value="{{ Auth::user()->email }}">
                                         </div>
                                     </div> 
                                     {{-- End data diri --}}

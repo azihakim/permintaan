@@ -23,6 +23,33 @@
             <label>Nama</label>
         </div>
         <div class="col-sm-9">
+            <p>{{ Auth::user()->name }}</p>
+        </div>
+    </div>
+    <div class="spacer-10"></div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label>Nomor telepon</label>
+        </div>
+        <div class="col-sm-9">
+            <p>{{ Auth::user()->no_wa }}</p>
+        </div>
+    </div>
+    <div class="spacer-10"></div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label>Email</label>
+        </div>
+        <div class="col-sm-9">
+            <p>{{ Auth::user()->email }}</p>
+        </div>
+    </div> 
+    {{-- <div class="spacer-10"></div>
+    <div class="row">
+        <div class="col-sm-3">
+            <label>Nama</label>
+        </div>
+        <div class="col-sm-9">
             <input type="text" aria-required="true" name="nama" required="" class="form-control ">
         </div>
     </div>
@@ -61,7 +88,7 @@
         <div class="col-sm-9">
             <input type="email" name="email" class="form-control">
         </div>
-    </div>
+    </div> --}}
         {{-- End data diri --}}
         
         <div class="spacer-40"></div>
@@ -304,12 +331,14 @@
         <hr>
         <div class="spacer-20"></div>
         <div class="row">
-            <div class="col-sm-6">
-                <a onclick="history.back()" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i></a>
-            </div>
-            
-            <div class="col-sm-6">
-                <button type="submit" class="btn btn-default btn-lg pull-right">Kirim</button>
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                    <a onclick="history.back()" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i></a>
+                </div>
+                
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-default btn-lg pull-right">Kirim</button>
+                </div>
             </div>
         </div>
 

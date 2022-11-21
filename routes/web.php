@@ -8,6 +8,7 @@ use App\Http\Controllers\PertahanankeamananController;
 use App\Http\Controllers\PemerintahanController;
 use App\Http\Controllers\PenanggulanganbencanaController;
 use App\Http\Controllers\ResponlayananbertarifController;
+use App\Http\Controllers\PembayaranController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,7 @@ Route::resource('/bertarif', LayananbertarifController::class)->middleware(['aut
 Route::get('layanan-bertarif', function () {
     return view('formulir.createLayananBertarif');
 });
+Route::resource('/pembayaran', PembayaranController::class)->middleware(['auth', 'verified']);
 
 // kegiatan keagamaan
 Route::resource('/keagamaan', KeagamaanController::class)->middleware(['auth', 'verified']);
@@ -93,3 +95,4 @@ Route::get('signup', function () {
 Route::get('akun', function () {
     return view('menu.akun');
 })->middleware(['auth', 'verified']);   
+

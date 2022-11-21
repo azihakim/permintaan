@@ -154,6 +154,7 @@
     <script src="{{ asset('style/js/plugins/main.js') }}"></script>
 
     @yield('css')
+    
 </head>
 
 <body>
@@ -287,6 +288,7 @@
         </div><!-- End #main -->
     </div><!-- End #container -->
     @stack('scripts')
+    
 </body>
 
 </html>

@@ -35,16 +35,16 @@ class RegisteredUserController extends Controller
     {
         // $data = $request->all();
         // dd($data);
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'instansi' =>['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'kategori' =>['required', 'string', 'max:255'],
-            'desk_kategori' =>['required', 'string', 'max:255'],
-            'no_wa' =>['required', 'string', 'max:255'],
-            'ktp' =>['required']
-        ]);
+        // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'instansi' =>['string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        //     'kategori' =>['required', 'string', 'max:255'],
+        //     'desk_kategori' =>['required', 'string', 'max:255'],
+        //     'no_wa' =>['required', 'string', 'max:255'],
+        //     'ktp' =>['required']
+        // ]);
         $ext = $request->ktp->getClientOriginalExtension();
         $file = "KTP-".time().".".$ext;
         $request->ktp->storeAs('public/dokumen', $file);
@@ -64,5 +64,6 @@ class RegisteredUserController extends Controller
         Auth::login($user);
         // return $user;
         return redirect(RouteServiceProvider::HOME);
+        
     }
 }

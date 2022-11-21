@@ -2,7 +2,7 @@
 @section('form-title', 'Layanan Bertarif PNBP sesuai dengan PP No.47 Tahun 2018aaa')
 @section('content')
     <div class="inner-padding">
-        <form method="POST" action="{{ url('respon/' . $formulir->id) }}">
+        <form method="POST" action="{{ url('respon/' . $formulir->id) }}" enctype="multipart/form-data">
             @method('PATCH')
             @csrf
             <div class="row">
@@ -16,59 +16,77 @@
                         <div class="simpelselect-inner">
                             <div class="simpleselect-btn"><i class="fa fa-caret-down"></i></div>
                         </div>
-                        <select name="status_form" class="form-control simpleselect" onchange="toggle(this.value)">
+                        <select name="status_form" class="form-control simpleselect" id="list">
                             @if ($formulir->status_form == '1'){
                                 <option value="1" class="bold">Permintaan baru</option>
                             }
                             @elseif ($formulir->status_form == '2'){
-                                <option value="2" class="bold text-danger">Di terima</option>
+                                <option value="2" class="bold text-danger">Diproses</option>
+                            }
+                            @elseif ($formulir->status_form == '3'){
+                                <option value="3" class="bold text-danger">Diterima</option>
+                            }
+                            @elseif ($formulir->status_form == '4'){
+                                <option value="4" class="bold text-danger">Selesai</option>
+                            }
+                            @elseif ($formulir->status_form == '5'){
+                                <option value="5" class="bold text-danger">Menunggu pembayaran</option>
+                            }
+                            @elseif ($formulir->status_form == '6'){
+                                <option value="6" class="bold text-danger">Pembayaran ulang </option>
+                            }
+                            @elseif ($formulir->status_form == '7'){
+                                <option value="7" class="bold text-danger">Dibatalkan</option>
                             }
                             @endif
 
                             <option value="1">Permintaan baru</option>
-                            <option value="2">Di terima</option>
-                            <option value="3">Di batalkan</option>
-                            <option value="4">Menunggu pembayaran</option>
-                            <option value="5">Pembayaran ulang </option>
-                            <option value="6">Selesai</option>
+                            <option value="2">Diproses</option>
+                            <option value="3">Diterima</option>
+                            <option value="4">Selesai</option>
+                            <option value="5">Menunggu pembayaran</option>
+                            <option value="6">Pembayaran ulang </option>
+                            <option value="7">Dibatalkan</option>
                         </select>
                         
                     </div>
                 </div>
             </div>
-            {{-- <div id="data">
+
+            <div id="data">
                 <div class="spacer-15"></div>
                 <div class="row">
                     <div class="col-sm-3">
                         <label>Data permintaan</label>
                     </div>
                     <div class="col-sm-9">
-                        <input type="file" required>
+                        <input type="file" name="respon_data">
                     </div>
                 </div>
             </div>
             <div id="bill">
                 <div class="spacer-15"></div>
-                <div class="row">
-                    <div class="col-sm-3">
+                 <div class="row">
+                     <div class="col-sm-3">
                         <label>Bill pembayaran</label>
-                    </div>
-                    <div class="col-sm-9">
-                        <input type="file" required>
-                    </div>
-                </div>
+                     </div>
+                     <div class="col-sm-9">
+                        <input type="hidden" name="old_bill" value="{{ $formulir->respon_bill }}">
+                        <input type="file" name="respon_bill">
+                     </div>
+                 </div>
             </div>
-            <div id="deskripsi">
-                <div class="spacer-15"></div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <label>Deskripsi</label>
-                    </div>
-                    <div class="col-sm-7">
-                        <textarea class="form-control" required></textarea>
-                    </div>
-                </div>
-            </div> --}}
+            <div id="deskripsi"></div>
+                {{-- <div class="spacer-15"></div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>Deskripsi</label>
+                            </div>
+                            <div class="col-sm-7">
+                                <textarea class="form-control" name="respon_desk">{{ $formulir->respon_desk }}</textarea>
+                            </div>
+                        </div> --}}
+            {{-- </div> --}}
 
             <div class="spacer-15"></div>
             <div class="row">
@@ -77,17 +95,27 @@
                     <button type="submit" class="btn btn-default pull-left">Kirim</button>
                 </div>
             </div>
-            {{-- <div class="spacer-20"></div>
+            <div class="spacer-20"></div>
             <hr>
             <div class="spacer-15"></div>
             <div class="row">
                 <div class="col-sm-3">
-                    <label>Bill pembayaran permintaan</label>
+                    <label>Struk pembayaran bill permintaan</label>
                 </div>
                 <div class="col-sm-9">
-                    <a href="" class="underline text-primary">Billpembayaran.pdf</a>
+                    <div class="file-bar">
+                        <a href="../../storage/templateForm/STRUK.png" target="_blank">
+                            <div class="file-bar-icon">
+                                <i class="fa fa-download"></i>
+                            </div>
+                            <div class="file-bar-info">
+                                <h5>Unduh file</h5>
+                                <span class="label label-default">.pdf</span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div> --}}
+            </div>
 
             <div class="spacer-20"></div>
             <hr>
@@ -119,8 +147,8 @@
                                             <div class="col-sm-3">
                                                 <label>Nama</label>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" aria-required="true" name="nama" disabled value="{{ $formulir->nama }}"
+                                            <div class="col-sm-3">
+                                                <input type="text" aria-required="true" name="nama" disabled value="{{ Auth::user()->name }}"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -129,8 +157,8 @@
                                             <div class="col-sm-3">
                                                 <label>Nomor telepon</label>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <input type="telepon" name="telepon" disabled class="form-control" value="{{ $formulir->telepon }}">
+                                            <div class="col-sm-3">
+                                                <input type="telepon" name="telepon" disabled class="form-control" value="{{ Auth::user()->no_wa }}">
                                             </div>
                                         </div>
                                         <div class="spacer-10"></div>
@@ -138,8 +166,8 @@
                                             <div class="col-sm-3">
                                                 <label>Email</label>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <input type="email" name="email" disabled class="form-control" name="email" value="{{ $formulir->email }}">
+                                            <div class="col-sm-3">
+                                                <input type="email" name="email" disabled class="form-control" name="email" value="{{ Auth::user()->email }}">
                                             </div>
                                         </div> 
                                         {{-- End data diri --}}
@@ -292,23 +320,30 @@
                                         <hr>
                                         <div class="spacer-20"></div>
                                         {{-- Start syarat permohonan data --}}
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <h4 class="bold">Syarat permohonan data</h4>
-                                                </div>
-                                            </div>
-                                            <div class="spacer-10"></div>
+                                        <div class="row">
                                             <div class="col-sm-12">
-                                                <div class="row">
-                                                    <div class="col-sm-3">
-                                                        <label>Surat pengantar</label>
-                                                    </div>
-                                                    <div class="col-sm-9">
-                                                        <embed src="dokumen/{{ $formulir->surat_pengantar }}" style="width: 100%">
-                                                            <a href="{{ asset('storage/dokumen/' . $formulir->surat_pengantar) }}">download</a>
-                                                    </div>
+                                                <h4 class="bold">Syarat permohonan data</h4>
+                                            </div>
+                                        </div>
+                                        <div class="spacer-10"></div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-3">
+                                                    <label>Surat pengantar</label>
+                                                </div>
+                                                <div class="file-bar">
+                                                    <a href="{{ asset('storage/dokumen/' . $formulir->surat_pengantar) }}" target="_blank">
+                                                        <div class="file-bar-icon">
+                                                            <i class="fa fa-download"></i>
+                                                        </div>
+                                                        <div class="file-bar-info">
+                                                            <h5>Unduh file</h5>
+                                                            <span class="label label-default">.pdf</span>
+                                                        </div>
+                                                    </a>
                                                 </div>
                                             </div>
+                                        </div>
                                             {{-- End syarat permohonan data --}}
                                             
                                             <div class="spacer-40"></div>
@@ -355,32 +390,76 @@
 
     {{-- Toggle show element input --}}
     <script>
-        function toggle(value) {
-            var terima = document.getElementById("deskripsi");
-            var batal = document.getElementById("deskripsi");
-            var selesai = document.getElementById("data");
-            var pembayaran = document.getElementById("bill");
-            var pembayaranulang = document.getElementById("bill");
-
-            if (value == "diterima") {
-                terima.style.display = "block";
-            } else if (value == "dibatalkan") {
-                batal.style.display = "block";
-            } else {
-                batal.style.display = "none";
-            }
-            if (value == "selesai") {
-                selesai.style.display = "block";
-            } else {
-                selesai.style.display = "none";
-            }
-            if (value == "pembayaran") {
-                pembayaran.style.display = "block";
-            } else if (value == "pembayaranulang") {
-                pembayaranulang.style.display = "block";
-            } else {
-                pembayaranulang.style.display = "none";
-            }
-        }
+        // function toggle(value) {
+            // var terima = document.getElementById("deskripsi");
+            // var batal = document.getElementById("deskripsi");
+            // var selesai = document.getElementById("data");
+            // var pembayaran = document.getElementById("bill");
+            // var pembayaranulang = document.getElementById("bill");
+    
+            // if (value == "2") {
+            //     terima.style.display = "block";
+            // } else if (value == "6") {
+            //     batal.style.display = "block";
+            // } else {
+            //     batal.style.display = "none";
+            // }
+            // if (value == "3") {
+            //     selesai.style.display = "block";
+            // } else {
+            //     selesai.style.display = "none";
+            // }
+            // if (value == "4") {
+            //     pembayaran.style.display = "block";
+            // } 
+            // else if (value == "5") {
+            //     pembayaranulang.style.display = "block";
+            // } 
+        //     else {
+        //         pembayaran.style.display = "none";
+        //     }
+        // }
+    
+            // toggle deskripsi
+            // const div_desk = document.getElementById("deskripsi");
+            // const div_bill = document.getElementById("bill");
+            // function toggle(value) {
+            //     if(value == "1"){
+            //         $('#field_deskripsi').remove();
+            //         $('#field_bill').remove();
+            //         var newField = document.createElement("div");
+            //         newField.setAttribute("id", "field_deskripsi");
+            //         newField.innerHTML = '<div class="spacer-15"></div>\
+            //             <div class="row">\
+            //                 <div class="col-sm-3">\
+            //                     <label>Deskripsi</label>\
+            //                 </div>\
+            //                 <div class="col-sm-7">\
+            //                     <textarea class="form-control" required>{{ $formulir->respon_desk }}</textarea>\
+            //                 </div>\
+            //             </div>';
+            //             div_desk.append(newField); 
+            //     }
+                // else if(value == "4"){
+                //     // $('#field_deskripsi').remove();
+                //     var newField2 = document.createElement("div");
+                //     newField2.setAttribute("id", "field_bill");
+                //     newField2.innerHTML = '<div class="spacer-15"></div>\
+                //         <div class="row">\
+                //             <div class="col-sm-3">\
+                //                 <label>Bill pembayaran</label>\
+                //             </div>\
+                //             <div class="col-sm-9">\
+                //                 <input type="file" required>\
+                //             </div>\
+                //         </div>';
+                //                 div_bill.append(newField2);   
+                // }
+                // else{
+                    // $('#field_deskripsi').remove();
+                    // $('#bill').remove();
+                // }
+            // }
+        // }
     </script>
 @endsection

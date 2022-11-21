@@ -64,18 +64,20 @@
                                 @if($item->status_form == 1)
                                 <span class='label label-default demo-tip tooltip-top' title="Permintaan berhasil dikirim dan menunggu konfirmasi admin">Permintaan Baru</span>                                    
                                 @elseif($item->status_form == 2)
-                                <span class='label label-primary' title="Permintaan berhasil diterima dan menunggu data diproses">Diterima</span>
+                                <span class='label label-primary' title="Permintaan dalam proses">Diproses</span>
                                 @elseif($item->status_form == 3)
-                                <span class='label label-success' title="Permintaan selesai di proses">Selesai</span>
+                                <span class='label label-primary' title="Permintaan berhasil diterima dan menunggu data diproses">Diterima</span>
                                 @elseif($item->status_form == 4)
-                                <span class='label label-warning' title="Menunggu pembayaran sesuai jumlah pada billing yang tersedia">Menunggu Pembayaran</span>
+                                <span class='label label-success' title="Permintaan selesai di proses">Selesai</span>
                                 @elseif($item->status_form == 5)
-                                <span class='label label-warning' title="Menunggu pembayaran ulang">Menunggu Pembayaran Ulang</span>
+                                <span class='label label-warning' title="Menunggu pembayaran sesuai jumlah pada billing yang tersedia">Menunggu Pembayaran</span>
                                 @elseif($item->status_form == 6)
+                                <span class='label label-warning' title="Menunggu pembayaran ulang">Menunggu Pembayaran Ulang</span>
+                                @elseif($item->status_form == 7)
                                 <span class='label label-danger' title="Permintaan di tolak, untuk penjelasan ada diketerangan">Ditolak</span>
                                 @endif
                         </td>
-                        <td></td>
+                        <td>{{ $item->respon_desk }}</td>
                         <td>
                             @if($item->status_form == 1 and $item->jenis_permintaan == 'Layanan bertarif')
                                 <div class="col-sm-4">
@@ -92,6 +94,32 @@
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id . '/edit') }}">Ubah</a>
                                 </div>
+                            
+                            @elseif($item->status_form == 7 and $item->jenis_permintaan == 'Layanan bertarif')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
+                                </div>
+
+                            @elseif($item->status_form == 2 and $item->jenis_permintaan == 'Layanan bertarif')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
+                                </div>
+
+                            @elseif($item->status_form == 3 and $item->jenis_permintaan == 'Layanan bertarif')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
+                                </div>
+                            
+                            @elseif($item->status_form == 5 and $item->jenis_permintaan == 'Layanan bertarif')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('pembayaran/' . $item->id) }}">Pembayaran</a>
+                                </div>
+                            
+                            @elseif($item->status_form == 4 and $item->jenis_permintaan == 'Layanan bertarif')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" download href="../../storage/templateForm/DATAPERMINTAAN.pdf">Download</a>
+                                </div>
+                            
                             
                             @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan keagamaan')
                                 <div class="col-sm-4">

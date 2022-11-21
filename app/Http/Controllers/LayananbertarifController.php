@@ -622,4 +622,5 @@ class LayananbertarifController extends Controller
         Datapermintaan::where("formulir_id", $id)->delete();
         return redirect()->back();
     }
+
 }
