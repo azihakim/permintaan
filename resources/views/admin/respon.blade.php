@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-sm-9">
                     <div class="file-bar">
-                        <a href="../../storage/templateForm/STRUK.png" target="_blank">
+                        <a href="{{ asset('store/documen/' . $formulir->respon_struk) }}" target="_blank">
                             <div class="file-bar-icon">
                                 <i class="fa fa-download"></i>
                             </div>

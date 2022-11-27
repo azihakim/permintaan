@@ -4,14 +4,22 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <div class="row">
+          <div class="col-sm-6">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
       </div>
       <div class="modal-body">
         {{-- {{ $item->jenis_permintaan }} --}}
-        <form action="">
+        <form method="POST" action="{{ url('pembayaran/' . $item->id) }}" enctype="multipart/form-data">
+          @method('PATCH')
+          @csrf
               <div id="bill">
                   <div class="spacer-15"></div>
                   <div class="row">
@@ -20,7 +28,7 @@
                       </div>
                       <div class="col-sm-7">
                           <div class="file-bar">
-                              <a href="{{ asset('store/documen/') }}" target="_blank">
+                              <a href="{{ asset('store/documen/' . $item->respon_bill) }}" target="_blank">
                                   <div class="file-bar-icon">
                                       <i class="fa fa-download"></i>
                                   </div>
@@ -41,24 +49,26 @@
                           <label>Struk pembayaran</label>
                       </div>
                       <div class="col-sm-9">
-                          <input type="file" name="respon_pembayaran">
+                          <input type="hidden" name="old_bill" value="{{ $item->respon_struk }}">
+                          <input type="file" name="respon_struk">
                       </div>
                   </div>
               </div>
   
-              <div class="spacer-15"></div>
+              {{-- <div class="spacer-15"></div>
               <div class="row">
                   <div class="col-sm-3"></div>
                   <div class="col-sm-7">
                       <button type="submit" class="btn btn-default pull-left">Kirim</button>
                   </div>
-              </div>
-        </form>
+              </div> --}}
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
+    </form>
     </div>
   </div>
 </div>

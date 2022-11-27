@@ -29,6 +29,7 @@ return new class extends Migration
             $table->longText('deskripsi')->nullable();
             $table->string('respon_data')->nullable();
             $table->string('respon_bill')->nullable();
+            $table->string('respon_struk')->nullable();
             $table->longText('respon_desk')->nullable();
             $table->timestamps();
         });

@@ -117,7 +117,7 @@
                                     <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
                                 </div>
                             
-                            @elseif($item->status_form == 5 and $item->jenis_permintaan == 'Layanan bertarif')
+                            @elseif($item->status_form == 5 || 6 and $item->jenis_permintaan == 'Layanan bertarif')
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal-{{ $item->id }}" href="">Pembayaran</a>
                                 </div>    

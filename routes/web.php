@@ -88,6 +88,9 @@ Route::get('yes', function () {
 Route::resource('/respon', ResponlayananbertarifController::class)->middleware(['auth', 'verified'] );
 // Route::resource('respon-layanan', [ResponlayananbertarifController::class])->middleware(['auth', 'verified'] );
 
+Route::resource('/pembayaran', PembayaranController::class)->middleware(['auth', 'verified'] );
+
+
 Route::get('signup', function () {
     return view('user.signup');
 });
