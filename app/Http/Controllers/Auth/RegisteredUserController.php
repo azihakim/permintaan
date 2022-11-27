@@ -35,34 +35,55 @@ class RegisteredUserController extends Controller
     {
         // $data = $request->all();
         // dd($data);
-        // $request->validate([
-        //     'name' => ['required', 'string', 'max:255'],
-        //     'instansi' =>['string', 'max:255'],
-        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        //     'kategori' =>['required', 'string', 'max:255'],
-        //     'desk_kategori' =>['required', 'string', 'max:255'],
-        //     'no_wa' =>['required', 'string', 'max:255'],
-        //     'ktp' =>['required']
-        // ]);
-        $ext = $request->ktp->getClientOriginalExtension();
-        $file = "KTP-".time().".".$ext;
-        $request->ktp->storeAs('public/dokumen', $file);
-        $user = User::create([
-            'name' => $request->name,
-            'instansi' => $request->instansi,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'kategori' => $request->kategori,
-            'desk_kategori' => $request->desk_kategori,
-            'no_wa' => $request->no_wa,
-            'ktp' => $file,
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'instansi' =>['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'kategori' =>['required', 'string', 'max:255'],
+            // 'desk_kategori' =>['required', 'string', 'max:255'],
+            'no_wa' =>['required', 'string', 'max:255'],
+            'ktp' =>['required']
         ]);
+        $ext_ktp = $request->ktp->getClientOriginalExtension();
+        $file_ktp = "KTP-".time().".".$ext_ktp;
+        $request->ktp->storeAs('public/dokumen', $file_ktp);
+
+        if ($request->exists("ktm")){
+            $ext_ktm = $request->ktm->getClientOriginalExtension();
+            $file_ktm = "KTM-".time().".".$ext_ktm;
+            $request->ktm->storeAs('public/dokumen', $file_ktm);
+            $user = User::create([
+                'name' => $request->name,
+                'instansi' => $request->instansi,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'kategori' => $request->kategori,
+                'desk_kategori' => $request->desk_kategori,
+                'no_wa' => $request->no_wa,
+                'ktp' => $file_ktp,
+                'ktm' => $file_ktm
+            ]);
+        }else{
+            $user = User::create([
+                'name' => $request->name,
+                'instansi' => $request->instansi,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'kategori' => $request->kategori,
+                'desk_kategori' => $request->desk_kategori,
+                'no_wa' => $request->no_wa,
+                'ktp' => $file_ktp,
+            ]);
+        }
+        
+        
+
+
 
         event(new Registered($user));
 
         Auth::login($user);
-        // return $user;
         return redirect(RouteServiceProvider::HOME);
         
     }

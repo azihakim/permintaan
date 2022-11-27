@@ -75,10 +75,10 @@ class DatabaseSeeder extends Seeder
         //     'email'=>'test@gmail.com',
         // ]);
 
-        User::create([
-            'name' =>'abdul',
-            'email' =>'azi@gmail.com',
-            'password' => bcrypt('123456')
-        ]);
+        // User::create([
+        //     'name' =>'abdul',
+        //     'email' =>'azi@gmail.com',
+        //     'password' => bcrypt('123456')
+        // ]);
     }
 }

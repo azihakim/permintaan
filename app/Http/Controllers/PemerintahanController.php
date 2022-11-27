@@ -58,9 +58,6 @@ class PemerintahanController extends Controller
             $formulir = new Formulir();
             $formulir->jenis_permintaan = "Kegiatan pemerintahan";
             $formulir->status_form = "1";
-            $formulir->nama_kegiatan= $data['nama'];
-            $formulir->telepon = $data['telepon'];
-            $formulir->email = $data['email'];
             $formulir->surat_kerjasama = $file_suratkerjasama;
             $formulir->surat_pengantar = $file_suratpengantar;
             $formulir->deskripsi = $data['deskripsi'];

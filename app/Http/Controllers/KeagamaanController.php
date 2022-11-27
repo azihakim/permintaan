@@ -51,9 +51,6 @@ class KeagamaanController extends Controller
             $keagamaan = new Formulir();
             $keagamaan->jenis_permintaan = "Kegiatan keagamaan";
             $keagamaan->status_form = "1";
-            $keagamaan->nama_kegiatan= $data['nama_kegiatan'];
-            $keagamaan->telepon = $data['telepon'];
-            $keagamaan->email = $data['email'];
             $keagamaan->surat_pernyataan = $file;
             $keagamaan->deskripsi = $data['deskripsi'];
             $keagamaan->save();
@@ -372,7 +369,6 @@ class KeagamaanController extends Controller
     {   
         $formulir = Formulir::find($id);
         $formulir ->deskripsi = $request->input('deskripsi');
-        $formulir ->nama_kegiatan = $request->input('nama_kegiatan');
         $file_name = $formulir->surat_pernyataan;
         $file_path = public_path('storage/dokumen/' . $file_name);
 

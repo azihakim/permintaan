@@ -25,7 +25,8 @@ class User extends Authenticatable
         'no_wa',
         'kategori',
         'desk_kategori',
-        'ktp'
+        'ktp',
+        'ktm'
     ];
 
     /**

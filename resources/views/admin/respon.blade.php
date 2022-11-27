@@ -76,17 +76,17 @@
                      </div>
                  </div>
             </div>
-            <div id="deskripsi"></div>
-                {{-- <div class="spacer-15"></div>
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <label>Deskripsi</label>
-                            </div>
-                            <div class="col-sm-7">
-                                <textarea class="form-control" name="respon_desk">{{ $formulir->respon_desk }}</textarea>
-                            </div>
-                        </div> --}}
-            {{-- </div> --}}
+            <div id="deskripsi">
+                <div class="spacer-15"></div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Deskripsi</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <textarea class="form-control" name="respon_desk">{{ $formulir->respon_desk }}</textarea>
+                    </div>
+                </div>
+            </div>
 
             <div class="spacer-15"></div>
             <div class="row">

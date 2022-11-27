@@ -4,48 +4,48 @@
 @section('content')
 <div class="inner-padding">
     <form action="">
-    <div>
-        <div id="bill">
-            <div class="spacer-15"></div>
-            <div class="row">
-                <div class="col-sm-3">
-                    <label>Bill pembayaran</label>
-                </div>
-                <div class="col-sm-7">
-                    <div class="file-bar">
-                        <a href="{{ asset('store/documen/' . $formulir->respon_bill) }}" target="_blank">
-                            <div class="file-bar-icon">
-                                <i class="fa fa-download"></i>
-                            </div>
-                            <div class="file-bar-info">
-                                <h5>Unduh file</h5>
-                                <span class="label label-default">.pdf</span>
-                            </div>
-                        </a>
+        <div>
+            <div id="bill">
+                <div class="spacer-15"></div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Bill pembayaran</label>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="file-bar">
+                            <a href="{{ asset('store/documen/' . $formulir->respon_bill) }}" target="_blank">
+                                <div class="file-bar-icon">
+                                    <i class="fa fa-download"></i>
+                                </div>
+                                <div class="file-bar-info">
+                                    <h5>Unduh file</h5>
+                                    <span class="label label-default">.pdf</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div id="data">
+            
+            <div id="data">
+                <div class="spacer-15"></div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <label>Struk pembayaran</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="file" name="respon_pembayaran">
+                    </div>
+                </div>
+            </div>
+
             <div class="spacer-15"></div>
             <div class="row">
-                <div class="col-sm-3">
-                    <label>Struk pembayaran</label>
-                </div>
-                <div class="col-sm-9">
-                    <input type="file" name="respon_pembayaran">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-7">
+                    <button type="submit" class="btn btn-default pull-left">Kirim</button>
                 </div>
             </div>
-        </div>
-
-        <div class="spacer-15"></div>
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-7">
-                <button type="submit" class="btn btn-default pull-left">Kirim</button>
-            </div>
-        </div>
     </form>
         <div class="spacer-20"></div>
         <hr>

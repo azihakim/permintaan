@@ -52,9 +52,6 @@ class SosialController extends Controller
             $sosial = new Formulir();
             $sosial->jenis_permintaan = "Kegiatan sosial";
             $sosial->status_form = "1";
-            $sosial->nama_kegiatan= $data['nama_kegiatan'];
-            $sosial->telepon = $data['telepon'];
-            $sosial->email = $data['email'];
             $sosial->surat_permintaan = $file;
             $sosial->deskripsi = $data['deskripsi'];
             $sosial->save();
@@ -375,7 +372,6 @@ class SosialController extends Controller
     {   
         $formulir = Formulir::find($id);
         $formulir ->deskripsi = $request->input('deskripsi');
-        $formulir ->nama_kegiatan = $request->input('nama_kegiatan');
         $file_name = $formulir->surat_permintaan;
         $file_path = public_path('storage/dokumen/' . $file_name);
 

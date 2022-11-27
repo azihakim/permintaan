@@ -1,449 +1,383 @@
-@extends('layout.master')
+@extends('layout.formulir')
 @section('menu-title', 'Formulir Permintaan')
-@section('content')
-    <div class="inner-padding">
+@section('form-title', 'Layanan Bertarif PNBP sesuai dengan PP No.47 Tahun 2018')
+@section('form')
+<form action="{{ route('bertarif.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf  
+        {{-- Start data dan informasi yang dibutuhkan --}}
         <div class="row">
             <div class="col-sm-12">
-                <div class="tab-content">
-                    <div id="content-tab-3-a" class="tab-pane active">
-                        <div class="subheading">
-                            <h2>Formulir Permintaan</h2>
-                                <div class="spacer-5"></div>
-                            <h3>
-                                <span class="text-muted">Layanan Bertarif PNBP sesuai dengan PP No.47 Tahun 2018</span>
-                            </h3>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <form action="{{ route('bertarif.store') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                        @if(session('status'))
-                                            <div class="alert alert-success">
-                                            {{ session('status') }}
-                                            </div>
-                                        @endif
-                                        <div class="spacer-10"></div>
-                                        {{-- Start data diri --}}
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <h4 class="bold">Data diri</h4>
-                                            </div>
-                                        </div>
-                                        <div class="spacer-10"></div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <label>Nama</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <p>{{ Auth::user()->name }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="spacer-10"></div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <label>Nomor telepon</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <p>{{ Auth::user()->no_wa }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="spacer-10"></div>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <label>Email</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <p>{{ Auth::user()->email }}</p>
-                                            </div>
-                                        </div> 
-                                        {{-- End data diri --}}
+                <h4 class="bold">Data dan informasi yang di butuhkan</h4>
+            </div>
+        </div>
+        <div class="spacer-10"></div>
 
-                                        <div class="spacer-40"></div>
-                                        <hr>
-                                        <div class="spacer-20"></div>
-                                        
-                                        {{-- Start data dan informasi yang dibutuhkan --}}
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h4 class="bold">Data dan informasi yang di butuhkan</h4>
-                                            </div>
-                                        </div>
-                                        <div class="spacer-10"></div>
+        {{-- Start jenis data --}}
+        <div class="row col-sm-12">
+            <div class="col-sm-12">
+                <h4 class="semibold">Jenis data</h4>
+            </div>
+            <div class="col-sm-4">
+                <div class="stacked-labels">
+                    <label><input type="checkbox" id="cb_datapetir" name="cb_datapetirs" onclick="toggle_datapetir()"><span></span>Data petir</label>
+                    <label><input type="checkbox" id="cb_dataharihujan" name="cb_dataharihujans" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
+                    <label><input type="checkbox" id="cb_datacurahhujanratarata" name="cb_datacurahhujanrataratas" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
+                    <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="cb_datacurahhujanmaksimums" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
+                    <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="cb_datacurahhujanbulanans" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
+                    <label><input type="checkbox" id="cb_datasuhuudararatarata" name="cb_datasuhuudararataratas" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
+                </div>
+                <div class="spacer-10"></div>
+            </div>
 
-                                        {{-- Start jenis data --}}
-                                        <div class="row col-sm-12">
-                                            <div class="col-sm-12">
-                                                <h4 class="semibold">Jenis data</h4>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="stacked-labels">
-                                                    <label><input type="checkbox" id="cb_datapetir" name="cb_datapetirs" onclick="toggle_datapetir()"><span></span>Data petir</label>
-                                                    <label><input type="checkbox" id="cb_dataharihujan" name="cb_dataharihujans" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
-                                                    <label><input type="checkbox" id="cb_datacurahhujanratarata" name="cb_datacurahhujanrataratas" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
-                                                    <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="cb_datacurahhujanmaksimums" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="cb_datacurahhujanbulanans" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
-                                                    <label><input type="checkbox" id="cb_datasuhuudararatarata" name="cb_datasuhuudararataratas" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
-                                                </div>
-                                                <div class="spacer-10"></div>
-                                            </div>
-                                
-                                            <div class="col-sm-4">
-                                                <div class="stacked-labels">
-                                                    <label><input type="checkbox" id="cb_datasuhuudaramaksimum" name="cb_datasuhuudaramaksimums" onclick="toggle_datasuhuudaramaksimum()"><span></span>Data suhu udara maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datasuhuudaraminimum" name="cb_datasuhuudaraminimums" onclick="toggle_datasuhuudaraminimum()"><span></span>Data suhu udara minimum</label>
-                                                    <label><input type="checkbox" id="cb_datakelembapanudararatarata" name="cb_datakelembapanudararataratas" onclick="toggle_datakelembapanudararatarata()"><span></span>Data kelembapan udara rata-rata</label>
-                                                    <label><input type="checkbox" id="cb_datakelembapanudaramaksimum" name="cb_datakelembapanudaramaksimums" onclick="toggle_datakelembapanudaramaksimum()"><span></span>Data kelembapan udara maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datakelembapanudaraminimum" name="cb_datakelembapanudaraminimums" onclick="toggle_datakelembapanudaraminimum()"><span></span>Data kelembapan udara minimum</label>
-                                                    <label><input type="checkbox" id="cb_datakecepatandanarahangin" name="cb_datakecepatandanarahangins" onclick="toggle_datakecepatandanarahangin()"><span></span>Data kecepatan dan arah angin</label>
-                                                </div>
-                                                <div class="spacer-10"></div>
-                                            </div>
-                                
-                                            <div class="col-sm-4">
-                                                <div class="stacked-labels">
-                                                    <label><input type="checkbox" id="cb_datakecepatananginmaksimum" name="cb_datakecepatananginmaksimums" onclick="toggle_datakecepatananginmaksimum()"><span></span>Data kecepatan angin maksimum</label>
-                                                    <label><input type="checkbox" id="cb_datalamapenyinaranmatahari" name="cb_datalamapenyinaranmataharis" onclick="toggle_datalamapenyinaranmatahari()"><span></span>Data lama penyinaran matahari</label>
-                                                    <label><input type="checkbox" id="cb_dataprakiraanmusim" name="cb_dataprakiraanmusims" onclick="toggle_dataprakiraanmusim()"><span></span>Data prakiraan musim</label>
-                                                    <label><input type="checkbox" id="cb_dataklasifikasiiklim" name="cb_dataklasifikasiiklims" onclick="toggle_dataklasifikasiiklim()"><span></span>Data klasifikasi iklim</label>
-                                                    <label><input type="checkbox" id="cb_dataradiasimatahari" name="cb_dataradiasimataharis" onclick="toggle_dataradiasimatahari()"><span></span>Data radiasi matahari</label>
-                                                    <label><input type="checkbox" id="cb_unsurcuacalainnya" name="cb_unsurcuacalainnyas" onclick="toggle_unsurcuacalainnya()"><span></span>Unsur cuaca lainnya</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- End jenis data --}}
+            <div class="col-sm-4">
+                <div class="stacked-labels">
+                    <label><input type="checkbox" id="cb_datasuhuudaramaksimum" name="cb_datasuhuudaramaksimums" onclick="toggle_datasuhuudaramaksimum()"><span></span>Data suhu udara maksimum</label>
+                    <label><input type="checkbox" id="cb_datasuhuudaraminimum" name="cb_datasuhuudaraminimums" onclick="toggle_datasuhuudaraminimum()"><span></span>Data suhu udara minimum</label>
+                    <label><input type="checkbox" id="cb_datakelembapanudararatarata" name="cb_datakelembapanudararataratas" onclick="toggle_datakelembapanudararatarata()"><span></span>Data kelembapan udara rata-rata</label>
+                    <label><input type="checkbox" id="cb_datakelembapanudaramaksimum" name="cb_datakelembapanudaramaksimums" onclick="toggle_datakelembapanudaramaksimum()"><span></span>Data kelembapan udara maksimum</label>
+                    <label><input type="checkbox" id="cb_datakelembapanudaraminimum" name="cb_datakelembapanudaraminimums" onclick="toggle_datakelembapanudaraminimum()"><span></span>Data kelembapan udara minimum</label>
+                    <label><input type="checkbox" id="cb_datakecepatandanarahangin" name="cb_datakecepatandanarahangins" onclick="toggle_datakecepatandanarahangin()"><span></span>Data kecepatan dan arah angin</label>
+                </div>
+                <div class="spacer-10"></div>
+            </div>
 
-                                        <div class="spacer-40"></div>
-                                        <hr>
-                                        <div class="spacer-20"></div>
+            <div class="col-sm-4">
+                <div class="stacked-labels">
+                    <label><input type="checkbox" id="cb_datakecepatananginmaksimum" name="cb_datakecepatananginmaksimums" onclick="toggle_datakecepatananginmaksimum()"><span></span>Data kecepatan angin maksimum</label>
+                    <label><input type="checkbox" id="cb_datalamapenyinaranmatahari" name="cb_datalamapenyinaranmataharis" onclick="toggle_datalamapenyinaranmatahari()"><span></span>Data lama penyinaran matahari</label>
+                    <label><input type="checkbox" id="cb_dataprakiraanmusim" name="cb_dataprakiraanmusims" onclick="toggle_dataprakiraanmusim()"><span></span>Data prakiraan musim</label>
+                    <label><input type="checkbox" id="cb_dataklasifikasiiklim" name="cb_dataklasifikasiiklims" onclick="toggle_dataklasifikasiiklim()"><span></span>Data klasifikasi iklim</label>
+                    <label><input type="checkbox" id="cb_dataradiasimatahari" name="cb_dataradiasimataharis" onclick="toggle_dataradiasimatahari()"><span></span>Data radiasi matahari</label>
+                    <label><input type="checkbox" id="cb_unsurcuacalainnya" name="cb_unsurcuacalainnyas" onclick="toggle_unsurcuacalainnya()"><span></span>Unsur cuaca lainnya</label>
+                </div>
+            </div>
+        </div>
+        {{-- End jenis data --}}
 
-                                        {{-- Start lokasi dan tanggal data --}}
-                                        {{-- Data petir --}}
-                                        <div id="container_datapetir" name="datapetir" ></div>
-                                        <div class="row col-sm-12" id="btn_datapetir" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datapetir" type="button"><i class="fa fa-plus"></i></button>
-                                                    <button class="btn btn-danger" id="hapus_datapetir" type="button"><i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        <div class="spacer-40"></div>
+        <hr>
+        <div class="spacer-20"></div>
 
-                                        {{-- Data hari hujan --}}
-                                        <div id="container_dataharihujan"></div>
-                                        <div class="row col-sm-12" id="btn_dataharihujan" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_dataharihujan" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_dataharihujan" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
-                                        
-                                        {{-- Data hari hujan rata-rata --}}
-                                        <div id="container_datacurahhujanratarata"></div>
-                                        <div class="row col-sm-12" id="btn_datacurahhujanratarata" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datacurahhujanratarata" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datacurahhujanratarata" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Start lokasi dan tanggal data --}}
+        {{-- Data petir --}}
+        <div id="container_datapetir" name="datapetir" ></div>
+        <div class="row col-sm-12" id="btn_datapetir" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datapetir" type="button"><i class="fa fa-plus"></i></button>
+                    <button class="btn btn-danger" id="hapus_datapetir" type="button"><i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data hari hujan maksimum --}}
-                                        <div id="container_datacurahhujanmaksimum"></div>
-                                        <div class="row col-sm-12" id="btn_datacurahhujanmaksimum" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datacurahhujanmaksimum" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datacurahhujanmaksimum" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data hari hujan --}}
+        <div id="container_dataharihujan"></div>
+        <div class="row col-sm-12" id="btn_dataharihujan" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_dataharihujan" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_dataharihujan" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
+        
+        {{-- Data hari hujan rata-rata --}}
+        <div id="container_datacurahhujanratarata"></div>
+        <div class="row col-sm-12" id="btn_datacurahhujanratarata" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datacurahhujanratarata" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datacurahhujanratarata" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data hari hujan bulanan --}}
-                                        <div id="container_datacurahhujanbulanan"></div>
-                                        <div class="row col-sm-12" id="btn_datacurahhujanbulanan" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datacurahhujanbulanan" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datacurahhujanbulanan" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data hari hujan maksimum --}}
+        <div id="container_datacurahhujanmaksimum"></div>
+        <div class="row col-sm-12" id="btn_datacurahhujanmaksimum" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datacurahhujanmaksimum" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datacurahhujanmaksimum" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data suhu udara rata-rata --}}
-                                        <div id="container_datasuhuudararatarata"></div>
-                                        <div class="row col-sm-12" id="btn_datasuhuudararatarata" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datasuhuudararatarata" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datasuhuudararatarata" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data hari hujan bulanan --}}
+        <div id="container_datacurahhujanbulanan"></div>
+        <div class="row col-sm-12" id="btn_datacurahhujanbulanan" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datacurahhujanbulanan" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datacurahhujanbulanan" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data suhu udara maksimum --}}
-                                        <div id="container_datasuhuudaramaksimum"></div>
-                                        <div class="row col-sm-12" id="btn_datasuhuudaramaksimum" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datasuhuudaramaksimum" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datasuhuudaramaksimum" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data suhu udara rata-rata --}}
+        <div id="container_datasuhuudararatarata"></div>
+        <div class="row col-sm-12" id="btn_datasuhuudararatarata" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datasuhuudararatarata" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datasuhuudararatarata" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data suhu udara minimum --}}
-                                        <div id="container_datasuhuudaraminimum"></div>
-                                        <div class="row col-sm-12" id="btn_datasuhuudaraminimum" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datasuhuudaraminimum" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datasuhuudaraminimum" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data suhu udara maksimum --}}
+        <div id="container_datasuhuudaramaksimum"></div>
+        <div class="row col-sm-12" id="btn_datasuhuudaramaksimum" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datasuhuudaramaksimum" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datasuhuudaramaksimum" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data kelembapan udara rata-rata --}}
-                                        <div id="container_datakelembapanudararatarata"></div>
-                                        <div class="row col-sm-12" id="btn_datakelembapanudararatarata" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datakelembapanudararatarata" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datakelembapanudararatarata" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data suhu udara minimum --}}
+        <div id="container_datasuhuudaraminimum"></div>
+        <div class="row col-sm-12" id="btn_datasuhuudaraminimum" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datasuhuudaraminimum" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datasuhuudaraminimum" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data kelembapan udara maksimum --}}
-                                        <div id="container_datakelembapanudaramaksimum"></div>
-                                        <div class="row col-sm-12" id="btn_datakelembapanudaramaksimum" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datakelembapanudaramaksimum" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datakelembapanudaramaksimum" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data kelembapan udara rata-rata --}}
+        <div id="container_datakelembapanudararatarata"></div>
+        <div class="row col-sm-12" id="btn_datakelembapanudararatarata" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datakelembapanudararatarata" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datakelembapanudararatarata" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data kelembapan udara minimum --}}
-                                        <div id="container_datakelembapanudaraminimum"></div>
-                                        <div class="row col-sm-12" id="btn_datakelembapanudaraminimum" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datakelembapanudaraminimum" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datakelembapanudaraminimum" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data kelembapan udara maksimum --}}
+        <div id="container_datakelembapanudaramaksimum"></div>
+        <div class="row col-sm-12" id="btn_datakelembapanudaramaksimum" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datakelembapanudaramaksimum" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datakelembapanudaramaksimum" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data kecepatan dan arah angin --}}
-                                        <div id="container_datakecepatandanarahangin"></div>
-                                        <div class="row col-sm-12" id="btn_datakecepatandanarahangin" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datakecepatandanarahangin" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datakecepatandanarahangin" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data kelembapan udara minimum --}}
+        <div id="container_datakelembapanudaraminimum"></div>
+        <div class="row col-sm-12" id="btn_datakelembapanudaraminimum" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datakelembapanudaraminimum" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datakelembapanudaraminimum" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data kecepatan angin maksimum --}}
-                                        <div id="container_datakecepatananginmaksimum"></div>
-                                        <div class="row col-sm-12" id="btn_datakecepatananginmaksimum" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datakecepatananginmaksimum" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datakecepatananginmaksimum" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data kecepatan dan arah angin --}}
+        <div id="container_datakecepatandanarahangin"></div>
+        <div class="row col-sm-12" id="btn_datakecepatandanarahangin" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datakecepatandanarahangin" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datakecepatandanarahangin" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data lama penyinaran matahari --}}
-                                        <div id="container_datalamapenyinaranmatahari"></div>
-                                        <div class="row col-sm-12" id="btn_datalamapenyinaranmatahari" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_datalamapenyinaranmatahari" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_datalamapenyinaranmatahari" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data kecepatan angin maksimum --}}
+        <div id="container_datakecepatananginmaksimum"></div>
+        <div class="row col-sm-12" id="btn_datakecepatananginmaksimum" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datakecepatananginmaksimum" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datakecepatananginmaksimum" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data prakiraan musim --}}
-                                        <div id="container_dataprakiraanmusim"></div>
-                                        <div class="row col-sm-12" id="btn_dataprakiraanmusim" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_dataprakiraanmusim" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_dataprakiraanmusim" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data lama penyinaran matahari --}}
+        <div id="container_datalamapenyinaranmatahari"></div>
+        <div class="row col-sm-12" id="btn_datalamapenyinaranmatahari" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_datalamapenyinaranmatahari" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_datalamapenyinaranmatahari" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data klasifikasi iklim --}}
-                                        <div id="container_dataklasifikasiiklim"></div>
-                                        <div class="row col-sm-12" id="btn_dataklasifikasiiklim" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_dataklasifikasiiklim" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_dataklasifikasiiklim" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data prakiraan musim --}}
+        <div id="container_dataprakiraanmusim"></div>
+        <div class="row col-sm-12" id="btn_dataprakiraanmusim" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_dataprakiraanmusim" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_dataprakiraanmusim" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Data radiasi matahari --}}
-                                        <div id="container_dataradiasimatahari"></div>
-                                        <div class="row col-sm-12" id="btn_dataradiasimatahari" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_dataradiasimatahari" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_dataradiasimatahari" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
+        {{-- Data klasifikasi iklim --}}
+        <div id="container_dataklasifikasiiklim"></div>
+        <div class="row col-sm-12" id="btn_dataklasifikasiiklim" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_dataklasifikasiiklim" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_dataklasifikasiiklim" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        {{-- Unsur cuaca lainnya --}}
-                                        <div id="container_unsurcuacalainnya"></div>
-                                        <div class="row col-sm-12" id="btn_unsurcuacalainnya" style="display:none">
-                                            <div class="col-sm-12">
-                                                    <div class="spacer-10"></div>
-                                                    <button class="btn btn-default" id="tambah_unsurcuacalainnya" type="button">
-                                                            <i class="fa fa-plus"></i>
-                                                            </button>
-                                                    <button class="btn btn-danger" id="hapus_unsurcuacalainnya" type="button">
-                                                                <i class="fa fa-minus"></i></button>
-                                            </div>
-                                            <div class="spacer-20"></div>
-                                        </div>
-                                    
-                                        {{-- End lokasi dan tanggal data --}}
+        {{-- Data radiasi matahari --}}
+        <div id="container_dataradiasimatahari"></div>
+        <div class="row col-sm-12" id="btn_dataradiasimatahari" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_dataradiasimatahari" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_dataradiasimatahari" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
 
-                                        <div class="spacer-40"></div>
-                                        <hr>
-                                        <div class="spacer-20"></div>
+        {{-- Unsur cuaca lainnya --}}
+        <div id="container_unsurcuacalainnya"></div>
+        <div class="row col-sm-12" id="btn_unsurcuacalainnya" style="display:none">
+            <div class="col-sm-12">
+                    <div class="spacer-10"></div>
+                    <button class="btn btn-default" id="tambah_unsurcuacalainnya" type="button">
+                            <i class="fa fa-plus"></i>
+                            </button>
+                    <button class="btn btn-danger" id="hapus_unsurcuacalainnya" type="button">
+                                <i class="fa fa-minus"></i></button>
+            </div>
+            <div class="spacer-20"></div>
+        </div>
+    
+        {{-- End lokasi dan tanggal data --}}
 
-                                        {{-- Start syarat permohonan data --}}
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h4 class="bold">Syarat permohonan data</h4>
-                                            </div>
-                                        </div>
-                                        <div class="spacer-10"></div>
-                                        <div class="col-sm-12">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <label>Surat pengantar</label>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    {{-- <input type="file" name="surat_pengantar" id=""> --}}
-                                                    <input type="file" accept="application/pdf" name="surat_pengantar">
-                                                    <div class="helper-text-box">
-                                                        <div class="form-helper-header">Format
-                                                            file:<code>.pdf</code>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{-- End syarat permohonan data --}}
+        <div class="spacer-40"></div>
+        <hr>
+        <div class="spacer-20"></div>
 
-                                        <div class="spacer-40"></div>
-                                        <hr>
-                                        <div class="spacer-20"></div>
-
-                                        {{-- Start deskripsi permintaan data --}}
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h4 class="bold">Deskripsi permintaan data</h4>
-                                            </div>
-                                        </div>
-                                        <div class="spacer-10"></div>
-                                        <div class="row col-sm-12">
-                                            <div class="col-sm-12">
-                                                <textarea name="deskripsi" value="{{ old('deskripsi') }}" class="form-control" style="height: 150px;"></textarea>
-                                                <div class="helper-text-box">
-                                                    <div class="form-helper">Silahkan masukkan deskripsi jika tidak ada
-                                                        pilihan di formulir</div>
-                                                </div><!-- End .helper-text-box -->
-                                            </div>
-                                        </div>
-
-                                        {{-- End deskripsi permintaan data --}}
-
-
-                                        {{-- End data dan informasi yang dibutuhkan --}}
-
-                                        <div class="spacer-40"></div>
-                                        <hr>
-                                        <div class="spacer-20"></div>
-                                        <div class="row">
-                                                <div class="col-sm-6">
-                                                    <a onclick="history.back()" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i></a>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <button type="submit" class="btn btn-default btn-lg pull-right">Kirim</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    <div class="spacer-40"></div>
-                                </form>
-                            </div>
+        {{-- Start syarat permohonan data --}}
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="bold">Syarat permohonan data</h4>
+            </div>
+        </div>
+        <div class="spacer-10"></div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Surat pengantar</label>
+                </div>
+                <div class="col-sm-6">
+                    {{-- <input type="file" name="surat_pengantar" id=""> --}}
+                    <input type="file" required accept="application/pdf" name="surat_pengantar">
+                    <div class="helper-text-box">
+                        <div class="form-helper-header">Format
+                            file:<code>.pdf</code>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        {{-- End syarat permohonan data --}}
+
+        <div class="spacer-40"></div>
+        <hr>
+        <div class="spacer-20"></div>
+
+        {{-- Start deskripsi permintaan data --}}
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="bold">Deskripsi permintaan data</h4>
+            </div>
+        </div>
+        <div class="spacer-10"></div>
+        <div class="row col-sm-12">
+            <div class="col-sm-12">
+                <textarea name="deskripsi" value="{{ old('deskripsi') }}" class="form-control" style="height: 150px;"></textarea>
+                <div class="helper-text-box">
+                    <div class="form-helper">Silahkan masukkan deskripsi jika tidak ada
+                        pilihan di formulir</div>
+                </div><!-- End .helper-text-box -->
+            </div>
+        </div>
+
+        {{-- End deskripsi permintaan data --}}
+
+
+        {{-- End data dan informasi yang dibutuhkan --}}
+
+        <div class="spacer-40"></div>
+        <hr>
+        <div class="spacer-20"></div>
+        <div class="row">
+                <div class="col-sm-6">
+                    <a onclick="history.back()" class="btn btn-default btn-lg"><i class="fa fa-arrow-left"></i></a>
+                </div>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn btn-default btn-lg pull-right">Kirim</button>
+                </div>
+            </div>
+        </div>
+</form>
 
     {{-- Toggle hide/show element input --}}
     <script>

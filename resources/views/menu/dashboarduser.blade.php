@@ -6,6 +6,9 @@
 @endsection
 
 @section('content')
+{{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button> --}}
     <div class="inner-padding">
         @if(session('status'))
         <div class="alert alert-success">
@@ -20,6 +23,11 @@
                         <i class="fa fa-plus-square"></i>
                     </a>
                     <ul role="menu" class="dropdown-menu">
+                        {{-- @if(Auth::user()->kategori == "Umum" ) --}}
+                        <li>
+                            <a href="{{ url('layanan-bertarif') }}">Layanan Bertarif</a>
+                        </li>
+                        {{-- @else --}}
                         <li>
                             <a href="{{ url('kegiatan-penanggulangan-bencana') }}">Kegiatan Penanggulangan Bencana</a>
                         </li>
@@ -38,9 +46,7 @@
                         <li>
                             <a href="{{ url('kegiatan-sosial') }}">Kegiatan Sosial</a>
                         </li>
-                        <li>
-                            <a href="{{ url('layanan-bertarif') }}">Layanan Bertarif</a>
-                        </li>
+                        {{-- @endif --}}
                     </ul>
                 </div>
             </div>
@@ -57,6 +63,7 @@
             </thead>
             <tbody>
                 @foreach($permintaans as $item)
+                    @include('modal.pembayaran')
                     <tr>
                         <td>{{ $item->jenis_permintaan }}</td>
                         <td>{{ $item->created_at->format('d/m/Y') }}</td>
@@ -112,9 +119,10 @@
                             
                             @elseif($item->status_form == 5 and $item->jenis_permintaan == 'Layanan bertarif')
                                 <div class="col-sm-4">
-                                    <a type="button" class="btn btn-default" href="{{ url('pembayaran/' . $item->id) }}">Pembayaran</a>
-                                </div>
-                            
+                                    <a type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal-{{ $item->id }}" href="">Pembayaran</a>
+                                </div>    
+                                
+                                
                             @elseif($item->status_form == 4 and $item->jenis_permintaan == 'Layanan bertarif')
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" download href="../../storage/templateForm/DATAPERMINTAAN.pdf">Download</a>

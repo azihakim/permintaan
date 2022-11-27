@@ -1,55 +1,8 @@
 @extends('layout.formulir')
-@section('form-title', 'Kegiatan Penanggulangan dan Bencana')
-
-
+@section('form-title', 'Kegiatan Penanggulangan Bencana')
 @section('form')
 <form action="{{ route('penanggulanganbencana.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
-        <div class="spacer-10"></div>
-        {{-- Start data diri --}}
-        @if(session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif
-    <div class="row">
-        <div class="col-sm-3">
-            <h4 class="bold">Data diri</h4>
-        </div>
-    </div>
-    <div class="spacer-10"></div>
-    <div class="row">
-        <div class="col-sm-3">
-            <label>Nama</label>
-        </div>
-        <div class="col-sm-9">
-            <input type="text" aria-required="true" name="nama_kegiatan" required="" class="form-control">
-        </div>
-    </div>
-    <div class="spacer-10"></div>
-    <div class="row">
-        <div class="col-sm-3">
-            <label>Nomor telepon</label>
-        </div>
-        <div class="col-sm-9">
-            <input type="telepon" name="telepon" class="form-control">
-        </div>
-    </div>
-    <div class="spacer-10"></div>
-    <div class="row">
-        <div class="col-sm-3">
-            <label>Email</label>
-        </div>
-        <div class="col-sm-9">
-            <input type="email" name="email" class="form-control">
-        </div>
-    </div>
-        {{-- End data diri --}}
-        
-        <div class="spacer-40"></div>
-        <hr>
-        <div class="spacer-20"></div>
-
         {{-- Start data dan informasi yang dibutuhkan --}}
         <div class="row">
             <div class="col-sm-12">
@@ -224,7 +177,5 @@
                 <button type="submit" class="btn btn-default btn-lg pull-right">Kirim</button>
             </div>
         </div>
-
-        <div class="spacer-40"></div>
 </form>
 @endsection

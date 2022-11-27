@@ -58,9 +58,6 @@ class PendidikanController extends Controller
         $formulir = new Formulir();
         $formulir->jenis_permintaan = "Kegiatan pendidikan/penelitian non komersil";
         $formulir->status_form = "1";
-        // $formulir->nama_kegiatan = $data['nama'];
-        // $formulir->telepon = $data['telepon'];
-        // $formulir->email = $data['email'];
         $formulir->surat_proposal = $file_suratproposal;
         $formulir->surat_pengantar = $file_suratpengantar;
         $formulir->surat_pernyataan = $file_suratpernyataan;

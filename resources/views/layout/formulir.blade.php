@@ -7,18 +7,70 @@
             <div class="col-sm-12">
                 <div class="tab-content">
                     <div id="content-tab-3-a" class="tab-pane active">
-                        <div class="subheading">
-                            <h2>Formulir Permintaan</h2>
-                            <div class="spacer-5"></div>
-                            <h3>
-                                <span class="text-muted">@yield('form-title')</span>
-                            </h3>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                @yield('form')
+                        <fieldset>
+                            <div class="subheading">
+                                <h2>Formulir Permintaan</h2>
+                                <div class="spacer-5"></div>
+                                <h3>
+                                    <span class="text-muted">@yield('form-title')</span>
+                                </h3>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{-- Start data diri --}}
+                                    <div class="spacer-10"></div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h4 class="bold">Data diri</h4>
+                                        </div>
+                                    </div>
+                                    <div class="spacer-10"></div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label>Nama</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p>{{ Auth::user()->name }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="spacer-10"></div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label>Asal instansi</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p>{{ Auth::user()->instansi }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="spacer-10"></div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label>Nomor telepon</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p>{{ Auth::user()->no_wa }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="spacer-10"></div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p>{{ Auth::user()->email }}</p>
+                                        </div>
+                                    </div> 
+                                    {{-- End data diri --}}
+                                    
+                                    <div class="spacer-40"></div>
+                                    <hr>
+                                    <div class="spacer-20"></div>
+                                    {{-- form --}}
+                                    @yield('form')
+                                </div>
+                            </div>
+                        </fieldset>
+                    <div class="spacer-40"></div>
                     </div>
                 </div>
             </div>

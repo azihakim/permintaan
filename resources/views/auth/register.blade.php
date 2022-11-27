@@ -143,7 +143,7 @@
                         </div>
                         <div class="col-lg-8">
                             <div class="showpassword-wrap"><input class="form-control" type="password"
-                                    placeholder="Kata sandi" id="fc-id-2" tabindex="2" name="password"><input
+                                    placeholder="Kata sandi" id="fc-id-2" tabindex="2" name="password" required><input
                                     class="form-control showpassword-hint" type="text">
                             </div>
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
@@ -153,10 +153,10 @@
                     {{-- Password konfirmasi--}}
                     <div class="row">
                         <div class="col-lg-4">
-                            <label>Konfirmasi</label>
+                            <label>Ulangi kata sandi</label>
                         </div>
                         <div class="col-lg-8">
-                            <div class="showpassword-wrap"><input class="form-control" type="password"
+                            <div class="showpassword-wrap"><input required class="form-control" type="password"
                                     placeholder="Ulangi kata sandi" id="fc-id-3" tabindex="2" name="password_confirmation"><input
                                     class="form-control showpassword-hint" type="text">
                             </div>
@@ -170,7 +170,7 @@
                             <label>KTP</label>
                         </div>
                         <div class="col-lg-8">
-                            <input name="ktp" type="file" accept="image/png, image/jpeg">
+                            <input required name="ktp" type="file" accept="image/png, image/jpeg">
                             <div class="helper-text-box">
                                 <div class="form-helper-header">Format
                                     file:<code>.png, .jpeg</code>
@@ -181,8 +181,9 @@
                             </div>
                         </div>
                     </div>
+                    <div id="div_ktm"></div>
                     <a class="btn btn-default btn-lg pull-left" href="{{ route('login') }}">
-                        <i class="fa fa-arrow-left"></i>
+                        LogIn
                     </a>
                     <button type="submit" class="btn btn-default btn-lg pull-right">Daftar</button>
                 </form>
@@ -192,9 +193,11 @@
 <script>
     // toggle deskripsi kategori
     const div_desk = document.getElementById("desk");
+    const div_ktm = document.getElementById("div_ktm");
     function toggle(value) {
         if(value == "Instansi Vertikal" || value == "Lainnya"){
             $('#field_deskripsi').remove();
+            $('#field_ktm').remove();
             var newField = document.createElement("div");
             newField.setAttribute("id", "field_deskripsi");
             newField.innerHTML = '<div class="spacer-15"></div>\
@@ -203,13 +206,39 @@
                                 <label for="fcid-1">Deskripsi</label>\
                             </div>\
                             <div class="col-lg-8">\
-                                <input aria-required="true" required class="form-control" type="text"\
+                                <input aria-required="true" class="form-control" type="text"\
                                     placeholder="Deskripsi Kategori" id="desk_kategori" name="desk_kategori">\
                             </div>\
                         </div>';
                         div_desk.append(newField);   
-        }else {
+        }else if(value == "Mahasiswa"){
+            $('#field_ktm').remove();
             $('#field_deskripsi').remove();
+            var newField = document.createElement("div");
+            newField.setAttribute("id", "field_ktm");
+            newField.innerHTML = '<div class="spacer-15"></div>\
+                        <div class="row">\
+                            <div class="col-lg-4">\
+                                <label>KTM</label>\
+                            </div>\
+                            <div class="col-lg-8">\
+                                <input required name="ktm" type="file" accept="image/png, image/jpeg">\
+                                <div class="helper-text-box">\
+                                    <div class="form-helper-header">Format\
+                                        file:<code>.png, .jpeg</code>\
+                                    </div>\
+                                    <div class="helper-text-box">\
+                                        <div class="form-helper">Kartu Tanda Mahasiswa</div>\
+                                    </div>\
+                                </div>\
+                            </div>\
+                        </div>';
+                    div_ktm.append(newField); 
+        }
+        
+        else {
+            $('#field_deskripsi').remove();
+            $('#field_ktm').remove();
         }
     }
 </script>

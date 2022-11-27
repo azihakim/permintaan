@@ -52,9 +52,6 @@ class PertahanankeamananController extends Controller
             $formulir = new Formulir();
             $formulir->jenis_permintaan = "Kegiatan pertahanan dan keamanan";
             $formulir->status_form = "1";
-            $formulir->nama_kegiatan= $data['nama_kegiatan'];
-            $formulir->telepon = $data['telepon'];
-            $formulir->email = $data['email'];
             $formulir->surat_perintah = $file;
             $formulir->deskripsi = $data['deskripsi'];
             $formulir->save();
@@ -373,7 +370,6 @@ class PertahanankeamananController extends Controller
     {   
         $formulir = Formulir::find($id);
         $formulir ->deskripsi = $request->input('deskripsi');
-        $formulir ->nama_kegiatan = $request->input('nama_kegiatan');
         $file_name = $formulir->surat_perintah;
         $file_path = public_path('storage/dokumen/' . $file_name);
 

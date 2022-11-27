@@ -83,7 +83,7 @@ class ResponlayananbertarifController extends Controller
         // dd($data);
         $respon = Formulir::find($id);
         $respon->status_form = $data['status_form'];
-        // $respon->respon_desk = $data['respon_desk'];
+        $respon->respon_desk = $data['respon_desk'];
         // if ($request->)
 
         if($request->hasFile('respon_bill')){
