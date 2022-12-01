@@ -16,7 +16,7 @@
                         <div class="simpelselect-inner">
                             <div class="simpleselect-btn"><i class="fa fa-caret-down"></i></div>
                         </div>
-                        <select name="status_form" class="form-control simpleselect" id="list">
+                        <select require name="status_form" class="form-control simpleselect" id="list" onchange="toggle(this.value)">
                             @if ($formulir->status_form == '1'){
                                 <option value="1" class="bold">Permintaan baru</option>
                             }
@@ -59,22 +59,89 @@
                     <div class="col-sm-3">
                         <label>Data permintaan</label>
                     </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-4">
+                        <input type="hidden" name="old_data" value="{{ $formulir->respon_data }}">
                         <input type="file" name="respon_data">
                     </div>
+                    <div class="col-sm-4">
+                        @if(session('status_data'))
+                            <div class="alert alert-success">
+                                {{ session('status_data') }}
+                            </div>
+                        @endif
+                    </div>
+                    @if($formulir->respon_data != null)
+                    <div class="spacer-10"></div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-6">
+                        <div class="file-bar">
+                            <a href="{{ asset('store/documen/' . $formulir->respon_data) }}" target="_blank">
+                                <div class="file-bar-icon">
+                                    <i class="fa fa-download"></i>
+                                </div>
+                                <div class="file-bar-info">
+                                    <h5>Data yang dikirim</h5>
+                                    <span class="label label-default">.pdf</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    @elseif($formulir->respon_data == null)
+                    <div class="spacer-10"></div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4">
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert"></button>
+                            <i class="fa fa-exclamation-triangle"></i>Data permintaan belum dikirim
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </div>
             <div id="bill">
                 <div class="spacer-15"></div>
-                 <div class="row">
-                     <div class="col-sm-3">
+                <div class="row">
+                    <div class="col-sm-3">
                         <label>Bill pembayaran</label>
-                     </div>
-                     <div class="col-sm-9">
+                    </div>
+                    <div class="col-sm-4">
                         <input type="hidden" name="old_bill" value="{{ $formulir->respon_bill }}">
                         <input type="file" name="respon_bill">
-                     </div>
-                 </div>
+                    </div>
+                    <div class="col-sm-4">
+                        @if(session('status_bill'))
+                            <div class="alert alert-success">
+                                {{ session('status_bill') }}
+                            </div>
+                        @endif
+                    </div>
+                    @if($formulir->respon_bill != null)
+                    <div class="spacer-10"></div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4">
+                        <div class="file-bar">
+                            <a href="{{ asset('store/documen/' . $formulir->respon_bill) }}" target="_blank">
+                                <div class="file-bar-icon">
+                                    <i class="fa fa-download"></i>
+                                </div>
+                                <div class="file-bar-info">
+                                    <h5>Bill yang dikirim</h5>
+                                    <span class="label label-default">.pdf</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    @elseif($formulir->respon_bill == null)
+                    <div class="spacer-10"></div>
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-4">
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert"></button>
+                            <i class="fa fa-exclamation-triangle"></i>Bill belum dikirim
+                        </div>
+                    </div>
+                    @endif
+                </div>
             </div>
             <div id="deskripsi">
                 <div class="spacer-15"></div>
@@ -420,46 +487,46 @@
         //     }
         // }
     
-            // toggle deskripsi
-            // const div_desk = document.getElementById("deskripsi");
-            // const div_bill = document.getElementById("bill");
+            // toggle deskripsi 
+            // const div_bill_2 = document.getElementById("bill_2");
+            // const div_bill_3 = document.getElementById("bill_3");
             // function toggle(value) {
-            //     if(value == "1"){
-            //         $('#field_deskripsi').remove();
-            //         $('#field_bill').remove();
+            //     if(value == "5"){
+            //         $('#bill_1').remove();
             //         var newField = document.createElement("div");
-            //         newField.setAttribute("id", "field_deskripsi");
+            //         newField.setAttribute("id", "field_bill");
             //         newField.innerHTML = '<div class="spacer-15"></div>\
             //             <div class="row">\
             //                 <div class="col-sm-3">\
-            //                     <label>Deskripsi</label>\
+            //                     <label>Bill pembayaran</label>\
             //                 </div>\
-            //                 <div class="col-sm-7">\
-            //                     <textarea class="form-control" required>{{ $formulir->respon_desk }}</textarea>\
+            //                 <div class="col-sm-9">\
+            //                     <input type="hidden" name="old_bill" value="{{ $formulir->respon_bill }}">\
+            //                     <input type="file" required>\
             //                 </div>\
             //             </div>';
-            //             div_desk.append(newField); 
+            //             div_bill_2.append(newField); 
+            //     }else if(value == "6"){
+            //         $('#bill_1').remove();
+            //         $('#bill_2').remove();
+            //         var newField_2 = document.createElement("div");
+            //         newField_2.setAttribute("id", "field_bill");
+            //         newField_2.innerHTML = '<div class="spacer-15"></div>\
+            //             <div class="row">\
+            //                 <div class="col-sm-3">\
+            //                     <label>Bill pembayaran</label>\
+            //                 </div>\
+            //                 <div class="col-sm-9">\
+            //                     <input type="hidden" name="old_bill" value="{{ $formulir->respon_bill }}">\
+            //                     <input type="file" required>\
+            //                 </div>\
+            //             </div>';
+            //             div_bill_2.append(newField_2); 
             //     }
-                // else if(value == "4"){
-                //     // $('#field_deskripsi').remove();
-                //     var newField2 = document.createElement("div");
-                //     newField2.setAttribute("id", "field_bill");
-                //     newField2.innerHTML = '<div class="spacer-15"></div>\
-                //         <div class="row">\
-                //             <div class="col-sm-3">\
-                //                 <label>Bill pembayaran</label>\
-                //             </div>\
-                //             <div class="col-sm-9">\
-                //                 <input type="file" required>\
-                //             </div>\
-                //         </div>';
-                //                 div_bill.append(newField2);   
-                // }
-                // else{
-                    // $('#field_deskripsi').remove();
-                    // $('#bill').remove();
-                // }
+            //     else{
+            //         $('#bill_1').remove();
+            //         $('#bill_2').remove();
+            //     }
             // }
-        // }
     </script>
 @endsection

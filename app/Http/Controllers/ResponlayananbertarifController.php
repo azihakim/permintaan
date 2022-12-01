@@ -93,15 +93,25 @@ class ResponlayananbertarifController extends Controller
             $file_path_bill = public_path('store/documen');
             $f->move($file_path_bill, $file_name_bill);
             $respon->respon_bill = $file_name_bill;
+
+        return back()->with('status_bill', 'Bill pembayaran berhasil di simpan');
         }
         else{
-            // $ext_bill = $request->respon_bill->getClientOriginalExtension();
-            // $file_name_bill = "Bill-".time()."." . $ext_bill;
-            // $request->respon_bill->storeAs('public/documen', $file_name_bill);
-            // $respon->respon_bill = $file_name_bill;
             $respon->respon_bill = $request->old_bill;
-            
+        }
 
+        if($request->hasFile('respon_data')){
+            $f = $request->file('respon_data');
+            $file_ext_data = $f->getClientOriginalExtension();
+            $file_name_data = "data-".time().".". $file_ext_data;
+            $file_path_data = public_path('store/documen');
+            $f->move($file_path_data, $file_name_data);
+            $respon->respon_data = $file_name_data;
+    
+        return back()->with('status_data', 'Data permintaan berhasil di simpan');
+        }
+        else{
+            $respon->respon_data = $request->old_data;
         }
 
         

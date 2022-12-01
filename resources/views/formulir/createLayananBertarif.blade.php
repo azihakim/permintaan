@@ -395,6 +395,109 @@
     {{-- Add row input --}}
     <script>
         // data petir
+        // const Div_datapetir = document.getElementById('container_datapetir');
+        // function toggle_datapetir() {
+        //             if (document.getElementById("cb_datapetir").checked) {
+        //                 var newField = document.createElement("div");
+        //                 newField.setAttribute("id", "field_datapetir");
+        //                 newField.innerHTML = '<div class="row col-sm-12" id="datapetir">\
+        //                                     <div class="col-sm-12">\
+        //                                         <h4 class="semibold">Data petir</h4>\
+        //                                         <h5>\
+        //                                             <span class="text-muted">Lokasi dan tanggal</span>\
+        //                                         </h5>\
+        //                                     </div>\
+        //                                     <div class="spacer-10"></div>\
+        //                                     <div id="input_datapetir">\
+        //                                         <div class="row group col-sm-12 " id="add_datapetir[0]">\
+        //                                             <div class="col-sm-6">\
+        //                                                 <strong>Lokasi</strong>\
+        //                                                 <textarea class="form-control" style="width: 100% ; height: 90px"\
+        //                                                     name="lokasi_petir[0]" value="{{ old('lokasi_petir') }}"></textarea>\
+        //                                                     <div class="spacer-10"></div>\
+        //                                             </div>\
+        //                                             <div class="col-sm-3">\
+        //                                                 <div>\
+        //                                                     <strong>Latitude</strong>\
+        //                                                     <input type="text" aria-required="true" name="latitude_petir[0]" value="{{ old('latitude_petir') }}"\
+        //                                                         class="form-control">\
+        //                                                         <div class="spacer-10"></div>\
+        //                                                 </div>\
+        //                                                 <div>\
+        //                                                     <strong>Longitude</strong>\
+        //                                                     <input type="text" aria-required="true"\
+        //                                                         name="longitude_petir[0]" value="{{ old('longitude_petir') }}" class="form-control">\
+        //                                                 </div>\
+        //                                                 <div class="spacer-10"></div>\
+        //                                             </div>\
+        //                                             <div class="col-sm-3">\
+        //                                                 <strong>Dari</strong>\
+        //                                                 <input class="form-control" size="16" type="date"\
+        //                                                         name="tgl_dari_petir[0]" value="{{ old('tgl_dari_petir') }}">\
+        //                                                 <div class="spacer-10"></div>\
+        //                                                 <strong>Sampai</strong>\
+        //                                                 <input class="form-control" size="16" type="date"\
+        //                                                         name="tgl_sampai_petir[0]" value="{{ old('tgl_sampai_petir') }}">\
+        //                                             </div>\
+        //                                         </div>\
+        //                                     </div>\
+        //                                 </div>';
+        //                                 Div_datapetir.append(newField);
+        //             } else {
+        //                 $('#field_datapetir').remove();
+        //             } 
+        //             var toggleDiv = document.getElementById("btn_datapetir");
+        //             if (toggleDiv.style.display != "none") {
+        //                 toggleDiv.style.display = 'none';
+        //             } else {
+        //                 toggleDiv.style.display = 'block';
+        //             }
+        //         }
+
+        // $(document).ready(function () {
+        //     var id = 0;
+        //     $('#tambah_datapetir').click(function() {
+        //         id++;
+        //         $('#input_datapetir').append('<div class="row group col-sm-12 " id="add_datapetir'+id+'">\
+        //                                             <div class="spacer-10"></div>\
+        //                                             <div class="col-sm-6">\
+        //                                                 <strong>Lokasi</strong>\
+        //                                                 <textarea required="" class="form-control" style="width: 100% ; height: 90px"\
+        //                                                     name="lokasi_petir['+id+']" value="{{ old('lokasi_petir') }}"></textarea>\
+        //                                                     <div class="spacer-10"></div>\
+        //                                             </div>\
+        //                                             <div class="col-sm-3">\
+        //                                                 <div>\
+        //                                                     <strong>Latitude</strong>\
+        //                                                     <input type="text" aria-required="true" name="latitude_petir['+id+']" value="{{ old('latitude_petir') }}"\
+        //                                                         required="" class="form-control">\
+        //                                                         <div class="spacer-10"></div>\
+        //                                                 </div>\
+        //                                                 <div>\
+        //                                                     <strong>Longitude</strong>\
+        //                                                     <input type="text" aria-required="true" value="{{ old('longitude_petir') }}"\
+        //                                                         name="longitude_petir['+id+']" required="" class="form-control">\
+        //                                                 </div>\
+        //                                                 <div class="spacer-10"></div>\
+        //                                             </div>\
+        //                                             <div class="col-sm-3">\
+        //                                                 <strong>Dari</strong>\
+        //                                                 <input class="form-control" size="16" type="date" value="{{ old('tgl_dari_petir') }}"\
+        //                                                         required="" name="tgl_dari_petir['+id+']">\
+        //                                                 <div class="spacer-10"></div>\
+        //                                                 <strong>Sampai</strong>\
+        //                                                 <input class="form-control" size="16" type="date" value="{{ old('tgl_sampai_petir') }}\
+        //                                                         required="" name="tgl_sampai_petir['+id+']">\
+        //                                             </div>\
+        //                                         </div>')
+        //     });
+        //     $('#hapus_datapetir').click(function(){
+        //         $('#add_datapetir'+id).remove();
+        //         id--;
+        //     });
+        // })
+    
+        // PETIR revisi
         const Div_datapetir = document.getElementById('container_datapetir');
         function toggle_datapetir() {
                     if (document.getElementById("cb_datapetir").checked) {
@@ -402,47 +505,41 @@
                         newField.setAttribute("id", "field_datapetir");
                         newField.innerHTML = '<div class="row col-sm-12" id="datapetir">\
                                             <div class="col-sm-12">\
-                                                <h4 class="semibold">Data petir</h4>\
-                                                <h5>\
-                                                    <span class="text-muted">Lokasi dan tanggal</span>\
-                                                </h5>\
+                                                <h4>Data petir</h4>\
+                                                <div class="spacer-10"></div>\
                                             </div>\
-                                            <div class="spacer-10"></div>\
-                                            <div id="input_datapetir">\
-                                                <div class="row group col-sm-12 " id="add_datapetir[0]">\
-                                                    <div class="col-sm-6">\
-                                                        <strong>Lokasi</strong>\
-                                                        <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_petir[0]" value="{{ old('lokasi_petir') }}"></textarea>\
+                                            <div class="row col-sm-12">\
+                                                <div class="col-sm-12">\
+                                                    <textarea required="" class="form-control autosize" style="width: 100%"\
+                                                        placeholder="Deskripsi permintaan data petir" name="deskripsi_datapetir"></textarea>\
+                                                    <div class="spacer-10"></div>\
+                                                </div>\
+                                                <div id="input_datapetir">\
+                                                    <div class="row">\
+                                                        <div class="col-sm-12">\
                                                             <div class="spacer-10"></div>\
-                                                    </div>\
-                                                    <div class="col-sm-3">\
-                                                        <div>\
-                                                            <strong>Latitude</strong>\
-                                                            <input type="text" aria-required="true" name="latitude_petir[0]" value="{{ old('latitude_petir') }}"\
-                                                                class="form-control">\
-                                                                <div class="spacer-10"></div>\
+                                                            <div class="col-sm-6">\
+                                                                <strong>Lokasi</strong>\
+                                                                <textarea class="form-control" style="width: 100% ; height: 90px"\
+                                                                name="lokasi_unsurcuacalainnya[0]" value="{{ old('lokasi_unsurcuacalainnya') }}"></textarea>\
+                                                            </div>\
+                                                            <div class="col-sm-6">\
+                                                                <div class="spacer-5"></div>\
+                                                                <div class="col-sm-5">\
+                                                                    <strong>Dari</strong>\
+                                                                    <input class="form-control" size="16" type="date" name="tgl_dari_unsurcuacalainnya[0]" value="{{ old('tgl_dari_unsurcuacalainnya') }}">\
+                                                                </div>\
+                                                                    <div class="spacer-5"></div>\
+                                                                    <div class="col-sm-5">\
+                                                                    <strong>Sampai</strong>\
+                                                                    <input class="form-control" size="16" type="date"\
+                                                                    name="tgl_sampai_unsurcuacalainnya[0]" value="{{ old('tgl_sampai_unsurcuacalainnya') }}">\
+                                                            </div>\
                                                         </div>\
-                                                        <div>\
-                                                            <strong>Longitude</strong>\
-                                                            <input type="text" aria-required="true"\
-                                                                name="longitude_petir[0]" value="{{ old('longitude_petir') }}" class="form-control">\
-                                                        </div>\
-                                                        <div class="spacer-10"></div>\
-                                                    </div>\
-                                                    <div class="col-sm-3">\
-                                                        <strong>Dari</strong>\
-                                                        <input class="form-control" size="16" type="date"\
-                                                                name="tgl_dari_petir[0]" value="{{ old('tgl_dari_petir') }}">\
-                                                        <div class="spacer-10"></div>\
-                                                        <strong>Sampai</strong>\
-                                                        <input class="form-control" size="16" type="date"\
-                                                                name="tgl_sampai_petir[0]" value="{{ old('tgl_sampai_petir') }}">\
                                                     </div>\
                                                 </div>\
-                                            </div>\
-                                        </div>';
-                                        Div_datapetir.append(newField);
+                                            </div>';
+                                            Div_datapetir.append(newField);
                     } else {
                         $('#field_datapetir').remove();
                     } 
@@ -453,50 +550,60 @@
                         toggleDiv.style.display = 'block';
                     }
                 }
-
         $(document).ready(function () {
             var id = 0;
             $('#tambah_datapetir').click(function() {
                 id++;
-                $('#input_datapetir').append('<div class="row group col-sm-12 " id="add_datapetir'+id+'">\
-                                                    <div class="spacer-10"></div>\
-                                                    <div class="col-sm-6">\
-                                                        <strong>Lokasi</strong>\
-                                                        <textarea required="" class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_petir['+id+']" value="{{ old('lokasi_petir') }}"></textarea>\
+                $('#input_datapetir').append('<div id="add_datapetir'+id+'">\
+                                                      <div class="spacer-10"></div>\
+                                                      <div id="add_datapetir['+id+']">\
+                                                        <div class="col-sm-12">\
+                                                          <div class="row">\
                                                             <div class="spacer-10"></div>\
-                                                    </div>\
-                                                    <div class="col-sm-3">\
-                                                        <div>\
-                                                            <strong>Latitude</strong>\
-                                                            <input type="text" aria-required="true" name="latitude_petir['+id+']" value="{{ old('latitude_petir') }}"\
-                                                                required="" class="form-control">\
-                                                                <div class="spacer-10"></div>\
+                                                            <div class="col-sm-6">\
+                                                              <strong>Lokasi</strong>\
+                                                              <textarea\
+                                                                required=""\
+                                                                class="form-control"\
+                                                                style="width: 100%; height: 90px"\
+                                                                name="lokasi_unsurcuacalainnya['+id+']"\
+                                                                value="{{ old('lokasi_unsurcuacalainnya') }}" ></textarea>\
+                                                            </div>\
+                                                            <div class="col-sm-6">\
+                                                              <div class="spacer-5"></div>\
+                                                              <div class="col-sm-5">\
+                                                                <strong>Dari</strong>\
+                                                                <input\
+                                                                  class="form-control"\
+                                                                  size="16"\
+                                                                  type="date"\
+                                                                  required=""\
+                                                                  name="tgl_dari_unsurcuacalainnya['+id+']"\
+                                                                  value="value="{{ old('tgl_dari_unsurcuacalainnya') }}"" />\
+                                                              </div>\
+                                                              <div class="spacer-5"></div>\
+                                                              <div class="col-sm-5">\
+                                                                <strong>Sampai</strong>\
+                                                                <input\
+                                                                  class="form-control"\
+                                                                  size="16"\
+                                                                  type="date"\
+                                                                  required=""\
+                                                                  name="tgl_sampai_unsurcuacalainnya['+id+']"\
+                                                                  value="{{ old('tgl_sampai_unsurcuacalainnya') }}" />\
+                                                              </div>\
+                                                            </div>\
+                                                          </div>\
                                                         </div>\
-                                                        <div>\
-                                                            <strong>Longitude</strong>\
-                                                            <input type="text" aria-required="true" value="{{ old('longitude_petir') }}"\
-                                                                name="longitude_petir['+id+']" required="" class="form-control">\
-                                                        </div>\
-                                                        <div class="spacer-10"></div>\
-                                                    </div>\
-                                                    <div class="col-sm-3">\
-                                                        <strong>Dari</strong>\
-                                                        <input class="form-control" size="16" type="date" value="{{ old('tgl_dari_petir') }}"\
-                                                                required="" name="tgl_dari_petir['+id+']">\
-                                                        <div class="spacer-10"></div>\
-                                                        <strong>Sampai</strong>\
-                                                        <input class="form-control" size="16" type="date" value="{{ old('tgl_sampai_petir') }}\
-                                                                required="" name="tgl_sampai_petir['+id+']">\
-                                                    </div>\
-                                                </div>')
+                                                      </div>\
+                                                    </div>')
+                                                    
             });
-            $('#hapus_datapetir').click(function(){
-                $('#add_datapetir'+id).remove();
+            $('#hapus_unsurcuacalainnya').click(function(){
+                $('#add_unsurcuacalainnya'+id).remove();
                 id--;
             });
-        })
-    
+        }) 
 
         //  data hari hujan
         const Div_dataharihujan = document.getElementById('container_dataharihujan');
