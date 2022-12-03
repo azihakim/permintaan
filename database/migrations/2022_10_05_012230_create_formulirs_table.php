@@ -17,9 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('jenis_permintaan');
             $table->string('status_form');
-            // $table->string('nama_kegiatan');
-            // $table->integer('telepon');
-            // $table->string('email');
+            $table->string('nama_peminta');
             $table->string('surat_pernyataan')->nullable();
             $table->string('surat_pengantar')->nullable();
             $table->string('surat_permintaan')->nullable();

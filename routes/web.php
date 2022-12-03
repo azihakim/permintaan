@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\DashboardadminController;
 use App\Http\Controllers\LayananbertarifController;
 use App\Http\Controllers\KeagamaanController;
 use App\Http\Controllers\SosialController;
@@ -97,5 +99,9 @@ Route::get('signup', function () {
 
 Route::get('akun', function () {
     return view('menu.akun');
-})->middleware(['auth', 'verified']);   
+})->middleware(['auth', 'verified']);
 
+// Admin
+
+// Dashboard 
+Route::resource('/dashboard-respon', DashboardadminController::class);
