@@ -15,6 +15,7 @@ use App\Models\Suhu_min_rumput;
 use App\Models\Suhu_tanah;
 use App\Models\Termometer_maksimum_dan_minimum;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class AddPencatatanAgromet extends Component
@@ -143,7 +144,7 @@ class AddPencatatanAgromet extends Component
     public $gundul27 = 0;
     // Piche Evaporimeter
     public $h2_piche = 0;
-    public $h22_piche = 0;
+    public $reset_piche2 = 0;
     public $ev2_piche = 0;
     /* ---------- End Form 2 ---------- */
 
@@ -323,6 +324,7 @@ class AddPencatatanAgromet extends Component
     public $gundul67 = 0;
     // Piche Evaporimeter
     public $h2_piche6 = 0;
+    public $reset_piche6 = 0;
     public $ev2_piche6 = 0;
     /* ---------- End Form 6 ---------- */
 
@@ -541,7 +543,7 @@ class AddPencatatanAgromet extends Component
             'berumput27' => 'numeric|nullable',
             'gundul27' => 'numeric|nullable',
             'h2_piche' => 'numeric|nullable',
-            'h22_piche' => 'numeric|nullable',
+            'reset_piche2' => 'numeric|nullable',
             'ev2_piche' => 'numeric|nullable'
         ]);
 
@@ -626,7 +628,7 @@ class AddPencatatanAgromet extends Component
 
         $dataPicheEvaporimeter = [
             'h' => $this->h2_piche,
-            'h2' => $this->h22_piche,
+            'reset' => $this->reset_piche2,
             'ev' => $this->ev2_piche,
             'pencatatans_id' => $this->idPencatatan
         ];
@@ -1016,6 +1018,7 @@ class AddPencatatanAgromet extends Component
             'berumput67' => 'numeric|nullable',
             'gundul67' => 'numeric|nullable',
             'h2_piche6' => 'numeric|nullable',
+            'reset_piche6' => 'numeric|nullable',
             'ev2_piche6' => 'numeric|nullable'
         ]);
 
@@ -1100,6 +1103,7 @@ class AddPencatatanAgromet extends Component
 
         $dataPicheEvaporimeter = [
             'h' => $this->h2_piche6,
+            'reset' => $this->reset_piche6,
             'ev' => $this->ev2_piche6,
             'pencatatans_id' => $this->idPencatatan
         ];
@@ -1270,4 +1274,23 @@ class AddPencatatanAgromet extends Component
         $this->emit('dataStore');
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 19.01 Berhasil Disimpan!']);
     }
+
+    public function updatedH2Piche($value){
+        // dd(date($this->tanggal, strtotime("-1 days")));
+        // dd($this->tanggal);
+        // $resetSebelumnya = Piche_evaporimeter::join('pencatatans', 'pencatatans.id', '=', 'piche_evaporimeters.pencatatans_id')
+        // ->where([['waktu', '17.31'],['tanggal', $this->tanggal]])->select('piche_evaporimeters.reset', 'pencatatans.tanggal')->get()->first();
+        $resetSebelumnya = DB::select("SELECT piche_evaporimeters.h FROM pencatatans INNER JOIN piche_evaporimeters ON pencatatans.id = piche_evaporimeters.pencatatans_id WHERE tanggal = DATE('$this->tanggal')-1 AND pencatatans.waktu = '17.31'");
+        // dd($resetSebelumnya);
+
+        if ($this->h2_piche === "") {
+            $this->h2_piche = 0;
+            $this->reset_piche2 = 0;
+            $this->ev2_piche = 0;
+        } else{
+            $this->reset_piche2 = $this->h2_piche;
+            $this->ev2_piche = $this->h2_piche - $resetSebelumnya;
+        }
+    }
+
 }

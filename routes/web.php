@@ -104,3 +104,6 @@ Route::get('pencatatan-lysimeter', function () {
     return view('pencatatan.lysimeter');
 });
 
+Route::get('pencatatan-dashboard', function () {
+    return view('pencatatan.dashboard');
+});

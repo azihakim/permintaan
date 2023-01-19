@@ -214,7 +214,8 @@
                         <nav class="sidebar-nav-v2">
                             <ul>
                                 <li @yield('section-active')>
-                                    <a href="index.html"><i class="fa fa-dashboard"></i> Dashboard </a>
+                                    <a href="{{ url('pencatatan-dashboard') }}"><i class="fa fa-dashboard"></i>
+                                        Dashboard </a>
                                 </li>
                                 <li class="@yield('menu-open-form-pendaftaran')">
                                     <a href="#"><i class="fa fa-envelope-o"></i> Form Pencatatan <i
@@ -236,6 +237,10 @@
                                             <a href="{{ url('pencatatan-lysimeter') }}">Form Lysimeter</a>
                                         </li>
                                     </ul>
+                                </li>
+                                <li @yield('section-active')>
+                                    <a href="#"><i class="fa fa-book"></i>
+                                        Tabulasi </a>
                                 </li>
                             </ul>
                         </nav><!-- End .sidebar-nav-v1 -->

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('piche_evaporimeters', function (Blueprint $table) {
             $table->id();
             $table->double('h')->nullable();
-            $table->double('h2')->nullable();
+            $table->double('reset')->nullable();
             $table->double('ev')->nullable();
             $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
