@@ -1176,6 +1176,13 @@
                                         @enderror
                                     </div>
                                 </div>
+                                {{-- Pesan jika data reset sebelumnya tidak ada --}}
+                                <div class="has-error">
+                                    <span style="margin-right: 5px;" class="form-control-feedback"
+                                        aria-hidden="true"></span><label class="control-label"
+                                        for="inputError2">{{ $pesanForm2 }}</label>
+                                </div>
+                                {{-- End Pesan --}}
                             </div>
                         </div>
                     </form>

@@ -1126,7 +1126,7 @@
                                     </div>
                                     <div class="col-md-2 pr-0 mrP-20">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="h2_piche6">
+                                            step="any" min="0" wire:model.lazy="h2_piche6">
                                         @error('h2_piche6')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -1176,6 +1176,13 @@
                                         @enderror
                                     </div>
                                 </div>
+                                {{-- Pesan jika data reset sebelumnya tidak ada --}}
+                                <div class="has-error">
+                                    <span style="margin-right: 5px;" class="form-control-feedback"
+                                        aria-hidden="true"></span><label class="control-label"
+                                        for="inputError2">{{ $pesanForm6 }}</label>
+                                </div>
+                                {{-- End Pesan --}}
                             </div>
                         </div>
                     </form>

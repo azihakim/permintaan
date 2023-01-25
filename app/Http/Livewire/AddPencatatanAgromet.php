@@ -18,6 +18,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
+use function PHPUnit\Framework\isEmpty;
+
 class AddPencatatanAgromet extends Component
 {
     public $jenisForm;
@@ -43,9 +45,13 @@ class AddPencatatanAgromet extends Component
     public $observerHujan2;
     public $observerHujan3;
 
+    public $pesanForm2;
+    public $pesanForm4;
+    public $pesanForm6;
+
     public $idPencatatan;
 
-    /* ---------- Form 1 ---------- */
+    /* ---------- Form 1 ~ 07.01 ---------- */
     // Psychrometer Sangkar Meteorologi
     public $tbk11 = 0;
     public $tbb11 = 0;
@@ -84,9 +90,9 @@ class AddPencatatanAgromet extends Component
     public $reset1 = 0;
     // Radiasi
     public $i1 = 0;
-    /* ---------- End Form 1 ---------- */
+    /* ---------- End Form 1 ~ 07.01 ---------- */
 
-    /* ---------- Form 2 ---------- */
+    /* ---------- Form 2 ~ 07.31 ---------- */
     // Psychrometer Sangkar Meteorologi
     public $tbk21 = 0;
     public $tbb21 = 0;
@@ -146,9 +152,9 @@ class AddPencatatanAgromet extends Component
     public $h2_piche = 0;
     public $reset_piche2 = 0;
     public $ev2_piche = 0;
-    /* ---------- End Form 2 ---------- */
+    /* ---------- End Form 2 ~ 07.31 ---------- */
 
-    /* ---------- Form 3 ---------- */
+    /* ---------- Form 3 ~ 13.01 ---------- */
     // Psychrometer Sangkar Meteorologi
     public $tbk31 = 0;
     public $tbb31 = 0;
@@ -159,9 +165,9 @@ class AddPencatatanAgromet extends Component
     public $tbk34 = 0;
     public $tbb34 = 0;
     public $ch3 = 0;
-    /* ---------- End Form 3 ---------- */
+    /* ---------- End Form 3 ~ 13.01 ---------- */
 
-    /* ---------- Form 4 ---------- */
+    /* ---------- Form 4 ~ 13.31 ---------- */
     // Psychrometer Sangkar Meteorologi
     public $tbk41 = 0;
     public $tbb41 = 0;
@@ -220,9 +226,9 @@ class AddPencatatanAgromet extends Component
     // Piche Evaporimeter
     public $h2_piche4 = 0;
     public $ev2_piche4 = 0;
-    /* ---------- End Form 4 ---------- */
+    /* ---------- End Form 4 ~ 13.31 ---------- */
 
-    /* ---------- Form 5 ---------- */
+    /* ---------- Form 5 ~ 14.01 ---------- */
     // Psychrometer Sangkar Meteorologi
     public $tbk51 = 0;
     public $tbb51 = 0;
@@ -264,9 +270,9 @@ class AddPencatatanAgromet extends Component
     // Kondisi Cuaca dan Tanah
     public $kode_tanah5 = 0;
     public $kode_cuaca5 = 0;
-    /* ---------- End Form 5 ---------- */
+    /* ---------- End Form 5 ~ 14.01 ---------- */
 
-    /* ---------- Form 6 ---------- */
+    /* ---------- Form 6 ~ 17.31 ---------- */
     // Psychrometer Sangkar Meteorologi
     public $tbk61 = 0;
     public $tbb61 = 0;
@@ -326,9 +332,9 @@ class AddPencatatanAgromet extends Component
     public $h2_piche6 = 0;
     public $reset_piche6 = 0;
     public $ev2_piche6 = 0;
-    /* ---------- End Form 6 ---------- */
+    /* ---------- End Form 6 ~ 17.31 ---------- */
 
-    /* ---------- Form 7 ---------- */
+    /* ---------- Form 7 ~ 18.01 ---------- */
     // Psychrometer Sangkar Meteorologi
     public $tbk71 = 0;
     public $tbb71 = 0;
@@ -352,14 +358,14 @@ class AddPencatatanAgromet extends Component
     public $reset71 = 0;
     public $max72 = 0;
     public $reset72 = 0;
-    /* ---------- End Form 7 ---------- */
+    /* ---------- End Form 7 ~ 18.01 ---------- */
 
     /* ---------- Form Hujan ---------- */
-    // Form Hujan 1
+    // Form Hujan 1 ~ 10.01
     public $ch_hujan1 = 0;
-    // Form Hujan 2
+    // Form Hujan 2 ~ 16.01
     public $ch_hujan2 = 0;
-    // Form Hujan 3
+    // Form Hujan 3 ~ 19.01
     public $ch_hujan3 = 0;
     /* ---------- End Form Hujan ---------- */
 
@@ -371,6 +377,7 @@ class AddPencatatanAgromet extends Component
         ]);
     }
 
+    // Simpan Form 1 ~ 07.01
     public function storeForm1(){
         $this->validate([
             'observer1' => 'required',
@@ -488,6 +495,7 @@ class AddPencatatanAgromet extends Component
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 07.01 Berhasil Disimpan!']);
     }
 
+    // Simpan Form 2 ~ 07.31
     public function storeForm2(){
         $this->validate([
             'observer2' => 'required',
@@ -644,6 +652,7 @@ class AddPencatatanAgromet extends Component
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 07.31 Berhasil Disimpan!']);
     }
 
+    // Simpan Form 3 ~ 13.01
     public function storeForm3(){
         $this->validate([
             'observer3' => 'required',
@@ -692,6 +701,7 @@ class AddPencatatanAgromet extends Component
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 13.01 Berhasil Disimpan!']);
     }
 
+    // Simpan Form 4 ~ 13.31
     public function storeForm4(){
         $this->validate([
             'observer4' => 'required',
@@ -832,6 +842,7 @@ class AddPencatatanAgromet extends Component
         $dataPicheEvaporimeter = [
             'h' => $this->h2_piche4,
             'ev' => $this->ev2_piche4,
+            'reset' => $this->h2_piche4,
             'pencatatans_id' => $this->idPencatatan
         ];
 
@@ -846,6 +857,7 @@ class AddPencatatanAgromet extends Component
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 13.31 Berhasil Disimpan!']);
     }
 
+    // Simpan Form 5 ~ 14.01
     public function storeForm5(){
         $this->validate([
             'observer5' => 'required',
@@ -963,6 +975,7 @@ class AddPencatatanAgromet extends Component
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 14.01 Berhasil Disimpan!']);
     }
 
+    // Simpan Form 6 ~ 17.31
     public function storeForm6(){
         $this->validate([
             'observer6' => 'required',
@@ -1119,6 +1132,7 @@ class AddPencatatanAgromet extends Component
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 17.31 Berhasil Disimpan!']);
     }
 
+    // Simpan Form 7 ~ 18.01
     public function storeForm7(){
         $this->validate([
             'observer7' => 'required',
@@ -1194,6 +1208,7 @@ class AddPencatatanAgromet extends Component
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 18.01 Berhasil Disimpan!']);
     }
 
+    // Simpan Form Hujan 1 ~ 10.01
     public function storeFormHujan1(){
         $this->validate([
             'observerHujan1' => 'required',
@@ -1221,6 +1236,7 @@ class AddPencatatanAgromet extends Component
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 10.01 Berhasil Disimpan!']);
     }
 
+    // Simpan Form Hujan 2 ~ 16.01
     public function storeFormHujan2(){
         $this->validate([
             'observerHujan2' => 'required',
@@ -1248,6 +1264,7 @@ class AddPencatatanAgromet extends Component
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 16.01 Berhasil Disimpan!']);
     }
 
+    // Simpan Form Hujan 3 ~ 19.01
     public function storeFormHujan3(){
         $this->validate([
             'observerHujan3' => 'required',
@@ -1275,21 +1292,64 @@ class AddPencatatanAgromet extends Component
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Form 19.01 Berhasil Disimpan!']);
     }
 
+    // Function query ambil reset dari tabel piche evaporimeters
+    public function queryResetPiche($tanggal, $waktu){
+        $data = DB::select("SELECT piche_evaporimeters.reset FROM pencatatans INNER JOIN piche_evaporimeters ON pencatatans.id = piche_evaporimeters.pencatatans_id WHERE tanggal = DATE('$tanggal') AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->reset) ? $data[0]->reset : null;
+    }
+
+    // Update ev2_piche jam 07.31
     public function updatedH2Piche($value){
-        // dd(date($this->tanggal, strtotime("-1 days")));
-        // dd($this->tanggal);
-        // $resetSebelumnya = Piche_evaporimeter::join('pencatatans', 'pencatatans.id', '=', 'piche_evaporimeters.pencatatans_id')
-        // ->where([['waktu', '17.31'],['tanggal', $this->tanggal]])->select('piche_evaporimeters.reset', 'pencatatans.tanggal')->get()->first();
-        $resetSebelumnya = DB::select("SELECT piche_evaporimeters.h FROM pencatatans INNER JOIN piche_evaporimeters ON pencatatans.id = piche_evaporimeters.pencatatans_id WHERE tanggal = DATE('$this->tanggal')-1 AND pencatatans.waktu = '17.31'");
-        // dd($resetSebelumnya);
+        $data = DB::select("SELECT piche_evaporimeters.reset FROM pencatatans INNER JOIN piche_evaporimeters ON pencatatans.id = piche_evaporimeters.pencatatans_id WHERE tanggal = DATE('$this->tanggal')-1 AND pencatatans.waktu = '17.31'");
+
+        $resetSebelumnya = isset($data[0]->reset) ? $data[0]->reset : null;
 
         if ($this->h2_piche === "") {
             $this->h2_piche = 0;
             $this->reset_piche2 = 0;
             $this->ev2_piche = 0;
         } else{
-            $this->reset_piche2 = $this->h2_piche;
-            $this->ev2_piche = $this->h2_piche - $resetSebelumnya;
+            if ($resetSebelumnya !== null) {
+                $this->reset_piche2 = $this->h2_piche;
+                $this->ev2_piche = $this->h2_piche - $resetSebelumnya;
+            } else {
+                $this->pesanForm2 = "Data reset sebelumnya di jam 17.31 kemarin belum ada.";
+            }
+        }
+    }
+
+    // Update ev2_piche jam 13.31
+    public function updatedH2Piche4($value){
+        $resetSebelumnya = $this->queryResetPiche($this->tanggal, '07.31');
+
+        if ($this->h2_piche4 === "") {
+            $this->h2_piche4 = 0;
+            $this->ev2_piche4 = 0;
+        } else{
+            if ($resetSebelumnya !== null) {
+                $this->ev2_piche4 = $this->h2_piche4 - $resetSebelumnya;
+            } else {
+                $this->pesanForm4 = "Data reset sebelumnya di jam 07.31 belum ada.";
+            }
+        }
+    }
+
+    // Update ev2_piche jam 17.31
+    public function updatedH2Piche6($value){
+        $resetSebelumnya = $this->queryResetPiche($this->tanggal, '13.31');
+
+        if ($this->h2_piche6 === "") {
+            $this->h2_piche6 = 0;
+            $this->reset_piche6 = 0;
+            $this->ev2_piche6 = 0;
+        } else{
+            if ($resetSebelumnya !== null) {
+                $this->reset_piche6 = $this->h2_piche6;
+                $this->ev2_piche6 = $this->h2_piche6 - $resetSebelumnya;
+            } else {
+                $this->pesanForm6 = "Data reset sebelumnya di jam 13.31 belum ada.";
+            }
         }
     }
 
