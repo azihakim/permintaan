@@ -66,8 +66,29 @@
                                     </div>
                                     <div class="col-md-4 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="tbb61">
+                                            wire:model.lazy="tbb61">
                                         @error('tbb61')
+                                            <div class="has-error">
+                                                <span style="margin-right: 5px;"
+                                                    class="glyphicon glyphicon-remove form-control-feedback"
+                                                    aria-hidden="true"></span><label class="control-label"
+                                                    for="inputError2">{{ $message }}</label>
+                                            </div>
+                                            <script>
+                                                $('#form6').scrollTop(0);
+                                            </script>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="spacer-10"></div>
+                                <div class="row">
+                                    <div class="col-md-2 label-mr-8">
+                                        <label for="">RH</label>
+                                    </div>
+                                    <div class="col-md-4 mr-12 px-16">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="RH61">
+                                        @error('RH61')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
                                                     class="glyphicon glyphicon-remove form-control-feedback"
@@ -108,8 +129,29 @@
                                     </div>
                                     <div class="col-md-4 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="tbb62">
+                                            wire:model.lazy="tbb62">
                                         @error('tbb62')
+                                            <div class="has-error">
+                                                <span style="margin-right: 5px;"
+                                                    class="glyphicon glyphicon-remove form-control-feedback"
+                                                    aria-hidden="true"></span><label class="control-label"
+                                                    for="inputError2">{{ $message }}</label>
+                                            </div>
+                                            <script>
+                                                $('#form6').scrollTop(0);
+                                            </script>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="spacer-10"></div>
+                                <div class="row">
+                                    <div class="col-md-2 label-mr-8">
+                                        <label for="">RH</label>
+                                    </div>
+                                    <div class="col-md-4 mr-12 px-16">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="RH62">
+                                        @error('RH62')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
                                                     class="glyphicon glyphicon-remove form-control-feedback"
@@ -150,8 +192,29 @@
                                     </div>
                                     <div class="col-md-4 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="tbb63">
+                                            wire:model.lazy="tbb63">
                                         @error('tbb63')
+                                            <div class="has-error">
+                                                <span style="margin-right: 5px;"
+                                                    class="glyphicon glyphicon-remove form-control-feedback"
+                                                    aria-hidden="true"></span><label class="control-label"
+                                                    for="inputError2">{{ $message }}</label>
+                                            </div>
+                                            <script>
+                                                $('#form6').scrollTop(0);
+                                            </script>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="spacer-10"></div>
+                                <div class="row">
+                                    <div class="col-md-2 label-mr-8">
+                                        <label for="">RH</label>
+                                    </div>
+                                    <div class="col-md-4 mr-12 px-16">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="RH63">
+                                        @error('RH63')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
                                                     class="glyphicon glyphicon-remove form-control-feedback"
@@ -192,8 +255,29 @@
                                     </div>
                                     <div class="col-md-4 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="tbb64">
+                                            wire:model.lazy="tbb64">
                                         @error('tbb64')
+                                            <div class="has-error">
+                                                <span style="margin-right: 5px;"
+                                                    class="glyphicon glyphicon-remove form-control-feedback"
+                                                    aria-hidden="true"></span><label class="control-label"
+                                                    for="inputError2">{{ $message }}</label>
+                                            </div>
+                                            <script>
+                                                $('#form6').scrollTop(0);
+                                            </script>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="spacer-10"></div>
+                                <div class="row">
+                                    <div class="col-md-2 label-mr-8">
+                                        <label for="">RH</label>
+                                    </div>
+                                    <div class="col-md-4 mr-12 px-16">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            wire:model="RH64">
+                                        @error('RH64')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
                                                     class="glyphicon glyphicon-remove form-control-feedback"

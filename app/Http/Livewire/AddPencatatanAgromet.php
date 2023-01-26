@@ -61,6 +61,11 @@ class AddPencatatanAgromet extends Component
     public $tbb13 = 0;
     public $tbk14 = 0;
     public $tbb14 = 0;
+    public $RH11;
+    public $RH12;
+    public $RH13;
+    public $RH14;
+
     // Angin
     public $cup_counter11 = 0;
     public $cup_counter12 = 0;
@@ -102,6 +107,11 @@ class AddPencatatanAgromet extends Component
     public $tbb23 = 0;
     public $tbk24 = 0;
     public $tbb24 = 0;
+    public $RH21;
+    public $RH22;
+    public $RH23;
+    public $RH24;
+
     // Angin
     public $cup_counter21 = 0;
     public $cup_counter22 = 0;
@@ -165,6 +175,10 @@ class AddPencatatanAgromet extends Component
     public $tbk34 = 0;
     public $tbb34 = 0;
     public $ch3 = 0;
+    public $RH31;
+    public $RH32;
+    public $RH33;
+    public $RH34;
     /* ---------- End Form 3 ~ 13.01 ---------- */
 
     /* ---------- Form 4 ~ 13.31 ---------- */
@@ -177,6 +191,10 @@ class AddPencatatanAgromet extends Component
     public $tbb43 = 0;
     public $tbk44 = 0;
     public $tbb44 = 0;
+    public $RH41;
+    public $RH42;
+    public $RH43;
+    public $RH44;
     // Angin
     public $cup_counter41 = 0;
     public $cup_counter42 = 0;
@@ -238,6 +256,10 @@ class AddPencatatanAgromet extends Component
     public $tbb53 = 0;
     public $tbk54 = 0;
     public $tbb54 = 0;
+    public $RH51;
+    public $RH52;
+    public $RH53;
+    public $RH54;
     // Angin
     public $cup_counter51 = 0;
     public $cup_counter52 = 0;
@@ -282,6 +304,10 @@ class AddPencatatanAgromet extends Component
     public $tbb63 = 0;
     public $tbk64 = 0;
     public $tbb64 = 0;
+    public $RH61;
+    public $RH62;
+    public $RH63;
+    public $RH64;
     // Angin
     public $cup_counter61 = 0;
     public $cup_counter62 = 0;
@@ -344,6 +370,10 @@ class AddPencatatanAgromet extends Component
     public $tbb73 = 0;
     public $tbk74 = 0;
     public $tbb74 = 0;
+    public $RH71;
+    public $RH72;
+    public $RH73;
+    public $RH74;
     // Angin
     public $cup_counter71 = 0;
     public $cup_counter72 = 0;
@@ -375,6 +405,124 @@ class AddPencatatanAgromet extends Component
         return view('livewire.add-pencatatan-agromet',[
             'observers' => User::where('roles', 'observer')->get()
         ]);
+    }
+
+    public function hitungRH($tbk, $tbb){
+        $hasil = ((6.11*pow(10, 7.5*$tbb/(237.3+$tbb)))-((0.7947*pow(10, -3)))*(1010)*($tbk-$tbb))/((6.11*pow(10, 7.5*$tbk/(237.3+$tbk))))*100;
+        $rh = round($hasil,1);
+        return $rh;
+    }
+
+    public function updatedTbb11($value){
+        $this->RH11 = $this->hitungRH($this->tbk11, $this->tbb11);
+    }
+
+    public function updatedTbb12($value){
+        $this->RH12 = $this->hitungRH($this->tbk12, $this->tbb12);
+    }
+
+    public function updatedTbb13($value){
+        $this->RH13 = $this->hitungRH($this->tbk13, $this->tbb13);
+    }
+
+    public function updatedTbb14($value){
+        $this->RH14 = $this->hitungRH($this->tbk14, $this->tbb14);
+    }
+
+    public function updatedTbb21($value){
+        $this->RH21 = $this->hitungRH($this->tbk21, $this->tbb21);
+    }
+
+    public function updatedTbb22($value){
+        $this->RH22 = $this->hitungRH($this->tbk22, $this->tbb22);
+    }
+
+    public function updatedTbb23($value){
+        $this->RH23 = $this->hitungRH($this->tbk23, $this->tbb23);
+    }
+
+    public function updatedTbb24($value){
+        $this->RH24 = $this->hitungRH($this->tbk24, $this->tbb24);
+    }
+
+    public function updatedTbb31($value){
+        $this->RH31 = $this->hitungRH($this->tbk31, $this->tbb31);
+    }
+
+    public function updatedTbb32($value){
+        $this->RH32 = $this->hitungRH($this->tbk32, $this->tbb32);
+    }
+
+    public function updatedTbb33($value){
+        $this->RH33 = $this->hitungRH($this->tbk33, $this->tbb33);
+    }
+
+    public function updatedTbb34($value){
+        $this->RH34 = $this->hitungRH($this->tbk34, $this->tbb34);
+    }
+
+    public function updatedTbb41($value){
+        $this->RH41 = $this->hitungRH($this->tbk41, $this->tbb41);
+    }
+
+    public function updatedTbb42($value){
+        $this->RH42 = $this->hitungRH($this->tbk42, $this->tbb42);
+    }
+
+    public function updatedTbb43($value){
+        $this->RH43 = $this->hitungRH($this->tbk43, $this->tbb43);
+    }
+
+    public function updatedTbb44($value){
+        $this->RH44 = $this->hitungRH($this->tbk44, $this->tbb44);
+    }
+
+    public function updatedTbb51($value){
+        $this->RH51 = $this->hitungRH($this->tbk51, $this->tbb51);
+    }
+
+    public function updatedTbb52($value){
+        $this->RH52 = $this->hitungRH($this->tbk52, $this->tbb52);
+    }
+
+    public function updatedTbb53($value){
+        $this->RH53 = $this->hitungRH($this->tbk53, $this->tbb53);
+    }
+
+    public function updatedTbb54($value){
+        $this->RH54 = $this->hitungRH($this->tbk54, $this->tbb54);
+    }
+
+    public function updatedTbb61($value){
+        $this->RH61 = $this->hitungRH($this->tbk61, $this->tbb61);
+    }
+
+    public function updatedTbb62($value){
+        $this->RH62 = $this->hitungRH($this->tbk62, $this->tbb62);
+    }
+
+    public function updatedTbb63($value){
+        $this->RH63 = $this->hitungRH($this->tbk63, $this->tbb63);
+    }
+
+    public function updatedTbb64($value){
+        $this->RH64 = $this->hitungRH($this->tbk64, $this->tbb64);
+    }
+
+    public function updatedTbb71($value){
+        $this->RH71 = $this->hitungRH($this->tbk71, $this->tbb71);
+    }
+
+    public function updatedTbb72($value){
+        $this->RH72 = $this->hitungRH($this->tbk72, $this->tbb72);
+    }
+
+    public function updatedTbb73($value){
+        $this->RH73 = $this->hitungRH($this->tbk73, $this->tbb73);
+    }
+
+    public function updatedTbb74($value){
+        $this->RH74 = $this->hitungRH($this->tbk74, $this->tbb74);
     }
 
     // Simpan Form 1 ~ 07.01
