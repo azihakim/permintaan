@@ -12,6 +12,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // public function users(){
+    //     return ('App\Models\User');
+    // }
+    
+
     /**
      * The attributes that are mass assignable.
      *

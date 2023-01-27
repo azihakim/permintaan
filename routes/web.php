@@ -87,8 +87,7 @@ Route::get('yes', function () {
     return view('user.logIn');
 });
 
-Route::resource('/respon', ResponlayananbertarifController::class)->middleware(['auth', 'verified'] );
-// Route::resource('respon-layanan', [ResponlayananbertarifController::class])->middleware(['auth', 'verified'] );
+
 
 Route::resource('/pembayaran', PembayaranController::class)->middleware(['auth', 'verified'] );
 
@@ -104,4 +103,7 @@ Route::get('akun', function () {
 // Admin
 
 // Dashboard 
-Route::resource('/dashboard-respon', DashboardadminController::class);
+Route::resource('/dashboard-admin', DashboardadminController::class);
+
+Route::resource('/respon', ResponlayananbertarifController::class);
+// Route::resource('respon-layanan', [ResponlayananbertarifController::class])->middleware(['auth', 'verified'] );

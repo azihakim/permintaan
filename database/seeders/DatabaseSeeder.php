@@ -75,10 +75,14 @@ class DatabaseSeeder extends Seeder
         //     'email'=>'test@gmail.com',
         // ]);
 
-        // User::create([
-        //     'name' =>'abdul',
-        //     'email' =>'azi@gmail.com',
-        //     'password' => bcrypt('123456')
-        // ]);
+        User::create([
+            'name' =>'abdul',
+            'email' =>'azi@gmail.com',
+            'no_wa' => '081279338859',
+            'ktp' => 'KTP-1674566021.jpeg',
+            'kategori' => 'Umum',
+            'instansi' => 'MDP',
+            'password' => bcrypt('123123123')
+        ]);
     }
 }

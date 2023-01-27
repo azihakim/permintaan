@@ -5,13 +5,14 @@ use App\Models\Layananbertarif;
 use App\Models\Formulir;
 use App\Models\Datapermintaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboarduserController extends Controller
 {
     //
     public function index()
     {
-        $permintaans = Formulir::all();
+        $permintaans = Formulir::whereuser_id(Auth::id())->get();
         return view('menu.dashboarduser', compact('permintaans'));
     }
 }

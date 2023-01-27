@@ -153,7 +153,8 @@
     <script src="{{ asset('style/js/plugins/demo.js') }}"></script>
     <script src="{{ asset('style/js/plugins/main.js') }}"></script>
 
-    @yield('css')
+    <!-- // Auto Refresh Page //-->
+    {{-- @yield('refresh') --}}
     
 </head>
 

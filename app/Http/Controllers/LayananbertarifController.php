@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Layananbertarif;
 use App\Models\Formulir;
 use App\Models\Datapermintaan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\Input;
@@ -43,13 +44,16 @@ class LayananbertarifController extends Controller
             // dd($data);
 
             // data diri
+
             $ext = $request->surat_pengantar->getClientOriginalExtension();
             $file = "surat_pengantar-".time().".".$ext;
             $request->surat_pengantar->storeAs('public/dokumen', $file);
             $layananbertarif = new Formulir();
+            $layananbertarif->id = uniqid();
             $layananbertarif->jenis_permintaan = "Layanan bertarif";
             $layananbertarif->status_form = "1";
-            $layananbertarif->nama_peminta =$request->user()->name; 
+            $layananbertarif->nama_peminta =$request->user()->name;
+            $layananbertarif->user_id =$request->user()->id;
             $layananbertarif->surat_pengantar = $file;
             $layananbertarif->deskripsi = $data['deskripsi'];
             $layananbertarif->save();
@@ -321,6 +325,7 @@ class LayananbertarifController extends Controller
      */
     public function show(Layananbertarif $layananbertarif, $id)
     {
+        
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
         return view('formulir.showLayananBertarif', compact('formulir', 'datapermintaan'));

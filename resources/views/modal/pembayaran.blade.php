@@ -4,7 +4,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h4 class="modal-title">Pembayaran bill</h4>
-          </div>
+      </div>
       <div class="modal-body">
         @if($item->respon_bill != null )
         <form method="POST" action="{{ url('pembayaran/' . $item->id) }}" enctype="multipart/form-data">

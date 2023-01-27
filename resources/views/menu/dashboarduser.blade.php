@@ -1,9 +1,6 @@
 @extends('layout.master')
 @section('menu-title', 'Dashboard')
 @section('dashboard', 'page-arrow active-page')
-@section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('stye/DataTables/datatables.min.css') }}"/>
-@endsection
 
 @section('content')
 {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -23,11 +20,14 @@
                         <i class="fa fa-plus-square"></i>
                     </a>
                     <ul role="menu" class="dropdown-menu">
-                        {{-- @if(Auth::user()->kategori == "Umum" ) --}}
+                        @if(Auth::user()->kategori == "Umum" )
                         <li>
                             <a href="{{ url('layanan-bertarif') }}">Layanan Bertarif</a>
                         </li>
-                        {{-- @else --}}
+                        @else
+                        <li>
+                            <a href="{{ url('layanan-bertarif') }}">Layanan Bertarif</a>
+                        </li>
                         <li>
                             <a href="{{ url('kegiatan-penanggulangan-bencana') }}">Kegiatan Penanggulangan Bencana</a>
                         </li>
@@ -46,7 +46,7 @@
                         <li>
                             <a href="{{ url('kegiatan-sosial') }}">Kegiatan Sosial</a>
                         </li>
-                        {{-- @endif --}}
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -63,7 +63,12 @@
             </thead>
             <tbody>
                 @foreach($permintaans as $item)
+                @if ($item->respon_desk != null)
+                    @include('modal.keterangan')
+                @endif
+                @if ($item->status_form == 5 || $item->status_form == 6)
                     @include('modal.pembayaran')
+                @endif
                     <tr>
                         <td>{{ $item->jenis_permintaan }}</td>
                         <td>{{ $item->created_at->format('d/m/Y') }}</td>
@@ -84,7 +89,11 @@
                                 <span class='label label-danger' title="Permintaan di tolak, untuk penjelasan ada diketerangan">Ditolak</span>
                                 @endif
                         </td>
-                        <td>{{ $item->respon_desk }}</td>
+                        <td>
+                            @if ($item->respon_desk != null)
+                            <a class="nav-link" data-target="#deksripsiModal-{{ $item->id }}" data-toggle="modal" href="#deksripsiModal">Sign Up</a>
+                            @endif
+                        </td>
                         <td>
                             @if($item->status_form == 1 and $item->jenis_permintaan == 'Layanan bertarif')
                                 <div class="col-sm-4">
@@ -116,19 +125,17 @@
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
                                 </div>
+
+                            @elseif($item->status_form == 4 and $item->jenis_permintaan == 'Layanan bertarif')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" download href="{{ asset('store/documen/' . $item->respon_data) }}">Download</a>
+                                </div>
                             
                             @elseif($item->status_form == 5 || 6 and $item->jenis_permintaan == 'Layanan bertarif')
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal-{{ $item->id }}" href="">Pembayaran</a>
                                 </div>    
                                 
-                                
-                            @elseif($item->status_form == 4 and $item->jenis_permintaan == 'Layanan bertarif')
-                                <div class="col-sm-4">
-                                    <a type="button" class="btn btn-default" download href="../../storage/templateForm/DATAPERMINTAAN.pdf">Download</a>
-                                </div>
-                            
-                            
                             @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan keagamaan')
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('keagamaan/' . $item->id) }}">Detail</a>

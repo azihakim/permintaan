@@ -1,6 +1,8 @@
 @extends('layout.master')
 @section('form-title', 'Layanan Bertarif PNBP sesuai dengan PP No.47 Tahun 2018aaa')
 @section('content')
+
+
     <div class="inner-padding">
         <form method="POST" action="{{ url('respon/' . $formulir->id) }}" enctype="multipart/form-data">
             @method('PATCH')
@@ -215,7 +217,7 @@
                                                 <label>Nama</label>
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="text" aria-required="true" name="nama" disabled value="{{ Auth::user()->name }}"
+                                                <input type="text" aria-required="true" name="nama" disabled value=""
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -225,7 +227,7 @@
                                                 <label>Nomor telepon</label>
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="telepon" name="telepon" disabled class="form-control" value="{{ Auth::user()->no_wa }}">
+                                                <input type="telepon" name="telepon" disabled class="form-control" value="">
                                             </div>
                                         </div>
                                         <div class="spacer-10"></div>
@@ -234,7 +236,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-sm-3">
-                                                <input type="email" name="email" disabled class="form-control" name="email" value="{{ Auth::user()->email }}">
+                                                <input type="email" name="email" disabled class="form-control" name="email" value="">
                                             </div>
                                         </div> 
                                         {{-- End data diri --}}

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Layananbertarif;
 use App\Models\Formulir;
 use App\Models\Datapermintaan;
-use App\Models\Responlayananbertarif;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class ResponlayananbertarifController extends Controller
 {
@@ -54,6 +54,7 @@ class ResponlayananbertarifController extends Controller
     {
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+
         return view('admin.respon', compact('formulir', 'datapermintaan'));
     }
 
