@@ -61,10 +61,10 @@ class AddPencatatanAgromet extends Component
     public $tbb13 = 0;
     public $tbk14 = 0;
     public $tbb14 = 0;
-    public $RH11;
-    public $RH12;
-    public $RH13;
-    public $RH14;
+    public $RH11 = 0;
+    public $RH12 = 0;
+    public $RH13 = 0;
+    public $RH14 = 0;
 
     // Angin
     public $cup_counter11 = 0;
@@ -107,10 +107,10 @@ class AddPencatatanAgromet extends Component
     public $tbb23 = 0;
     public $tbk24 = 0;
     public $tbb24 = 0;
-    public $RH21;
-    public $RH22;
-    public $RH23;
-    public $RH24;
+    public $RH21 = 0;
+    public $RH22 = 0;
+    public $RH23 = 0;
+    public $RH24 = 0;
 
     // Angin
     public $cup_counter21 = 0;
@@ -175,10 +175,10 @@ class AddPencatatanAgromet extends Component
     public $tbk34 = 0;
     public $tbb34 = 0;
     public $ch3 = 0;
-    public $RH31;
-    public $RH32;
-    public $RH33;
-    public $RH34;
+    public $RH31 = 0;
+    public $RH32 = 0;
+    public $RH33 = 0;
+    public $RH34 = 0;
     /* ---------- End Form 3 ~ 13.01 ---------- */
 
     /* ---------- Form 4 ~ 13.31 ---------- */
@@ -191,10 +191,10 @@ class AddPencatatanAgromet extends Component
     public $tbb43 = 0;
     public $tbk44 = 0;
     public $tbb44 = 0;
-    public $RH41;
-    public $RH42;
-    public $RH43;
-    public $RH44;
+    public $RH41 = 0;
+    public $RH42 = 0;
+    public $RH43 = 0;
+    public $RH44 = 0;
     // Angin
     public $cup_counter41 = 0;
     public $cup_counter42 = 0;
@@ -256,10 +256,10 @@ class AddPencatatanAgromet extends Component
     public $tbb53 = 0;
     public $tbk54 = 0;
     public $tbb54 = 0;
-    public $RH51;
-    public $RH52;
-    public $RH53;
-    public $RH54;
+    public $RH51 = 0;
+    public $RH52 = 0;
+    public $RH53 = 0;
+    public $RH54 = 0;
     // Angin
     public $cup_counter51 = 0;
     public $cup_counter52 = 0;
@@ -304,10 +304,10 @@ class AddPencatatanAgromet extends Component
     public $tbb63 = 0;
     public $tbk64 = 0;
     public $tbb64 = 0;
-    public $RH61;
-    public $RH62;
-    public $RH63;
-    public $RH64;
+    public $RH61 = 0;
+    public $RH62 = 0;
+    public $RH63 = 0;
+    public $RH64 = 0;
     // Angin
     public $cup_counter61 = 0;
     public $cup_counter62 = 0;
@@ -370,10 +370,10 @@ class AddPencatatanAgromet extends Component
     public $tbb73 = 0;
     public $tbk74 = 0;
     public $tbb74 = 0;
-    public $RH71;
-    public $RH72;
-    public $RH73;
-    public $RH74;
+    public $RH71 = 0;
+    public $RH72 = 0;
+    public $RH73 = 0;
+    public $RH74 = 0;
     // Angin
     public $cup_counter71 = 0;
     public $cup_counter72 = 0;
@@ -407,123 +407,432 @@ class AddPencatatanAgromet extends Component
         ]);
     }
 
+    // Rumus Hitung RH di Psychrometer Sangkar Meteorologi
     public function hitungRH($tbk, $tbb){
         $hasil = ((6.11*pow(10, 7.5*$tbb/(237.3+$tbb)))-((0.7947*pow(10, -3)))*(1010)*($tbk-$tbb))/((6.11*pow(10, 7.5*$tbk/(237.3+$tbk))))*100;
         $rh = round($hasil,1);
         return $rh;
     }
 
+    // Cek Tbk dan Tbb jika kosong
+    public function cekTbkTbb($tbk, $tbb, $no){
+        if ($tbk === '') {
+            $this->reset(["tbk$no", "RH$no"]);
+        } else if ($tbb === ''){
+            $this->reset(["tbb$no", "RH$no"]);
+        } else if ($tbk === '' && $tbb === ''){
+            $this->reset(["tbk$no","tbb$no", "RH$no"]);
+        } else {
+            $data = "ModeHitung";
+            return $data;
+        }
+    }
+
+    // Start Updated Form 1 ~ 07.01
     public function updatedTbb11($value){
-        $this->RH11 = $this->hitungRH($this->tbk11, $this->tbb11);
+        $mode = $this->cekTbkTbb($this->tbk11, $this->tbb11,'11');
+        if ($mode === "ModeHitung") {
+            $this->RH11 = $this->hitungRH($this->tbk11, $this->tbb11);
+        }
+    }
+
+    public function updatedTbk11($value){
+        $mode = $this->cekTbkTbb($this->tbk11, $this->tbb11,'11');
+        if ($mode === "ModeHitung") {
+            $this->RH11 = $this->hitungRH($this->tbk11, $this->tbb11);
+        }
     }
 
     public function updatedTbb12($value){
-        $this->RH12 = $this->hitungRH($this->tbk12, $this->tbb12);
+        $mode = $this->cekTbkTbb($this->tbk12, $this->tbb12,'12');
+        if ($mode === "ModeHitung") {
+            $this->RH12 = $this->hitungRH($this->tbk12, $this->tbb12);
+        }
+    }
+
+    public function updatedTbk12($value){
+        $mode = $this->cekTbkTbb($this->tbk12, $this->tbb12,'12');
+        if ($mode === "ModeHitung") {
+            $this->RH12 = $this->hitungRH($this->tbk12, $this->tbb12);
+        }
     }
 
     public function updatedTbb13($value){
-        $this->RH13 = $this->hitungRH($this->tbk13, $this->tbb13);
+        $mode = $this->cekTbkTbb($this->tbk13, $this->tbb13,'13');
+        if ($mode === "ModeHitung") {
+            $this->RH13 = $this->hitungRH($this->tbk13, $this->tbb13);
+        }
+    }
+
+    public function updatedTbk13($value){
+        $mode = $this->cekTbkTbb($this->tbk13, $this->tbb13,'13');
+        if ($mode === "ModeHitung") {
+            $this->RH13 = $this->hitungRH($this->tbk13, $this->tbb13);
+        }
     }
 
     public function updatedTbb14($value){
-        $this->RH14 = $this->hitungRH($this->tbk14, $this->tbb14);
+        $mode = $this->cekTbkTbb($this->tbk14, $this->tbb14,'14');
+        if ($mode === "ModeHitung") {
+            $this->RH14 = $this->hitungRH($this->tbk14, $this->tbb14);
+        }
     }
 
+    public function updatedTbk14($value){
+        $mode = $this->cekTbkTbb($this->tbk14, $this->tbb14,'14');
+        if ($mode === "ModeHitung") {
+            $this->RH14 = $this->hitungRH($this->tbk14, $this->tbb14);
+        }
+    }
+    // End Updated Form 1 ~ 07.01
+
+    // Start Updated Form 2 ~ 07.31
     public function updatedTbb21($value){
-        $this->RH21 = $this->hitungRH($this->tbk21, $this->tbb21);
+        $mode = $this->cekTbkTbb($this->tbk21, $this->tbb21,'21');
+        if ($mode === "ModeHitung") {
+            $this->RH21 = $this->hitungRH($this->tbk21, $this->tbb21);
+        }
+    }
+
+    public function updatedTbk21($value){
+        $mode = $this->cekTbkTbb($this->tbk21, $this->tbb21,'21');
+        if ($mode === "ModeHitung") {
+            $this->RH21 = $this->hitungRH($this->tbk21, $this->tbb21);
+        }
     }
 
     public function updatedTbb22($value){
-        $this->RH22 = $this->hitungRH($this->tbk22, $this->tbb22);
+        $mode = $this->cekTbkTbb($this->tbk22, $this->tbb22,'22');
+        if ($mode === "ModeHitung") {
+            $this->RH22 = $this->hitungRH($this->tbk22, $this->tbb22);
+        }
+    }
+
+    public function updatedTbk22($value){
+        $mode = $this->cekTbkTbb($this->tbk22, $this->tbb22,'22');
+        if ($mode === "ModeHitung") {
+            $this->RH22 = $this->hitungRH($this->tbk22, $this->tbb22);
+        }
     }
 
     public function updatedTbb23($value){
-        $this->RH23 = $this->hitungRH($this->tbk23, $this->tbb23);
+        $mode = $this->cekTbkTbb($this->tbk23, $this->tbb23,'23');
+        if ($mode === "ModeHitung") {
+            $this->RH23 = $this->hitungRH($this->tbk23, $this->tbb23);
+        }
+    }
+
+    public function updatedTbk23($value){
+        $mode = $this->cekTbkTbb($this->tbk23, $this->tbb23,'23');
+        if ($mode === "ModeHitung") {
+            $this->RH23 = $this->hitungRH($this->tbk23, $this->tbb23);
+        }
     }
 
     public function updatedTbb24($value){
-        $this->RH24 = $this->hitungRH($this->tbk24, $this->tbb24);
+        $mode = $this->cekTbkTbb($this->tbk24, $this->tbb24,'24');
+        if ($mode === "ModeHitung") {
+            $this->RH24 = $this->hitungRH($this->tbk24, $this->tbb24);
+        }
     }
 
+    public function updatedTbk24($value){
+        $mode = $this->cekTbkTbb($this->tbk24, $this->tbb24,'24');
+        if ($mode === "ModeHitung") {
+            $this->RH24 = $this->hitungRH($this->tbk24, $this->tbb24);
+        }
+    }
+    // End Updated Form 2 ~ 07.31
+
+    // Start Updated Form 3 ~ 13.01
     public function updatedTbb31($value){
-        $this->RH31 = $this->hitungRH($this->tbk31, $this->tbb31);
+        $mode = $this->cekTbkTbb($this->tbk31, $this->tbb31,'31');
+        if ($mode === "ModeHitung") {
+            $this->RH31 = $this->hitungRH($this->tbk31, $this->tbb31);
+        }
+    }
+
+    public function updatedTbk31($value){
+        $mode = $this->cekTbkTbb($this->tbk31, $this->tbb31,'31');
+        if ($mode === "ModeHitung") {
+            $this->RH31 = $this->hitungRH($this->tbk31, $this->tbb31);
+        }
     }
 
     public function updatedTbb32($value){
-        $this->RH32 = $this->hitungRH($this->tbk32, $this->tbb32);
+        $mode = $this->cekTbkTbb($this->tbk32, $this->tbb32,'32');
+        if ($mode === "ModeHitung") {
+            $this->RH32 = $this->hitungRH($this->tbk32, $this->tbb32);
+        }
+    }
+
+    public function updatedTbk32($value){
+        $mode = $this->cekTbkTbb($this->tbk32, $this->tbb32,'32');
+        if ($mode === "ModeHitung") {
+            $this->RH32 = $this->hitungRH($this->tbk32, $this->tbb32);
+        }
     }
 
     public function updatedTbb33($value){
-        $this->RH33 = $this->hitungRH($this->tbk33, $this->tbb33);
+        $mode = $this->cekTbkTbb($this->tbk33, $this->tbb33,'33');
+        if ($mode === "ModeHitung") {
+            $this->RH33 = $this->hitungRH($this->tbk33, $this->tbb33);
+        }
+    }
+
+    public function updatedTbk33($value){
+        $mode = $this->cekTbkTbb($this->tbk33, $this->tbb33,'33');
+        if ($mode === "ModeHitung") {
+            $this->RH33 = $this->hitungRH($this->tbk33, $this->tbb33);
+        }
     }
 
     public function updatedTbb34($value){
-        $this->RH34 = $this->hitungRH($this->tbk34, $this->tbb34);
+        $mode = $this->cekTbkTbb($this->tbk34, $this->tbb34,'34');
+        if ($mode === "ModeHitung") {
+            $this->RH34 = $this->hitungRH($this->tbk34, $this->tbb34);
+        }
     }
 
+    public function updatedTbk34($value){
+        $mode = $this->cekTbkTbb($this->tbk34, $this->tbb34,'34');
+        if ($mode === "ModeHitung") {
+            $this->RH34 = $this->hitungRH($this->tbk34, $this->tbb34);
+        }
+    }
+    // End Updated Form 3 ~ 13.01
+
+    // Start Updated Form 4 ~ 13.31
     public function updatedTbb41($value){
-        $this->RH41 = $this->hitungRH($this->tbk41, $this->tbb41);
+        $mode = $this->cekTbkTbb($this->tbk41, $this->tbb41,'41');
+        if ($mode === "ModeHitung") {
+            $this->RH41 = $this->hitungRH($this->tbk41, $this->tbb41);
+        }
+    }
+
+    public function updatedTbk41($value){
+        $mode = $this->cekTbkTbb($this->tbk41, $this->tbb41,'41');
+        if ($mode === "ModeHitung") {
+            $this->RH41 = $this->hitungRH($this->tbk41, $this->tbb41);
+        }
     }
 
     public function updatedTbb42($value){
-        $this->RH42 = $this->hitungRH($this->tbk42, $this->tbb42);
+        $mode = $this->cekTbkTbb($this->tbk42, $this->tbb42,'42');
+        if ($mode === "ModeHitung") {
+            $this->RH42 = $this->hitungRH($this->tbk42, $this->tbb42);
+        }
+    }
+
+    public function updatedTbk42($value){
+        $mode = $this->cekTbkTbb($this->tbk42, $this->tbb42,'42');
+        if ($mode === "ModeHitung") {
+            $this->RH42 = $this->hitungRH($this->tbk42, $this->tbb42);
+        }
     }
 
     public function updatedTbb43($value){
-        $this->RH43 = $this->hitungRH($this->tbk43, $this->tbb43);
+        $mode = $this->cekTbkTbb($this->tbk43, $this->tbb43,'43');
+        if ($mode === "ModeHitung") {
+            $this->RH43 = $this->hitungRH($this->tbk43, $this->tbb43);
+        }
+    }
+
+    public function updatedTbk43($value){
+        $mode = $this->cekTbkTbb($this->tbk43, $this->tbb43,'43');
+        if ($mode === "ModeHitung") {
+            $this->RH43 = $this->hitungRH($this->tbk43, $this->tbb43);
+        }
     }
 
     public function updatedTbb44($value){
-        $this->RH44 = $this->hitungRH($this->tbk44, $this->tbb44);
+        $mode = $this->cekTbkTbb($this->tbk44, $this->tbb44,'44');
+        if ($mode === "ModeHitung") {
+            $this->RH44 = $this->hitungRH($this->tbk44, $this->tbb44);
+        }
     }
 
+    public function updatedTbk44($value){
+        $mode = $this->cekTbkTbb($this->tbk44, $this->tbb44,'44');
+        if ($mode === "ModeHitung") {
+            $this->RH44 = $this->hitungRH($this->tbk44, $this->tbb44);
+        }
+    }
+    // End Updated Form 4 ~ 13.31
+
+    // Start Updated Form 5 ~ 14.01
     public function updatedTbb51($value){
-        $this->RH51 = $this->hitungRH($this->tbk51, $this->tbb51);
+        $mode = $this->cekTbkTbb($this->tbk51, $this->tbb51,'51');
+        if ($mode === "ModeHitung") {
+            $this->RH51 = $this->hitungRH($this->tbk51, $this->tbb51);
+        }
+    }
+
+    public function updatedTbk51($value){
+        $mode = $this->cekTbkTbb($this->tbk51, $this->tbb51,'51');
+        if ($mode === "ModeHitung") {
+            $this->RH51 = $this->hitungRH($this->tbk51, $this->tbb51);
+        }
     }
 
     public function updatedTbb52($value){
-        $this->RH52 = $this->hitungRH($this->tbk52, $this->tbb52);
+        $mode = $this->cekTbkTbb($this->tbk52, $this->tbb52,'52');
+        if ($mode === "ModeHitung") {
+            $this->RH52 = $this->hitungRH($this->tbk52, $this->tbb52);
+        }
+    }
+
+    public function updatedTbk52($value){
+        $mode = $this->cekTbkTbb($this->tbk52, $this->tbb52,'52');
+        if ($mode === "ModeHitung") {
+            $this->RH52 = $this->hitungRH($this->tbk52, $this->tbb52);
+        }
     }
 
     public function updatedTbb53($value){
-        $this->RH53 = $this->hitungRH($this->tbk53, $this->tbb53);
+        $mode = $this->cekTbkTbb($this->tbk53, $this->tbb53,'53');
+        if ($mode === "ModeHitung") {
+            $this->RH53 = $this->hitungRH($this->tbk53, $this->tbb53);
+        }
+    }
+
+    public function updatedTbk53($value){
+        $mode = $this->cekTbkTbb($this->tbk53, $this->tbb53,'53');
+        if ($mode === "ModeHitung") {
+            $this->RH53 = $this->hitungRH($this->tbk53, $this->tbb53);
+        }
     }
 
     public function updatedTbb54($value){
-        $this->RH54 = $this->hitungRH($this->tbk54, $this->tbb54);
+        $mode = $this->cekTbkTbb($this->tbk54, $this->tbb54,'54');
+        if ($mode === "ModeHitung") {
+            $this->RH54 = $this->hitungRH($this->tbk54, $this->tbb54);
+        }
     }
 
+    public function updatedTbk54($value){
+        $mode = $this->cekTbkTbb($this->tbk54, $this->tbb54,'54');
+        if ($mode === "ModeHitung") {
+            $this->RH54 = $this->hitungRH($this->tbk54, $this->tbb54);
+        }
+    }
+    // End Updated Form 5 ~ 14.01
+
+    // Start Updated Form 6 ~ 17.31
     public function updatedTbb61($value){
-        $this->RH61 = $this->hitungRH($this->tbk61, $this->tbb61);
+        $mode = $this->cekTbkTbb($this->tbk61, $this->tbb61,'61');
+        if ($mode === "ModeHitung") {
+            $this->RH61 = $this->hitungRH($this->tbk61, $this->tbb61);
+        }
+    }
+
+    public function updatedTbk61($value){
+        $mode = $this->cekTbkTbb($this->tbk61, $this->tbb61,'61');
+        if ($mode === "ModeHitung") {
+            $this->RH61 = $this->hitungRH($this->tbk61, $this->tbb61);
+        }
     }
 
     public function updatedTbb62($value){
-        $this->RH62 = $this->hitungRH($this->tbk62, $this->tbb62);
+        $mode = $this->cekTbkTbb($this->tbk62, $this->tbb62,'62');
+        if ($mode === "ModeHitung") {
+            $this->RH62 = $this->hitungRH($this->tbk62, $this->tbb62);
+        }
+    }
+
+    public function updatedTbk62($value){
+        $mode = $this->cekTbkTbb($this->tbk62, $this->tbb62,'62');
+        if ($mode === "ModeHitung") {
+            $this->RH62 = $this->hitungRH($this->tbk62, $this->tbb62);
+        }
     }
 
     public function updatedTbb63($value){
-        $this->RH63 = $this->hitungRH($this->tbk63, $this->tbb63);
+        $mode = $this->cekTbkTbb($this->tbk63, $this->tbb63,'63');
+        if ($mode === "ModeHitung") {
+            $this->RH63 = $this->hitungRH($this->tbk63, $this->tbb63);
+        }
+    }
+
+    public function updatedTbk63($value){
+        $mode = $this->cekTbkTbb($this->tbk63, $this->tbb63,'63');
+        if ($mode === "ModeHitung") {
+            $this->RH63 = $this->hitungRH($this->tbk63, $this->tbb63);
+        }
     }
 
     public function updatedTbb64($value){
-        $this->RH64 = $this->hitungRH($this->tbk64, $this->tbb64);
+        $mode = $this->cekTbkTbb($this->tbk64, $this->tbb64,'64');
+        if ($mode === "ModeHitung") {
+            $this->RH64 = $this->hitungRH($this->tbk64, $this->tbb64);
+        }
     }
 
+    public function updatedTbk64($value){
+        $mode = $this->cekTbkTbb($this->tbk64, $this->tbb64,'64');
+        if ($mode === "ModeHitung") {
+            $this->RH64 = $this->hitungRH($this->tbk64, $this->tbb64);
+        }
+    }
+    // End Updated Form 6 ~ 17.31
+
+    // Start Updated Form 7 ~ 18.01
     public function updatedTbb71($value){
-        $this->RH71 = $this->hitungRH($this->tbk71, $this->tbb71);
+        $mode = $this->cekTbkTbb($this->tbk71, $this->tbb71,'71');
+        if ($mode === "ModeHitung") {
+            $this->RH71 = $this->hitungRH($this->tbk71, $this->tbb71);
+        }
+    }
+
+    public function updatedTbk71($value){
+        $mode = $this->cekTbkTbb($this->tbk71, $this->tbb71,'71');
+        if ($mode === "ModeHitung") {
+            $this->RH71 = $this->hitungRH($this->tbk71, $this->tbb71);
+        }
     }
 
     public function updatedTbb72($value){
-        $this->RH72 = $this->hitungRH($this->tbk72, $this->tbb72);
+        $mode = $this->cekTbkTbb($this->tbk72, $this->tbb72,'72');
+        if ($mode === "ModeHitung") {
+            $this->RH72 = $this->hitungRH($this->tbk72, $this->tbb72);
+        }
+    }
+
+    public function updatedTbk72($value){
+        $mode = $this->cekTbkTbb($this->tbk72, $this->tbb72,'72');
+        if ($mode === "ModeHitung") {
+            $this->RH72 = $this->hitungRH($this->tbk72, $this->tbb72);
+        }
     }
 
     public function updatedTbb73($value){
-        $this->RH73 = $this->hitungRH($this->tbk73, $this->tbb73);
+        $mode = $this->cekTbkTbb($this->tbk73, $this->tbb73,'73');
+        if ($mode === "ModeHitung") {
+            $this->RH73 = $this->hitungRH($this->tbk73, $this->tbb73);
+        }
+    }
+
+    public function updatedTbk73($value){
+        $mode = $this->cekTbkTbb($this->tbk73, $this->tbb73,'73');
+        if ($mode === "ModeHitung") {
+            $this->RH73 = $this->hitungRH($this->tbk73, $this->tbb73);
+        }
     }
 
     public function updatedTbb74($value){
-        $this->RH74 = $this->hitungRH($this->tbk74, $this->tbb74);
+        $mode = $this->cekTbkTbb($this->tbk74, $this->tbb74,'74');
+        if ($mode === "ModeHitung") {
+            $this->RH74 = $this->hitungRH($this->tbk74, $this->tbb74);
+        }
     }
+
+    public function updatedTbk74($value){
+        $mode = $this->cekTbkTbb($this->tbk74, $this->tbb74,'74');
+        if ($mode === "ModeHitung") {
+            $this->RH74 = $this->hitungRH($this->tbk74, $this->tbb74);
+        }
+    }
+    // End Updated Form 7 ~ 18.01
 
     // Simpan Form 1 ~ 07.01
     public function storeForm1(){

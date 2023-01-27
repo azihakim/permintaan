@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="col-md-4 px-16 mr-12">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="tbk31">
+                                            wire:model.lazy="tbk31">
                                         @error('tbk31')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -111,7 +111,7 @@
                                     </div>
                                     <div class="col-md-4 px-16 mr-12">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="tbk32">
+                                            wire:model.lazy="tbk32">
                                         @error('tbk32')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -174,7 +174,7 @@
                                     </div>
                                     <div class="col-md-4 px-16 mr-12">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="tbk33">
+                                            wire:model.lazy="tbk33">
                                         @error('tbk33')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -237,7 +237,7 @@
                                     </div>
                                     <div class="col-md-4 px-16 mr-12">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="tbk34">
+                                            wire:model.lazy="tbk34">
                                         @error('tbk34')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
