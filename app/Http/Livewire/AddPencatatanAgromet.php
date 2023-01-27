@@ -847,6 +847,10 @@ class AddPencatatanAgromet extends Component
             'tbb13' => 'numeric|nullable',
             'tbk14' => 'numeric|nullable',
             'tbb14' => 'numeric|nullable',
+            'RH11' => 'numeric|nullable',
+            'RH12' => 'numeric|nullable',
+            'RH13' => 'numeric|nullable',
+            'RH14' => 'numeric|nullable',
             'cup_counter11' => 'numeric|nullable',
             'cup_counter12' => 'numeric|nullable',
             'arah11' => 'numeric|nullable',
@@ -890,6 +894,10 @@ class AddPencatatanAgromet extends Component
             'tbb3' => $this->tbb13,
             'tbk4' => $this->tbk14,
             'tbb4' => $this->tbb14,
+            'RH1' => $this->RH11,
+            'RH2' => $this->RH12,
+            'RH3' => $this->RH13,
+            'RH4' => $this->RH14,
             'pencatatans_id' => $this->idPencatatan
         ];
 
@@ -965,6 +973,10 @@ class AddPencatatanAgromet extends Component
             'tbb23' => 'numeric|nullable',
             'tbk24' => 'numeric|nullable',
             'tbb24' => 'numeric|nullable',
+            'RH21' => 'numeric|nullable',
+            'RH22' => 'numeric|nullable',
+            'RH23' => 'numeric|nullable',
+            'RH24' => 'numeric|nullable',
             'cup_counter21' => 'numeric|nullable',
             'cup_counter22' => 'numeric|nullable',
             'arah21' => 'numeric|nullable',
@@ -1030,6 +1042,10 @@ class AddPencatatanAgromet extends Component
             'tbb3' => $this->tbb23,
             'tbk4' => $this->tbk24,
             'tbb4' => $this->tbb24,
+            'RH1' => $this->RH21,
+            'RH2' => $this->RH22,
+            'RH3' => $this->RH23,
+            'RH4' => $this->RH24,
             'pencatatans_id' => $this->idPencatatan
         ];
 
@@ -1122,6 +1138,10 @@ class AddPencatatanAgromet extends Component
             'tbb33' => 'numeric|nullable',
             'tbk34' => 'numeric|nullable',
             'tbb34' => 'numeric|nullable',
+            'RH31' => 'numeric|nullable',
+            'RH32' => 'numeric|nullable',
+            'RH33' => 'numeric|nullable',
+            'RH34' => 'numeric|nullable',
             'ch3' => 'numeric|nullable'
         ]);
 
@@ -1143,6 +1163,10 @@ class AddPencatatanAgromet extends Component
             'tbb3' => $this->tbb33,
             'tbk4' => $this->tbk34,
             'tbb4' => $this->tbb34,
+            'RH1' => $this->RH31,
+            'RH2' => $this->RH32,
+            'RH3' => $this->RH33,
+            'RH4' => $this->RH34,
             'pencatatans_id' => $this->idPencatatan
         ];
 
@@ -1171,6 +1195,10 @@ class AddPencatatanAgromet extends Component
             'tbb43' => 'numeric|nullable',
             'tbk44' => 'numeric|nullable',
             'tbb44' => 'numeric|nullable',
+            'RH41' => 'numeric|nullable',
+            'RH42' => 'numeric|nullable',
+            'RH43' => 'numeric|nullable',
+            'RH44' => 'numeric|nullable',
             'cup_counter41' => 'numeric|nullable',
             'cup_counter42' => 'numeric|nullable',
             'arah41' => 'numeric|nullable',
@@ -1235,6 +1263,10 @@ class AddPencatatanAgromet extends Component
             'tbb3' => $this->tbb43,
             'tbk4' => $this->tbk44,
             'tbb4' => $this->tbb44,
+            'RH1' => $this->RH41,
+            'RH2' => $this->RH42,
+            'RH3' => $this->RH43,
+            'RH4' => $this->RH44,
             'pencatatans_id' => $this->idPencatatan
         ];
 
@@ -1327,6 +1359,10 @@ class AddPencatatanAgromet extends Component
             'tbb53' => 'numeric|nullable',
             'tbk54' => 'numeric|nullable',
             'tbb54' => 'numeric|nullable',
+            'RH51' => 'numeric|nullable',
+            'RH52' => 'numeric|nullable',
+            'RH53' => 'numeric|nullable',
+            'RH54' => 'numeric|nullable',
             'cup_counter51' => 'numeric|nullable',
             'cup_counter52' => 'numeric|nullable',
             'arah51' => 'numeric|nullable',
@@ -1375,6 +1411,10 @@ class AddPencatatanAgromet extends Component
             'tbb3' => $this->tbb53,
             'tbk4' => $this->tbk54,
             'tbb4' => $this->tbb54,
+            'RH1' => $this->RH51,
+            'RH2' => $this->RH52,
+            'RH3' => $this->RH53,
+            'RH4' => $this->RH54,
             'pencatatans_id' => $this->idPencatatan
         ];
 
@@ -1445,6 +1485,10 @@ class AddPencatatanAgromet extends Component
             'tbb63' => 'numeric|nullable',
             'tbk64' => 'numeric|nullable',
             'tbb64' => 'numeric|nullable',
+            'RH61' => 'numeric|nullable',
+            'RH62' => 'numeric|nullable',
+            'RH63' => 'numeric|nullable',
+            'RH64' => 'numeric|nullable',
             'cup_counter61' => 'numeric|nullable',
             'cup_counter62' => 'numeric|nullable',
             'arah61' => 'numeric|nullable',
@@ -1510,6 +1554,10 @@ class AddPencatatanAgromet extends Component
             'tbb3' => $this->tbb63,
             'tbk4' => $this->tbk64,
             'tbb4' => $this->tbb64,
+            'RH1' => $this->RH61,
+            'RH2' => $this->RH62,
+            'RH3' => $this->RH63,
+            'RH4' => $this->RH64,
             'pencatatans_id' => $this->idPencatatan
         ];
 
@@ -1602,6 +1650,10 @@ class AddPencatatanAgromet extends Component
             'tbb73' => 'numeric|nullable',
             'tbk74' => 'numeric|nullable',
             'tbb74' => 'numeric|nullable',
+            'RH71' => 'numeric|nullable',
+            'RH72' => 'numeric|nullable',
+            'RH73' => 'numeric|nullable',
+            'RH74' => 'numeric|nullable',
             'cup_counter71' => 'numeric|nullable',
             'cup_counter72' => 'numeric|nullable',
             'arah71' => 'numeric|nullable',
@@ -1634,6 +1686,10 @@ class AddPencatatanAgromet extends Component
             'tbb3' => $this->tbb73,
             'tbk4' => $this->tbk74,
             'tbb4' => $this->tbb74,
+            'RH1' => $this->RH71,
+            'RH2' => $this->RH72,
+            'RH3' => $this->RH73,
+            'RH4' => $this->RH74,
             'pencatatans_id' => $this->idPencatatan
         ];
 

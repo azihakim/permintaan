@@ -23,6 +23,10 @@ return new class extends Migration
             $table->double('tbb3')->unsigned()->nullable();
             $table->double('tbk4')->unsigned()->nullable();
             $table->double('tbb4')->unsigned()->nullable();
+            $table->double('RH1')->unsigned()->nullable();
+            $table->double('RH2')->unsigned()->nullable();
+            $table->double('RH3')->unsigned()->nullable();
+            $table->double('RH4')->unsigned()->nullable();
             $table->foreignId('pencatatans_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
