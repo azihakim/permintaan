@@ -6,6 +6,7 @@ use App\Models\Angin_10m_24jam;
 use App\Models\Pencatatan;
 use App\Models\Pencatatan2;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -23,8 +24,18 @@ class AddAngin10m24jam extends Component
     public $total_piche = 0;
     public $total_visibility = 0;
     public $idPencatatan;
+
+    public function dehydrate(){
+        $ev1 = $this->queryEVPicheKemarin($this->tanggal, '07.31');
+        $ev2 = $this->queryEVPicheKemarin($this->tanggal, '13.31');
+        $ev3 = $this->queryEVPicheKemarin($this->tanggal, '17.31');
+        $ev4 = $this->queryEVPiche($this->tanggal, '07.31');
+        $this->total_piche = $ev2 + $ev3 + $ev4;
+    }
+
     public function render()
     {
+
         return view('livewire.add-angin10m24jam',[
             'observers' => User::where('roles', 'observer')->get()
         ]);
@@ -56,5 +67,17 @@ class AddAngin10m24jam extends Component
         $this->reset();
         $this->emit('dataStore');
         $this->dispatchBrowserEvent('alert', ['success'=>'Data Angin 10 M 24 Jam Berhasil Disimpan!']);
+    }
+
+    public function queryEVPicheKemarin($tanggal, $waktu){
+        $data = DB::select("SELECT piche_evaporimeters.ev FROM pencatatans INNER JOIN piche_evaporimeters ON pencatatans.id = piche_evaporimeters.pencatatans_id WHERE tanggal = DATE('$tanggal')-1 AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->ev) ? $data[0]->ev : null;
+    }
+
+    public function queryEVPiche($tanggal, $waktu){
+        $data = DB::select("SELECT piche_evaporimeters.ev FROM pencatatans INNER JOIN piche_evaporimeters ON pencatatans.id = piche_evaporimeters.pencatatans_id WHERE tanggal = DATE('$tanggal') AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->ev) ? $data[0]->ev : null;
     }
 }
