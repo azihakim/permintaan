@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Formulir;
 use App\Models\Datapermintaan;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Nette\Utils\Strings;
 
 class ResponlayananbertarifController extends Controller
 {
@@ -50,12 +52,15 @@ class ResponlayananbertarifController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-
-        return view('admin.respon', compact('formulir', 'datapermintaan'));
+        
+        $user_id = $formulir['user_id'];
+        $user = User::whereid($user_id)->first();
+        // dd($user);
+        return view('admin.respon', compact('formulir', 'datapermintaan', 'user'));
     }
 
     /**

@@ -49,10 +49,8 @@ class LayananbertarifController extends Controller
             $file = "surat_pengantar-".time().".".$ext;
             $request->surat_pengantar->storeAs('public/dokumen', $file);
             $layananbertarif = new Formulir();
-            $layananbertarif->id = uniqid();
             $layananbertarif->jenis_permintaan = "Layanan bertarif";
             $layananbertarif->status_form = "1";
-            $layananbertarif->nama_peminta =$request->user()->name;
             $layananbertarif->user_id =$request->user()->id;
             $layananbertarif->surat_pengantar = $file;
             $layananbertarif->deskripsi = $data['deskripsi'];

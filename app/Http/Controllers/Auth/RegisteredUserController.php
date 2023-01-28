@@ -37,6 +37,7 @@ class RegisteredUserController extends Controller
         // dd($data);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
+            'role' => ['required', 'string', 'max:255'],
             'instansi' =>['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
@@ -55,6 +56,7 @@ class RegisteredUserController extends Controller
             $request->ktm->storeAs('public/dokumen', $file_ktm);
             $user = User::create([
                 'name' => $request->name,
+                'role' => '0',
                 'instansi' => $request->instansi,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
@@ -67,6 +69,7 @@ class RegisteredUserController extends Controller
         }else{
             $user = User::create([
                 'name' => $request->name,
+                'role' => '0',
                 'instansi' => $request->instansi,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),

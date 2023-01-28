@@ -262,6 +262,11 @@
                             <li class="active">@yield('menu-title')</li>
                         </ul><!-- End .breadcrumb -->
                     </div>
+                    <div class="pull-right">
+                        <ul class="breadcrumb">
+                            <li class="active"><strong>@yield('user')</strong></li>
+                        </ul><!-- End .breadcrumb -->
+                    </div>
                 </div><!-- End #header-main-bottom -->
             </header><!-- End #header-main -->
 

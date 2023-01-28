@@ -1,6 +1,9 @@
 @extends('layout.master')
 @section('menu-title', 'Dashboard')
 @section('dashboard', 'page-arrow active-page')
+@section('user')
+{{ Auth::user()->email }}&nbsp;<i class="fa fa-user"></i>
+@endsection
 
 @section('content')
 {{-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -91,7 +94,8 @@
                         </td>
                         <td>
                             @if ($item->respon_desk != null)
-                            <a class="nav-link" data-target="#deksripsiModal-{{ $item->id }}" data-toggle="modal" href="#deksripsiModal">Sign Up</a>
+                            <a class="btn btn-default" data-target="#deksripsiModal-{{ $item->id }}" data-toggle="modal" href="#deksripsiModal">
+                                Baca keterangan</i></a>
                             @endif
                         </td>
                         <td>
