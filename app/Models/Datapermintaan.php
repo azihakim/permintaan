@@ -12,8 +12,7 @@ class Datapermintaan extends Model
         'formulir_id',
         'jenis_data',
         'lokasi',
-        'latitude',
-        'longitude',
+        'desk_petir',
         'tgl_dari',
         'tgl_sampai',
         'unsurcuacalain'];

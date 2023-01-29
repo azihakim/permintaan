@@ -18,9 +18,8 @@ return new class extends Migration
             $table->integer('formulir_id');
             $table->string('jenis_data');
             $table->string('unsurcuacalain')->nullable();
+            $table->longText('desk_petir');
             $table->longText('lokasi');
-            $table->string('latitude')->nullable();
-            $table->string('longitude')->nullable();
             $table->date('tgl_dari');
             $table->date('tgl_sampai');
             $table->timestamps();

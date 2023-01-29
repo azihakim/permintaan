@@ -64,8 +64,9 @@ class LayananbertarifController extends Controller
                                 'formulir_id'   => $layananbertarif->id,
                                 'jenis_data'    => 'datapetir',
                                 'lokasi'        => $request->lokasi_petir[$i],
-                                'latitude'      => $request->latitude_petir[$i],
-                                'longitude'     => $request->longitude_petir[$i],
+                                'desk_petir' => $request->desk_petir,
+                                // 'latitude'      => $request->latitude_petir[$i],
+                                // 'longitude'     => $request->longitude_petir[$i],
                                 'tgl_dari'      => $request->tgl_dari_petir[$i],
                                 'tgl_sampai'    => $request->tgl_sampai_petir[$i]
                         ]);
@@ -321,7 +322,7 @@ class LayananbertarifController extends Controller
      * @param  \App\Models\Layananbertarif  $layananbertarif
      * @return \Illuminate\Http\Response
      */
-    public function show(Layananbertarif $layananbertarif, $id)
+    public function show(Layananbertarif $layananbertarif, Datapermintaan $datapermintaan, $id)
     {
         
         $formulir = Formulir::find($id);
@@ -601,7 +602,7 @@ class LayananbertarifController extends Controller
             for($i = 0; $i < count($request->lokasi_unsurcuacalainnya) ; $i++){
                 $unsurcuacalainnya = Datapermintaan::where('id', $request->id_df_unsurcuacalainnya[$i]);
                 $unsurcuacalainnya->update([
-                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya[$i],
+                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya,
                 'lokasi'        => $request->lokasi_unsurcuacalainnya[$i],
                 'tgl_dari'      => $request->tgl_dari_unsurcuacalainnya[$i],
                 'tgl_sampai'    => $request->tgl_sampai_unsurcuacalainnya[$i]

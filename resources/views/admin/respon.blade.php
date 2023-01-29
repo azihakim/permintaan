@@ -166,6 +166,8 @@
             </div>
             <div class="spacer-20"></div>
             <hr>
+
+            @if ($formulir->respon_struk != null)
             <div class="spacer-15"></div>
             <div class="row">
                 <div class="col-sm-3">
@@ -188,6 +190,8 @@
 
             <div class="spacer-20"></div>
             <hr>
+            @endif
+            
         </form>
         <div class="row">
             <div class="col-sm-12">

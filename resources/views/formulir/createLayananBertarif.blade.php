@@ -511,7 +511,7 @@
                                             <div class="row col-sm-12">\
                                                 <div class="col-sm-12">\
                                                     <textarea required="" class="form-control autosize" style="width: 100%"\
-                                                        placeholder="Deskripsi permintaan data petir" name="deskripsi_datapetir"></textarea>\
+                                                        placeholder="Deskripsi permintaan data petir" name="desk_petir"></textarea>\
                                                     <div class="spacer-10"></div>\
                                                 </div>\
                                                 <div id="input_datapetir">\
@@ -521,19 +521,19 @@
                                                             <div class="col-sm-6">\
                                                                 <strong>Lokasi</strong>\
                                                                 <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                                name="lokasi_unsurcuacalainnya[0]" value="{{ old('lokasi_unsurcuacalainnya') }}"></textarea>\
+                                                                name="lokasi_petir[0]" value="{{ old('lokasi_petir') }}"></textarea>\
                                                             </div>\
                                                             <div class="col-sm-6">\
                                                                 <div class="spacer-5"></div>\
                                                                 <div class="col-sm-5">\
                                                                     <strong>Dari</strong>\
-                                                                    <input class="form-control" size="16" type="date" name="tgl_dari_unsurcuacalainnya[0]" value="{{ old('tgl_dari_unsurcuacalainnya') }}">\
+                                                                    <input class="form-control" size="16" type="date" name="tgl_dari_petir[0]" value="{{ old('tgl_dari_petir') }}">\
                                                                 </div>\
                                                                     <div class="spacer-5"></div>\
                                                                     <div class="col-sm-5">\
                                                                     <strong>Sampai</strong>\
                                                                     <input class="form-control" size="16" type="date"\
-                                                                    name="tgl_sampai_unsurcuacalainnya[0]" value="{{ old('tgl_sampai_unsurcuacalainnya') }}">\
+                                                                    name="tgl_sampai_petir[0]" value="{{ old('tgl_sampai_petir') }}">\
                                                             </div>\
                                                         </div>\
                                                     </div>\
@@ -566,8 +566,8 @@
                                                                 required=""\
                                                                 class="form-control"\
                                                                 style="width: 100%; height: 90px"\
-                                                                name="lokasi_unsurcuacalainnya['+id+']"\
-                                                                value="{{ old('lokasi_unsurcuacalainnya') }}" ></textarea>\
+                                                                name="lokasi_petir['+id+']"\
+                                                                value="{{ old('lokasi_petir') }}" ></textarea>\
                                                             </div>\
                                                             <div class="col-sm-6">\
                                                               <div class="spacer-5"></div>\
@@ -578,8 +578,8 @@
                                                                   size="16"\
                                                                   type="date"\
                                                                   required=""\
-                                                                  name="tgl_dari_unsurcuacalainnya['+id+']"\
-                                                                  value="value="{{ old('tgl_dari_unsurcuacalainnya') }}"" />\
+                                                                  name="tgl_dari_petir['+id+']"\
+                                                                  value="value="{{ old('tgl_dari_petir') }}"" />\
                                                               </div>\
                                                               <div class="spacer-5"></div>\
                                                               <div class="col-sm-5">\
@@ -589,8 +589,8 @@
                                                                   size="16"\
                                                                   type="date"\
                                                                   required=""\
-                                                                  name="tgl_sampai_unsurcuacalainnya['+id+']"\
-                                                                  value="{{ old('tgl_sampai_unsurcuacalainnya') }}" />\
+                                                                  name="tgl_sampai_petir['+id+']"\
+                                                                  value="{{ old('tgl_sampai_petir') }}" />\
                                                               </div>\
                                                             </div>\
                                                           </div>\
@@ -599,8 +599,8 @@
                                                     </div>')
                                                     
             });
-            $('#hapus_unsurcuacalainnya').click(function(){
-                $('#add_unsurcuacalainnya'+id).remove();
+            $('#hapus_petir').click(function(){
+                $('#add_petir'+id).remove();
                 id--;
             });
         }) 
