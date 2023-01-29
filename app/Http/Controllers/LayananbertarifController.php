@@ -380,8 +380,9 @@ class LayananbertarifController extends Controller
                 $petir = Datapermintaan::where('id', $request->id_df_datapetir[$i]);
                 $petir->update([
                             'lokasi'        => $request->lokasi_datapetir[$i],
-                            'latitude'      => $request->latitude_datapetir[$i],
-                            'longitude'     => $request->longitude_datapetir[$i],
+                            'desk_petir' => $request->deskripsi_datapetir,
+                            // 'latitude'      => $request->latitude_datapetir[$i],
+                            // 'longitude'     => $request->longitude_datapetir[$i],
                             'tgl_dari'      => $request->tgl_dari_datapetir[$i],
                             'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
                 ]);
