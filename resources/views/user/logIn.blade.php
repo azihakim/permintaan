@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <!-- this needs to be a button/input element -->
-                                <a href="index.html" class="btn btn-default btn-lg" type="submit">Login</a>
+                                <a class="btn btn-default btn-lg" type="submit">Login</a>
                             </div>
                         </div>
                         <div class="row">

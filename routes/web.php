@@ -11,6 +11,8 @@ use App\Http\Controllers\PemerintahanController;
 use App\Http\Controllers\PenanggulanganbencanaController;
 use App\Http\Controllers\ResponlayananbertarifController;
 use App\Http\Controllers\PembayaranController;
+use Illuminate\Routing\RouteGroup;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -34,9 +34,9 @@ Route::get('/', function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('/dashboard', DashboarduserController::class)->middleware(['auth', 'verified']);
+// Route::resource('/dashboard', DashboarduserController::class)->middleware(['auth', 'verified']);
 
-Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboarduser')->middleware(['auth', 'verified']);
+// Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboarduser')->middleware(['auth', 'verified']);
 
 Route::resource('/respon-bertarif', ResponlayananbertarifController::class)->middleware(['auth', 'verified']);
 
@@ -83,9 +83,9 @@ Route::get('kegiatan-penanggulangan-bencana', function () {
     return view('formulir.createPenanggulanganBencana');
 });
 
-Route::get('yes', function () {
-    return view('user.logIn');
-});
+// Route::get('yes', function () {
+//     return view('user.logIn');
+// });
 
 
 
@@ -100,10 +100,26 @@ Route::get('akun', function () {
     return view('menu.akun');
 })->middleware(['auth', 'verified']);
 
+Auth::routes();
 // Admin
-
+Route::middleware(['auth', 'cekrole:1'])->group(function()
+{
 // Dashboard 
-Route::resource('/dashboard-admin', DashboardadminController::class);
-
-Route::resource('/respon', ResponlayananbertarifController::class);
+    // Route::resource('/admin', DashboardadminController::class);
+    Route::get('/dashboard-admin',[DashboardadminController::class, 'index'])->name('dashboard.admin');
+    Route::resource('/respon', ResponlayananbertarifController::class);
 // Route::resource('respon-layanan', [ResponlayananbertarifController::class])->middleware(['auth', 'verified'] );
+});   
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::middleware(['auth', 'cekrole:0'])->group(function()
+{
+// Dashboard 
+    Route::resource('/dashboard', DashboarduserController::class);
+
+    Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboard.user');
+
+}); 
