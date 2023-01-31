@@ -38,5 +38,16 @@ class DatabaseSeeder extends Seeder
             'instansi' => 'MDP',
             'password' => bcrypt('123123123')
         ]);
+
+        User::create([
+            'name' =>'yosep',
+            'role' =>'0',
+            'email' =>'test@gmail.com',
+            'no_wa' => '081279338859',
+            'ktp' => 'KTP-1674566021.jpeg',
+            'kategori' => 'Umum',
+            'instansi' => 'MDP',
+            'password' => bcrypt('123123123')
+        ]);
     }
 }

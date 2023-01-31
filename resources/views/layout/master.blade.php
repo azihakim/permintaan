@@ -189,16 +189,31 @@
                     <div class="sidebar-module">
                         <nav class="sidebar-nav-v1">
                             <ul>
-                                <li class="@yield('dashboard')">
-                                    <a href="{{ url('dashboard') }}">Dashboard<i class="fa fa-dashboard"></i></a>
-                                </li>
-                                {{-- <li class="@yield('formulir')">
-                                    <a href="{{ url('formulir') }}">Formulir Permintaan<i class="fa fa-envelope"></i>
-                                    </a>
-                                </li> --}}
-                                <li class="@yield('akun')">
-                                    <a href="{{ url('akun') }}">Akun<i class="fa fa-user"></i> </a>
-                                </li>
+                                {{-- Admin --}}
+                                @if (auth()->user()->role == '1')
+                                    <li class="@yield('dashboard')">
+                                        <a href="{{ url('/dashboard-admin') }}">Dashboard respon<i class="fa fa-dashboard"></i></a>
+                                    </li>
+
+                                    <li class="@yield('akun')">
+                                        <a href="{{ url('akun') }}">Akun<i class="fa fa-user"></i> </a>
+                                    </li>
+                                @endif
+
+
+                                @if (auth()->user()->role == '0')
+                                    <li class="@yield('dashboard')">
+                                        <a href="{{ url('dashboard') }}">Dashboard<i class="fa fa-dashboard"></i></a>
+                                    </li>
+                                    {{-- <li class="@yield('formulir')">
+                                        <a href="{{ url('formulir') }}">Formulir Permintaan<i class="fa fa-envelope"></i>
+                                        </a>
+                                    </li> --}}
+                                    <li class="@yield('akun')">
+                                        <a href="{{ url('akun') }}">Akun<i class="fa fa-user"></i> </a>
+                                    </li>
+                                @endif
+                                
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <li>

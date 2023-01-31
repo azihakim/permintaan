@@ -1,11 +1,14 @@
 @extends('layout.master')
 @section('menu-title', 'Dashboard admin')
 @section('dashboard', 'page-arrow active-page')
-@section('css')
+{{-- @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('stye/DataTables/datatables.min.css') }}"/>
-@endsection
+@endsection --}}
 @section('refresh')
     <meta http-equiv="refresh" content="5" >
+@endsection
+@section('user')
+    <strong>Super Admin - </strong>{{ Auth::user()->email }}&nbsp;<i class="fa fa-user"></i>
 @endsection
 
 @section('content')
@@ -69,11 +72,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($permintaans as $item)
+                @foreach($data as $item)
                     @include('modal.pembayaran')
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $item->nama_peminta }}</td>
+                        <td>{{ $item->name }}
+                        </td>
                         <td>{{ $item->jenis_permintaan }}</td>
                         <td>{{ $item->created_at->format('d/m/Y') }}</td>
                         <td>

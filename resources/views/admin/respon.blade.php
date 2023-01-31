@@ -253,36 +253,44 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row group col-sm-12">
+                                        <div class="row col-sm-12">
                                             @if ($user->ktp != null)
                                                 <div class="col-sm-3">
-                                                    <strong>KTP</strong>  
-                                                    <div class="file-bar">
-                                                        <a href="{{ asset('storage/dokumen/' . $user->ktp) }}" target="_blank">
-                                                            <div class="file-bar-icon">
-                                                                <i class="fa fa-download"></i>
-                                                            </div>
-                                                            <div class="file-bar-info">
-                                                                <h5>Buka file</h5>
-                                                                <span class="label label-default">.jpeg</span>
-                                                            </div>
-                                                        </a>
+                                                    <div>
+                                                        <strong>KTP</strong>
+                                                    </div> 
+                                                    <div class="row col-sm-3">
+                                                        <div class="file-bar">
+                                                            <a href="{{ asset('storage/dokumen/' . $user->ktp) }}" target="_blank">
+                                                                <div class="file-bar-icon">
+                                                                    <i class="fa fa-download"></i>
+                                                                </div>
+                                                                <div class="file-bar-info">
+                                                                    <h5>Buka file</h5>
+                                                                    <span class="label label-default">.jpeg</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             @endif
                                             @if ($user->ktm != null)
                                                 <div class="col-sm-3">
-                                                    <strong>KTM</strong>  
-                                                    <div class="file-bar">
-                                                        <a href="{{ asset('storage/dokumen/' . $user->ktm) }}" target="_blank">
-                                                            <div class="file-bar-icon">
-                                                                <i class="fa fa-download"></i>
-                                                            </div>
-                                                            <div class="file-bar-info">
-                                                                <h5>Buka file</h5>
-                                                                <span class="label label-default">.jpeg</span>
-                                                            </div>
-                                                        </a>
+                                                    <div>
+                                                        <strong>KTM</strong> 
+                                                    </div>
+                                                    <div class="row col-sm-3">
+                                                        <div class="file-bar">
+                                                            <a href="{{ asset('storage/dokumen/' . $user->ktm) }}" target="_blank">
+                                                                <div class="file-bar-icon">
+                                                                    <i class="fa fa-download"></i>
+                                                                </div>
+                                                                <div class="file-bar-info">
+                                                                    <h5>Buka file</h5>
+                                                                    <span class="label label-default">.jpeg</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             @endif
