@@ -8,7 +8,9 @@ use App\Models\Datapermintaan;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Nette\Utils\Strings;
+use App\Mail\KirimRespon;
 
 class ResponlayananbertarifController extends Controller
 {
@@ -57,8 +59,9 @@ class ResponlayananbertarifController extends Controller
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
         
-        $user_id = $formulir['user_id'];
-        $user = User::whereid($user_id)->first();
+        // $user_id = $formulir['user_id'];
+        // $user = User::whereid($user_id)->first();
+        $user = User::select('*')->join('formulirs', 'formulirs.user_id','=', 'users.id')->first();
         // dd($user);
         return view('admin.respon', compact('formulir', 'datapermintaan', 'user'));
     }
@@ -115,10 +118,15 @@ class ResponlayananbertarifController extends Controller
         else{
             $respon->respon_data = $request->old_data;
         }
-
-        
-
         $respon->save();
+
+
+        $formulir = Formulir::find($id);
+        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+        $user = User::select('*')->join('formulirs', 'formulirs.user_id','=', 'users.id')->first();
+        // dd($user);
+        Mail::to($user)->send(new kirimRespon($user));
+
         return back();
     }
 

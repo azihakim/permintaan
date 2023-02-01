@@ -76,8 +76,7 @@
                     @include('modal.pembayaran')
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td>{{ $item->name }}
-                        </td>
+                        <td>{{ $item->name }}</td>
                         <td>{{ $item->jenis_permintaan }}</td>
                         <td>{{ $item->created_at->format('d/m/Y') }}</td>
                         <td>

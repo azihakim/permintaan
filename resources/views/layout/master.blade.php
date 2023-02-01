@@ -189,10 +189,21 @@
                     <div class="sidebar-module">
                         <nav class="sidebar-nav-v1">
                             <ul>
-                                {{-- Admin --}}
+                                {{-- Super Admin --}}
                                 @if (auth()->user()->role == '1')
                                     <li class="@yield('dashboard')">
-                                        <a href="{{ url('/dashboard-admin') }}">Dashboard respon<i class="fa fa-dashboard"></i></a>
+                                        <a href="{{ url('/dashboard-admin') }}">Dashboard admin<i class="fa fa-dashboard"></i></a>
+                                    </li>
+
+                                    <li class="@yield('akun')">
+                                        <a href="{{ url('akun') }}">Tambah admin<i class="fa fa-user"></i> </a>
+                                    </li>
+                                @endif
+
+                                {{-- Admin --}}
+                                @if (auth()->user()->role == '2')
+                                    <li class="@yield('dashboard')">
+                                        <a href="{{ url('/dashboard-admin') }}">Dashboard admin<i class="fa fa-dashboard"></i></a>
                                     </li>
 
                                     <li class="@yield('akun')">
@@ -200,7 +211,7 @@
                                     </li>
                                 @endif
 
-
+                                {{-- User --}}
                                 @if (auth()->user()->role == '0')
                                     <li class="@yield('dashboard')">
                                         <a href="{{ url('dashboard') }}">Dashboard<i class="fa fa-dashboard"></i></a>

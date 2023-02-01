@@ -267,7 +267,7 @@
                                                                 </div>
                                                                 <div class="file-bar-info">
                                                                     <h5>Buka file</h5>
-                                                                    <span class="label label-default">.jpeg</span>
+                                                                    <span class="label label-default">.pdf</span>
                                                                 </div>
                                                             </a>
                                                         </div>
@@ -287,7 +287,7 @@
                                                                 </div>
                                                                 <div class="file-bar-info">
                                                                     <h5>Buka file</h5>
-                                                                    <span class="label label-default">.jpeg</span>
+                                                                    <span class="label label-default">.pdf</span>
                                                                 </div>
                                                             </a>
                                                         </div>

@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Layananbertarif;
 use App\Models\Formulir;
 use App\Models\Datapermintaan;
+use App\Policies\FormulirPolicy;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Facades\DB;
@@ -338,6 +339,7 @@ class LayananbertarifController extends Controller
      */
     public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
+        // $this->authorize('view', $formulir);
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
         return view('formulir.editLayananBertarif', compact('formulir', 'datapermintaan'));
@@ -352,6 +354,7 @@ class LayananbertarifController extends Controller
      */
     public function update(Request $request, $id, Formulir $formulir)
     {   
+        
         $formulir = Formulir::find($id);
         $formulir ->deskripsi = $request->input('deskripsi');
         $file_name = $formulir->surat_pengantar;
