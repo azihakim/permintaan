@@ -165,8 +165,8 @@
                 <a href="{{ url('dashboard') }}">
                     <img src="../../style/images/gallery/logo/BMKG-80x80.png" alt="" id="logo-big" />
                     &nbsp;
-                         <h3>&nbsp;<strong>SIPEDAL</strong></h3>
-                    <h6>&nbsp;Stasiun Klimatologi<br>&nbsp;Palembang</h6>
+                         <h3>&nbsp;<strong>SIPACAK</strong></h3>
+                    <h6>&nbsp;&nbsp;STAKLIM SUMSEL</h6>
                 </a>
             </div><!-- End .sidebar-logo -->
 
@@ -196,7 +196,7 @@
                                     </li>
 
                                     <li class="@yield('akun')">
-                                        <a href="{{ url('akun') }}">Tambah admin<i class="fa fa-user"></i> </a>
+                                        <a href="{{ url('/list-user') }}">List user<i class="fa fa-user"></i> </a>
                                     </li>
                                 @endif
 
@@ -221,7 +221,7 @@
                                         </a>
                                     </li> --}}
                                     <li class="@yield('akun')">
-                                        <a href="{{ url('akun') }}">Akun<i class="fa fa-user"></i> </a>
+                                        <a href="{{ url('/akun') }}">Akun<i class="fa fa-user"></i> </a>
                                     </li>
                                 @endif
                                 

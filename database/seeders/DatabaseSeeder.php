@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             'ktp' => 'XXX',
             'kategori' => 'XXX',
             'instansi' => 'XXX',
+            'email_verified_at' => '2023-02-03',
             'password' => bcrypt('123123123')
         ]);
 

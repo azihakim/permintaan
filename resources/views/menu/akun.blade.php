@@ -74,11 +74,15 @@
             </div>
         </div>
         <div class="spacer-10"></div>
+        {{-- @foreach ($user as $item) --}}
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-9">
-                <button type="submit" class="btn btn-default pull-left">Edit</button>
+                <a class="btn btn-default pull-left" data-target="#exampleModal" data-toggle="modal" href="#exampleModal">
+                    Perbarui akun</i></a>
+                @include('modal.edit-user')
             </div>
         </div>
+        {{-- @endforeach --}}
     </div>
 @endsection

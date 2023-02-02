@@ -124,10 +124,11 @@ class ResponlayananbertarifController extends Controller
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
         $user = User::select('*')->join('formulirs', 'formulirs.user_id','=', 'users.id')->first();
+        $date = $user->created_at->format('d/m/Y');
         // dd($user);
         Mail::to($user)->send(new kirimRespon($user));
 
-        return back();
+        return redirect('dashboard-admin')->with('status', "Data $user->name, $user->jenis_permintaan tanggal $date berhasil di kirim");
     }
 
     /**

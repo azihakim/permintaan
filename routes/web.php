@@ -6,11 +6,14 @@ use App\Http\Controllers\KeagamaanController;
 use App\Http\Controllers\SosialController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\DashboarduserController;
+use App\Http\Controllers\ListuserController;
 use App\Http\Controllers\PertahanankeamananController;
 use App\Http\Controllers\PemerintahanController;
 use App\Http\Controllers\PenanggulanganbencanaController;
 use App\Http\Controllers\ResponlayananbertarifController;
 use App\Http\Controllers\PembayaranController;
+use App\Http\Controllers\UsermasyarakatController;
+// use App\Http\Controllers\UsermasyarakatController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +36,6 @@ use Illuminate\Support\Facades\Route;
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-Auth::routes(['verify'=>true]);
 // Route::resource('/dashboard', DashboarduserController::class)->middleware(['auth', 'verified']);
 
 // Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboarduser')->middleware(['auth', 'verified']);
@@ -98,9 +100,10 @@ Route::get('signup', function () {
 
 Route::get('akun', function () {
     return view('menu.akun');
-})->middleware(['auth', 'verified']);
+})->name('akun.user')->middleware(['auth', 'verified']);
 
 
+Auth::routes(['verify'=>true]);
 // Admin
 Route::middleware(['auth', 'cekrole:1'])->group(function()
 {
@@ -122,7 +125,15 @@ Route::middleware(['auth', 'verified','cekrole:0'])->group(function()
 
     Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboard.user');
 
-}); 
+});
+// edit user
+    Route::resource('/edit-user', UsermasyarakatController::class);
+    Route::get('/akun', [UsermasyarakatController::class, 'index'])->name('akun.user');
+
+//  Super admin
+    Route::resource('/list-user', ListuserController::class);
+    Route::get('/list-user', [ListuserController::class, 'index'])->name('list.user');
+
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

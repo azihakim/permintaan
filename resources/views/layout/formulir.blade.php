@@ -101,111 +101,146 @@
                         newField.setAttribute("id", "field_datapetir");
                         newField.innerHTML = '<div class="row col-sm-12" id="datapetir">\
                                             <div class="spacer-20"></div>\
-                                            <div class="col-sm-12">\
-                                                <h4 class="semibold">Data petir</h4>\
-                                                <h5>\
-                                                    <span class="text-muted">Lokasi dan tanggal</span>\
-                                                </h5>\
-                                            </div>\
-                                            <div class="spacer-10"></div>\
-                                            <div id="input_datapetir">\
-                                                <div class="row group col-sm-12 " id="add_datapetir[0]">\
-                                                    <div class="col-sm-6">\
-                                                        <strong>Lokasi</strong>\
-                                                        <textarea class="form-control" required="" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_petir[0]" value="{{ old('lokasi_petir') }}"></textarea>\
+                                                <div class="col-sm-12">\
+                                                    <h4>Data petir</h4>\
+                                                    <div class="spacer-10"></div>\
+                                                </div>\
+                                                <div class="row col-sm-12">\
+                                                    <div class="col-sm-12">\
+                                                    <textarea\
+                                                        name="desk_petir"\
+                                                    \
+                                                        class="form-control autosize"\
+                                                        style="width: 100%"\
+                                                        placeholder="Deskripsi data petir" required=""></textarea>\
+                                                    <div class="spacer-10"></div>\
+                                                    </div>\
+                                                    <div id="input_datapetir">\
+                                                    <div class="row" id="add_datapetir0">\
+                                                        <div class="col-sm-12">\
+                                                        <div class="spacer-10"></div>\
+                                                        <div class="col-sm-6">\
+                                                            <strong>Lokasi</strong>\
+                                                            <textarea\
+                                                        \
+                                                            class="form-control"\
+                                                            required="" style="width: 100%; height: 90px"\
+                                                            name="lokasi_petir[0]"\
+                                                            value=""></textarea>\
+                                                        </div>\
+                                                        <div class="col-sm-6">\
+                                                            <div class="spacer-5"></div>\
+                                                            <div>\
+                                                            <strong>Dari</strong>\
+                                                            <input\
+                                                                class="form-control"\
+                                                                size="16"\
+                                                                type="date"\
+                                                            \
+                                                                name="tgl_dari_petir[0]" required=""\
+                                                                value="" />\
+                                                            </div>\
+                                                            <div class="spacer-5"></div>\
+                                                            <strong>Sampai</strong>\
+                                                            <input\
+                                                            class="form-control"\
+                                                            size="16"\
+                                                            type="date"\
+                                                        \
+                                                            name="tgl_sampai_petir[0]" required=""\
+                                                            value="" />\
+                                                        </div>\
+                                                        </div>\
+                                                    </div>\
+                                                    <div id="add_datapetir1">\
+                                                        <div class="spacer-10"></div>\
+                                                        <div id="add_datapetir[1]">\
+                                                        <div class="col-sm-12">\
+                                                            <div class="row">\
                                                             <div class="spacer-10"></div>\
-                                                    </div>\
-                                                    <div class="col-sm-3">\
-                                                        <div>\
-                                                            <strong>Latitude</strong>\
-                                                            <input type="text" required="" aria-required="true" name="latitude_petir[0]" value="{{ old('latitude_petir') }}"\
-                                                                class="form-control">\
-                                                                <div class="spacer-10"></div>\
+                                                            <div class="col-sm-6">\
+                                                                <strong>Lokasi</strong>\
+                                                                <textarea\
+                                                            \
+                                                                class="form-control"\
+                                                                style="width: 100%; height: 90px"\
+                                                                name="lokasi_petir[1]"\
+                                                                value=""></textarea>\
+                                                            </div>\
+                                                            <div class="col-sm-6">\
+                                                                <div class="spacer-5"></div>\
+                                                                <div>\
+                                                                <strong>Dari</strong>\
+                                                                <input\
+                                                                    class="form-control"\
+                                                                    size="16"\
+                                                                    type="date"\
+                                                                \
+                                                                    name="tgl_dari_petir[1]"\
+                                                                    value="" />\
+                                                                </div>\
+                                                                <div class="spacer-5"></div>\
+                                                                <div>\
+                                                                <strong>Sampai</strong>\
+                                                                <input\
+                                                                    class="form-control"\
+                                                                    size="16"\
+                                                                    type="date"\
+                                                                \
+                                                                    name="tgl_sampai_petir[1]"\
+                                                                    value="" />\
+                                                                </div>\
+                                                            </div>\
+                                                            </div>\
                                                         </div>\
-                                                        <div>\
-                                                            <strong>Longitude</strong>\
-                                                            <input type="text" required=""\
-                                                                name="longitude_petir[0]" value="{{ old('longitude_petir') }}" class="form-control">\
                                                         </div>\
-                                                        <div class="spacer-10"></div>\
                                                     </div>\
-                                                    <div class="col-sm-3">\
-                                                        <strong>Dari</strong>\
-                                                        <input class="form-control" size="16" type="date"\
-                                                                name="tgl_dari_petir[0]" required="" value="{{ old('tgl_dari_petir') }}">\
+                                                    <div id="add_datapetir2">\
                                                         <div class="spacer-10"></div>\
-                                                        <strong>Sampai</strong>\
-                                                        <input class="form-control" size="16" type="date"\
-                                                                name="tgl_sampai_petir[0]" required="" value="{{ old('tgl_sampai_petir') }}">\
+                                                        <div id="add_datapetir[2]">\
+                                                        <div class="col-sm-12">\
+                                                            <div class="row">\
+                                                            <div class="spacer-10"></div>\
+                                                            <div class="col-sm-6">\
+                                                                <strong>Lokasi</strong>\
+                                                                <textarea\
+                                                            \
+                                                                class="form-control"\
+                                                                style="width: 100%; height: 90px"\
+                                                                name="lokasi_petir[2]"\
+                                                                value=""></textarea>\
+                                                            </div>\
+                                                            <div class="col-sm-6">\
+                                                                <div class="spacer-5"></div>\
+                                                                <div>\
+                                                                <strong>Dari</strong>\
+                                                                <input\
+                                                                    class="form-control"\
+                                                                    size="16"\
+                                                                    type="date"\
+                                                                \
+                                                                    name="tgl_dari_petir[2]"\
+                                                                    value="" />\
+                                                                </div>\
+                                                                <div class="spacer-5"></div>\
+                                                                <div>\
+                                                                <strong>Sampai</strong>\
+                                                                <input\
+                                                                    class="form-control"\
+                                                                    size="16"\
+                                                                    type="date"\
+                                                                \
+                                                                    name="tgl_sampai_petir[2]"\
+                                                                    value="" />\
+                                                                </div>\
+                                                            </div>\
+                                                            </div>\
+                                                        </div>\
+                                                        </div>\
+                                                    </div>\
                                                     </div>\
                                                 </div>\
-                                                <div class="row group col-sm-12 " id="add_datapetir[1]">\
-                                                    <div class="spacer-20"></div>\
-                                                    <div class="col-sm-6">\
-                                                        <strong>Lokasi</strong>\
-                                                        <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_petir[1]" value="{{ old('lokasi_petir') }}"></textarea>\
-                                                            <div class="spacer-10"></div>\
-                                                    </div>\
-                                                    <div class="col-sm-3">\
-                                                        <div>\
-                                                            <strong>Latitude</strong>\
-                                                            <input type="text" name="latitude_petir[1]" value="{{ old('latitude_petir') }}"\
-                                                                class="form-control">\
-                                                                <div class="spacer-10"></div>\
-                                                        </div>\
-                                                        <div>\
-                                                            <strong>Longitude</strong>\
-                                                            <input type="text"\
-                                                                name="longitude_petir[1]" value="{{ old('longitude_petir') }}" class="form-control">\
-                                                        </div>\
-                                                        <div class="spacer-10"></div>\
-                                                    </div>\
-                                                    <div class="col-sm-3">\
-                                                        <strong>Dari</strong>\
-                                                        <input class="form-control" size="16" type="date"\
-                                                                name="tgl_dari_petir[1]" value="{{ old('tgl_dari_petir') }}">\
-                                                        <div class="spacer-10"></div>\
-                                                        <strong>Sampai</strong>\
-                                                        <input class="form-control" size="16" type="date"\
-                                                                name="tgl_sampai_petir[1]" value="{{ old('tgl_sampai_petir') }}">\
-                                                    </div>\
-                                                </div>\
-                                                <div class="row group col-sm-12 " id="add_datapetir[2]">\
-                                                    <div class="spacer-20"></div>\
-                                                    <div class="col-sm-6">\
-                                                        <strong>Lokasi</strong>\
-                                                        <textarea class="form-control" style="width: 100% ; height: 90px"\
-                                                            name="lokasi_petir[2]" value="{{ old('lokasi_petir') }}"></textarea>\
-                                                            <div class="spacer-10"></div>\
-                                                    </div>\
-                                                    <div class="col-sm-3">\
-                                                        <div>\
-                                                            <strong>Latitude</strong>\
-                                                            <input type="text" name="latitude_petir[2]" value="{{ old('latitude_petir') }}"\
-                                                                class="form-control">\
-                                                                <div class="spacer-10"></div>\
-                                                        </div>\
-                                                        <div>\
-                                                            <strong>Longitude</strong>\
-                                                            <input type="text"\
-                                                                name="longitude_petir[2]" value="{{ old('longitude_petir') }}" class="form-control">\
-                                                        </div>\
-                                                        <div class="spacer-10"></div>\
-                                                    </div>\
-                                                    <div class="col-sm-3">\
-                                                        <strong>Dari</strong>\
-                                                        <input class="form-control" size="16" type="date"\
-                                                                name="tgl_dari_petir[2]" value="{{ old('tgl_dari_petir') }}">\
-                                                        <div class="spacer-10"></div>\
-                                                        <strong>Sampai</strong>\
-                                                        <input class="form-control" size="16" type="date"\
-                                                                name="tgl_sampai_petir[2]" value="{{ old('tgl_sampai_petir') }}">\
-                                                    </div>\
-                                                </div>\
-                                            </div>\
-                                        </div>';
+                                                </div>';
                                         Div_datapetir.append(newField);
                     } else {
                         $('#field_datapetir').remove();

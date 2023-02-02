@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboarduserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'verified']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware(['auth', 'verified']);
+    // }
 
     public function index()
     {
