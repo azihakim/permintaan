@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-
+Auth::routes(['verify'=>true]);
 // Route::resource('/dashboard', DashboarduserController::class)->middleware(['auth', 'verified']);
 
 // Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboarduser')->middleware(['auth', 'verified']);
@@ -100,7 +100,7 @@ Route::get('akun', function () {
     return view('menu.akun');
 })->middleware(['auth', 'verified']);
 
-Auth::routes();
+
 // Admin
 Route::middleware(['auth', 'cekrole:1'])->group(function()
 {
@@ -115,7 +115,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth', 'cekrole:0'])->group(function()
+Route::middleware(['auth', 'verified','cekrole:0'])->group(function()
 {
 // Dashboard 
     Route::resource('/dashboard', DashboarduserController::class);
@@ -123,3 +123,6 @@ Route::middleware(['auth', 'cekrole:0'])->group(function()
     Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboard.user');
 
 }); 
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

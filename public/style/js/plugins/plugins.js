@@ -256,12 +256,12 @@ $(document).ready(function($){
 	 * Developer   : Richard
 	**/	
 	
-	Holder.add_theme("karma-grey", {
-		background:"#222", 
-		foreground:"#bbb", 
-		size:11, 
-		font: "Arial"
-	});
+	// Holder.add_theme("karma-grey", {
+	// 	background:"#222", 
+	// 	foreground:"#bbb", 
+	// 	size:11, 
+	// 	font: "Arial"
+	// });
 
 	/* THIRD PARTY ----------------------------------------------------------- */
 	

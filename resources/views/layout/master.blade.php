@@ -96,7 +96,7 @@
     <script src="{{ asset('style/bootstrap/core/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('style/bootstrap/select2/select2.min.js') }}"></script>
     <script src="{{ asset('style/bootstrap/bootboxjs/bootboxjs.min.js') }}"></script>
-    <script src="{{ asset('style/bootstrap/holder/holder.min.js') }}"></script>
+    {{-- <script src="{{ asset('style/bootstrap/holder/holder.min.js') }}"></script> --}}
     <script src="{{ asset('style/bootstrap/typeahead/typeahead.min.js') }}"></script>
     <script src="{{ asset('style/bootstrap/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('style/bootstrap/fileupload/bootstrap-fileupload.min.js') }}"></script>

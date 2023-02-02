@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboarduserController extends Controller
 {
-    //
+    public function __construct()
+    {
+        $this->middleware(['auth', 'verified']);
+    }
+
     public function index()
     {
         $permintaans = Formulir::whereuser_id(Auth::id())->get();
