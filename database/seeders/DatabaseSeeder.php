@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
         User::create([
             'name' =>'Super Admin',
-            'role' =>'1',
+            'role' =>'Super Admin',
             'email' =>'SA@gmail.com',
             'no_wa' => 'XXXX',
             'ktp' => 'XXX',

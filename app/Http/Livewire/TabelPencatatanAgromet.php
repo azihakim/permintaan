@@ -409,7 +409,7 @@ class TabelPencatatanAgromet extends Component
 
         return view('livewire.tabel-pencatatan-agromet',[
             'pencatatan' => $dataPencatatan,
-            'observers' => User::where('roles', 'observer')->get(),
+            'observers' => User::where('role', 'Observer')->get(),
             'clear' => $this->clear
         ]);
     }

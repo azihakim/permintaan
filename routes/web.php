@@ -106,7 +106,7 @@ Route::get('akun', function () {
 
 Auth::routes(['verify'=>true]);
 // Admin
-Route::middleware(['auth','cekrole:1'])->group(function()
+Route::middleware(['auth','cekrole:Super Admin, Admin'])->group(function()
 {
 // Dashboard 
     // Route::resource('/admin', DashboardadminController::class);
@@ -117,9 +117,9 @@ Route::middleware(['auth','cekrole:1'])->group(function()
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('/');
 
-Route::middleware(['auth', 'verified','cekrole:0'])->group(function()
+Route::middleware(['auth', 'verified','cekrole:Masyarakat'])->group(function()
 {
 // Dashboard 
     Route::resource('/dashboard', DashboarduserController::class);
@@ -128,38 +128,36 @@ Route::middleware(['auth', 'verified','cekrole:0'])->group(function()
 
 });
 // edit user
-    Route::resource('/edit-user', UsermasyarakatController::class);
-    Route::get('/akun', [UsermasyarakatController::class, 'index'])->name('akun.user');
+Route::resource('/edit-user', UsermasyarakatController::class);
+Route::get('/akun', [UsermasyarakatController::class, 'index'])->name('akun.user');
 
 //  Super admin
-    Route::resource('/list-user', ListuserController::class);
-    Route::get('/list-user', [ListuserController::class, 'index'])->name('list.user');
-    Route::resource('/add-user', AddUserController::class);
-}
-
-
-
+Route::resource('/list-user', ListuserController::class);
+Route::get('/list-user', [ListuserController::class, 'index'])->name('list.user');
+Route::resource('/add-user', AddUserController::class);
 
 Route::resource('/keagamaan', KeagamaanController::class);
 
-Route::get('pencatatan-agromet', function () {
-    return view('pencatatan.agromet');
-});
+Route::middleware(['auth','cekrole:Observer'])->group(function()
+{
+    Route::get('pencatatan-agromet', function () {
+        return view('pencatatan.agromet');
+    })->name('pencatatan.agromet');
 
-Route::get('pencatatan-angin-10m-24jam', function () {
-    return view('pencatatan.angin-10m-24jam');
-});
+    Route::get('pencatatan-angin-10m-24jam', function () {
+        return view('pencatatan.angin-10m-24jam');
+    });
 
-Route::get('pencatatan-lama-penyinaran', function () {
-    return view('pencatatan.lama-penyinaran');
-});
+    Route::get('pencatatan-lama-penyinaran', function () {
+        return view('pencatatan.lama-penyinaran');
+    });
 
-Route::get('pencatatan-lysimeter', function () {
-    return view('pencatatan.lysimeter');
-});
+    Route::get('pencatatan-lysimeter', function () {
+        return view('pencatatan.lysimeter');
+    });
 
-Route::get('pencatatan-dashboard', function () {
-    return view('pencatatan.dashboard');
+    Route::get('pencatatan-dashboard', function () {
+        return view('pencatatan.dashboard');
+    });
 });
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

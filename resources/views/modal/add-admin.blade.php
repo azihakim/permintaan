@@ -23,8 +23,11 @@
                         <div class="simpleselect-btn"><i class="fa fa-caret-down"></i></div>
                     </div>
                     <select require name="role" class="form-control simpleselect" id="role">
-                        <option value="2"><span class='label label-warning'>Viewer</span></option>
-                        <option value="3"><span class='label label-success'>Admin</span></option>
+                        <option value="Super Admin"><span class='label label-warning'>Super Admin</span></option>
+                        <option value="Viewer"><span class='label label-warning'>Viewer</span></option>
+                        <option value="Admin"><span class='label label-success'>Admin</span></option>
+                        <option value="Masyarakat"><span class='label label-warning'>Masyarakat</span></option>
+                        <option value="Observer"><span class='label label-warning'>Observer</span></option>
                     </select>
                 </div>
               </div>
@@ -53,7 +56,7 @@
                   <label>Nomor telepon</label>
               </div>
               <div class="col-sm-5">
-                <input type="email" class="form-control" required="" name="no_wa"/>
+                <input type="text" class="form-control" required="" name="no_wa"/>
               </div>
           </div>
           <div class="spacer-10"></div>
@@ -65,10 +68,10 @@
                 <input type="text" class="form-control" required="" name="password"/>
               </div>
           </div>
+        <button type="submit" class="btn btn-primary pull-right">Simpan</button>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary pull-right">Simpan</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
       </div>
     </div>

@@ -47,14 +47,16 @@
                         <td>{{ $item->kategori }}</td>
                         <td>{{ $item->instansi }}</td>
                         <td>
-                                @if($item->role == 0)
-                                <span class='label label-default'>Masyarakat</span>                                    
-                                @elseif($item->role == 1)
-                                <span class='label label-primary'>Super Admin</span>
-                                @elseif($item->role == 2)
-                                <span class='label label-warning'>Kepala</span>
-                                @else
-                                <span class='label label-success'>Admin</span>
+                                @if($item->role == 'Masyarakat')
+                                <span class='label label-default'>{{ $item->role }}</span>                                    
+                                @elseif($item->role == 'Super Admin')
+                                <span class='label label-primary'>{{ $item->role }}</span>
+                                @elseif($item->role == 'Viewer')
+                                <span class='label label-warning'>{{ $item->role }}</span>
+                                @elseif($item->role == 'Admin')
+                                <span class='label label-success'>{{ $item->role }}</span>
+                                @elseif($item->role == 'Observer')
+                                <span class='label label-danger'>{{ $item->role }}</span>
                                 @endif
                         </td>
                         <td>

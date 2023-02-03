@@ -47,20 +47,26 @@ class LoginController extends Controller
         ]);
         if(auth()->attempt(['email'=>$input["email"], 'password'=>$input["password"]]))
         {
-            if(auth()->user()->role == '1')
+            if(auth()->user()->role == 'Admin')
             {
                 return redirect()->route('dashboard.admin');
             }
-            else if(auth()->user()->role == '0')
+            else if(auth()->user()->role == 'Masyarakat')
             {
                 return redirect()->route('dashboard.user');
+            }
+            else if(auth()->user()->role == 'Super Admin')
+            {
+                return redirect()->route('dashboard.user');
+            }
+            else if(auth()->user()->role == 'Observer')
+            {
+                return redirect()->route('pencatatan.agromet');
             }
             else
             {
                 return redirect()->route('/');
             }
-
-            
         }
         else
         {
