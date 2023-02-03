@@ -64,6 +64,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $file = request()->file('ktp');
+        // dd($file);
+        $ext_ktp = request()->ktp->getClientOriginalExtension();
+        // dd($ext_ktp);
+        $file_ktp = "KTP-".time().".".$ext_ktp;
+        request()->ktp->storeAs('public/dokumen', $file_ktp);
+        // $user->update(['ktp' => $file_ktp]);
+            
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -72,12 +80,17 @@ class RegisterController extends Controller
             'kategori' => $data['kategori'],
             'no_wa' => $data['no_wa'],
             'desk_kategori' =>request()->desk_kategori,
-            'instansi' => $data['instansi']
+            'instansi' => $data['instansi'],
+            'ktp' => $file_ktp,
         ]);
-        $ext_ktp = request()->ktp->getClientOriginalExtension();
-        $file_ktp = "KTP-".time().".".$ext_ktp;
-        request()->ktp->storeAs('public/dokumen', $file_ktp);
-        $user->update(['ktp' => $file_ktp]);
+        // if(request()->hasFile('ktp')){
+            // $ext_ktp = request()->ktp->getClientOriginalExtension();
+            // dd($ext_ktp);
+            // $file_ktp = "KTP-".time().".".$ext_ktp;
+            // request()->ktp->storeAs('public/dokumen', $file_ktp);
+            // $user->update(['ktp' => $file_ktp]);
+        // }
+
         if (request()->exists("ktm")){
             $ext_ktm = request()->ktm->getClientOriginalExtension();
             $file_ktm = "KTM-".time().".".$ext_ktm;

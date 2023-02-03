@@ -11,9 +11,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-    <title>SIPEDAL - Sistem Pelayanan Data Online Stasiun Klimatologi Palembang</title>
-
+    <link rel="icon" type="image/x-icon" href="../../style/images/gallery/logo/BMKG-80x80.png" />
+    <title>SIPACAK-STAKLIM SUMSEL | Sistem Pelayanan Cepat dan Akurat</title>
     <!-- // IOS webapp icons // -->
 
     <meta name="apple-mobile-web-app-title" content="Karma Webapp">

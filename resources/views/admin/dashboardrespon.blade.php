@@ -67,6 +67,7 @@
                     <th class="filter-select filter-exact" data-placeholder="">Jenis</th>
                     <th>Tanggal</th>
                     <th class="filter-select filter-exact" data-placeholder="">Status</th>
+                    <th>Admin respon</th>
                     <th style="width: 20%">Aksi</th>
                 </tr>
             </thead>
@@ -95,6 +96,7 @@
                                 <span class='label label-danger' title="Permintaan di tolak, untuk penjelasan ada diketerangan">Ditolak</span>
                                 @endif
                         </td>
+                        <td>{{ $item->respon }}</td>
                         <td>
                             <div class="col-sm-4">
                                 <a type="button" class="btn btn-default" href="{{ url('respon/' . $item->id) }}">Tanggapi</a>
@@ -105,7 +107,7 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="6" class="pager form-horizontal">
+                    <td colspan="7" class="pager form-horizontal">
                         <button class="btn first"><i class="fa fa-step-backward"></i></button>
                         <button class="btn prev"><i class="fa fa-arrow-left"></i></button>
                         <span class="pagedisplay"></span> <!-- this can be any element, including an input -->

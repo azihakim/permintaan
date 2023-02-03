@@ -23,32 +23,32 @@ class DatabaseSeeder extends Seeder
             'email' =>'SA@gmail.com',
             'no_wa' => 'XXXX',
             'ktp' => 'XXX',
-            'kategori' => 'XXX',
-            'instansi' => 'XXX',
+            'kategori' => 'BMKG SUMSEL',
+            'instansi' => 'BMKG SUMSEL',
             'email_verified_at' => '2023-02-03',
             'password' => bcrypt('123123123')
         ]);
 
-        User::create([
-            'name' =>'abdul',
-            'role' =>'0',
-            'email' =>'azi@gmail.com',
-            'no_wa' => '081279338859',
-            'ktp' => 'KTP-1674566021.jpeg',
-            'kategori' => 'Umum',
-            'instansi' => 'MDP',
-            'password' => bcrypt('123123123')
-        ]);
+        // User::create([
+        //     'name' =>'abdul',
+        //     'role' =>'0',
+        //     'email' =>'azi@gmail.com',
+        //     'no_wa' => '081279338859',
+        //     'ktp' => 'KTP-1674566021.jpeg',
+        //     'kategori' => 'Umum',
+        //     'instansi' => 'MDP',
+        //     'password' => bcrypt('123123123')
+        // ]);
 
-        User::create([
-            'name' =>'yosep',
-            'role' =>'0',
-            'email' =>'test@gmail.com',
-            'no_wa' => '081279338859',
-            'ktp' => 'KTP-1674566021.jpeg',
-            'kategori' => 'Umum',
-            'instansi' => 'MDP',
-            'password' => bcrypt('123123123')
-        ]);
+        // User::create([
+        //     'name' =>'yosep',
+        //     'role' =>'0',
+        //     'email' =>'test@gmail.com',
+        //     'no_wa' => '081279338859',
+        //     'ktp' => 'KTP-1674566021.jpeg',
+        //     'kategori' => 'Umum',
+        //     'instansi' => 'MDP',
+        //     'password' => bcrypt('123123123')
+        // ]);
     }
 }

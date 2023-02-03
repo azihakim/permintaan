@@ -72,9 +72,10 @@
 </div>
 @endsection --}}
 
+
 @extends('layout.user')
 @section('content')
-    <div id="container-login" class="clearfix">                     
+    <div id="container-login" class="clearfix">
         <div id="login-box">  
        		<div class="login-box-inner clearfix">
                 <header id="login-header">
@@ -84,8 +85,8 @@
                                 <img src="../../style/images/gallery/logo/logo-BMKG.png" class="" alt="" id="logo-BMKG" />
                             </div>
                             <div>
-                                <h1 class="bold">&nbsp;SIPEDAL</h1>
-                                <p>&nbsp;&nbsp;Stasiun Klimatologi &nbsp;&nbsp;Palembang</p>
+                                <h1 class="bold">&nbsp;SIPACAK</h1>
+                                <p>&nbsp;&nbsp;STAKLIM-SUMSEL &nbsp;&nbsp;Sistem Pelayanan &nbsp;&nbsp;Cepat dan Akurat</p>
                             </div>
                         </div>
                     </div>

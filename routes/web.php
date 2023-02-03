@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddUserController;
 use App\Http\Controllers\DashboardadminController;
 use App\Http\Controllers\LayananbertarifController;
 use App\Http\Controllers\KeagamaanController;
@@ -105,7 +106,7 @@ Route::get('akun', function () {
 
 Auth::routes(['verify'=>true]);
 // Admin
-Route::middleware(['auth', 'cekrole:1'])->group(function()
+Route::middleware(['auth','cekrole:1'])->group(function()
 {
 // Dashboard 
     // Route::resource('/admin', DashboardadminController::class);
@@ -133,6 +134,8 @@ Route::middleware(['auth', 'verified','cekrole:0'])->group(function()
 //  Super admin
     Route::resource('/list-user', ListuserController::class);
     Route::get('/list-user', [ListuserController::class, 'index'])->name('list.user');
+    Route::resource('/add-user', AddUserController::class);
+
 
 
 
