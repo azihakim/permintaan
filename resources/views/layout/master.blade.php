@@ -11,9 +11,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-    <title>SIPEDAL - Sistem Pelayanan Data Online Stasiun Klimatologi Palembang</title>
-
+    <link rel="icon" type="image/x-icon" href="../../style/images/gallery/logo/BMKG-80x80.png" />
+    <title>SIPACAK-STAKLIM SUMSEL | Sistem Pelayanan Cepat dan Akurat</title>
     <!-- // IOS webapp icons // -->
 
     <meta name="apple-mobile-web-app-title" content="Karma Webapp">
@@ -96,7 +95,7 @@
     <script src="{{ asset('style/bootstrap/core/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('style/bootstrap/select2/select2.min.js') }}"></script>
     <script src="{{ asset('style/bootstrap/bootboxjs/bootboxjs.min.js') }}"></script>
-    <script src="{{ asset('style/bootstrap/holder/holder.min.js') }}"></script>
+    {{-- <script src="{{ asset('style/bootstrap/holder/holder.min.js') }}"></script> --}}
     <script src="{{ asset('style/bootstrap/typeahead/typeahead.min.js') }}"></script>
     <script src="{{ asset('style/bootstrap/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('style/bootstrap/fileupload/bootstrap-fileupload.min.js') }}"></script>
@@ -152,6 +151,10 @@
     <script src="{{ asset('style/js/plugins/plugins.js') }}"></script>
     <script src="{{ asset('style/js/plugins/demo.js') }}"></script>
     <script src="{{ asset('style/js/plugins/main.js') }}"></script>
+
+    <!-- // Auto Refresh Page //-->
+    {{-- @yield('refresh') --}}
+    
 </head>
 
 <body>
@@ -161,8 +164,8 @@
                 <a href="{{ url('dashboard') }}">
                     <img src="../../style/images/gallery/logo/BMKG-80x80.png" alt="" id="logo-big" />
                     &nbsp;
-                         <h3>&nbsp;<strong>SIPEDAL</strong></h3>
-                    <h6>&nbsp;Stasiun Klimatologi<br>&nbsp;Palembang</h6>
+                         <h3>&nbsp;<strong>SIPACAK</strong></h3>
+                    <h6>&nbsp;&nbsp;STAKLIM SUMSEL</h6>
                 </a>
             </div><!-- End .sidebar-logo -->
 
@@ -185,19 +188,51 @@
                     <div class="sidebar-module">
                         <nav class="sidebar-nav-v1">
                             <ul>
-                                <li class="@yield('dashboard')">
-                                    <a href="{{ url('dashboard') }}">Dashboard<i class="fa fa-dashboard"></i></a>
-                                </li>
-                                <li class="@yield('formulir')">
-                                    <a href="{{ url('formulir') }}">Formulir Permintaan<i class="fa fa-envelope"></i>
-                                    </a>
-                                </li>
-                                <li class="@yield('akun')">
-                                    <a href="{{ url('akun') }}">Akun<i class="fa fa-user"></i> </a>
-                                </li>
-                                <li>
-                                    <a href="#">Keluar<i class="fa fa-sign-out"></i> </a>
-                                </li>
+                                {{-- Super Admin --}}
+                                @if (auth()->user()->role == '1')
+                                    <li class="@yield('dashboard')">
+                                        <a href="{{ url('/dashboard-admin') }}">Dashboard admin<i class="fa fa-dashboard"></i></a>
+                                    </li>
+
+                                    <li class="@yield('akun')">
+                                        <a href="{{ url('/list-user') }}">List user<i class="fa fa-user"></i> </a>
+                                    </li>
+                                @endif
+
+                                {{-- Admin --}}
+                                @if (auth()->user()->role == '2')
+                                    <li class="@yield('dashboard')">
+                                        <a href="{{ url('/dashboard-admin') }}">Dashboard admin<i class="fa fa-dashboard"></i></a>
+                                    </li>
+
+                                    <li class="@yield('akun')">
+                                        <a href="{{ url('akun') }}">Akun<i class="fa fa-user"></i> </a>
+                                    </li>
+                                @endif
+
+                                {{-- User --}}
+                                @if (auth()->user()->role == '0')
+                                    <li class="@yield('dashboard')">
+                                        <a href="{{ url('dashboard') }}">Dashboard<i class="fa fa-dashboard"></i></a>
+                                    </li>
+                                    {{-- <li class="@yield('formulir')">
+                                        <a href="{{ url('formulir') }}">Formulir Permintaan<i class="fa fa-envelope"></i>
+                                        </a>
+                                    </li> --}}
+                                    <li class="@yield('akun')">
+                                        <a href="{{ url('/akun') }}">Akun<i class="fa fa-user"></i> </a>
+                                    </li>
+                                @endif
+                                
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <li>
+                                        <a href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                            this.closest('form').submit();">Keluar<i
+                                                class="fa fa-sign-out"></i></a>
+                                    </li>
+                                </form>
                                 <li class="seperator"></li> <!-- A seperator line -->
                                 <li>
                                     <strong>Hotline:</strong>
@@ -252,6 +287,11 @@
                             <li class="active">@yield('menu-title')</li>
                         </ul><!-- End .breadcrumb -->
                     </div>
+                    <div class="pull-right">
+                        <ul class="breadcrumb">
+                            <li class="active"><strong>@yield('user')</strong></li>
+                        </ul><!-- End .breadcrumb -->
+                    </div>
                 </div><!-- End #header-main-bottom -->
             </header><!-- End #header-main -->
 
@@ -278,6 +318,8 @@
             </div><!-- End #content -->
         </div><!-- End #main -->
     </div><!-- End #container -->
+    @stack('scripts')
+    
 </body>
 
 </html>
