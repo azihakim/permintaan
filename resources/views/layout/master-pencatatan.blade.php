@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>Pencatatan Cuaca BMKG</title>
+    <title>Aplikasi Pencatatan Online Data Iklim dan Observasi</title>
 
     <!-- // IOS webapp icons // -->
 
@@ -175,9 +175,11 @@
         <aside id="sidebar-main" class="sidebar">
 
             <div class="sidebar-logo">
-                <a href="index.html" id="logo-big">
-                    <h1>karma</h1>
-                    <h2>/webapp</h2>
+                <a href="{{ url('pencatatan-agromet') }}">
+                    <img src="../../style/images/gallery/logo/BMKG-80x80.png" alt="" id="logo-big" />
+                    &nbsp;
+                    <h3>&nbsp;&nbsp;<strong>APODIO</strong></h3>
+                    <h6>&nbsp;&nbsp;STAKLIM SUMSEL</h6>
                 </a>
             </div><!-- End .sidebar-logo -->
 
