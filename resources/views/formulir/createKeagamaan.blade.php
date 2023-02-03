@@ -21,6 +21,7 @@
             <div class="col-sm-4">
                 <div class="stacked-labels">
                     <label><input type="checkbox" id="cb_datapetir" name="cb_datapetirs" onclick="toggle_datapetir()"><span></span>Data petir</label>
+
                     <label><input type="checkbox" id="cb_dataharihujan" name="cb_dataharihujans" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
                     <label><input type="checkbox" id="cb_datacurahhujanratarata" name="cb_datacurahhujanrataratas" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
                     <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="cb_datacurahhujanmaksimums" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
