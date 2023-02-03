@@ -135,8 +135,31 @@ Route::middleware(['auth', 'verified','cekrole:0'])->group(function()
     Route::resource('/list-user', ListuserController::class);
     Route::get('/list-user', [ListuserController::class, 'index'])->name('list.user');
     Route::resource('/add-user', AddUserController::class);
+}
 
 
 
+
+Route::resource('/keagamaan', KeagamaanController::class);
+
+Route::get('pencatatan-agromet', function () {
+    return view('pencatatan.agromet');
+});
+
+Route::get('pencatatan-angin-10m-24jam', function () {
+    return view('pencatatan.angin-10m-24jam');
+});
+
+Route::get('pencatatan-lama-penyinaran', function () {
+    return view('pencatatan.lama-penyinaran');
+});
+
+Route::get('pencatatan-lysimeter', function () {
+    return view('pencatatan.lysimeter');
+});
+
+Route::get('pencatatan-dashboard', function () {
+    return view('pencatatan.dashboard');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
