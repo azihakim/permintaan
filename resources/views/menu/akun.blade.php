@@ -13,8 +13,8 @@
             <div class="col-sm-3">
                 <label>Nama</label>
             </div>
-            <div class="col-sm-9">
-                <input type="text" aria-required="true" name="nama" required="" class="form-control">
+            <div class="col-sm-4">
+                <input type="text" aria-required="true" name="nama" required="" value="{{ Auth::user()->name }}" class="form-control">
             </div>
         </div>
         <div class="spacer-10"></div>
@@ -22,17 +22,35 @@
             <div class="col-sm-3">
                 <label>Asal instansi</label>
             </div>
-            <div class="col-sm-9">
-                <input type="text" aria-required="true" name="instansi" required="" class="form-control">
+            <div class="col-sm-4">
+                <input type="text" aria-required="true" name="instansi" value="{{ Auth::user()->instansi }}" required="" class="form-control">
             </div>
         </div>
         <div class="spacer-10"></div>
         <div class="row">
             <div class="col-sm-3">
-                <label>Nomor telepon</label>
+                <label>Kategori</label>
             </div>
-            <div class="col-sm-9">
-                <input type="text" aria-required="true" name="telepon" required="" class="form-control">
+            <div class="col-sm-4">
+                <input type="text" aria-required="true" name="kategori" value="{{ Auth::user()->kategori }}" required="" class="form-control">
+            </div>
+        </div>
+        <div class="spacer-10"></div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label>Deskripsi kategori</label>
+            </div>
+            <div class="col-sm-4">
+                <input type="text" aria-required="true" name="instansi" value="{{ Auth::user()->desk_kategori }}" required="" class="form-control">
+            </div>
+        </div>
+        <div class="spacer-10"></div>
+        <div class="row">
+            <div class="col-sm-3">
+                <label>Nomor whatsapp</label>
+            </div>
+            <div class="col-sm-4">
+                <input type="text" aria-required="true" name="no_wa" value="{{ Auth::user()->no_wa }}" required="" class="form-control">
             </div>
         </div>
         <div class="spacer-10"></div>
@@ -56,11 +74,15 @@
             </div>
         </div>
         <div class="spacer-10"></div>
+        {{-- @foreach ($user as $item) --}}
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-9">
-                <button type="submit" class="btn btn-default pull-left">Edit</button>
+                <a class="btn btn-default pull-left" data-target="#exampleModal" data-toggle="modal" href="#exampleModal">
+                    Perbarui akun</i></a>
+                @include('modal.edit-user')
             </div>
         </div>
+        {{-- @endforeach --}}
     </div>
 @endsection

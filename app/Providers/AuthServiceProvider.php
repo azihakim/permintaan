@@ -1,9 +1,15 @@
 <?php
 
 namespace App\Providers;
-
 // use Illuminate\Support\Facades\Gate;
+
+use App\Models\Formulir;
+use App\Policies\FormulirPolicy;
+use App\Models\User;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+use Illuminate\Support\Facades\Gate;
+ 
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -13,8 +19,10 @@ class AuthServiceProvider extends ServiceProvider
      * @var array<class-string, class-string>
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        Formulir::class => FormulirPolicy::class,
     ];
+
+    
 
     /**
      * Register any authentication / authorization services.
@@ -23,8 +31,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
+        // $this->registerPolicies();
 
-        //
+        Gate::define('user', function (User $user, Formulir $formulir) {
+            return $user->id === $formulir->user_id;
+        });
     }
 }
