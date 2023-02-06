@@ -244,6 +244,15 @@
                                     <a href="#"><i class="fa fa-book"></i>
                                         Tabulasi </a>
                                 </li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <li>
+                                        <a href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                            this.closest('form').submit();">Keluar<i
+                                                class="fa fa-sign-out"></i></a>
+                                    </li>
+                                </form>
                             </ul>
                         </nav><!-- End .sidebar-nav-v1 -->
                     </div><!-- End .sidebar-module -->

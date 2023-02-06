@@ -37,7 +37,7 @@ class AddAngin10m24jam extends Component
     {
 
         return view('livewire.add-angin10m24jam',[
-            'observers' => User::where('roles', 'observer')->get()
+            'observers' => User::where('role', 'Observer')->get()
         ]);
     }
 

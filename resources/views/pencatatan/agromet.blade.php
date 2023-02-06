@@ -85,6 +85,9 @@
     </script>
 @endpush
 @section('contents-pencatatan')
+    @php
+        // dd('Halo');
+    @endphp
     <div>
         @livewire('add-pencatatan-agromet')
     </div>

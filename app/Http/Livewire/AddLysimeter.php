@@ -26,7 +26,7 @@ class AddLysimeter extends Component
     public function render()
     {
         return view('livewire.add-lysimeter',[
-            'observers' => User::where('roles', 'observer')->get()
+            'observers' => User::where('role', 'Observer')->get()
         ]);
     }
 

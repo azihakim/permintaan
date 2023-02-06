@@ -54,7 +54,7 @@ class TabelLysimeter extends Component
             ->orderBy('pencatatan2s.id','desc')->paginate(5);
         }
         return view('livewire.tabel-lysimeter', [
-            'observers' => User::where('roles', 'observer')->get(),
+            'observers' => User::where('role', 'Observer')->get(),
             'pencatatan' => $dataPencatatan
         ]);
     }

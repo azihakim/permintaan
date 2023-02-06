@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AddUserController extends Controller
 {
@@ -41,7 +42,7 @@ class AddUserController extends Controller
         $data->email = $request['email'];
         $data->kategori = "admin";
         $data->no_wa = $request['no_wa'];
-        $data->password = $request['password'];
+        $data->password = Hash::make($request['password']);
         $data->ktp = "admin";
         $data->save();
         return back();
