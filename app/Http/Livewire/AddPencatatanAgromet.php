@@ -1827,6 +1827,7 @@ class AddPencatatanAgromet extends Component
                 $this->reset_piche2 = $this->h2_piche;
                 $this->ev2_piche = $this->h2_piche - $resetSebelumnya;
             } else {
+                $this->reset_piche2 = $this->h2_piche;
                 $this->pesanForm2 = "Data reset sebelumnya di jam 17.31 kemarin belum ada.";
             }
         }
@@ -1861,6 +1862,7 @@ class AddPencatatanAgromet extends Component
                 $this->reset_piche6 = $this->h2_piche6;
                 $this->ev2_piche6 = $this->h2_piche6 - $resetSebelumnya;
             } else {
+                $this->reset_piche6 = $this->h2_piche6;
                 $this->pesanForm6 = "Data reset sebelumnya di jam 13.31 belum ada.";
             }
         }

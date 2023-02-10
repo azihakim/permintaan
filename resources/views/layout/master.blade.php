@@ -12,7 +12,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" type="image/x-icon" href="../../style/images/gallery/logo/BMKG-80x80.png" />
-    <title>SIPACAK-STAKLIM SUMSEL | Sistem Pelayanan Cepat dan Akurat</title>
+    @if (Auth()->user()->role == 'Observer')
+        <title>APODIO - STAKLIM SUMSEL | Aplikasi Pencatatan Online Data Iklim dan Observasi</title>
+    @else
+        <title>SIPACAK-STAKLIM SUMSEL | Sistem Pelayanan Cepat dan Akurat</title>
+    @endif
     <!-- // IOS webapp icons // -->
 
     <meta name="apple-mobile-web-app-title" content="Karma Webapp">
@@ -152,9 +156,8 @@
     <script src="{{ asset('style/js/plugins/demo.js') }}"></script>
     <script src="{{ asset('style/js/plugins/main.js') }}"></script>
 
-    <!-- // Auto Refresh Page //-->
-    {{-- @yield('refresh') --}}
-    
+    {{-- Pencatatan Agromet --}}
+    @stack('styles')
 </head>
 
 <body>
@@ -164,8 +167,13 @@
                 <a href="{{ url('dashboard') }}">
                     <img src="../../style/images/gallery/logo/BMKG-80x80.png" alt="" id="logo-big" />
                     &nbsp;
-                         <h3>&nbsp;<strong>SIPACAK</strong></h3>
-                    <h6>&nbsp;&nbsp;STAKLIM SUMSEL</h6>
+                    @if (auth()->user()->role == 'Observer')
+                        <h3>&nbsp;&nbsp;<strong>APODIO</strong></h3>
+                        <h6>&nbsp;&nbsp;STAKLIM SUMSEL</h6>
+                    @else
+                        <h3>&nbsp;<strong>SIPACAK</strong></h3>
+                        <h6>&nbsp;&nbsp;STAKLIM SUMSEL</h6>
+                    @endif
                 </a>
             </div><!-- End .sidebar-logo -->
 
@@ -184,14 +192,15 @@
                     <!-- NEW MODULE -->
                     <!-- ********** -->
 
-                    
+
                     <div class="sidebar-module">
                         <nav class="sidebar-nav-v1">
                             <ul>
                                 {{-- Super Admin --}}
                                 @if (auth()->user()->role == 'Super Admin')
                                     <li class="@yield('dashboard')">
-                                        <a href="{{ url('/dashboard-admin') }}">Dashboard admin<i class="fa fa-dashboard"></i></a>
+                                        <a href="{{ url('/dashboard-admin') }}">Dashboard admin<i
+                                                class="fa fa-dashboard"></i></a>
                                     </li>
 
                                     <li class="@yield('akun')">
@@ -202,7 +211,8 @@
                                 {{-- Admin --}}
                                 @if (auth()->user()->role == 'Admin')
                                     <li class="@yield('dashboard')">
-                                        <a href="{{ url('/dashboard-admin') }}">Dashboard admin<i class="fa fa-dashboard"></i></a>
+                                        <a href="{{ url('/dashboard-admin') }}">Dashboard admin<i
+                                                class="fa fa-dashboard"></i></a>
                                     </li>
 
                                     <li class="@yield('akun')">
@@ -223,7 +233,41 @@
                                         <a href="{{ url('/akun') }}">Akun<i class="fa fa-user"></i> </a>
                                     </li>
                                 @endif
-                                
+
+                                {{-- Observer --}}
+                                @if (auth()->user()->role == 'Observer')
+                                    <li class="@yield('section-active')">
+                                        <a href="{{ url('pencatatan-dashboard') }}"><i class="fa fa-dashboard"></i>
+                                            Dashboard </a>
+                                    </li>
+                                    <li class="@yield('menu-open-form-pendaftaran')">
+                                        <a href="#"><i class="fa fa-envelope-o"></i> Form Pencatatan <i
+                                                class="fa @yield('fa-caret-down') pull-right"></i></a>
+
+                                        <!-- * sub menu * -->
+                                        <ul>
+                                            <li class="@yield('section-agromet-active')">
+                                                <a href="{{ url('pencatatan-agromet') }}">Form Agromet</a>
+                                            </li>
+                                            <li class="@yield('section-angin-10m-24jam-active')">
+                                                <a href="{{ url('pencatatan-angin-10m-24jam') }}">Form Angin 10M 24
+                                                    Jam</a>
+                                            </li>
+                                            <li class="@yield('section-lama-penyinaran-active')">
+                                                <a href="{{ url('pencatatan-lama-penyinaran') }}">Form Lama
+                                                    Penyinaran</a>
+                                            </li>
+                                            <li class="@yield('section-lysimeter-active')">
+                                                <a href="{{ url('pencatatan-lysimeter') }}">Form Lysimeter</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li @yield('section-active')>
+                                        <a href="#"><i class="fa fa-book"></i>
+                                            Tabulasi </a>
+                                    </li>
+                                @endif
+
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <li>
@@ -233,15 +277,17 @@
                                                 class="fa fa-sign-out"></i></a>
                                     </li>
                                 </form>
-                                <li class="seperator"></li> <!-- A seperator line -->
-                                <li>
-                                    <strong>Hotline:</strong>
-                                    <br> 0811-78-96223
-                                    <br>
-                                    <strong>Jadwal Pelayanan:</strong>
-                                    <br>Senin - Jumat
-                                    <br>08.00 - 15.00
-                                </li>
+                                @if (auth()->user()->role != 'Observer')
+                                    <li class="seperator"></li> <!-- A seperator line -->
+                                    <li>
+                                        <strong>Hotline:</strong>
+                                        <br> 0811-78-96223
+                                        <br>
+                                        <strong>Jadwal Pelayanan:</strong>
+                                        <br>Senin - Jumat
+                                        <br>08.00 - 15.00
+                                    </li>
+                                @endif
                             </ul>
                         </nav><!-- End .sidebar-nav-v1 -->
                     </div><!-- End .sidebar-module -->
@@ -267,8 +313,13 @@
                         <!-- * This is the responsive logo * -->
 
                         <a href="index.html" id="logo-small">
-                            <h4>SIPEDAL</h4>
-                            <h5>Stasiun Klimatologi Palembang</h5>
+                            @if (auth()->user()->role == 'Observer')
+                                <h4>APODIO</h4>
+                                <h5>Aplikasi Pencatatan Online Data Iklim dan Observasi</h5>
+                            @else
+                                <h4>SIPEDAL</h4>
+                                <h5>Stasiun Klimatologi Palembang</h5>
+                            @endif
                         </a>
                     </div>
                     <div class="pull-right">
@@ -284,23 +335,45 @@
                 <div class="header-main-bottom clearfix">
                     <div class="pull-left">
                         <ul class="breadcrumb">
-                            <li class="active">@yield('menu-title')</li>
+                            @if (auth()->user()->role == 'Observer')
+                                <li><a href="#">@yield('breadcrumb')</a></li>
+                                <li class="@yield('breadcrumb-active')">@yield('sub-breadcrumb')</li>
+                            @else
+                                <li class="active">@yield('menu-title')</li>
+                            @endif
                         </ul><!-- End .breadcrumb -->
                     </div>
                     <div class="pull-right">
                         <ul class="breadcrumb">
-                            <li class="active"><strong>@yield('user')</strong></li>
+                            <li class="active"><strong>@auth
+                                        {{ Auth::user()->name }} - {{ Auth::user()->email }}
+                                    @endauth
+                                </strong></strong></li>
                         </ul><!-- End .breadcrumb -->
                     </div>
                 </div><!-- End #header-main-bottom -->
             </header><!-- End #header-main -->
 
             <div id="content" class="clearfix">
+                @if (auth()->user()->role == 'Observer')
+                    <header id="header-sec">
+                        <div class="inner-padding">
+                            <div class="pull-left">
+                                <h2>@yield('title')</h2>
+                            </div>
+                        </div><!-- End .inner-padding -->
+                    </header><!-- End #header-sec -->
+                @endif
                 <div class="window">
-                    <section class="content">
-                        @yield('content') {{-- content --}}
-
-                    </section>
+                    @if (auth()->user()->role == 'Observer')
+                        <div class="inner-padding">
+                            @yield('contents-pencatatan')
+                        </div>
+                    @else
+                        <section class="content">
+                            @yield('content') {{-- content --}}
+                        </section>
+                    @endif
                 </div><!-- End .content -->
 
                 <footer id="footer-main" class="footer-sticky">
@@ -319,7 +392,7 @@
         </div><!-- End #main -->
     </div><!-- End #container -->
     @stack('scripts')
-    
+
 </body>
 
 </html>

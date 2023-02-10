@@ -1,4 +1,4 @@
-@extends('layout.master-pencatatan')
+@extends('layout.master')
 
 @section('title', 'Pencatatan Angin 10 M 24 Jam')
 @section('breadcrumb', 'Form Pencatatan')

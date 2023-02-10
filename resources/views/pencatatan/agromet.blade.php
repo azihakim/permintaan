@@ -1,4 +1,4 @@
-@extends('layout.master-pencatatan')
+@extends('layout.master')
 
 @section('title', 'Pencatatan Agromet')
 @section('breadcrumb', 'Form Pencatatan')

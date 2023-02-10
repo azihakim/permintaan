@@ -1,4 +1,4 @@
-@extends('layout.master-pencatatan')
+@extends('layout.master')
 
 @section('title', 'Pencatatan Lysimeter')
 @section('breadcrumb', 'Form Pencatatan')
