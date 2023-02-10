@@ -119,6 +119,11 @@ Route::get('/', function () {
     return view('auth.login');
 })->name('/');
 
+Route::get('/login-agromet', function () {
+    return view('auth.login-agromet');
+})->name('/');
+
+
 Route::middleware(['auth', 'verified','cekrole:Masyarakat'])->group(function()
 {
 // Dashboard
