@@ -193,7 +193,7 @@
                     <span class="indicator-dot">2</span>
                     <ul class="sidebar-profile-list">
                         <li>
-                            <h3>Hi, Steven Watson</h3>
+                            <h3>{{ Auth::user()->name }}</h3>
                         </li>
                         <li><a href="#">Profile</a> | <a href="#">Mail</a> | <a href="#">Logout</a>
                         </li>
@@ -244,6 +244,15 @@
                                     <a href="#"><i class="fa fa-book"></i>
                                         Tabulasi </a>
                                 </li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <li>
+                                        <a href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                            this.closest('form').submit();">Keluar<i
+                                                class="fa fa-sign-out"></i></a>
+                                    </li>
+                                </form>
                             </ul>
                         </nav><!-- End .sidebar-nav-v1 -->
                     </div><!-- End .sidebar-module -->
@@ -294,14 +303,6 @@
             </header><!-- End #header-main -->
 
             <div id="content" class="clearfix">
-
-                <!-- ********************************************
-                 * HEADER SEC:                              *
-                 *                                          *
-                 * the part which contains the page title,  *
-                 * buttons and dropdowns.                   *
-                 ******************************************** -->
-
                 <header id="header-sec">
                     <div class="inner-padding">
                         <div class="pull-left">
@@ -310,25 +311,11 @@
                     </div><!-- End .inner-padding -->
                 </header><!-- End #header-sec -->
 
-                <!-- ********************************************
-                     * WINDOW:                                  *
-                     *                                          *
-                     * the part which contains the main content *
-                     ******************************************** -->
-
                 <div class="window">
                     <div class="inner-padding">
                         @yield('contents-pencatatan')
                     </div>
                 </div><!-- End .window -->
-
-                <!-- ********************************************
-                     * FOOTER MAIN:                             *
-                     *                                          *
-                     * the part which contains things like      *
-                     * chat, buttons, copyright and             *
-                     * dropup menu(s).                          *
-                     ******************************************** -->
 
                 <footer id="footer-main" class="footer-sticky">
                     <div class="footer-main-inner">

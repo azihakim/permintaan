@@ -58,7 +58,7 @@ class TabelLamaPenyinaran extends Component
         }
         return view('livewire.tabel-lama-penyinaran',[
             'pencatatan' => $dataPencatatan,
-            'observers' => User::where('roles', 'observer')->get()
+            'observers' => User::where('role', 'Observer')->get()
         ]);
     }
 

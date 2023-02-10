@@ -56,7 +56,7 @@ Route::get('kegiatan-keagamaan', function () {
     return view('formulir.createKeagamaan');
 });
 
-// Pendidikan 
+// Pendidikan
 Route::resource('/pendidikan', PendidikanController::class)->middleware(['auth', 'verified']);
 Route::get('kegiatan-pendidikan', function () {
     return view('formulir.createPendidikan');
@@ -108,20 +108,25 @@ Auth::routes(['verify'=>true]);
 // Admin
 Route::middleware(['auth','cekrole:Super Admin, Admin'])->group(function()
 {
-// Dashboard 
+// Dashboard
     // Route::resource('/admin', DashboardadminController::class);
     Route::get('/dashboard-admin',[DashboardadminController::class, 'index'])->name('dashboard.admin');
     Route::resource('/respon', ResponlayananbertarifController::class);
 // Route::resource('respon-layanan', [ResponlayananbertarifController::class])->middleware(['auth', 'verified'] );
-});   
+});
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 })->name('/');
+
+Route::get('/login-agromet', function () {
+    return view('auth.login-agromet');
+})->name('/');
+
 
 Route::middleware(['auth', 'verified','cekrole:Masyarakat'])->group(function()
 {
-// Dashboard 
+// Dashboard
     Route::resource('/dashboard', DashboarduserController::class);
 
     Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboard.user');
@@ -142,7 +147,7 @@ Route::middleware(['auth','cekrole:Observer'])->group(function()
 {
     Route::get('pencatatan-agromet', function () {
         return view('pencatatan.agromet');
-    })->name('pencatatan.agromet');
+    })->name('pencatatan-agromet');
 
     Route::get('pencatatan-angin-10m-24jam', function () {
         return view('pencatatan.angin-10m-24jam');

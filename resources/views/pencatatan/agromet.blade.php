@@ -1,4 +1,4 @@
-@extends('layout.master-pencatatan')
+@extends('layout.master')
 
 @section('title', 'Pencatatan Agromet')
 @section('breadcrumb', 'Form Pencatatan')
@@ -85,6 +85,9 @@
     </script>
 @endpush
 @section('contents-pencatatan')
+    @php
+        // dd('Halo');
+    @endphp
     <div>
         @livewire('add-pencatatan-agromet')
     </div>

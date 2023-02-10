@@ -1223,10 +1223,10 @@
                                             </script>
                                         @enderror
                                     </div>
-                                    <div class="col-md-2 mr-24">
+                                    {{-- <div class="col-md-2 mr-24">
                                         <label for="">Reset</label>
-                                    </div>
-                                    <div class="col-md-2 pr-0 mrP-20">
+                                    </div> --}}
+                                    {{-- <div class="col-md-2 pr-0 mrP-20">
                                         <input type="number" name="" id="" class="form-control"
                                             step="any" min="0" wire:model="reset_piche6">
                                         @error('reset2_piche')
@@ -1240,7 +1240,7 @@
                                                 $('#form2').scrollTop(0);
                                             </script>
                                         @enderror
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-1">
                                         <label for="">EV</label>
                                     </div>

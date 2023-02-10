@@ -47,7 +47,7 @@ class LoginController extends Controller
         ]);
         if(auth()->attempt(['email'=>$input["email"], 'password'=>$input["password"]]))
         {
-            if(auth()->user()->role == 'Admin')
+            if(auth()->user()->role == 'Admin' || auth()->user()->role == 'Super Admin')
             {
                 return redirect()->route('dashboard.admin');
             }
@@ -55,13 +55,9 @@ class LoginController extends Controller
             {
                 return redirect()->route('dashboard.user');
             }
-            else if(auth()->user()->role == 'Super Admin')
-            {
-                return redirect()->route('dashboard.user');
-            }
             else if(auth()->user()->role == 'Observer')
             {
-                return redirect()->route('pencatatan.agromet');
+                return redirect()->route('pencatatan-agromet');
             }
             else
             {
