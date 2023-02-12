@@ -68,7 +68,7 @@
                 <div class="spacer-30"></div>
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
+                        Permintaan berhasil dikirim, silahkan cek email anda.
                     </div>
                 @endif
             	<form method="POST" action="{{ route('password.email') }}">  

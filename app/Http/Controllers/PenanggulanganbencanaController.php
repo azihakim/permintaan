@@ -49,13 +49,13 @@ class PenanggulanganbencanaController extends Controller
             $ext = $request->surat_pengantar->getClientOriginalExtension();
             $file = "surat_pengantar-".time().".".$ext;
             $request->surat_pengantar->storeAs('public/dokumen', $file);
-            $data = new Formulir();
-            $data->jenis_permintaan = "Kegiatan penanggulangan bencana";
-            $data->status_form = "1";
-            $data->user_id =$request->user()->id;
-            $data->surat_pengantar = $file;
-            $data->deskripsi = $data['deskripsi'];
-            $data->save();
+            $formulir = new Formulir();
+            $formulir->jenis_permintaan = "Kegiatan penanggulangan bencana";
+            $formulir->status_form = "1";
+            $formulir->user_id =$request->user()->id;
+            $formulir->surat_pengantar = $file;
+            $formulir->deskripsi = $request['deskripsi'];
+            $formulir->save();
 
         // data petir
         // if($request->exists("cb_datapetirs")){
@@ -78,7 +78,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_petir'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'          => $data->id,
+                    'formulir_id'          => $formulir->id,
                     'jenis_data'           => "datapetir",
                     'desk_petir'           => $request->desk_petir,
                     'lokasi'               => $request->lokasi_petir[$key],
@@ -94,7 +94,7 @@ class PenanggulanganbencanaController extends Controller
                 foreach($data['lokasi_harihujan'] as $key=>$value){
                     if($value != null){
                         Datapermintaan::create([
-                        'formulir_id'   => $data->id,
+                        'formulir_id'   => $formulir->id,
                         'jenis_data'    => "dataharihujan",
                         'lokasi'        => $request->lokasi_harihujan[$key],
                         'tgl_dari'      => $request->tgl_dari_harihujan[$key],
@@ -109,7 +109,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_curahhujanratarata'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datacurahhujanratarata",
                     'lokasi'        => $request->lokasi_curahhujanratarata[$key],
                     'tgl_dari'      => $request->tgl_dari_curahhujanratarata[$key],
@@ -124,7 +124,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_curahhujanmaksimum'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datacurahhujanmaksimum",
                     'lokasi'        => $request->lokasi_curahhujanmaksimum[$key],
                     'tgl_dari'      => $request->tgl_dari_curahhujanmaksimum[$key],
@@ -139,7 +139,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_curahhujanbulanan'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datacurahhujanbulanan",
                     'lokasi'        => $request->lokasi_curahhujanbulanan[$key],
                     'tgl_dari'      => $request->tgl_dari_curahhujanbulanan[$key],
@@ -154,7 +154,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_suhuudararatarata'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datasuhuudararatarata",
                     'lokasi'        => $request->lokasi_suhuudararatarata[$key],
                     'tgl_dari'      => $request->tgl_dari_suhuudararatarata[$key],
@@ -169,7 +169,7 @@ class PenanggulanganbencanaController extends Controller
                 foreach($data['lokasi_suhuudaramaksimum'] as $key=>$value){
                     if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datasuhuudaramaksimum",
                     'lokasi'        => $request->lokasi_suhuudaramaksimum[$key],
                     'tgl_dari'      => $request->tgl_dari_suhuudaramaksimum[$key],
@@ -184,7 +184,7 @@ class PenanggulanganbencanaController extends Controller
                 foreach($data['lokasi_suhuudaraminimum'] as $key=>$value){
                     if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datasuhuudaraminimum",
                     'lokasi'        => $request->lokasi_suhuudaraminimum[$key],
                     'tgl_dari'      => $request->tgl_dari_suhuudaraminimum[$key],
@@ -199,7 +199,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_kelembapanudararatarata'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datakelembapanudararatarata",
                     'lokasi'        => $request->lokasi_kelembapanudararatarata[$key],
                     'tgl_dari'      => $request->tgl_dari_kelembapanudararatarata[$key],
@@ -214,7 +214,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_kelembapanudaramaksimum'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datakelembapanudaramaksimum",
                     'lokasi'        => $request->lokasi_kelembapanudaramaksimum[$key],
                     'tgl_dari'      => $request->tgl_dari_kelembapanudaramaksimum[$key],
@@ -229,7 +229,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_kelembapanudaraminimum'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datakelembapanudaraminimum",
                     'lokasi'        => $request->lokasi_kelembapanudaraminimum[$key],
                     'tgl_dari'      => $request->tgl_dari_kelembapanudaraminimum[$key],
@@ -244,7 +244,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_kecepatandanarahangin'] as $key=>$value){
                 if($value != null){
                 Datapermintaan::create([
-                'formulir_id'   => $data->id,
+                'formulir_id'   => $formulir->id,
                 'jenis_data'    => "datakecepatandanarahangin",
                 'lokasi'        => $request->lokasi_kecepatandanarahangin[$key],
                 'tgl_dari'      => $request->tgl_dari_kecepatandanarahangin[$key],
@@ -259,7 +259,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_kecepatananginmaksimum'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datakecepatananginmaksimum",
                     'lokasi'        => $request->lokasi_kecepatananginmaksimum[$key],
                     'tgl_dari'      => $request->tgl_dari_kecepatananginmaksimum[$key],
@@ -274,7 +274,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_lamapenyinaranmatahari'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "datalamapenyinaranmatahari",
                     'lokasi'        => $request->lokasi_lamapenyinaranmatahari[$key],
                     'tgl_dari'      => $request->tgl_dari_lamapenyinaranmatahari[$key],
@@ -289,7 +289,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_prakiraanmusim'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "dataprakiraanmusim",
                     'lokasi'        => $request->lokasi_prakiraanmusim[$key],
                     'tgl_dari'      => $request->tgl_dari_prakiraanmusim[$key],
@@ -304,7 +304,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_klasifikasiiklim'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "dataklasifikasiiklim",
                     'lokasi'        => $request->lokasi_klasifikasiiklim[$key],
                     'tgl_dari'      => $request->tgl_dari_klasifikasiiklim[$key],
@@ -319,7 +319,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_radiasimatahari'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'   => $data->id,
+                    'formulir_id'   => $formulir->id,
                     'jenis_data'    => "dataradiasimatahari",
                     'lokasi'        => $request->lokasi_radiasimatahari[$key],
                     'tgl_dari'      => $request->tgl_dari_radiasimatahari[$key],
@@ -334,7 +334,7 @@ class PenanggulanganbencanaController extends Controller
             foreach($data['lokasi_unsurcuacalainnya'] as $key=>$value){
                 if($value != null){
                     Datapermintaan::create([
-                    'formulir_id'          => $data->id,
+                    'formulir_id'          => $formulir->id,
                     'jenis_data'           => "unsurcuacalainnya",
                     'unsurcuacalain'       => $request->deskripsi_unsurcuacalainnya,
                     'lokasi'               => $request->lokasi_unsurcuacalainnya[$key],
