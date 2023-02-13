@@ -97,7 +97,7 @@
                     @csrf
                 	<div class="row">
                         <div class="col-lg-12">	
-                        	<label for="fc-id-1">Email:</label>
+                        	<label for="fc-id-1">Email</label>
                         </div>
 					</div>                                          
                 	<div class="row">  
@@ -108,8 +108,8 @@
                     <div class="spacer-10"></div>
                 	<div class="row">  
                         <div class="col-lg-12">	
-                        	<label for="fc-id-2">Password:</label>
-                            <a href="#" id="showpassword-trigger" class="underline">Show password</a>
+                        	<label for="fc-id-2">Kata sandi</label>
+                            <a href="#" id="showpassword-trigger" class="underline">Tampilkan sandi</a>
                         </div>
 					</div>	
                 	<div class="row">  
@@ -131,7 +131,6 @@
                     <div class="row">
                     	<div class="col-lg-12">
                             <div class="pull-right">
-                                {{-- <a href="forgot.html" class="underline">Forgot password</a> --}}
                                 @if (Route::has('password.request'))
                                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                                         {{ __('Lupa kata sandi?') }}

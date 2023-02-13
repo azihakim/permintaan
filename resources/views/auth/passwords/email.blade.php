@@ -66,14 +66,14 @@
                 </header>
                 <div class="spacer-50"></div>	
                 <div class="spacer-30"></div>
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        Permintaan berhasil dikirim, silahkan cek email anda.
-                    </div>
-                @endif
             	<form method="POST" action="{{ route('password.email') }}">  
                     @csrf
                 	<div class="row">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                Permintaan berhasil dikirim, silahkan cek email anda.
+                            </div>
+                        @endif
                         <div class="col-lg-12">	
                         	<label for="fc-id-1">Email:</label>
                         </div>
