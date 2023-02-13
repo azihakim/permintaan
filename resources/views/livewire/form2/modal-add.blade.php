@@ -9,7 +9,8 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="row">
+                        @csrf
+                        {{-- <div class="row">
                             <div class="col-sm-4">
                                 <label>Observer</label>
                             </div>
@@ -34,7 +35,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="spacer-10"></div>
+                        <div class="spacer-10"></div> --}}
                         <div class="row">
                             <div class="col-sm-12">
                                 <label style="text-decoration: underline;">Psychrometer Sangkar Meteorologi</label>

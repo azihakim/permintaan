@@ -9,7 +9,8 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <div class="row">
+                        @csrf
+                        {{-- <div class="row">
                             <div class="col-sm-4">
                                 <label>Observer</label>
                             </div>
@@ -34,7 +35,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="spacer-10"></div>
+                        <div class="spacer-10"></div> --}}
                         <div class="row">
                             <div class="col-sm-12">
                                 <label style="text-decoration: underline;">Psychrometer Sangkar Meteorologi</label>
@@ -305,7 +306,7 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter61">
+                                            name="" id="" wire:model.lazy="cup_counter61">
                                         @error('cup_counter61')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -323,7 +324,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="">
+                                            name="" id="" wire:model="kecRata61">
                                     </div>
                                 </div>
                             </div>
@@ -335,7 +336,7 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter62">
+                                            name="" id="" wire:model.lazy="cup_counter62">
                                         @error('cup_counter62')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -353,7 +354,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="">
+                                            name="" id="" wire:model="kecRata62">
                                     </div>
                                 </div>
                             </div>

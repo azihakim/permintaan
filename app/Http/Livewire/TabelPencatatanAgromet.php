@@ -35,43 +35,47 @@ class TabelPencatatanAgromet extends Component
 
     /* ---------- Form 1 ---------- */
     // Psychrometer Sangkar Meteorologi
-    public $tbk11 = null;
-    public $tbb11 = null;
-    public $tbk12 = null;
-    public $tbb12 = null;
-    public $tbk13 = null;
-    public $tbb13 = null;
-    public $tbk14 = null;
-    public $tbb14 = null;
+    public $tbk11 = 0;
+    public $tbb11 = 0;
+    public $tbk12 = 0;
+    public $tbb12 = 0;
+    public $tbk13 = 0;
+    public $tbb13 = 0;
+    public $tbk14 = 0;
+    public $tbb14 = 0;
+    public $RH11 = 0;
+    public $RH12 = 0;
+    public $RH13 = 0;
+    public $RH14 = 0;
     // Angin
-    public $cup_counter11 = null;
-    public $cup_counter12 = null;
-    public $arah11 = null;
-    public $kecepatan11 = null;
-    public $arah12 = null;
-    public $kecepatan12 = null;
-    public $arah13 = null;
-    public $kecepatan13 = null;
+    public $cup_counter11 = 0;
+    public $cup_counter12 = 0;
+    public $arah11 = 0;
+    public $kecepatan11 = 0;
+    public $arah12 = 0;
+    public $kecepatan12 = 0;
+    public $arah13 = 0;
+    public $kecepatan13 = 0;
     // Open Pan
-    public $h1 = null;
-    public $ev1 = null;
-    public $ch1 = null;
-    public $t1 = null;
-    public $max1 = null;
-    public $min1 = null;
+    public $h1 = 0;
+    public $ev1 = 0;
+    public $ch1 = 0;
+    public $t1 = 0;
+    public $max1 = 0;
+    public $min1 = 0;
     // Barometer
-    public $suhu1 = null;
-    public $barometer1 = null;
-    public $qfe1 = null;
-    public $qff1 = null;
+    public $suhu1 = 0;
+    public $barometer1 = 0;
+    public $qfe1 = 0;
+    public $qff1 = 0;
     // Kondisi Cuaca dan Tanah
-    public $kode_tanah1 = null;
-    public $kode_cuaca1 = null;
+    public $kode_tanah1 = 0;
+    public $kode_cuaca1 = 0;
     // Suhu Min Rumput
-    public $pembacaan1 = null;
-    public $reset1 = null;
+    public $pembacaan1 = 0;
+    public $reset1 = 0;
     // Radiasi
-    public $i1 = null;
+    public $i1 = 0;
     /* ---------- End Form 1 ---------- */
 
     /* ---------- Form 2 ---------- */
@@ -84,6 +88,10 @@ class TabelPencatatanAgromet extends Component
     public $tbb23 = 0;
     public $tbk24 = 0;
     public $tbb24 = 0;
+    public $RH21 = 0;
+    public $RH22 = 0;
+    public $RH23 = 0;
+    public $RH24 = 0;
     // Angin
     public $cup_counter21 = 0;
     public $cup_counter22 = 0;
@@ -147,6 +155,10 @@ class TabelPencatatanAgromet extends Component
     public $tbk34 = 0;
     public $tbb34 = 0;
     public $ch3 = 0;
+    public $RH31 = 0;
+    public $RH32 = 0;
+    public $RH33 = 0;
+    public $RH34 = 0;
     /* ---------- End Form 3 ---------- */
 
     /* ---------- Form 4 ---------- */
@@ -159,6 +171,10 @@ class TabelPencatatanAgromet extends Component
     public $tbb43 = 0;
     public $tbk44 = 0;
     public $tbb44 = 0;
+    public $RH41 = 0;
+    public $RH42 = 0;
+    public $RH43 = 0;
+    public $RH44 = 0;
     // Angin
     public $cup_counter41 = 0;
     public $cup_counter42 = 0;
@@ -220,6 +236,10 @@ class TabelPencatatanAgromet extends Component
     public $tbb53 = 0;
     public $tbk54 = 0;
     public $tbb54 = 0;
+    public $RH51 = 0;
+    public $RH52 = 0;
+    public $RH53 = 0;
+    public $RH54 = 0;
     // Angin
     public $cup_counter51 = 0;
     public $cup_counter52 = 0;
@@ -264,6 +284,10 @@ class TabelPencatatanAgromet extends Component
     public $tbb63 = 0;
     public $tbk64 = 0;
     public $tbb64 = 0;
+    public $RH61 = 0;
+    public $RH62 = 0;
+    public $RH63 = 0;
+    public $RH64 = 0;
     // Angin
     public $cup_counter61 = 0;
     public $cup_counter62 = 0;
@@ -325,6 +349,10 @@ class TabelPencatatanAgromet extends Component
     public $tbb73 = 0;
     public $tbk74 = 0;
     public $tbb74 = 0;
+    public $RH71 = 0;
+    public $RH72 = 0;
+    public $RH73 = 0;
+    public $RH74 = 0;
     // Angin
     public $cup_counter71 = 0;
     public $cup_counter72 = 0;
@@ -431,7 +459,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function editForm1($pencatatan_id){
-        $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataOpenPan = Open_pan::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -441,7 +469,7 @@ class TabelPencatatanAgromet extends Component
         $dataRadiasi = Radiasi::where("pencatatans_id", $pencatatan_id)->get()->first();
 
         $this->idPencatatan = $pencatatan_id;
-        $this->observer1 = $observer;
+        // $this->observer1 = $observer;
         $this->tbk11 = $dataPsychrometerSangkarMeteorologi->tbk1;
         $this->tbb11 = $dataPsychrometerSangkarMeteorologi->tbb1;
         $this->tbk12 = $dataPsychrometerSangkarMeteorologi->tbk2;
@@ -450,6 +478,11 @@ class TabelPencatatanAgromet extends Component
         $this->tbb13 = $dataPsychrometerSangkarMeteorologi->tbb3;
         $this->tbk14 = $dataPsychrometerSangkarMeteorologi->tbk4;
         $this->tbb14 = $dataPsychrometerSangkarMeteorologi->tbb4;
+        $this->RH11 = $dataPsychrometerSangkarMeteorologi->RH1;
+        $this->RH12 = $dataPsychrometerSangkarMeteorologi->RH2;
+        $this->RH13 = $dataPsychrometerSangkarMeteorologi->RH3;
+        $this->RH14 = $dataPsychrometerSangkarMeteorologi->RH4;
+
 
         $this->cup_counter11 = $dataAngin->cup_counter1;
         $this->cup_counter12 = $dataAngin->cup_counter2;
@@ -482,7 +515,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function editForm2($pencatatan_id){
-        $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -492,7 +525,7 @@ class TabelPencatatanAgromet extends Component
         $dataPicheEvaporimeter = Piche_evaporimeter::where("pencatatans_id", $pencatatan_id)->get()->first();
 
         $this->idPencatatan = $pencatatan_id;
-        $this->observer2 = $observer;
+        // $this->observer2 = $observer;
         $this->tbk21 = $dataPsychrometerSangkarMeteorologi->tbk1;
         $this->tbb21 = $dataPsychrometerSangkarMeteorologi->tbb1;
         $this->tbk22 = $dataPsychrometerSangkarMeteorologi->tbk2;
@@ -501,6 +534,10 @@ class TabelPencatatanAgromet extends Component
         $this->tbb23 = $dataPsychrometerSangkarMeteorologi->tbb3;
         $this->tbk24 = $dataPsychrometerSangkarMeteorologi->tbk4;
         $this->tbb24 = $dataPsychrometerSangkarMeteorologi->tbb4;
+        $this->RH21 = $dataPsychrometerSangkarMeteorologi->RH1;
+        $this->RH22 = $dataPsychrometerSangkarMeteorologi->RH2;
+        $this->RH23 = $dataPsychrometerSangkarMeteorologi->RH3;
+        $this->RH24 = $dataPsychrometerSangkarMeteorologi->RH4;
 
         $this->cup_counter21 = $dataAngin->cup_counter1;
         $this->cup_counter22 = $dataAngin->cup_counter2;
@@ -554,13 +591,13 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function editForm3($pencatatan_id){
-        $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataOpenPan = Open_pan::where("pencatatans_id", $pencatatan_id)->get()->first();
 
         $this->idPencatatan = $pencatatan_id;
-        $this->observer3 = $observer;
+        // $this->observer3 = $observer;
         $this->tbk31 = $dataPsychrometerSangkarMeteorologi->tbk1;
         $this->tbb31 = $dataPsychrometerSangkarMeteorologi->tbb1;
         $this->tbk32 = $dataPsychrometerSangkarMeteorologi->tbk2;
@@ -569,11 +606,15 @@ class TabelPencatatanAgromet extends Component
         $this->tbb33 = $dataPsychrometerSangkarMeteorologi->tbb3;
         $this->tbk34 = $dataPsychrometerSangkarMeteorologi->tbk4;
         $this->tbb34 = $dataPsychrometerSangkarMeteorologi->tbb4;
+        $this->RH31 = $dataPsychrometerSangkarMeteorologi->RH1;
+        $this->RH32 = $dataPsychrometerSangkarMeteorologi->RH2;
+        $this->RH33 = $dataPsychrometerSangkarMeteorologi->RH3;
+        $this->RH34 = $dataPsychrometerSangkarMeteorologi->RH4;
         $this->ch3 = $dataOpenPan->ch;
     }
 
     public function editForm4($pencatatan_id){
-        $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -583,7 +624,7 @@ class TabelPencatatanAgromet extends Component
         $dataPicheEvaporimeter = Piche_evaporimeter::where("pencatatans_id", $pencatatan_id)->get()->first();
 
         $this->idPencatatan = $pencatatan_id;
-        $this->observer4 = $observer;
+        // $this->observer4 = $observer;
         $this->tbk41 = $dataPsychrometerSangkarMeteorologi->tbk1;
         $this->tbb41 = $dataPsychrometerSangkarMeteorologi->tbb1;
         $this->tbk42 = $dataPsychrometerSangkarMeteorologi->tbk2;
@@ -592,6 +633,10 @@ class TabelPencatatanAgromet extends Component
         $this->tbb43 = $dataPsychrometerSangkarMeteorologi->tbb3;
         $this->tbk44 = $dataPsychrometerSangkarMeteorologi->tbk4;
         $this->tbb44 = $dataPsychrometerSangkarMeteorologi->tbb4;
+        $this->RH41 = $dataPsychrometerSangkarMeteorologi->RH1;
+        $this->RH42 = $dataPsychrometerSangkarMeteorologi->RH2;
+        $this->RH43 = $dataPsychrometerSangkarMeteorologi->RH3;
+        $this->RH44 = $dataPsychrometerSangkarMeteorologi->RH4;
 
         $this->cup_counter41 = $dataAngin->cup_counter1;
         $this->cup_counter42 = $dataAngin->cup_counter2;
@@ -644,7 +689,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function editForm5($pencatatan_id){
-        $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -653,7 +698,7 @@ class TabelPencatatanAgromet extends Component
         $dataKondisiCuacaDanTanah = Kondisi_cuaca_dan_tanah::where("pencatatans_id", $pencatatan_id)->get()->first();
 
         $this->idPencatatan = $pencatatan_id;
-        $this->observer5 = $observer;
+        // $this->observer5 = $observer;
         $this->tbk51 = $dataPsychrometerSangkarMeteorologi->tbk1;
         $this->tbb51 = $dataPsychrometerSangkarMeteorologi->tbb1;
         $this->tbk52 = $dataPsychrometerSangkarMeteorologi->tbk2;
@@ -662,6 +707,10 @@ class TabelPencatatanAgromet extends Component
         $this->tbb53 = $dataPsychrometerSangkarMeteorologi->tbb3;
         $this->tbk54 = $dataPsychrometerSangkarMeteorologi->tbk4;
         $this->tbb54 = $dataPsychrometerSangkarMeteorologi->tbb4;
+        $this->RH51 = $dataPsychrometerSangkarMeteorologi->RH1;
+        $this->RH52 = $dataPsychrometerSangkarMeteorologi->RH2;
+        $this->RH53 = $dataPsychrometerSangkarMeteorologi->RH3;
+        $this->RH54 = $dataPsychrometerSangkarMeteorologi->RH4;
 
         $this->cup_counter51 = $dataAngin->cup_counter1;
         $this->cup_counter52 = $dataAngin->cup_counter2;
@@ -697,7 +746,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function editForm6($pencatatan_id){
-        $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -707,7 +756,7 @@ class TabelPencatatanAgromet extends Component
         $dataPicheEvaporimeter = Piche_evaporimeter::where("pencatatans_id", $pencatatan_id)->get()->first();
 
         $this->idPencatatan = $pencatatan_id;
-        $this->observer6 = $observer;
+        // $this->observer6 = $observer;
         $this->tbk61 = $dataPsychrometerSangkarMeteorologi->tbk1;
         $this->tbb61 = $dataPsychrometerSangkarMeteorologi->tbb1;
         $this->tbk62 = $dataPsychrometerSangkarMeteorologi->tbk2;
@@ -716,6 +765,10 @@ class TabelPencatatanAgromet extends Component
         $this->tbb63 = $dataPsychrometerSangkarMeteorologi->tbb3;
         $this->tbk64 = $dataPsychrometerSangkarMeteorologi->tbk4;
         $this->tbb64 = $dataPsychrometerSangkarMeteorologi->tbb4;
+        $this->RH61 = $dataPsychrometerSangkarMeteorologi->RH1;
+        $this->RH62 = $dataPsychrometerSangkarMeteorologi->RH2;
+        $this->RH63 = $dataPsychrometerSangkarMeteorologi->RH3;
+        $this->RH64 = $dataPsychrometerSangkarMeteorologi->RH4;
 
         $this->cup_counter61 = $dataAngin->cup_counter1;
         $this->cup_counter62 = $dataAngin->cup_counter2;
@@ -768,14 +821,14 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function editForm7($pencatatan_id){
-        $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataTermometerMaksimumDanMinimum = Termometer_maksimum_dan_minimum::where("pencatatans_id", $pencatatan_id)->get()->first();
 
         $this->idPencatatan = $pencatatan_id;
-        $this->observer7 = $observer;
+        // $this->observer7 = $observer;
         $this->tbk71 = $dataPsychrometerSangkarMeteorologi->tbk1;
         $this->tbb71 = $dataPsychrometerSangkarMeteorologi->tbb1;
         $this->tbk72 = $dataPsychrometerSangkarMeteorologi->tbk2;
@@ -784,6 +837,10 @@ class TabelPencatatanAgromet extends Component
         $this->tbb73 = $dataPsychrometerSangkarMeteorologi->tbb3;
         $this->tbk74 = $dataPsychrometerSangkarMeteorologi->tbk4;
         $this->tbb74 = $dataPsychrometerSangkarMeteorologi->tbb4;
+        $this->RH71 = $dataPsychrometerSangkarMeteorologi->RH1;
+        $this->RH72 = $dataPsychrometerSangkarMeteorologi->RH2;
+        $this->RH73 = $dataPsychrometerSangkarMeteorologi->RH3;
+        $this->RH74 = $dataPsychrometerSangkarMeteorologi->RH4;
 
         $this->cup_counter71 = $dataAngin->cup_counter1;
         $this->cup_counter72 = $dataAngin->cup_counter2;
@@ -801,43 +858,43 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function editFormHujan1($pencatatan_id){
-        $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
         $dataHujan = Open_pan::where("pencatatans_id", $pencatatan_id)->get()->first();
 
         $this->idPencatatan = $pencatatan_id;
-        $this->observerHujan1 = $observer;
+        // $this->observerHujan1 = $observer;
         $this->ch_hujan1 = $dataHujan->ch;
     }
 
     public function editFormHujan2($pencatatan_id){
-        $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
         $dataHujan = Open_pan::where("pencatatans_id", $pencatatan_id)->get()->first();
 
         $this->idPencatatan = $pencatatan_id;
-        $this->observerHujan2 = $observer;
+        // $this->observerHujan2 = $observer;
         $this->ch_hujan2 = $dataHujan->ch;
     }
 
     public function editFormHujan3($pencatatan_id){
-        $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
         $dataHujan = Open_pan::where("pencatatans_id", $pencatatan_id)->get()->first();
 
         $this->idPencatatan = $pencatatan_id;
-        $this->observerHujan3 = $observer;
+        // $this->observerHujan3 = $observer;
         $this->ch_hujan3 = $dataHujan->ch;
     }
 
     public function updateFormHujan1(){
         $this->validate([
-            'observerHujan1' => 'required',
+            // 'observerHujan1' => 'required',
             'ch_hujan1' => 'numeric|nullable'
         ]);
 
-        $dataPencatatan = [
-            'users_id' => $this->observerHujan1
-        ];
+        // $dataPencatatan = [
+        //     'users_id' => $this->observerHujan1
+        // ];
 
-        Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
+        // Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
 
         $dataHujan = [
             'ch' => $this->ch_hujan1,
@@ -851,15 +908,15 @@ class TabelPencatatanAgromet extends Component
 
     public function updateFormHujan2(){
         $this->validate([
-            'observerHujan2' => 'required',
+            // 'observerHujan2' => 'required',
             'ch_hujan2' => 'numeric|nullable'
         ]);
 
-        $dataPencatatan = [
-            'users_id' => $this->observerHujan2
-        ];
+        // $dataPencatatan = [
+        //     'users_id' => $this->observerHujan2
+        // ];
 
-        Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
+        // Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
 
         $dataHujan = [
             'ch' => $this->ch_hujan2,
@@ -873,15 +930,15 @@ class TabelPencatatanAgromet extends Component
 
     public function updateFormHujan3(){
         $this->validate([
-            'observerHujan3' => 'required',
+            // 'observerHujan3' => 'required',
             'ch_hujan3' => 'numeric|nullable'
         ]);
 
-        $dataPencatatan = [
-            'users_id' => $this->observerHujan3
-        ];
+        // $dataPencatatan = [
+        //     'users_id' => $this->observerHujan3
+        // ];
 
-        Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
+        // Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
 
         $dataHujan = [
             'ch' => $this->ch_hujan3,
@@ -895,7 +952,7 @@ class TabelPencatatanAgromet extends Component
 
     public function updateForm1(){
         $this->validate([
-            'observer1' => 'required',
+            // 'observer1' => 'required',
             'tbk11' => 'numeric|nullable',
             'tbb11' => 'numeric|nullable',
             'tbk12' => 'numeric|nullable',
@@ -904,6 +961,10 @@ class TabelPencatatanAgromet extends Component
             'tbb13' => 'numeric|nullable',
             'tbk14' => 'numeric|nullable',
             'tbb14' => 'numeric|nullable',
+            'RH11' => 'numeric|nullable',
+            'RH12' => 'numeric|nullable',
+            'RH13' => 'numeric|nullable',
+            'RH14' => 'numeric|nullable',
             'cup_counter11' => 'numeric|nullable',
             'cup_counter12' => 'numeric|nullable',
             'arah11' => 'numeric|nullable',
@@ -929,9 +990,9 @@ class TabelPencatatanAgromet extends Component
             'i1' => 'numeric|nullable'
         ]);
 
-        $dataPencatatan = [
-            'users_id' => $this->observer1
-        ];
+        // $dataPencatatan = [
+        //     'users_id' => $this->observer1
+        // ];
 
         $dataPsychrometerSangkarMeteorologi = [
             'tbk1' => $this->tbk11,
@@ -941,7 +1002,11 @@ class TabelPencatatanAgromet extends Component
             'tbk3' => $this->tbk13,
             'tbb3' => $this->tbb13,
             'tbk4' => $this->tbk14,
-            'tbb4' => $this->tbb14
+            'tbb4' => $this->tbb14,
+            'RH1' => $this->RH11,
+            'RH2' => $this->RH12,
+            'RH3' => $this->RH13,
+            'RH4' => $this->RH14,
         ];
 
         $dataAngin = [
@@ -985,7 +1050,7 @@ class TabelPencatatanAgromet extends Component
             'i' => $this->i1
         ];
 
-        Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
+        // Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
         Psychrometer_sangkar_meteorologi::where('pencatatans_id', $this->idPencatatan)->update($dataPsychrometerSangkarMeteorologi);
         Angin::where('pencatatans_id', $this->idPencatatan)->update($dataAngin);
         Open_pan::where('pencatatans_id', $this->idPencatatan)->update($dataOpenPan);
@@ -1000,7 +1065,7 @@ class TabelPencatatanAgromet extends Component
 
     public function updateForm2(){
         $this->validate([
-            'observer2' => 'required',
+            // 'observer2' => 'required',
             'tbk21' => 'numeric|nullable',
             'tbb21' => 'numeric|nullable',
             'tbk22' => 'numeric|nullable',
@@ -1009,6 +1074,10 @@ class TabelPencatatanAgromet extends Component
             'tbb23' => 'numeric|nullable',
             'tbk24' => 'numeric|nullable',
             'tbb24' => 'numeric|nullable',
+            'RH21' => 'numeric|nullable',
+            'RH22' => 'numeric|nullable',
+            'RH23' => 'numeric|nullable',
+            'RH24' => 'numeric|nullable',
             'cup_counter21' => 'numeric|nullable',
             'cup_counter22' => 'numeric|nullable',
             'arah21' => 'numeric|nullable',
@@ -1056,9 +1125,9 @@ class TabelPencatatanAgromet extends Component
             'ev2_piche' => 'numeric|nullable'
         ]);
 
-        $dataPencatatan = [
-            'users_id' => $this->observer2
-        ];
+        // $dataPencatatan = [
+        //     'users_id' => $this->observer2
+        // ];
 
         $dataPsychrometerSangkarMeteorologi = [
             'tbk1' => $this->tbk21,
@@ -1068,7 +1137,11 @@ class TabelPencatatanAgromet extends Component
             'tbk3' => $this->tbk23,
             'tbb3' => $this->tbb23,
             'tbk4' => $this->tbk24,
-            'tbb4' => $this->tbb24
+            'tbb4' => $this->tbb24,
+            'RH1' => $this->RH21,
+            'RH2' => $this->RH22,
+            'RH3' => $this->RH23,
+            'RH4' => $this->RH24,
         ];
 
         $dataAngin = [
@@ -1131,7 +1204,7 @@ class TabelPencatatanAgromet extends Component
             'ev' => $this->ev2_piche
         ];
 
-        Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
+        // Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
         Psychrometer_sangkar_meteorologi::where('pencatatans_id', $this->idPencatatan)->update($dataPsychrometerSangkarMeteorologi);
         Angin::where('pencatatans_id', $this->idPencatatan)->update($dataAngin);
         Open_pan::where('pencatatans_id', $this->idPencatatan)->update($dataOpenPan);
@@ -1145,7 +1218,7 @@ class TabelPencatatanAgromet extends Component
 
     public function updateForm3(){
         $this->validate([
-            'observer3' => 'required',
+            // 'observer3' => 'required',
             'tbk31' => 'numeric|nullable',
             'tbb31' => 'numeric|nullable',
             'tbk32' => 'numeric|nullable',
@@ -1154,12 +1227,16 @@ class TabelPencatatanAgromet extends Component
             'tbb33' => 'numeric|nullable',
             'tbk34' => 'numeric|nullable',
             'tbb34' => 'numeric|nullable',
+            'RH31' => 'numeric|nullable',
+            'RH32' => 'numeric|nullable',
+            'RH33' => 'numeric|nullable',
+            'RH34' => 'numeric|nullable',
             'ch3' => 'numeric|nullable'
         ]);
 
-        $dataPencatatan = [
-            'users_id' => $this->observer3
-        ];
+        // $dataPencatatan = [
+        //     'users_id' => $this->observer3
+        // ];
 
         $dataPsychrometerSangkarMeteorologi = [
             'tbk1' => $this->tbk31,
@@ -1169,14 +1246,18 @@ class TabelPencatatanAgromet extends Component
             'tbk3' => $this->tbk33,
             'tbb3' => $this->tbb33,
             'tbk4' => $this->tbk34,
-            'tbb4' => $this->tbb34
+            'tbb4' => $this->tbb34,
+            'RH1' => $this->RH31,
+            'RH2' => $this->RH32,
+            'RH3' => $this->RH33,
+            'RH4' => $this->RH34,
         ];
 
         $dataHujan = [
             'ch' => $this->ch3
         ];
 
-        Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
+        // Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
         Psychrometer_sangkar_meteorologi::where('pencatatans_id', $this->idPencatatan)->update($dataPsychrometerSangkarMeteorologi);
         Open_pan::where('pencatatans_id', $this->idPencatatan)->update($dataHujan);
         $this->reset();
@@ -1186,7 +1267,7 @@ class TabelPencatatanAgromet extends Component
 
     public function updateForm4(){
         $this->validate([
-            'observer4' => 'required',
+            // 'observer4' => 'required',
             'tbk41' => 'numeric|nullable',
             'tbb41' => 'numeric|nullable',
             'tbk42' => 'numeric|nullable',
@@ -1195,6 +1276,10 @@ class TabelPencatatanAgromet extends Component
             'tbb43' => 'numeric|nullable',
             'tbk44' => 'numeric|nullable',
             'tbb44' => 'numeric|nullable',
+            'RH41' => 'numeric|nullable',
+            'RH42' => 'numeric|nullable',
+            'RH43' => 'numeric|nullable',
+            'RH44' => 'numeric|nullable',
             'cup_counter41' => 'numeric|nullable',
             'cup_counter42' => 'numeric|nullable',
             'arah41' => 'numeric|nullable',
@@ -1241,9 +1326,9 @@ class TabelPencatatanAgromet extends Component
             'ev2_piche4' => 'numeric|nullable'
         ]);
 
-        $dataPencatatan = [
-            'users_id' => $this->observer4
-        ];
+        // $dataPencatatan = [
+        //     'users_id' => $this->observer4
+        // ];
 
         $dataPsychrometerSangkarMeteorologi = [
             'tbk1' => $this->tbk41,
@@ -1253,7 +1338,11 @@ class TabelPencatatanAgromet extends Component
             'tbk3' => $this->tbk43,
             'tbb3' => $this->tbb43,
             'tbk4' => $this->tbk44,
-            'tbb4' => $this->tbb44
+            'tbb4' => $this->tbb44,
+            'RH1' => $this->RH41,
+            'RH2' => $this->RH42,
+            'RH3' => $this->RH43,
+            'RH4' => $this->RH44,
         ];
 
         $dataAngin = [
@@ -1315,7 +1404,7 @@ class TabelPencatatanAgromet extends Component
             'ev' => $this->ev2_piche4
         ];
 
-        Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
+        // Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
         Psychrometer_sangkar_meteorologi::where('pencatatans_id', $this->idPencatatan)->update($dataPsychrometerSangkarMeteorologi);
         Angin::where('pencatatans_id', $this->idPencatatan)->update($dataAngin);
         Open_pan::where('pencatatans_id', $this->idPencatatan)->update($dataOpenPan);
@@ -1329,7 +1418,7 @@ class TabelPencatatanAgromet extends Component
 
     public function updateForm5(){
         $this->validate([
-            'observer5' => 'required',
+            // 'observer5' => 'required',
             'tbk51' => 'numeric|nullable',
             'tbb51' => 'numeric|nullable',
             'tbk52' => 'numeric|nullable',
@@ -1338,6 +1427,10 @@ class TabelPencatatanAgromet extends Component
             'tbb53' => 'numeric|nullable',
             'tbk54' => 'numeric|nullable',
             'tbb54' => 'numeric|nullable',
+            'RH51' => 'numeric|nullable',
+            'RH52' => 'numeric|nullable',
+            'RH53' => 'numeric|nullable',
+            'RH54' => 'numeric|nullable',
             'cup_counter51' => 'numeric|nullable',
             'cup_counter52' => 'numeric|nullable',
             'arah51' => 'numeric|nullable',
@@ -1368,9 +1461,9 @@ class TabelPencatatanAgromet extends Component
             'kode_cuaca5' => 'numeric|nullable'
         ]);
 
-        $dataPencatatan = [
-            'users_id' => $this->observer5
-        ];
+        // $dataPencatatan = [
+        //     'users_id' => $this->observer5
+        // ];
 
         $dataPsychrometerSangkarMeteorologi = [
             'tbk1' => $this->tbk51,
@@ -1380,7 +1473,11 @@ class TabelPencatatanAgromet extends Component
             'tbk3' => $this->tbk53,
             'tbb3' => $this->tbb53,
             'tbk4' => $this->tbk54,
-            'tbb4' => $this->tbb54
+            'tbb4' => $this->tbb54,
+            'RH1' => $this->RH51,
+            'RH2' => $this->RH52,
+            'RH3' => $this->RH53,
+            'RH4' => $this->RH54,
         ];
 
         $dataAngin = [
@@ -1423,7 +1520,7 @@ class TabelPencatatanAgromet extends Component
             'kode_cuaca' => $this->kode_cuaca5
         ];
 
-        Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
+        // Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
         Psychrometer_sangkar_meteorologi::where('pencatatans_id', $this->idPencatatan)->update($dataPsychrometerSangkarMeteorologi);
         Angin::where('pencatatans_id', $this->idPencatatan)->update($dataAngin);
         Suhu_tanah::where('pencatatans_id', $this->idPencatatan)->update($dataSuhuTanah);
@@ -1436,7 +1533,7 @@ class TabelPencatatanAgromet extends Component
 
     public function updateForm6(){
         $this->validate([
-            'observer6' => 'required',
+            // 'observer6' => 'required',
             'tbk61' => 'numeric|nullable',
             'tbb61' => 'numeric|nullable',
             'tbk62' => 'numeric|nullable',
@@ -1445,6 +1542,10 @@ class TabelPencatatanAgromet extends Component
             'tbb63' => 'numeric|nullable',
             'tbk64' => 'numeric|nullable',
             'tbb64' => 'numeric|nullable',
+            'RH61' => 'numeric|nullable',
+            'RH62' => 'numeric|nullable',
+            'RH63' => 'numeric|nullable',
+            'RH64' => 'numeric|nullable',
             'cup_counter61' => 'numeric|nullable',
             'cup_counter62' => 'numeric|nullable',
             'arah61' => 'numeric|nullable',
@@ -1491,9 +1592,9 @@ class TabelPencatatanAgromet extends Component
             'ev2_piche6' => 'numeric|nullable'
         ]);
 
-        $dataPencatatan = [
-            'users_id' => $this->observer6
-        ];
+        // $dataPencatatan = [
+        //     'users_id' => $this->observer6
+        // ];
 
         $dataPsychrometerSangkarMeteorologi = [
             'tbk1' => $this->tbk61,
@@ -1503,7 +1604,11 @@ class TabelPencatatanAgromet extends Component
             'tbk3' => $this->tbk63,
             'tbb3' => $this->tbb63,
             'tbk4' => $this->tbk64,
-            'tbb4' => $this->tbb64
+            'tbb4' => $this->tbb64,
+            'RH1' => $this->RH61,
+            'RH2' => $this->RH62,
+            'RH3' => $this->RH63,
+            'RH4' => $this->RH64,
         ];
 
         $dataAngin = [
@@ -1565,7 +1670,7 @@ class TabelPencatatanAgromet extends Component
             'ev' => $this->ev2_piche6
         ];
 
-        Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
+        // Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
         Psychrometer_sangkar_meteorologi::where('pencatatans_id', $this->idPencatatan)->update($dataPsychrometerSangkarMeteorologi);
         Angin::where('pencatatans_id', $this->idPencatatan)->update($dataAngin);
         Open_pan::where('pencatatans_id', $this->idPencatatan)->update($dataOpenPan);
@@ -1579,7 +1684,7 @@ class TabelPencatatanAgromet extends Component
 
     public function updateForm7(){
         $this->validate([
-            'observer7' => 'required',
+            // 'observer7' => 'required',
             'tbk71' => 'numeric|nullable',
             'tbb71' => 'numeric|nullable',
             'tbk72' => 'numeric|nullable',
@@ -1588,6 +1693,10 @@ class TabelPencatatanAgromet extends Component
             'tbb73' => 'numeric|nullable',
             'tbk74' => 'numeric|nullable',
             'tbb74' => 'numeric|nullable',
+            'RH71' => 'numeric|nullable',
+            'RH72' => 'numeric|nullable',
+            'RH73' => 'numeric|nullable',
+            'RH74' => 'numeric|nullable',
             'cup_counter71' => 'numeric|nullable',
             'cup_counter72' => 'numeric|nullable',
             'arah71' => 'numeric|nullable',
@@ -1602,9 +1711,9 @@ class TabelPencatatanAgromet extends Component
             'reset72' => 'numeric|nullable',
         ]);
 
-        $dataPencatatan = [
-            'users_id' => $this->observer7
-        ];
+        // $dataPencatatan = [
+        //     'users_id' => $this->observer7
+        // ];
 
         $dataPsychrometerSangkarMeteorologi = [
             'tbk1' => $this->tbk71,
@@ -1614,7 +1723,11 @@ class TabelPencatatanAgromet extends Component
             'tbk3' => $this->tbk73,
             'tbb3' => $this->tbb73,
             'tbk4' => $this->tbk74,
-            'tbb4' => $this->tbb74
+            'tbb4' => $this->tbb74,
+            'RH1' => $this->RH71,
+            'RH2' => $this->RH72,
+            'RH3' => $this->RH73,
+            'RH4' => $this->RH74,
         ];
 
         $dataAngin = [
@@ -1635,7 +1748,7 @@ class TabelPencatatanAgromet extends Component
             'reset2' => $this->reset72
         ];
 
-        Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
+        // Pencatatan::where('id', $this->idPencatatan)->update($dataPencatatan);
         Psychrometer_sangkar_meteorologi::where('pencatatans_id', $this->idPencatatan)->update($dataPsychrometerSangkarMeteorologi);
         Angin::where('pencatatans_id', $this->idPencatatan)->update($dataAngin);
         Termometer_maksimum_dan_minimum::where('pencatatans_id', $this->idPencatatan)->update($dataTermometerMaksimumDanMinimum);
@@ -1718,4 +1831,431 @@ class TabelPencatatanAgromet extends Component
         Pencatatan::find($this->idPencatatan)->delete();
         $this->resetPage();
     }
+
+    // Rumus Hitung RH di Psychrometer Sangkar Meteorologi
+    public function hitungRH($tbk, $tbb){
+        $hasil = ((6.11*pow(10, 7.5*$tbb/(237.3+$tbb)))-((0.7947*pow(10, -3)))*(1010)*($tbk-$tbb))/((6.11*pow(10, 7.5*$tbk/(237.3+$tbk))))*100;
+        $rh = round($hasil,1);
+        return $rh;
+    }
+
+    // Cek Tbk dan Tbb jika kosong
+    public function cekTbkTbb($tbk, $tbb, $no){
+        if ($tbk === '') {
+            $this->reset(["tbk$no", "RH$no"]);
+        } else if ($tbb === ''){
+            $this->reset(["tbb$no", "RH$no"]);
+        } else if ($tbk === '' && $tbb === ''){
+            $this->reset(["tbk$no","tbb$no", "RH$no"]);
+        } else {
+            $data = "ModeHitung";
+            return $data;
+        }
+    }
+
+    // Start Updated Form 1 ~ 07.01
+    public function updatedTbb11($value){
+        $mode = $this->cekTbkTbb($this->tbk11, $this->tbb11,'11');
+        if ($mode === "ModeHitung") {
+            $this->RH11 = $this->hitungRH($this->tbk11, $this->tbb11);
+        }
+    }
+
+    public function updatedTbk11($value){
+        $mode = $this->cekTbkTbb($this->tbk11, $this->tbb11,'11');
+        if ($mode === "ModeHitung") {
+            $this->RH11 = $this->hitungRH($this->tbk11, $this->tbb11);
+        }
+    }
+
+    public function updatedTbb12($value){
+        $mode = $this->cekTbkTbb($this->tbk12, $this->tbb12,'12');
+        if ($mode === "ModeHitung") {
+            $this->RH12 = $this->hitungRH($this->tbk12, $this->tbb12);
+        }
+    }
+
+    public function updatedTbk12($value){
+        $mode = $this->cekTbkTbb($this->tbk12, $this->tbb12,'12');
+        if ($mode === "ModeHitung") {
+            $this->RH12 = $this->hitungRH($this->tbk12, $this->tbb12);
+        }
+    }
+
+    public function updatedTbb13($value){
+        $mode = $this->cekTbkTbb($this->tbk13, $this->tbb13,'13');
+        if ($mode === "ModeHitung") {
+            $this->RH13 = $this->hitungRH($this->tbk13, $this->tbb13);
+        }
+    }
+
+    public function updatedTbk13($value){
+        $mode = $this->cekTbkTbb($this->tbk13, $this->tbb13,'13');
+        if ($mode === "ModeHitung") {
+            $this->RH13 = $this->hitungRH($this->tbk13, $this->tbb13);
+        }
+    }
+
+    public function updatedTbb14($value){
+        $mode = $this->cekTbkTbb($this->tbk14, $this->tbb14,'14');
+        if ($mode === "ModeHitung") {
+            $this->RH14 = $this->hitungRH($this->tbk14, $this->tbb14);
+        }
+    }
+
+    public function updatedTbk14($value){
+        $mode = $this->cekTbkTbb($this->tbk14, $this->tbb14,'14');
+        if ($mode === "ModeHitung") {
+            $this->RH14 = $this->hitungRH($this->tbk14, $this->tbb14);
+        }
+    }
+    // End Updated Form 1 ~ 07.01
+
+    // Start Updated Form 2 ~ 07.31
+    public function updatedTbb21($value){
+        $mode = $this->cekTbkTbb($this->tbk21, $this->tbb21,'21');
+        if ($mode === "ModeHitung") {
+            $this->RH21 = $this->hitungRH($this->tbk21, $this->tbb21);
+        }
+    }
+
+    public function updatedTbk21($value){
+        $mode = $this->cekTbkTbb($this->tbk21, $this->tbb21,'21');
+        if ($mode === "ModeHitung") {
+            $this->RH21 = $this->hitungRH($this->tbk21, $this->tbb21);
+        }
+    }
+
+    public function updatedTbb22($value){
+        $mode = $this->cekTbkTbb($this->tbk22, $this->tbb22,'22');
+        if ($mode === "ModeHitung") {
+            $this->RH22 = $this->hitungRH($this->tbk22, $this->tbb22);
+        }
+    }
+
+    public function updatedTbk22($value){
+        $mode = $this->cekTbkTbb($this->tbk22, $this->tbb22,'22');
+        if ($mode === "ModeHitung") {
+            $this->RH22 = $this->hitungRH($this->tbk22, $this->tbb22);
+        }
+    }
+
+    public function updatedTbb23($value){
+        $mode = $this->cekTbkTbb($this->tbk23, $this->tbb23,'23');
+        if ($mode === "ModeHitung") {
+            $this->RH23 = $this->hitungRH($this->tbk23, $this->tbb23);
+        }
+    }
+
+    public function updatedTbk23($value){
+        $mode = $this->cekTbkTbb($this->tbk23, $this->tbb23,'23');
+        if ($mode === "ModeHitung") {
+            $this->RH23 = $this->hitungRH($this->tbk23, $this->tbb23);
+        }
+    }
+
+    public function updatedTbb24($value){
+        $mode = $this->cekTbkTbb($this->tbk24, $this->tbb24,'24');
+        if ($mode === "ModeHitung") {
+            $this->RH24 = $this->hitungRH($this->tbk24, $this->tbb24);
+        }
+    }
+
+    public function updatedTbk24($value){
+        $mode = $this->cekTbkTbb($this->tbk24, $this->tbb24,'24');
+        if ($mode === "ModeHitung") {
+            $this->RH24 = $this->hitungRH($this->tbk24, $this->tbb24);
+        }
+    }
+    // End Updated Form 2 ~ 07.31
+
+    // Start Updated Form 3 ~ 13.01
+    public function updatedTbb31($value){
+        $mode = $this->cekTbkTbb($this->tbk31, $this->tbb31,'31');
+        if ($mode === "ModeHitung") {
+            $this->RH31 = $this->hitungRH($this->tbk31, $this->tbb31);
+        }
+    }
+
+    public function updatedTbk31($value){
+        $mode = $this->cekTbkTbb($this->tbk31, $this->tbb31,'31');
+        if ($mode === "ModeHitung") {
+            $this->RH31 = $this->hitungRH($this->tbk31, $this->tbb31);
+        }
+    }
+
+    public function updatedTbb32($value){
+        $mode = $this->cekTbkTbb($this->tbk32, $this->tbb32,'32');
+        if ($mode === "ModeHitung") {
+            $this->RH32 = $this->hitungRH($this->tbk32, $this->tbb32);
+        }
+    }
+
+    public function updatedTbk32($value){
+        $mode = $this->cekTbkTbb($this->tbk32, $this->tbb32,'32');
+        if ($mode === "ModeHitung") {
+            $this->RH32 = $this->hitungRH($this->tbk32, $this->tbb32);
+        }
+    }
+
+    public function updatedTbb33($value){
+        $mode = $this->cekTbkTbb($this->tbk33, $this->tbb33,'33');
+        if ($mode === "ModeHitung") {
+            $this->RH33 = $this->hitungRH($this->tbk33, $this->tbb33);
+        }
+    }
+
+    public function updatedTbk33($value){
+        $mode = $this->cekTbkTbb($this->tbk33, $this->tbb33,'33');
+        if ($mode === "ModeHitung") {
+            $this->RH33 = $this->hitungRH($this->tbk33, $this->tbb33);
+        }
+    }
+
+    public function updatedTbb34($value){
+        $mode = $this->cekTbkTbb($this->tbk34, $this->tbb34,'34');
+        if ($mode === "ModeHitung") {
+            $this->RH34 = $this->hitungRH($this->tbk34, $this->tbb34);
+        }
+    }
+
+    public function updatedTbk34($value){
+        $mode = $this->cekTbkTbb($this->tbk34, $this->tbb34,'34');
+        if ($mode === "ModeHitung") {
+            $this->RH34 = $this->hitungRH($this->tbk34, $this->tbb34);
+        }
+    }
+    // End Updated Form 3 ~ 13.01
+
+    // Start Updated Form 4 ~ 13.31
+    public function updatedTbb41($value){
+        $mode = $this->cekTbkTbb($this->tbk41, $this->tbb41,'41');
+        if ($mode === "ModeHitung") {
+            $this->RH41 = $this->hitungRH($this->tbk41, $this->tbb41);
+        }
+    }
+
+    public function updatedTbk41($value){
+        $mode = $this->cekTbkTbb($this->tbk41, $this->tbb41,'41');
+        if ($mode === "ModeHitung") {
+            $this->RH41 = $this->hitungRH($this->tbk41, $this->tbb41);
+        }
+    }
+
+    public function updatedTbb42($value){
+        $mode = $this->cekTbkTbb($this->tbk42, $this->tbb42,'42');
+        if ($mode === "ModeHitung") {
+            $this->RH42 = $this->hitungRH($this->tbk42, $this->tbb42);
+        }
+    }
+
+    public function updatedTbk42($value){
+        $mode = $this->cekTbkTbb($this->tbk42, $this->tbb42,'42');
+        if ($mode === "ModeHitung") {
+            $this->RH42 = $this->hitungRH($this->tbk42, $this->tbb42);
+        }
+    }
+
+    public function updatedTbb43($value){
+        $mode = $this->cekTbkTbb($this->tbk43, $this->tbb43,'43');
+        if ($mode === "ModeHitung") {
+            $this->RH43 = $this->hitungRH($this->tbk43, $this->tbb43);
+        }
+    }
+
+    public function updatedTbk43($value){
+        $mode = $this->cekTbkTbb($this->tbk43, $this->tbb43,'43');
+        if ($mode === "ModeHitung") {
+            $this->RH43 = $this->hitungRH($this->tbk43, $this->tbb43);
+        }
+    }
+
+    public function updatedTbb44($value){
+        $mode = $this->cekTbkTbb($this->tbk44, $this->tbb44,'44');
+        if ($mode === "ModeHitung") {
+            $this->RH44 = $this->hitungRH($this->tbk44, $this->tbb44);
+        }
+    }
+
+    public function updatedTbk44($value){
+        $mode = $this->cekTbkTbb($this->tbk44, $this->tbb44,'44');
+        if ($mode === "ModeHitung") {
+            $this->RH44 = $this->hitungRH($this->tbk44, $this->tbb44);
+        }
+    }
+    // End Updated Form 4 ~ 13.31
+
+    // Start Updated Form 5 ~ 14.01
+    public function updatedTbb51($value){
+        $mode = $this->cekTbkTbb($this->tbk51, $this->tbb51,'51');
+        if ($mode === "ModeHitung") {
+            $this->RH51 = $this->hitungRH($this->tbk51, $this->tbb51);
+        }
+    }
+
+    public function updatedTbk51($value){
+        $mode = $this->cekTbkTbb($this->tbk51, $this->tbb51,'51');
+        if ($mode === "ModeHitung") {
+            $this->RH51 = $this->hitungRH($this->tbk51, $this->tbb51);
+        }
+    }
+
+    public function updatedTbb52($value){
+        $mode = $this->cekTbkTbb($this->tbk52, $this->tbb52,'52');
+        if ($mode === "ModeHitung") {
+            $this->RH52 = $this->hitungRH($this->tbk52, $this->tbb52);
+        }
+    }
+
+    public function updatedTbk52($value){
+        $mode = $this->cekTbkTbb($this->tbk52, $this->tbb52,'52');
+        if ($mode === "ModeHitung") {
+            $this->RH52 = $this->hitungRH($this->tbk52, $this->tbb52);
+        }
+    }
+
+    public function updatedTbb53($value){
+        $mode = $this->cekTbkTbb($this->tbk53, $this->tbb53,'53');
+        if ($mode === "ModeHitung") {
+            $this->RH53 = $this->hitungRH($this->tbk53, $this->tbb53);
+        }
+    }
+
+    public function updatedTbk53($value){
+        $mode = $this->cekTbkTbb($this->tbk53, $this->tbb53,'53');
+        if ($mode === "ModeHitung") {
+            $this->RH53 = $this->hitungRH($this->tbk53, $this->tbb53);
+        }
+    }
+
+    public function updatedTbb54($value){
+        $mode = $this->cekTbkTbb($this->tbk54, $this->tbb54,'54');
+        if ($mode === "ModeHitung") {
+            $this->RH54 = $this->hitungRH($this->tbk54, $this->tbb54);
+        }
+    }
+
+    public function updatedTbk54($value){
+        $mode = $this->cekTbkTbb($this->tbk54, $this->tbb54,'54');
+        if ($mode === "ModeHitung") {
+            $this->RH54 = $this->hitungRH($this->tbk54, $this->tbb54);
+        }
+    }
+    // End Updated Form 5 ~ 14.01
+
+    // Start Updated Form 6 ~ 17.31
+    public function updatedTbb61($value){
+        $mode = $this->cekTbkTbb($this->tbk61, $this->tbb61,'61');
+        if ($mode === "ModeHitung") {
+            $this->RH61 = $this->hitungRH($this->tbk61, $this->tbb61);
+        }
+    }
+
+    public function updatedTbk61($value){
+        $mode = $this->cekTbkTbb($this->tbk61, $this->tbb61,'61');
+        if ($mode === "ModeHitung") {
+            $this->RH61 = $this->hitungRH($this->tbk61, $this->tbb61);
+        }
+    }
+
+    public function updatedTbb62($value){
+        $mode = $this->cekTbkTbb($this->tbk62, $this->tbb62,'62');
+        if ($mode === "ModeHitung") {
+            $this->RH62 = $this->hitungRH($this->tbk62, $this->tbb62);
+        }
+    }
+
+    public function updatedTbk62($value){
+        $mode = $this->cekTbkTbb($this->tbk62, $this->tbb62,'62');
+        if ($mode === "ModeHitung") {
+            $this->RH62 = $this->hitungRH($this->tbk62, $this->tbb62);
+        }
+    }
+
+    public function updatedTbb63($value){
+        $mode = $this->cekTbkTbb($this->tbk63, $this->tbb63,'63');
+        if ($mode === "ModeHitung") {
+            $this->RH63 = $this->hitungRH($this->tbk63, $this->tbb63);
+        }
+    }
+
+    public function updatedTbk63($value){
+        $mode = $this->cekTbkTbb($this->tbk63, $this->tbb63,'63');
+        if ($mode === "ModeHitung") {
+            $this->RH63 = $this->hitungRH($this->tbk63, $this->tbb63);
+        }
+    }
+
+    public function updatedTbb64($value){
+        $mode = $this->cekTbkTbb($this->tbk64, $this->tbb64,'64');
+        if ($mode === "ModeHitung") {
+            $this->RH64 = $this->hitungRH($this->tbk64, $this->tbb64);
+        }
+    }
+
+    public function updatedTbk64($value){
+        $mode = $this->cekTbkTbb($this->tbk64, $this->tbb64,'64');
+        if ($mode === "ModeHitung") {
+            $this->RH64 = $this->hitungRH($this->tbk64, $this->tbb64);
+        }
+    }
+    // End Updated Form 6 ~ 17.31
+
+    // Start Updated Form 7 ~ 18.01
+    public function updatedTbb71($value){
+        $mode = $this->cekTbkTbb($this->tbk71, $this->tbb71,'71');
+        if ($mode === "ModeHitung") {
+            $this->RH71 = $this->hitungRH($this->tbk71, $this->tbb71);
+        }
+    }
+
+    public function updatedTbk71($value){
+        $mode = $this->cekTbkTbb($this->tbk71, $this->tbb71,'71');
+        if ($mode === "ModeHitung") {
+            $this->RH71 = $this->hitungRH($this->tbk71, $this->tbb71);
+        }
+    }
+
+    public function updatedTbb72($value){
+        $mode = $this->cekTbkTbb($this->tbk72, $this->tbb72,'72');
+        if ($mode === "ModeHitung") {
+            $this->RH72 = $this->hitungRH($this->tbk72, $this->tbb72);
+        }
+    }
+
+    public function updatedTbk72($value){
+        $mode = $this->cekTbkTbb($this->tbk72, $this->tbb72,'72');
+        if ($mode === "ModeHitung") {
+            $this->RH72 = $this->hitungRH($this->tbk72, $this->tbb72);
+        }
+    }
+
+    public function updatedTbb73($value){
+        $mode = $this->cekTbkTbb($this->tbk73, $this->tbb73,'73');
+        if ($mode === "ModeHitung") {
+            $this->RH73 = $this->hitungRH($this->tbk73, $this->tbb73);
+        }
+    }
+
+    public function updatedTbk73($value){
+        $mode = $this->cekTbkTbb($this->tbk73, $this->tbb73,'73');
+        if ($mode === "ModeHitung") {
+            $this->RH73 = $this->hitungRH($this->tbk73, $this->tbb73);
+        }
+    }
+
+    public function updatedTbb74($value){
+        $mode = $this->cekTbkTbb($this->tbk74, $this->tbb74,'74');
+        if ($mode === "ModeHitung") {
+            $this->RH74 = $this->hitungRH($this->tbk74, $this->tbb74);
+        }
+    }
+
+    public function updatedTbk74($value){
+        $mode = $this->cekTbkTbb($this->tbk74, $this->tbb74,'74');
+        if ($mode === "ModeHitung") {
+            $this->RH74 = $this->hitungRH($this->tbk74, $this->tbb74);
+        }
+    }
+    // End Updated Form 7 ~ 18.01
 }

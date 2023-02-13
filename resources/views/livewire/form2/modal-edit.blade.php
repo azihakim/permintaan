@@ -11,7 +11,8 @@
                     </div>
                     <div class="modal-body">
                         <form>
-                            <div class="row">
+                            @csrf
+                            {{-- <div class="row">
                                 <div class="col-sm-4">
                                     <label>Observer</label>
                                 </div>
@@ -31,12 +32,12 @@
                                                 observer field is required.</label>
                                         </div>
                                         <script>
-                                            $('#form2').scrollTop(0);
+                                            $('#editForm2').scrollTop(0);
                                         </script>
                                     @enderror
                                 </div>
                             </div>
-                            <div class="spacer-10"></div>
+                            <div class="spacer-10"></div> --}}
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label style="text-decoration: underline;">Psychrometer Sangkar Meteorologi</label>
@@ -50,7 +51,7 @@
                                         </div>
                                         <div class="col-md-4 mr-12 px-16">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                wire:model="tbk21">
+                                                wire:model.lazy="tbk21">
                                             @error('tbk21')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -59,7 +60,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -68,7 +69,7 @@
                                         </div>
                                         <div class="col-md-4 px-16">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                wire:model="tbb21">
+                                                wire:model.lazy="tbb21">
                                             @error('tbb21')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -77,7 +78,28 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
+                                                </script>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="spacer-10"></div>
+                                    <div class="row">
+                                        <div class="col-md-2 label-mr-8">
+                                            <label for="">RH</label>
+                                        </div>
+                                        <div class="col-md-4 mr-12 px-16">
+                                            <input class="form-control" type="number" step="any" min="0"
+                                                wire:model="RH21">
+                                            @error('RH21')
+                                                <div class="has-error">
+                                                    <span style="margin-right: 5px;"
+                                                        class="glyphicon glyphicon-remove form-control-feedback"
+                                                        aria-hidden="true"></span><label class="control-label"
+                                                        for="inputError2">{{ $message }}</label>
+                                                </div>
+                                                <script>
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -92,7 +114,7 @@
                                         </div>
                                         <div class="col-md-4 mr-12 px-16">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                wire:model="tbk22">
+                                                wire:model.lazy="tbk22">
                                             @error('tbk22')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -101,7 +123,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -110,7 +132,7 @@
                                         </div>
                                         <div class="col-md-4 px-16">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                wire:model="tbb22">
+                                                wire:model.lazy="tbb22">
                                             @error('tbb22')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -119,7 +141,28 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
+                                                </script>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="spacer-10"></div>
+                                    <div class="row">
+                                        <div class="col-md-2 label-mr-8">
+                                            <label for="">RH</label>
+                                        </div>
+                                        <div class="col-md-4 mr-12 px-16">
+                                            <input class="form-control" type="number" step="any" min="0"
+                                                wire:model="RH22">
+                                            @error('RH22')
+                                                <div class="has-error">
+                                                    <span style="margin-right: 5px;"
+                                                        class="glyphicon glyphicon-remove form-control-feedback"
+                                                        aria-hidden="true"></span><label class="control-label"
+                                                        for="inputError2">{{ $message }}</label>
+                                                </div>
+                                                <script>
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -134,7 +177,7 @@
                                         </div>
                                         <div class="col-md-4 mr-12 px-16">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                wire:model="tbk23">
+                                                wire:model.lazy="tbk23">
                                             @error('tbk23')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -143,7 +186,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -152,7 +195,7 @@
                                         </div>
                                         <div class="col-md-4 px-16">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                wire:model="tbb23">
+                                                wire:model.lazy="tbb23">
                                             @error('tbb23')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -161,7 +204,28 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
+                                                </script>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="spacer-10"></div>
+                                    <div class="row">
+                                        <div class="col-md-2 label-mr-8">
+                                            <label for="">RH</label>
+                                        </div>
+                                        <div class="col-md-4 mr-12 px-16">
+                                            <input class="form-control" type="number" step="any" min="0"
+                                                wire:model="RH23">
+                                            @error('RH23')
+                                                <div class="has-error">
+                                                    <span style="margin-right: 5px;"
+                                                        class="glyphicon glyphicon-remove form-control-feedback"
+                                                        aria-hidden="true"></span><label class="control-label"
+                                                        for="inputError2">{{ $message }}</label>
+                                                </div>
+                                                <script>
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -176,7 +240,7 @@
                                         </div>
                                         <div class="col-md-4 mr-12 px-16">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                wire:model="tbk24">
+                                                wire:model.lazy="tbk24">
                                             @error('tbk24')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -185,7 +249,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -194,7 +258,7 @@
                                         </div>
                                         <div class="col-md-4 px-16">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                wire:model="tbb24">
+                                                wire:model.lazy="tbb24">
                                             @error('tbb24')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -203,7 +267,28 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
+                                                </script>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="spacer-10"></div>
+                                    <div class="row">
+                                        <div class="col-md-2 label-mr-8">
+                                            <label for="">RH</label>
+                                        </div>
+                                        <div class="col-md-4 mr-12 px-16">
+                                            <input class="form-control" type="number" step="any" min="0"
+                                                wire:model="RH24">
+                                            @error('RH24')
+                                                <div class="has-error">
+                                                    <span style="margin-right: 5px;"
+                                                        class="glyphicon glyphicon-remove form-control-feedback"
+                                                        aria-hidden="true"></span><label class="control-label"
+                                                        for="inputError2">{{ $message }}</label>
+                                                </div>
+                                                <script>
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -232,7 +317,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -262,7 +347,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -292,7 +377,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -310,7 +395,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -333,7 +418,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -351,7 +436,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -374,7 +459,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -392,7 +477,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -422,7 +507,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -440,7 +525,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -463,7 +548,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -486,7 +571,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -504,7 +589,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -522,7 +607,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -551,7 +636,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -569,7 +654,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -592,7 +677,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -610,7 +695,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -633,7 +718,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -651,7 +736,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -674,7 +759,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -692,7 +777,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -715,7 +800,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -733,7 +818,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -756,7 +841,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -774,7 +859,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -797,7 +882,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -815,7 +900,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -844,7 +929,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -862,7 +947,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -885,7 +970,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -903,7 +988,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -926,7 +1011,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -944,7 +1029,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -967,7 +1052,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -985,7 +1070,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -1008,7 +1093,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -1026,7 +1111,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -1049,7 +1134,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -1067,7 +1152,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -1090,7 +1175,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -1108,7 +1193,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -1138,7 +1223,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -1146,8 +1231,9 @@
                                             <label for="">H2</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <input type="number" name="" id="" class="form-control"
-                                                step="any" min="0" wire:model="h22_piche">
+                                            <input type="number" name="" id=""
+                                                class="form-control" step="any" min="0"
+                                                wire:model="h22_piche">
                                             @error('h22_piche')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -1156,7 +1242,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
@@ -1164,8 +1250,9 @@
                                             <label for="">EV</label>
                                         </div>
                                         <div class="col-md-3">
-                                            <input type="number" name="" id="" class="form-control"
-                                                step="any" min="0" wire:model="ev2_piche">
+                                            <input type="number" name="" id=""
+                                                class="form-control" step="any" min="0"
+                                                wire:model="ev2_piche">
                                             @error('ev2_piche')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -1174,7 +1261,7 @@
                                                         for="inputError2">{{ $message }}</label>
                                                 </div>
                                                 <script>
-                                                    $('#form2').scrollTop(0);
+                                                    $('#editForm2').scrollTop(0);
                                                 </script>
                                             @enderror
                                         </div>
