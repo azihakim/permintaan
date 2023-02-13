@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use Nette\Utils\Strings;
 use App\Mail\KirimRespon;
 
-class ResponlayananbertarifController extends Controller
+class ResponController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -129,7 +129,7 @@ class ResponlayananbertarifController extends Controller
         // dd($user);
         Mail::to($user)->send(new kirimRespon($user));
 
-        return redirect('dashboard-admin')->with('status', "Data $user->name, $user->jenis_permintaan tanggal $date berhasil di kirim");
+        return redirect('dashboard-admin')->with('status', "Data $user->name, $user->jenis_permintaan tanggal $date berhasil ditanggapi");
     }
 
     /**

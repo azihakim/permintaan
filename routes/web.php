@@ -11,7 +11,7 @@ use App\Http\Controllers\ListuserController;
 use App\Http\Controllers\PertahanankeamananController;
 use App\Http\Controllers\PemerintahanController;
 use App\Http\Controllers\PenanggulanganbencanaController;
-use App\Http\Controllers\ResponlayananbertarifController;
+use App\Http\Controllers\ResponController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\UsermasyarakatController;
 // use App\Http\Controllers\UsermasyarakatController;
@@ -41,7 +41,7 @@ require __DIR__.'/auth.php';
 
 // Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboarduser')->middleware(['auth', 'verified']);
 
-Route::resource('/respon-bertarif', ResponlayananbertarifController::class)->middleware(['auth', 'verified']);
+Route::resource('/respon-bertarif', ResponController::class)->middleware(['auth', 'verified']);
 
 // layanan bertarif
 Route::resource('/bertarif', LayananbertarifController::class)->middleware(['auth', 'verified']);
@@ -111,8 +111,8 @@ Route::middleware(['auth','cekrole:Super Admin, Admin'])->group(function()
 // Dashboard
     // Route::resource('/admin', DashboardadminController::class);
     Route::get('/dashboard-admin',[DashboardadminController::class, 'index'])->name('dashboard.admin');
-    Route::resource('/respon', ResponlayananbertarifController::class);
-// Route::resource('respon-layanan', [ResponlayananbertarifController::class])->middleware(['auth', 'verified'] );
+    Route::resource('/respon', ResponController::class);
+// Route::resource('respon-layanan', [ResponController::class])->middleware(['auth', 'verified'] );
 });
 
 Route::get('/', function () {

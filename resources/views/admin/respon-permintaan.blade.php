@@ -5,8 +5,23 @@
                 <div class="subheading">
                     <h2>Formulir Permintaan</h2>
                         <div class="spacer-5"></div>
+                    
                     <h3>
-                        <span class="text-muted">Layanan Bertarif PNBP sesuai dengan PP No.47 Tahun 2018</span>
+                        @if ($formulir->jenis_permintaan == 'Layanan bertarif')
+                            <span class="text-muted">Layanan Bertarif PNBP sesuai dengan PP No.47 Tahun 2018</span>
+                        @elseif($formulir->jenis_permintaan == 'Kegiatan penanggulangan bencana')
+                            <span class="text-muted">Kegiatan Penanggulangan Bencana</span>
+                        @elseif($formulir->jenis_permintaan == 'Kegiatan pendidikan/penelitian non komersil')
+                            <span class="text-muted">Kegiatan Pendidikan dan Penelitian non Komersial</span>
+                        @elseif($formulir->jenis_permintaan == 'Kegiatan pemerintahan')
+                            <span class="text-muted">Kegiatan Pemerintahan Pusat dan Daerah</span>
+                        @elseif($formulir->jenis_permintaan == 'Kegiatan pertahanan dan keamanan')
+                            <span class="text-muted">Kegiatan Pertahanan dan Keamanan</span>
+                        @elseif($formulir->jenis_permintaan == 'Kegiatan keagamaan')
+                            <span class="text-muted">Kegiatan Keagamaan</span>
+                        @elseif($formulir->jenis_permintaan == 'Kegiatan sosial')
+                            <span class="text-muted">Kegiatan Sosial</span>
+                        @endif
                     </h3>
                 </div>
                 <div class="row">

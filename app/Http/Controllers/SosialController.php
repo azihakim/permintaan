@@ -52,6 +52,7 @@ class SosialController extends Controller
             $sosial = new Formulir();
             $sosial->jenis_permintaan = "Kegiatan sosial";
             $sosial->status_form = "1";
+            $sosial->user_id =$request->user()->id;
             $sosial->surat_permintaan = $file;
             $sosial->deskripsi = $data['deskripsi'];
             $sosial->save();

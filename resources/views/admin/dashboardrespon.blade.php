@@ -90,6 +90,10 @@
                                 <span class='label label-success' title="Permintaan selesai di proses">Selesai</span>
                                 @elseif($item->status_form == 5)
                                 <span class='label label-warning' title="Menunggu pembayaran sesuai jumlah pada billing yang tersedia">Menunggu Pembayaran</span>
+                                    @if ($item->respon_struk != null)
+                                    <div class="spacer-5"></div>
+                                    <span class="label label-primary">Sudah dibayar</span>
+                                    @endif
                                 @elseif($item->status_form == 6)
                                 <span class='label label-warning' title="Menunggu pembayaran ulang">Menunggu Pembayaran Ulang</span>
                                 @elseif($item->status_form == 7)
