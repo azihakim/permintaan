@@ -15,6 +15,7 @@ use App\Models\Suhu_min_rumput;
 use App\Models\Suhu_tanah;
 use App\Models\Termometer_maksimum_dan_minimum;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
@@ -115,12 +116,16 @@ class AddPencatatanAgromet extends Component
     // Angin
     public $cup_counter21 = 0;
     public $cup_counter22 = 0;
+    public $kecRata21 = 0;
+    public $kecRata22 = 0;
     public $arah21 = 0;
     public $kecepatan21 = 0;
     public $arah22 = 0;
     public $kecepatan22 = 0;
     public $arah23 = 0;
     public $kecepatan23 = 0;
+    public $msgError21;
+    public $msgError22;
     // Open Pan
     public $h2_openpan = 0;
     public $ev2_openpan = 0;
@@ -198,12 +203,16 @@ class AddPencatatanAgromet extends Component
     // Angin
     public $cup_counter41 = 0;
     public $cup_counter42 = 0;
+    public $kecRata41 = 0;
+    public $kecRata42 = 0;
     public $arah41 = 0;
     public $kecepatan41 = 0;
     public $arah42 = 0;
     public $kecepatan42 = 0;
     public $arah43 = 0;
     public $kecepatan43 = 0;
+    public $msgError41;
+    public $msgError42;
     // Open Pan
     public $h2_openpan4 = 0;
     public $ev2_openpan4 = 0;
@@ -311,12 +320,16 @@ class AddPencatatanAgromet extends Component
     // Angin
     public $cup_counter61 = 0;
     public $cup_counter62 = 0;
+    public $kecRata61 = 0;
+    public $kecRata62 = 0;
     public $arah61 = 0;
     public $kecepatan61 = 0;
     public $arah62 = 0;
     public $kecepatan62 = 0;
     public $arah63 = 0;
     public $kecepatan63 = 0;
+    public $msgError61;
+    public $msgError62;
     // Open Pan
     public $h2_openpan6 = 0;
     public $ev2_openpan6 = 0;
@@ -406,6 +419,8 @@ class AddPencatatanAgromet extends Component
             'observers' => User::where('role', 'Observer')->get()
         ]);
     }
+
+
 
     // Rumus Hitung RH di Psychrometer Sangkar Meteorologi
     public function hitungRH($tbk, $tbb){
@@ -837,7 +852,6 @@ class AddPencatatanAgromet extends Component
     // Simpan Form 1 ~ 07.01
     public function storeForm1(){
         $this->validate([
-            'observer1' => 'required',
             'tanggal' => 'required',
             'tbk11' => 'numeric|nullable',
             'tbb11' => 'numeric|nullable',
@@ -879,7 +893,7 @@ class AddPencatatanAgromet extends Component
         $dataPencatatan = [
             'tanggal' => $this->tanggal,
             'waktu' => $this->waktu1,
-            'users_id' => $this->observer1
+            'users_id' => Auth::user()->id
         ];
 
         Pencatatan::create($dataPencatatan);
@@ -963,7 +977,6 @@ class AddPencatatanAgromet extends Component
     // Simpan Form 2 ~ 07.31
     public function storeForm2(){
         $this->validate([
-            'observer2' => 'required',
             'tanggal' => 'required',
             'tbk21' => 'numeric|nullable',
             'tbb21' => 'numeric|nullable',
@@ -978,6 +991,8 @@ class AddPencatatanAgromet extends Component
             'RH23' => 'numeric|nullable',
             'RH24' => 'numeric|nullable',
             'cup_counter21' => 'numeric|nullable',
+            'kecRata21' => 'numeric|nullable',
+            'kecRata22' => 'numeric|nullable',
             'cup_counter22' => 'numeric|nullable',
             'arah21' => 'numeric|nullable',
             'kecepatan21' => 'numeric|nullable',
@@ -1027,7 +1042,7 @@ class AddPencatatanAgromet extends Component
         $dataPencatatan = [
             'tanggal' => $this->tanggal,
             'waktu' => $this->waktu2,
-            'users_id' => $this->observer2
+            'users_id' => Auth::user()->id
         ];
 
         Pencatatan::create($dataPencatatan);
@@ -1051,6 +1066,8 @@ class AddPencatatanAgromet extends Component
 
         $dataAngin = [
             'cup_counter1' => $this->cup_counter21,
+            'kec_rata1' => $this->kecRata21,
+            'kec_rata2' => $this->kecRata22,
             'cup_counter2' => $this->cup_counter22,
             'arah1' => $this->arah21,
             'kecepatan1' => $this->kecepatan21,
@@ -1128,7 +1145,6 @@ class AddPencatatanAgromet extends Component
     // Simpan Form 3 ~ 13.01
     public function storeForm3(){
         $this->validate([
-            'observer3' => 'required',
             'tanggal' => 'required',
             'tbk31' => 'numeric|nullable',
             'tbb31' => 'numeric|nullable',
@@ -1148,7 +1164,7 @@ class AddPencatatanAgromet extends Component
         $dataPencatatan = [
             'tanggal' => $this->tanggal,
             'waktu' => $this->waktu3,
-            'users_id' => $this->observer3
+            'users_id' => Auth::user()->id
         ];
 
         Pencatatan::create($dataPencatatan);
@@ -1185,7 +1201,6 @@ class AddPencatatanAgromet extends Component
     // Simpan Form 4 ~ 13.31
     public function storeForm4(){
         $this->validate([
-            'observer4' => 'required',
             'tanggal' => 'required',
             'tbk41' => 'numeric|nullable',
             'tbb41' => 'numeric|nullable',
@@ -1200,6 +1215,8 @@ class AddPencatatanAgromet extends Component
             'RH43' => 'numeric|nullable',
             'RH44' => 'numeric|nullable',
             'cup_counter41' => 'numeric|nullable',
+            'kecRata41' => 'numeric|nullable',
+            'kecRata42' => 'numeric|nullable',
             'cup_counter42' => 'numeric|nullable',
             'arah41' => 'numeric|nullable',
             'kecepatan41' => 'numeric|nullable',
@@ -1248,7 +1265,7 @@ class AddPencatatanAgromet extends Component
         $dataPencatatan = [
             'tanggal' => $this->tanggal,
             'waktu' => $this->waktu4,
-            'users_id' => $this->observer4
+            'users_id' => Auth::user()->id
         ];
 
         Pencatatan::create($dataPencatatan);
@@ -1272,7 +1289,9 @@ class AddPencatatanAgromet extends Component
 
         $dataAngin = [
             'cup_counter1' => $this->cup_counter41,
+            'kec_rata1' => $this->kecRata41,
             'cup_counter2' => $this->cup_counter42,
+            'kec_rata2' => $this->kecRata42,
             'arah1' => $this->arah41,
             'kecepatan1' => $this->kecepatan41,
             'arah2' => $this->arah42,
@@ -1349,7 +1368,6 @@ class AddPencatatanAgromet extends Component
     // Simpan Form 5 ~ 14.01
     public function storeForm5(){
         $this->validate([
-            'observer5' => 'required',
             'tanggal' => 'required',
             'tbk51' => 'numeric|nullable',
             'tbb51' => 'numeric|nullable',
@@ -1396,7 +1414,7 @@ class AddPencatatanAgromet extends Component
         $dataPencatatan = [
             'tanggal' => $this->tanggal,
             'waktu' => $this->waktu5,
-            'users_id' => $this->observer5
+            'users_id' => Auth::user()->id
         ];
 
         Pencatatan::create($dataPencatatan);
@@ -1475,7 +1493,6 @@ class AddPencatatanAgromet extends Component
     // Simpan Form 6 ~ 17.31
     public function storeForm6(){
         $this->validate([
-            'observer6' => 'required',
             'tanggal' => 'required',
             'tbk61' => 'numeric|nullable',
             'tbb61' => 'numeric|nullable',
@@ -1490,7 +1507,9 @@ class AddPencatatanAgromet extends Component
             'RH63' => 'numeric|nullable',
             'RH64' => 'numeric|nullable',
             'cup_counter61' => 'numeric|nullable',
+            'kecRata61' => 'numeric|nullable',
             'cup_counter62' => 'numeric|nullable',
+            'kecRata62' => 'numeric|nullable',
             'arah61' => 'numeric|nullable',
             'kecepatan61' => 'numeric|nullable',
             'arah62' => 'numeric|nullable',
@@ -1539,7 +1558,7 @@ class AddPencatatanAgromet extends Component
         $dataPencatatan = [
             'tanggal' => $this->tanggal,
             'waktu' => $this->waktu6,
-            'users_id' => $this->observer6
+            'users_id' => Auth::user()->id
         ];
 
         Pencatatan::create($dataPencatatan);
@@ -1563,7 +1582,9 @@ class AddPencatatanAgromet extends Component
 
         $dataAngin = [
             'cup_counter1' => $this->cup_counter61,
+            'kec_rata1' => $this->kecRata61,
             'cup_counter2' => $this->cup_counter62,
+            'kec_rata2' => $this->kecRata62,
             'arah1' => $this->arah61,
             'kecepatan1' => $this->kecepatan61,
             'arah2' => $this->arah62,
@@ -1640,7 +1661,6 @@ class AddPencatatanAgromet extends Component
     // Simpan Form 7 ~ 18.01
     public function storeForm7(){
         $this->validate([
-            'observer7' => 'required',
             'tanggal' => 'required',
             'tbk71' => 'numeric|nullable',
             'tbb71' => 'numeric|nullable',
@@ -1671,7 +1691,7 @@ class AddPencatatanAgromet extends Component
         $dataPencatatan = [
             'tanggal' => $this->tanggal,
             'waktu' => $this->waktu7,
-            'users_id' => $this->observer7
+            'users_id' => Auth::user()->id
         ];
 
         Pencatatan::create($dataPencatatan);
@@ -1724,7 +1744,6 @@ class AddPencatatanAgromet extends Component
     // Simpan Form Hujan 1 ~ 10.01
     public function storeFormHujan1(){
         $this->validate([
-            'observerHujan1' => 'required',
             'tanggal' => 'required',
             'ch_hujan1' => 'numeric|nullable'
         ]);
@@ -1732,7 +1751,7 @@ class AddPencatatanAgromet extends Component
         $dataPencatatan = [
             'tanggal' => $this->tanggal,
             'waktu' => $this->waktuHujan1,
-            'users_id' => $this->observerHujan1
+            'users_id' => Auth::user()->id
         ];
 
         Pencatatan::create($dataPencatatan);
@@ -1752,7 +1771,6 @@ class AddPencatatanAgromet extends Component
     // Simpan Form Hujan 2 ~ 16.01
     public function storeFormHujan2(){
         $this->validate([
-            'observerHujan2' => 'required',
             'tanggal' => 'required',
             'ch_hujan2' => 'numeric|nullable'
         ]);
@@ -1760,7 +1778,7 @@ class AddPencatatanAgromet extends Component
         $dataPencatatan = [
             'tanggal' => $this->tanggal,
             'waktu' => $this->waktuHujan2,
-            'users_id' => $this->observerHujan2
+            'users_id' => Auth::user()->id
         ];
 
         Pencatatan::create($dataPencatatan);
@@ -1780,7 +1798,6 @@ class AddPencatatanAgromet extends Component
     // Simpan Form Hujan 3 ~ 19.01
     public function storeFormHujan3(){
         $this->validate([
-            'observerHujan3' => 'required',
             'tanggal' => 'required',
             'ch_hujan3' => 'numeric|nullable'
         ]);
@@ -1788,7 +1805,7 @@ class AddPencatatanAgromet extends Component
         $dataPencatatan = [
             'tanggal' => $this->tanggal,
             'waktu' => $this->waktuHujan3,
-            'users_id' => $this->observerHujan3
+            'users_id' => Auth::user()->id
         ];
 
         Pencatatan::create($dataPencatatan);
@@ -1868,4 +1885,115 @@ class AddPencatatanAgromet extends Component
         }
     }
 
+    public function hitungKecRata($cupCounterSekarang, $cupCounterSebelumnya, $bagi){
+        $hasil = $cupCounterSekarang - $cupCounterSebelumnya;
+        if (0 > $hasil) {
+        $data = (($cupCounterSekarang + 10000) - $cupCounterSebelumnya)/$bagi;
+        } else {
+            $data = ($cupCounterSekarang - $cupCounterSebelumnya) / $bagi;
+        }
+
+        // dd($cupCounterSebelumnya);
+        return round($data,2);
+    }
+
+        // 07.31
+    public function updatedCupCounter21($value) {
+        $cup_counter1Sebelumnya = $this->queryKecRata1Kemarin($this->tanggal, '17.31');
+        if ($this->cup_counter21 === "") {
+            $this->cup_counter21 = 0;
+            $this->kecRata21 = 0;
+        } else {
+                $data = $this->hitungKecRata($this->cup_counter21, $cup_counter1Sebelumnya, 14);
+                $this->kecRata21 = $data;
+        }
+    }
+
+    public function updatedCupCounter22($value) {
+        $cup_counter2Sebelumnya = $this->queryKecRata2Kemarin($this->tanggal, '17.31');
+        if ($this->cup_counter22 === "") {
+            $this->cup_counter22 = 0;
+            $this->kecRata22 = 0;
+        } else {
+                $data = $this->hitungKecRata($this->cup_counter22, $cup_counter2Sebelumnya, 14);
+                $this->kecRata22 = $data;
+        }
+    }
+
+    // 13.31
+    public function updatedCupCounter41($value) {
+        $cup_counter1Sebelumnya = $this->queryKecRata1($this->tanggal, '07.31');
+        if ($this->cup_counter41 === "") {
+            $this->cup_counter41 = 0;
+            $this->kecRata41 = 0;
+        } else {
+                $data = $this->hitungKecRata($this->cup_counter41, $cup_counter1Sebelumnya, 6);
+                $this->kecRata41 = $data;
+        }
+    }
+
+    public function updatedCupCounter42($value) {
+        $cup_counter2Sebelumnya = $this->queryKecRata2($this->tanggal, '07.31');
+        if ($this->cup_counter42 === "") {
+            $this->cup_counter42 = 0;
+            $this->kecRata42 = 0;
+        } else {
+
+                $data = $this->hitungKecRata($this->cup_counter42, $cup_counter2Sebelumnya, 6);
+                $this->kecRata42 = $data;
+        }
+    }
+
+    // 17.31
+    public function updatedCupCounter61($value) {
+        $cup_counter1Sebelumnya = $this->queryKecRata1($this->tanggal, '13.31');
+        if ($this->cup_counter61 === "") {
+            $this->cup_counter61 = 0;
+            $this->kecRata61 = 0;
+        } else {
+
+                $data = $this->hitungKecRata($this->cup_counter61, $cup_counter1Sebelumnya, 4);
+                $this->kecRata61 = $data;
+
+        }
+    }
+
+    public function updatedCupCounter62($value) {
+        $cup_counter2Sebelumnya = $this->queryKecRata2($this->tanggal, '13.31');
+        if ($this->cup_counter62 === "") {
+            $this->cup_counter62 = 0;
+            $this->kecRata62 = 0;
+        } else {
+                $data = $this->hitungKecRata($this->cup_counter62, $cup_counter2Sebelumnya, 4);
+                $this->kecRata62 = $data;
+        }
+    }
+
+    // cup_counter1
+    public function queryKecRata1($tanggal, $waktu){
+        $data = DB::select("SELECT angins.cup_counter1 FROM pencatatans INNER JOIN angins ON pencatatans.id = angins.pencatatans_id WHERE tanggal = DATE('$tanggal') AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->cup_counter1) ? $data[0]->cup_counter1 : 0;
+    }
+
+    // cup_counter2
+    public function queryKecRata2($tanggal, $waktu){
+        $data = DB::select("SELECT angins.cup_counter2 FROM pencatatans INNER JOIN angins ON pencatatans.id = angins.pencatatans_id WHERE tanggal = DATE('$tanggal') AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->cup_counter2) ? $data[0]->cup_counter2 : 0;
+    }
+
+        // cup_counter1
+    public function queryKecRata1Kemarin($tanggal, $waktu){
+        $data = DB::select("SELECT angins.cup_counter1 FROM pencatatans INNER JOIN angins ON pencatatans.id = angins.pencatatans_id WHERE tanggal = DATE('$tanggal')-1 AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->cup_counter1) ? $data[0]->cup_counter1 : 0;
+    }
+
+    // cup_counter2
+    public function queryKecRata2Kemarin($tanggal, $waktu){
+        $data = DB::select("SELECT angins.cup_counter2 FROM pencatatans INNER JOIN angins ON pencatatans.id = angins.pencatatans_id WHERE tanggal = DATE('$tanggal')-1 AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->cup_counter2) ? $data[0]->cup_counter2 : 0;
+    }
 }

@@ -306,7 +306,7 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter41">
+                                            name="" id="" wire:model.lazy="cup_counter41">
                                         @error('cup_counter41')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -324,7 +324,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="">
+                                            name="" id="" wire:model="kecRata41">
                                     </div>
                                 </div>
                             </div>
@@ -354,7 +354,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="">
+                                            name="" id="" wire:model="kecRata42">
                                     </div>
                                 </div>
                             </div>

@@ -306,7 +306,7 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter21">
+                                            name="" id="" wire:model.lazy="cup_counter21">
                                         @error('cup_counter21')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -324,7 +324,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="">
+                                            name="" id="" wire:model="kecRata21">
                                     </div>
                                 </div>
                             </div>
@@ -336,7 +336,7 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter22">
+                                            name="" id="" wire:model.lazy="cup_counter22">
                                         @error('cup_counter22')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -354,7 +354,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="">
+                                            name="" id="" wire:model="kecRata22">
                                     </div>
                                 </div>
                             </div>
