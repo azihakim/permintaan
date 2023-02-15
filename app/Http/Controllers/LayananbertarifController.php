@@ -69,7 +69,7 @@ class LayananbertarifController extends Controller
                                 // 'latitude'      => $request->latitude_petir[$i],
                                 // 'longitude'     => $request->longitude_petir[$i],
                                 'tgl_dari'      => $request->tgl_dari_petir[$i],
-                                'tgl_sampai'    => $request->tgl_sampai_petir[$i]
+                                // 'tgl_sampai'    => $request->tgl_sampai_petir[$i]
                         ]);
                     }
             }

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText('desk_petir')->nullable();
             $table->longText('lokasi');
             $table->date('tgl_dari');
-            $table->date('tgl_sampai');
+            $table->date('tgl_sampai')->nullable();
             $table->timestamps();
         });
     }
