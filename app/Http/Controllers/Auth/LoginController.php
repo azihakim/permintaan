@@ -47,7 +47,11 @@ class LoginController extends Controller
         ]);
         if(auth()->attempt(['email'=>$input["email"], 'password'=>$input["password"]]))
         {
-            if(auth()->user()->role == 'Admin' || auth()->user()->role == 'Super Admin')
+            if(auth()->user()->role == 'Super Admin')
+            {
+                return redirect()->route('dashboard.sa');
+            }
+            else if(auth()->user()->role == 'Admin')
             {
                 return redirect()->route('dashboard.admin');
             }

@@ -21,7 +21,7 @@
                                 <label>Nama</label>
                             </div>
                             <div class="col-sm-5">
-                                <input type="text" aria-required="true" name="nama" required="" value="" class="form-control">
+                                <input type="text" aria-required="true" name="nama" required="" value="{{ $user->name }}" class="form-control">
                             </div>
                         </div>
                         <div class="spacer-10"></div>
@@ -30,7 +30,7 @@
                                 <label>Asal instansi</label>
                             </div>
                             <div class="col-sm-5">
-                                <input type="text" aria-required="true" name="instansi" value="" required="" class="form-control">
+                                <input type="text" aria-required="true" name="instansi" value="{{ $user->instansi }}" required="" class="form-control">
                             </div>
                         </div>
                         <div class="spacer-10"></div>

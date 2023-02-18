@@ -10,14 +10,19 @@ use Exception;
 class Formulir extends Model
 {
     use HasFactory;
-    protected static function boot()
-    {
-        parent::boot();
-        static::addGlobalScope('user_id', function (Builder $builder) {
-                if(auth()->user()->role == 0){
-                        $builder->where('user_id', auth()->id());
-                }
-        });
-    }
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+        // self::addGlobalScope(function(Builder $builder){
+        //     $builder->where('user_id', auth()->id());
+        // });
+
+        // static::addGlobalScope('user_id', function(Builder $builder){
+        //     if (auth()->check()){
+        //         return $builder->where('user_id', auth()->id());
+        //     }
+        // });
+    // }
    
 }

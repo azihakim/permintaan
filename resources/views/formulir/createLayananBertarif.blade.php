@@ -83,36 +83,36 @@
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="stacked-labels">
-                                                        <label><input type="checkbox" id="cb_datapetir" name="cb_datapetirs" onclick="toggle_datapetir()"><span></span>Data petir</label>
-                                                        <label><input type="checkbox" id="cb_dataharihujan" name="cb_dataharihujans" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
-                                                        <label><input type="checkbox" id="cb_datacurahhujanratarata" name="cb_datacurahhujanrataratas" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
-                                                        <label><input type="checkbox" id="cb_datacurahhujanmaksimum" name="cb_datacurahhujanmaksimums" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
-                                                        <label><input type="checkbox" id="cb_datacurahhujanbulanan" name="cb_datacurahhujanbulanans" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
-                                                        <label><input type="checkbox" id="cb_datasuhuudararatarata" name="cb_datasuhuudararataratas" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
+                                                        <label><input type="checkbox" class="cb1" id="cb_datapetir" name="cb_datapetirs" onclick="toggle_datapetir()"><span></span>Data petir</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_dataharihujan" name="cb_dataharihujans" onclick="toggle_dataharihujan()"><span></span>Data hari hujan</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datacurahhujanratarata" name="cb_datacurahhujanrataratas" onclick="toggle_datacurahhujanratarata()"><span></span>Data curah hujan rata-rata</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datacurahhujanmaksimum" name="cb_datacurahhujanmaksimums" onclick="toggle_datacurahhujanmaksimum()"><span></span>Data curah hujan maksimum</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datacurahhujanbulanan" name="cb_datacurahhujanbulanans" onclick="toggle_datacurahhujanbulanan()"><span></span>Data curah hujan bulanan</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datasuhuudararatarata" name="cb_datasuhuudararataratas" onclick="toggle_datasuhuudararatarata()"><span></span>Data suhu udara rata-rata</label>
                                                     </div>
                                                     <div class="spacer-10"></div>
                                                 </div>
 
                                                 <div class="col-sm-4">
                                                     <div class="stacked-labels">
-                                                        <label><input type="checkbox" id="cb_datasuhuudaramaksimum" name="cb_datasuhuudaramaksimums" onclick="toggle_datasuhuudaramaksimum()"><span></span>Data suhu udara maksimum</label>
-                                                        <label><input type="checkbox" id="cb_datasuhuudaraminimum" name="cb_datasuhuudaraminimums" onclick="toggle_datasuhuudaraminimum()"><span></span>Data suhu udara minimum</label>
-                                                        <label><input type="checkbox" id="cb_datakelembapanudararatarata" name="cb_datakelembapanudararataratas" onclick="toggle_datakelembapanudararatarata()"><span></span>Data kelembapan udara rata-rata</label>
-                                                        <label><input type="checkbox" id="cb_datakelembapanudaramaksimum" name="cb_datakelembapanudaramaksimums" onclick="toggle_datakelembapanudaramaksimum()"><span></span>Data kelembapan udara maksimum</label>
-                                                        <label><input type="checkbox" id="cb_datakelembapanudaraminimum" name="cb_datakelembapanudaraminimums" onclick="toggle_datakelembapanudaraminimum()"><span></span>Data kelembapan udara minimum</label>
-                                                        <label><input type="checkbox" id="cb_datakecepatandanarahangin" name="cb_datakecepatandanarahangins" onclick="toggle_datakecepatandanarahangin()"><span></span>Data kecepatan dan arah angin</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datasuhuudaramaksimum" name="cb_datasuhuudaramaksimums" onclick="toggle_datasuhuudaramaksimum()"><span></span>Data suhu udara maksimum</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datasuhuudaraminimum" name="cb_datasuhuudaraminimums" onclick="toggle_datasuhuudaraminimum()"><span></span>Data suhu udara minimum</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datakelembapanudararatarata" name="cb_datakelembapanudararataratas" onclick="toggle_datakelembapanudararatarata()"><span></span>Data kelembapan udara rata-rata</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datakelembapanudaramaksimum" name="cb_datakelembapanudaramaksimums" onclick="toggle_datakelembapanudaramaksimum()"><span></span>Data kelembapan udara maksimum</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datakelembapanudaraminimum" name="cb_datakelembapanudaraminimums" onclick="toggle_datakelembapanudaraminimum()"><span></span>Data kelembapan udara minimum</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datakecepatandanarahangin" name="cb_datakecepatandanarahangins" onclick="toggle_datakecepatandanarahangin()"><span></span>Data kecepatan dan arah angin</label>
                                                     </div>
                                                     <div class="spacer-10"></div>
                                                 </div>
 
                                                 <div class="col-sm-4">
                                                     <div class="stacked-labels">
-                                                        <label><input type="checkbox" id="cb_datakecepatananginmaksimum" name="cb_datakecepatananginmaksimums" onclick="toggle_datakecepatananginmaksimum()"><span></span>Data kecepatan angin maksimum</label>
-                                                        <label><input type="checkbox" id="cb_datalamapenyinaranmatahari" name="cb_datalamapenyinaranmataharis" onclick="toggle_datalamapenyinaranmatahari()"><span></span>Data lama penyinaran matahari</label>
-                                                        <label><input type="checkbox" id="cb_dataprakiraanmusim" name="cb_dataprakiraanmusims" onclick="toggle_dataprakiraanmusim()"><span></span>Data prakiraan musim</label>
-                                                        <label><input type="checkbox" id="cb_dataklasifikasiiklim" name="cb_dataklasifikasiiklims" onclick="toggle_dataklasifikasiiklim()"><span></span>Data klasifikasi iklim</label>
-                                                        <label><input type="checkbox" id="cb_dataradiasimatahari" name="cb_dataradiasimataharis" onclick="toggle_dataradiasimatahari()"><span></span>Data radiasi matahari</label>
-                                                        <label><input type="checkbox" id="cb_unsurcuacalainnya" name="cb_unsurcuacalainnyas" onclick="toggle_unsurcuacalainnya()"><span></span>Unsur cuaca lainnya</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datakecepatananginmaksimum" name="cb_datakecepatananginmaksimums" onclick="toggle_datakecepatananginmaksimum()"><span></span>Data kecepatan angin maksimum</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_datalamapenyinaranmatahari" name="cb_datalamapenyinaranmataharis" onclick="toggle_datalamapenyinaranmatahari()"><span></span>Data lama penyinaran matahari</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_dataprakiraanmusim" name="cb_dataprakiraanmusims" onclick="toggle_dataprakiraanmusim()"><span></span>Data prakiraan musim</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_dataklasifikasiiklim" name="cb_dataklasifikasiiklims" onclick="toggle_dataklasifikasiiklim()"><span></span>Data klasifikasi iklim</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_dataradiasimatahari" name="cb_dataradiasimataharis" onclick="toggle_dataradiasimatahari()"><span></span>Data radiasi matahari</label>
+                                                        <label><input type="checkbox" class="cb" id="cb_unsurcuacalainnya" name="cb_unsurcuacalainnyas" onclick="toggle_unsurcuacalainnya()"><span></span>Unsur cuaca lainnya</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -465,9 +465,23 @@
         }
     </script>
 
-
     {{-- Add row input --}}
     <script>
+        $('.cb1').change(function() {
+        if($('.cb1:checked').length){
+            $('.cb').attr('disabled', true);
+        }else {
+            $('.cb').removeAttr("disabled");
+        }
+        });
+
+        $('.cb').change(function() {
+        if($('.cb:checked').length){
+            $('.cb1').attr('disabled', true);   
+        }else {
+            $('.cb1').removeAttr("disabled");
+        }
+        });
         // data petir
         // const Div_datapetir = document.getElementById('container_datapetir');
         // function toggle_datapetir() {

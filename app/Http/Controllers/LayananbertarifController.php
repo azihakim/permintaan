@@ -339,8 +339,8 @@ class LayananbertarifController extends Controller
      */
     public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
-        // $this->authorize('view', $formulir);
-        $formulir = Formulir::find($id);
+        $formulir = Formulir::where('user_id', auth()->id())->findOrFail($id); // cek untuk user
+        // $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
         return view('formulir.editLayananBertarif', compact('formulir', 'datapermintaan'));
     }

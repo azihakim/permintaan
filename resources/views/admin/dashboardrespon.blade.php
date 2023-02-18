@@ -1,5 +1,11 @@
 @extends('layout.master')
-@section('menu-title', 'Dashboard admin')
+@section('menu-title')
+@if (auth()->user()->role == 'Super Admin')
+    <p class="label label-primary">Super Admin</p>
+@elseif (auth()->user()->role == 'Admin')
+    <p class="label label-success">Admin</p>
+@endif
+@endsection
 @section('dashboard', 'page-arrow active-page')
 {{-- @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('stye/DataTables/datatables.min.css') }}"/>

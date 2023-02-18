@@ -31,9 +31,9 @@ class FormulirPolicy
      */
     public function view(User $user, Formulir $formulir)
     {
-        return $user->name === "abdul"
-                ? Response::allow()
-                : Response::deny('You do not own this post.');
+        // return $user->name === "abdul"
+        //         ? Response::allow()
+        //         : Response::deny('You do not own this post.');
     }
 
     /**
@@ -56,9 +56,10 @@ class FormulirPolicy
      */
     public function update(User $user, Formulir $formulir)
     {
-        return $user->name === "abdul"
-                ? Response::allow()
-                : Response::deny('You do not own this post.');
+        return $user->id == $formulir->user_id;
+                // ? Response::allow()
+                // : Response::deny('You do not own this post.');
+
     }
 
     /**
