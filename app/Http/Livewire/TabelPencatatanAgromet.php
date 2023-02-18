@@ -586,7 +586,7 @@ class TabelPencatatanAgromet extends Component
         $this->gundul27 = $dataSuhuTanah->gundul7;
 
         $this->h2_piche = $dataPicheEvaporimeter->h;
-        $this->h22_piche = $dataPicheEvaporimeter->h2;
+        $this->h22_piche = $dataPicheEvaporimeter->reset;
         $this->ev2_piche = $dataPicheEvaporimeter->ev;
     }
 
