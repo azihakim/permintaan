@@ -700,14 +700,29 @@
                                 <label for="" style="text-decoration:underline;">Kondisi Cuaca dan
                                     Tanah</label>
                             </div>
-                            <div class="col-md-4 ml-12">
+                            <div class="col-md-8 ml-12">
                                 <div class="row">
                                     <div class="col-md-3 pr-0">
                                         <label for="">Kode Tanah</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="kode_tanah1">
+                                        <select name="" id="" class="form-control"
+                                            wire:model="kode_tanah1">
+                                            @php
+                                                $arr_kode_tanah = [
+                                                    '0' => '0 - Kering',
+                                                    '1' => '1 - Lembab',
+                                                    '2' => '2 - Basah',
+                                                    '3' => '3 - Tergenang',
+                                                ];
+                                            @endphp
+                                            @foreach ($arr_kode_tanah as $key => $kode_tanah)
+                                                <option value="{{ $key }}">{{ $kode_tanah }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        {{-- <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="kode_tanah1"> --}}
                                         @error('kode_tanah1')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -724,8 +739,26 @@
                                         <label for="">Kode Cuaca</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="kode_cuaca1">
+                                        <select name="" id="" class="form-control"
+                                            wire:model="kode_cuaca1">
+                                            @php
+                                                $arr_kode_cuaca = [
+                                                    '0' => '0 - Langit tak berawan atau sedikit berawan',
+                                                    '1' => '1 - Perawanan berganti-ganti(berubah-ubah)',
+                                                    '2' => '2 - Langit berawan seluruhnya',
+                                                    '3' => '3 - Badai Debu',
+                                                    '4' => '4 - Kabut / Kabut Debu yang tebal',
+                                                    '5' => '5 - Hujan Rintik-rintik',
+                                                    '6' => '6 - Hujan',
+                                                    '7' => '7 - Salju',
+                                                    '8' => '8 - Hujan Tiba-tiba',
+                                                    '9' => '9 - Udara buruk dengan atau tanpa hujan',
+                                                ];
+                                            @endphp
+                                            @foreach ($arr_kode_cuaca as $key => $kode_cuaca)
+                                                <option value="{{ $key }}">{{ $kode_cuaca }}</option>
+                                            @endforeach
+                                        </select>
                                         @error('kode_cuaca1')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
