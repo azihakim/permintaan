@@ -15,6 +15,7 @@ class ListuserController extends Controller
     public function index()
     {
         $no = 1;
+        // explode(',', $user);
         $user = User::all();
         return view('admin.list-user', compact('user','no'));
     }

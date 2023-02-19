@@ -17,8 +17,8 @@
                         <div class="col-sm-4">
                             <label>Role</label>
                         </div>
-                        <div class="col-sm-5">
-                            <div class="simpelselect-container" style="width: 250px">
+                        <div class="col-sm-8">
+                            {{-- <div class="simpelselect-container" style="width: 250px">
                                 <div class="simpelselect-inner">
                                     <div class="simpleselect-btn"><i class="fa fa-caret-down"></i></div>
                                 </div>
@@ -31,16 +31,12 @@
                                     </option>
                                     <option value="Observer"><span class='label label-warning'>Observer</span></option>
                                 </select>
+                            </div> --}}
+                            <div class="inline-labels">
+                                <label><input type="checkbox" name="role[]" value="Admin"><span></span>Admin</label>
+                                <label><input type="checkbox" name="role[]" value="Observer"><span></span>Observer</label>
+                                <label><input type="checkbox" name="role[]" value="Viewer"><span></span>Viewer</label>
                             </div>
-                        </div>
-                    </div>
-                    <div class="spacer-10"></div>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <label>Nama</label>
-                        </div>
-                        <div class="col-sm-5">
-                            <input type="text" class="form-control" required="" name="nama" />
                         </div>
                     </div>
                     <div class="spacer-10"></div>
@@ -55,19 +51,20 @@
                     <div class="spacer-10"></div>
                     <div class="row">
                         <div class="col-sm-4">
-                            <label>Nomor telepon</label>
+                            <label>Nama</label>
                         </div>
                         <div class="col-sm-5">
-                            <input type="text" class="form-control" required="" name="no_wa" />
+                            <input type="text" class="form-control" required="" name="nama" />
                         </div>
                     </div>
                     <div class="spacer-10"></div>
                     <div class="row">
                         <div class="col-sm-4">
-                            <label>Password</label>
+                            <label>NIP</label>
+                            <span class="form-helper">NIP sebagai password default</span><span class="asterisk">*</span>
                         </div>
                         <div class="col-sm-5">
-                            <input type="password" class="form-control" required="" name="password" />
+                            <input type="text" class="form-control" required="" name="nip" />
                         </div>
                     </div>
                     <div class="spacer-10"></div>

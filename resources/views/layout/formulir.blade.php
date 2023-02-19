@@ -131,7 +131,7 @@
                                                         <div class="col-sm-6">\
                                                             <div class="spacer-5"></div>\
                                                             <div>\
-                                                            <strong>Dari</strong>\
+                                                            <strong>Tanggal</strong>\
                                                             <input\
                                                                 class="form-control"\
                                                                 size="16"\
@@ -140,15 +140,6 @@
                                                                 name="tgl_dari_petir[0]" required=""\
                                                                 value="" />\
                                                             </div>\
-                                                            <div class="spacer-5"></div>\
-                                                            <strong>Sampai</strong>\
-                                                            <input\
-                                                            class="form-control"\
-                                                            size="16"\
-                                                            type="date"\
-                                                        \
-                                                            name="tgl_sampai_petir[0]" required=""\
-                                                            value="" />\
                                                         </div>\
                                                         </div>\
                                                     </div>\
@@ -170,7 +161,7 @@
                                                             <div class="col-sm-6">\
                                                                 <div class="spacer-5"></div>\
                                                                 <div>\
-                                                                <strong>Dari</strong>\
+                                                                <strong>Tanggal</strong>\
                                                                 <input\
                                                                     class="form-control"\
                                                                     size="16"\
@@ -180,16 +171,6 @@
                                                                     value="" />\
                                                                 </div>\
                                                                 <div class="spacer-5"></div>\
-                                                                <div>\
-                                                                <strong>Sampai</strong>\
-                                                                <input\
-                                                                    class="form-control"\
-                                                                    size="16"\
-                                                                    type="date"\
-                                                                \
-                                                                    name="tgl_sampai_petir[1]"\
-                                                                    value="" />\
-                                                                </div>\
                                                             </div>\
                                                             </div>\
                                                         </div>\
@@ -213,7 +194,7 @@
                                                             <div class="col-sm-6">\
                                                                 <div class="spacer-5"></div>\
                                                                 <div>\
-                                                                <strong>Dari</strong>\
+                                                                <strong>Tanggal</strong>\
                                                                 <input\
                                                                     class="form-control"\
                                                                     size="16"\
@@ -223,16 +204,6 @@
                                                                     value="" />\
                                                                 </div>\
                                                                 <div class="spacer-5"></div>\
-                                                                <div>\
-                                                                <strong>Sampai</strong>\
-                                                                <input\
-                                                                    class="form-control"\
-                                                                    size="16"\
-                                                                    type="date"\
-                                                                \
-                                                                    name="tgl_sampai_petir[2]"\
-                                                                    value="" />\
-                                                                </div>\
                                                             </div>\
                                                             </div>\
                                                         </div>\

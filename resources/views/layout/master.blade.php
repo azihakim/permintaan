@@ -199,7 +199,7 @@
                                 {{-- Super Admin --}}
                                 @if (auth()->user()->role == 'Super Admin')
                                     <li class="@yield('dashboard')">
-                                        <a href="{{ url('/dashboard-admin') }}">Dashboard admin<i
+                                        <a href="{{ url('/dashboard-superadmin') }}">Dashboard admin<i
                                                 class="fa fa-dashboard"></i></a>
                                     </li>
 

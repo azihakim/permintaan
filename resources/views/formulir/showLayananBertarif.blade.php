@@ -158,7 +158,7 @@
         <hr>
         <div class="spacer-20"></div>
         {{-- Start syarat permohonan data --}}
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-sm-12">
                     <h4 class="bold">Syarat permohonan data</h4>
                 </div>
@@ -181,7 +181,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             {{-- End syarat permohonan data --}}
             
             <div class="spacer-40"></div>

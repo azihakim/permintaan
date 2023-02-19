@@ -46,14 +46,14 @@ class LayananbertarifController extends Controller
 
             // data diri
 
-            $ext = $request->surat_pengantar->getClientOriginalExtension();
-            $file = "surat_pengantar-".time().".".$ext;
-            $request->surat_pengantar->storeAs('public/dokumen', $file);
+            // $ext = $request->surat_pengantar->getClientOriginalExtension();
+            // $file = "surat_pengantar-".time().".".$ext;
+            // $request->surat_pengantar->storeAs('public/dokumen', $file);
             $layananbertarif = new Formulir();
             $layananbertarif->jenis_permintaan = "Layanan bertarif";
             $layananbertarif->status_form = "1";
             $layananbertarif->user_id =$request->user()->id;
-            $layananbertarif->surat_pengantar = $file;
+            // $layananbertarif->surat_pengantar = $file;
             $layananbertarif->deskripsi = $data['deskripsi'];
             $layananbertarif->save();
             
@@ -66,14 +66,18 @@ class LayananbertarifController extends Controller
                                 'jenis_data'    => 'datapetir',
                                 'lokasi'        => $request->lokasi_petir[$i],
                                 'desk_petir' => $request->desk_petir,
+                                'tgl_dari'      => $request->tgl_dari_petir[$i],
+                                $ext = $request->surat_pengantar_petir[$i]->getClientOriginalExtension(),
+                                $file = "surat_pengantar_petir_$i-".time().".".$ext,
+                                'surat_pengantar' => $file,
+                                $request->surat_pengantar_petir[$i]->storeAs('public/dokumen', $file),
                                 // 'latitude'      => $request->latitude_petir[$i],
                                 // 'longitude'     => $request->longitude_petir[$i],
-                                'tgl_dari'      => $request->tgl_dari_petir[$i],
                                 // 'tgl_sampai'    => $request->tgl_sampai_petir[$i]
                         ]);
                     }
+                    
             }
-            
             // data hari hujan
             if ($request->exists("cb_dataharihujans")){
                     $harihujan= count($request->lokasi_harihujan);
@@ -352,7 +356,7 @@ class LayananbertarifController extends Controller
      * @param  \App\Models\Layananbertarif  $layananbertarif
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, Formulir $formulir)
+    public function update($id, Request $request, Formulir $formulir)
     {   
         
         $formulir = Formulir::find($id);
@@ -360,34 +364,54 @@ class LayananbertarifController extends Controller
         $file_name = $formulir->surat_pengantar;
         $file_path = public_path('storage/dokumen/' . $file_name);
 
-        if ($request->hasFile('surat_pengantar')){
-            unlink($file_path);
+        // if ($request->hasFile('surat_pengantar')){
+        //     unlink($file_path);
 
-            $f = $request->file('surat_pengantar');
-            $file_ext = $f->getClientOriginalExtension();
-            $file_name = "surat_pengantar-".time(). "." . $file_ext;
-            $file_path = public_path('storage/dokumen');
-            $f->move($file_path, $file_name);
-            $formulir->surat_pengantar = $file_name;
-        } else{
-            $formulir->surat_pengantar =$request->old_file;
-        }
+        //     $f = $request->file('surat_pengantar');
+        //     $file_ext = $f->getClientOriginalExtension();
+        //     $file_name = "surat_pengantar-".time(). "." . $file_ext;
+        //     $file_path = public_path('storage/dokumen');
+        //     $f->move($file_path, $file_name);
+        //     $formulir->surat_pengantar = $file_name;
+        // } else{
+        //     $formulir->surat_pengantar =$request->old_file;
+        // }
         // $data = $request->all();
         // dd($data);  
         $formulir->save();
         
+                
+                $cek = Datapermintaan::where("formulir_id", $id)->get('surat_pengantar');
         // data petir
         $cek_datapetir = $request->lokasi_datapetir;
         if (isset($cek_datapetir)){
             for($i = 0; $i < count($request->lokasi_datapetir) ; $i++){
+                    if($request->hasFile("surat_pengantar_petir")){
+                        Datapermintaan::delete('surat_pengantar')
+                $file_name = $cek;
+                $file_path = public_path('storage/dokumen/' . $file_name);
+                    // unlink($file_path);
+
+                    $f = $request->file("surat_pengantar_petir");
+                    $file_ext = $f->getClientOriginalExtension();
+                    $file_name = "surat_pengantar_petir_$i-".time(). "." . $file_ext;
+                    $file_path = public_path('storage/dokumen');
+                    $f->move($file_path, $file_name);
+                    $cek->surat_pengantar = $file_name;
+                } else{
+                    $cek->surat_pengantar =$request->old_file;
+                }
                 $petir = Datapermintaan::where('id', $request->id_df_datapetir[$i]);
                 $petir->update([
                             'lokasi'        => $request->lokasi_datapetir[$i],
                             'desk_petir' => $request->deskripsi_datapetir,
+                            'tgl_dari'      => $request->tgl_dari_datapetir[$i],
+                            'surat_pengantar' => $file_name
                             // 'latitude'      => $request->latitude_datapetir[$i],
                             // 'longitude'     => $request->longitude_datapetir[$i],
-                            'tgl_dari'      => $request->tgl_dari_datapetir[$i],
-                            'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
+                            // 'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
+                            
+                            
                 ]);
             }
         }

@@ -12,6 +12,7 @@ class Datapermintaan extends Model
         'formulir_id',
         'jenis_data',
         'lokasi',
+        'surat_pengantar',
         'desk_petir',
         'tgl_dari',
         'tgl_sampai',

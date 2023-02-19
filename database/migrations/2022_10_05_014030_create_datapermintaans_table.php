@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('unsurcuacalain')->nullable();
             $table->longText('desk_petir')->nullable();
             $table->longText('lokasi');
+            $table->string('surat_pengantar');
             $table->date('tgl_dari');
             $table->date('tgl_sampai')->nullable();
             $table->timestamps();

@@ -63,6 +63,8 @@
                                 <span class='label label-success'>{{ $item->role }}</span>
                                 @elseif($item->role == 'Observer')
                                 <span class='label label-danger'>{{ $item->role }}</span>
+                                @elseif($item->role == 'Observer' && $item->role == 'Admin')
+                                <span class='label label-success'>PPPPP</span>
                                 @endif
                         </td>
                         <td>
@@ -72,6 +74,9 @@
                             </div>
                         </td>
                     </tr>
+                    @if(!$loop->last)
+                        ,
+                    @endif
                 @endforeach
             </tbody>
             <tfoot>

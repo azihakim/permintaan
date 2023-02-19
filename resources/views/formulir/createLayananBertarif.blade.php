@@ -379,7 +379,7 @@
                                             <div class="spacer-20"></div>
 
                                             {{-- Start syarat permohonan data --}}
-                                            <div class="row">
+                                            {{-- <div class="row">
                                                 <div class="col-sm-12">
                                                     <h4 class="bold">Syarat permohonan data</h4>
                                                 </div>
@@ -391,7 +391,6 @@
                                                         <label>Surat pengantar</label>
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        {{-- <input type="file" name="surat_pengantar" id=""> --}}
                                                         <input type="file" required accept="application/pdf" name="surat_pengantar">
                                                         <div class="helper-text-box">
                                                             <div class="form-helper-header">Format
@@ -400,7 +399,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             {{-- End syarat permohonan data --}}
 
                                             <div class="spacer-40"></div>
@@ -613,9 +612,13 @@
                                                             </div>\
                                                             <div class="col-sm-6">\
                                                                 <div class="spacer-5"></div>\
-                                                                <div class="col-sm-5">\
+                                                                <div class="col-sm-4">\
                                                                     <strong>Tanggal</strong>\
                                                                     <input class="form-control" size="16" type="date" name="tgl_dari_petir[0]" value="{{ old('tgl_dari_petir') }}">\
+                                                                </div>\
+                                                                <div class="col-sm-4">\
+                                                                    <strong>Surat pengantar</strong>\
+                                                                    <input type="file" required accept="application/pdf" name="surat_pengantar_petir[0]">\
                                                                 </div>\
                                                             </div>\
                                                     </div>\
@@ -652,17 +655,15 @@
                                                                 value="{{ old('lokasi_petir') }}" ></textarea>\
                                                             </div>\
                                                             <div class="col-sm-6">\
-                                                              <div class="spacer-5"></div>\
-                                                              <div class="col-sm-5">\
-                                                                <strong>Tanggal</strong>\
-                                                                <input\
-                                                                  class="form-control"\
-                                                                  size="16"\
-                                                                  type="date"\
-                                                                  required=""\
-                                                                  name="tgl_dari_petir['+id+']"\
-                                                                  value="{{ old('tgl_dari_petir') }}"/>\
-                                                              </div>\
+                                                                <div class="spacer-5"></div>\
+                                                                <div class="col-sm-4">\
+                                                                    <strong>Tanggal</strong>\
+                                                                    <input class="form-control" size="16" type="date" name="tgl_dari_petir['+id+']" value="{{ old('tgl_dari_petir') }}">\
+                                                                </div>\
+                                                                <div class="col-sm-4">\
+                                                                    <strong>Surat pengantar</strong>\
+                                                                    <input type="file" required accept="application/pdf" name="surat_pengantar_petir['+id+']">\
+                                                                </div>\
                                                             </div>\
                                                           </div>\
                                                         </div>\

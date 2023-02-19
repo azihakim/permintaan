@@ -103,12 +103,35 @@
                                                 required="" name="tgl_dari_{{ $item->jenis_data }}[]" value="{{ $item->tgl_dari }}">
                                         <div class="spacer-10"></div>
                                     </div>
-                                    <div class="col-sm-3">
+                                    {{-- <div class="col-sm-3">
                                         <strong>Sampai</strong>
                                         <input class="form-control" size="16" type="date"
                                                 required="" name="tgl_sampai_{{ $item->jenis_data }}[]" value="{{ $item->tgl_sampai }}">
-                                    </div>
+                                    </div> --}}
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-3">
+                                    <strong>Surat pengantar</strong>
+                                    <div class="file-bar">
+                                        <a href="{{ asset('storage/dokumen/' . $item->surat_pengantar) }}" target="_blank">
+                                            <div class="file-bar-icon">
+                                                <i class="fa fa-download"></i>
+                                            </div>
+                                            <div class="file-bar-info">
+                                                <h5>Unduh file</h5>
+                                                <span class="label label-default">.pdf</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <strong>Surat pengantar</strong>
+                                    <input type="file" required accept="application/pdf" name="surat_pengantar_petir[]">
+                                </div>
+                            </div>
+
                         </div>
                         @endforeach
                         @break

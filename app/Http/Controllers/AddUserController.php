@@ -36,15 +36,17 @@ class AddUserController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $arrayTostring = implode(',', $request->input('role'));
+        $value['role'] = $arrayTostring;
         $data = new User();
-        $data->role = $request['role'];
         $data->name = $request['nama'];
+        $data->nip = $request['nip'];
         $data->email = $request['email'];
-        $data->kategori = "admin";
-        $data->no_wa = $request['no_wa'];
-        $data->password = Hash::make($request['password']);
-        $data->ktp = "admin";
+        $data->role = $arrayTostring;
+        $data->password = Hash::make($request['nip']);
         $data->save();
+        
         return back();
     }
 
