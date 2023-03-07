@@ -65,10 +65,11 @@ class SosialController extends Controller
                                 'formulir_id'   => $sosial->id,
                                 'jenis_data'    => "datapetir",
                                 'lokasi'        => $value,
-                                'latitude'      => $data['latitude_petir'][$key],
-                                'longitude'     => $data['longitude_petir'][$key],
+                                'desk_petir' => $request->desk_petir,
+                                // 'latitude'      => $data['latitude_petir'][$key],
+                                // 'longitude'     => $data['longitude_petir'][$key],
                                 'tgl_dari'      => $data['tgl_dari_petir'][$key],
-                                'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
+                                // 'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
                             ];
                             DB::table('datapermintaans')->insert($save_data); 
                         }
@@ -400,10 +401,11 @@ class SosialController extends Controller
                 $petir = Datapermintaan::where('id', $request->id_df_datapetir[$i]);
                 $petir->update([
                             'lokasi'        => $request->lokasi_datapetir[$i],
-                            'latitude'      => $request->latitude_datapetir[$i],
-                            'longitude'     => $request->longitude_datapetir[$i],
+                            'desk_petir' => $request->deskripsi_datapetir,
+                            // 'latitude'      => $request->latitude_datapetir[$i],
+                            // 'longitude'     => $request->longitude_datapetir[$i],
                             'tgl_dari'      => $request->tgl_dari_datapetir[$i],
-                            'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
+                            // 'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
                 ]);
             }
         }

@@ -209,7 +209,7 @@
                                 @endif
 
                                 {{-- Admin --}}
-                                @if (auth()->user()->role == 'Admin')
+                                @if (auth()->user()->role == 'Admin' || auth()->user()->role == 'Observer')
                                     <li class="@yield('dashboard')">
                                         <a href="{{ url('/dashboard-admin') }}">Dashboard admin<i
                                                 class="fa fa-dashboard"></i></a>

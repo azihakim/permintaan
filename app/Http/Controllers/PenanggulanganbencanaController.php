@@ -83,7 +83,7 @@ class PenanggulanganbencanaController extends Controller
                     'desk_petir'           => $request->desk_petir,
                     'lokasi'               => $request->lokasi_petir[$key],
                     'tgl_dari'             => $request->tgl_dari_petir[$key],
-                    'tgl_sampai'           => $request->tgl_sampai_petir[$key]
+                    // 'tgl_sampai'           => $request->tgl_sampai_petir[$key]
                     ]);
                 }
             }

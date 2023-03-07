@@ -56,6 +56,7 @@ class KeagamaanController extends Controller
             $keagamaan = new Formulir();
             $keagamaan->jenis_permintaan = "Kegiatan keagamaan";
             $keagamaan->status_form = "1";
+            $keagamaan->user_id =$request->user()->id;
             $keagamaan->surat_pernyataan = $file;
             $keagamaan->deskripsi = $data['deskripsi'];
             $keagamaan->save();
@@ -68,10 +69,10 @@ class KeagamaanController extends Controller
                                 'formulir_id'   => $keagamaan->id,
                                 'jenis_data'    => "datapetir",
                                 'lokasi'        => $value,
-                                'latitude'      => $data['latitude_petir'][$key],
-                                'longitude'     => $data['longitude_petir'][$key],
+                                // 'latitude'      => $data['latitude_petir'][$key],
+                                // 'longitude'     => $data['longitude_petir'][$key],
                                 'tgl_dari'      => $data['tgl_dari_petir'][$key],
-                                'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
+                                // 'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
                             ];
                             DB::table('datapermintaans')->insert($save_data); 
                         }

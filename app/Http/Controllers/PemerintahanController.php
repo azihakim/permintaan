@@ -58,6 +58,7 @@ class PemerintahanController extends Controller
             $formulir = new Formulir();
             $formulir->jenis_permintaan = "Kegiatan pemerintahan";
             $formulir->status_form = "1";
+            $formulir->user_id =$request->user()->id;
             $formulir->surat_kerjasama = $file_suratkerjasama;
             $formulir->surat_pengantar = $file_suratpengantar;
             $formulir->deskripsi = $data['deskripsi'];
@@ -71,10 +72,10 @@ class PemerintahanController extends Controller
                                 'formulir_id'   => $formulir->id,
                                 'jenis_data'    => "datapetir",
                                 'lokasi'        => $value,
-                                'latitude'      => $data['latitude_petir'][$key],
-                                'longitude'     => $data['longitude_petir'][$key],
+                                // 'latitude'      => $data['latitude_petir'][$key],
+                                // 'longitude'     => $data['longitude_petir'][$key],
                                 'tgl_dari'      => $data['tgl_dari_petir'][$key],
-                                'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
+                                // 'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
                             ];
                             DB::table('datapermintaans')->insert($save_data); 
                         }

@@ -95,16 +95,16 @@
                                         <div class="spacer-10"></div>
                                     </div>
                                     <div class="col-sm-3">
-                                        <strong>Dari</strong>
+                                        <strong>Tanggal</strong>
                                         <input disabled class="form-control" size="16" type="date"
                                                 required="" name="tgl_dari_{{ $item->jenis_data }}[]" value="{{ $item->tgl_dari }}">
                                         <div class="spacer-10"></div>
                                     </div>
-                                    <div class="col-sm-3">
+                                    {{-- <div class="col-sm-3">
                                         <strong>Sampai</strong>
                                         <input disabled class="form-control" size="16" type="date"
                                                 required="" name="tgl_sampai_{{ $item->jenis_data }}[]" value="{{ $item->tgl_sampai }}">
-                                    </div>
+                                    </div> --}}
                             </div>
                         </div>
                         @endforeach
@@ -158,7 +158,7 @@
         <hr>
         <div class="spacer-20"></div>
         {{-- Start syarat permohonan data --}}
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-sm-12">
                     <h4 class="bold">Syarat permohonan data</h4>
                 </div>
@@ -181,7 +181,7 @@
                         </a>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             {{-- End syarat permohonan data --}}
             
             <div class="spacer-40"></div>
