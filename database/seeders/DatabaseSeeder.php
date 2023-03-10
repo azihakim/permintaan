@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
         //     'email' =>'SA@gmail.com',
         //     'no_wa' => 'XXXX',
         //     'ktp' => 'XXX',
-        //     'kategori' => 'BMKG SUMSEL',
-        //     'instansi' => 'BMKG SUMSEL',
+        //     'kategori' => 'Pegawai',
+        //     'instansi' => 'BMKG-STAKLIM SUMSEL',
         //     'email_verified_at' => '2023-02-03',
         //     'password' => bcrypt('123123123')
         // ]);
@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' =>'Chris',
             'role' =>'Admin',
-            'email' =>'2024240105',
+            'email' =>'Admin@gmail.com',
             'no_wa' => '081279338859',
             'ktp' => 'KTP-1674566021.jpeg',
             'kategori' => 'Umum',

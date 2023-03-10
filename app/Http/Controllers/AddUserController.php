@@ -43,6 +43,8 @@ class AddUserController extends Controller
         $data->name = $request['nama'];
         $data->nip = $request['nip'];
         $data->email = $request['email'];
+        $data->kategori = 'Pegawai';
+        $data->instansi = 'BMKG-STAKLIM SUMSEL';
         $data->role = $arrayTostring;
         $data->password = Hash::make($request['nip']);
         $data->save();

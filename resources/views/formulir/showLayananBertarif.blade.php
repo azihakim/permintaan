@@ -120,7 +120,7 @@
                 <div class="col-sm-12">
                     <div class="spacer-5"></div>
                     <strong>Deskripsi</strong>
-                    <textarea required="" disabled class="form-control autosize" style="width: 48% ; height: 28px"
+                    <textarea disabled class="form-control autosize" style="width: 48% ; height: 28px"
                         name="deskripsi_{{ $item->jenis_data }}">{{ $item->unsurcuacalain }}</textarea>
                 </div>
                         @foreach ($datapermintaan->where('jenis_data','unsurcuacalainnya') as $item)
@@ -152,7 +152,6 @@
                 </div>
                 @endif
             @endforeach
-            {{-- End data permintaan --}}
         {{-- End data permintaan --}}
         <div class="spacer-40"></div>
         <hr>

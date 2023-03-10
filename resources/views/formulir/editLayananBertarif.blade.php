@@ -6,7 +6,7 @@
     <form action="{{ url('bertarif/' . $formulir->id) }}" method="POST" enctype="multipart/form-data">
         @method('PATCH')
         @csrf
-            {{-- Start data permintaan  --}}
+        {{-- Start data permintaan  --}}
             @foreach ($datapermintaan as $item)
                 <input type="hidden" required="" name="id_df_{{ $item->jenis_data }}[]" value={{ "$item->id" }}>
                 <div>
@@ -178,7 +178,7 @@
                 </div>
                 @endif
             @endforeach
-            {{-- End data permintaan --}}
+        {{-- End data permintaan --}}
             
             <div class="spacer-40"></div>
             <hr>
@@ -217,6 +217,7 @@
                             <label>Upload surat pengantar baru</label>
                         </div>
                         <div class="col-sm-6">
+                            <input type="hidden" name="old_file" value="{{ $formulir->surat_pengantar }}">
                             <input type="file" accept="application/pdf" name="surat_pengantar">
                             <div class="helper-text-box">
                                 <div class="form-helper-header">Format

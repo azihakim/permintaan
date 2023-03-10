@@ -52,6 +52,7 @@ class PertahanankeamananController extends Controller
             $formulir = new Formulir();
             $formulir->jenis_permintaan = "Kegiatan pertahanan dan keamanan";
             $formulir->status_form = "1";
+            $formulir->user_id =$request->user()->id;
             $formulir->surat_perintah = $file;
             $formulir->deskripsi = $data['deskripsi'];
             $formulir->save();

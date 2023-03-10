@@ -14,15 +14,15 @@ class Formulir extends Model
     // {
     //     parent::boot();
 
-        // self::addGlobalScope(function(Builder $builder){
-        //     $builder->where('user_id', auth()->id());
-        // });
+    //     // self::addGlobalScope(function(Builder $builder){
+    //     //     $builder->where('user_id', auth()->id());
+    //     // });
 
-        // static::addGlobalScope('user_id', function(Builder $builder){
-        //     if (auth()->check()){
-        //         return $builder->where('user_id', auth()->id());
-        //     }
-        // });
+    //     static::addGlobalScope('user_id', function(Builder $builder){
+    //         if (auth()->check()){
+    //             return $builder->where('user_id', auth()->id());
+    //         }
+    //     });
     // }
    
 }

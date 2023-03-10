@@ -20,10 +20,11 @@ return new class extends Migration
             $table->string('instansi')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('nip')->nullable();
             $table->string('password');
-            $table->string('kategori');
+            $table->string('kategori')->nullable();
             $table->string('desk_kategori')->nullable();
-            $table->string('no_wa');
+            $table->string('no_wa')->nullable();
             $table->string('ktp');
             $table->string('ktm')->nullable();
             $table->rememberToken();

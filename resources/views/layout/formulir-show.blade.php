@@ -158,16 +158,16 @@
                                                                     <div class="spacer-10"></div>
                                                                 </div>
                                                                 <div class="col-sm-3">
-                                                                    <strong>Dari</strong>
+                                                                    <strong>Tanggal</strong>
                                                                     <input disabled class="form-control" size="16" type="date"
                                                                             required="" name="tgl_dari_{{ $item->jenis_data }}[]" value="{{ $item->tgl_dari }}">
                                                                     <div class="spacer-10"></div>
                                                                 </div>
-                                                                <div class="col-sm-3">
+                                                                {{-- <div class="col-sm-3">
                                                                     <strong>Sampai</strong>
                                                                     <input disabled class="form-control" size="16" type="date"
                                                                             required="" name="tgl_sampai_{{ $item->jenis_data }}[]" value="{{ $item->tgl_sampai }}">
-                                                                </div>
+                                                                </div> --}}
                                                         </div>
                                                     </div>
                                                     @endforeach
@@ -215,7 +215,7 @@
                                             </div>
                                             @endif
                                         @endforeach
-                                    {{-- End data permintaan --}}
+                                    {{-- End data permintaan --}}    
                                     <div class="spacer-40"></div>
                                     <hr>
                                     <div class="spacer-20"></div>
