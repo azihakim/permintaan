@@ -175,7 +175,7 @@
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbk13">
+                                            wire:model.lazy="tbk13" @disabled(true)>
                                         @error('tbk13')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="col-md-4 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbb13">
+                                            wire:model.lazy="tbb13" @disabled(true)>
                                         @error('tbb13')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -214,7 +214,7 @@
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="RH13">
+                                            wire:model="RH13" @disabled(true)>
                                         @error('RH13')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -238,7 +238,7 @@
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbk14">
+                                            wire:model.lazy="tbk14" @disabled(true)>
                                         @error('tbk14')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -256,7 +256,7 @@
                                     </div>
                                     <div class="col-md-4 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbb14">
+                                            wire:model.lazy="tbb14" @disabled(true)>
                                         @error('tbb14')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -277,7 +277,7 @@
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="RH14">
+                                            wire:model="RH14" @disabled(true)>
                                         @error('RH14')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -306,7 +306,7 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter11">
+                                            name="" id="" wire:model="cup_counter11" @disabled(true)>
                                         @error('cup_counter11')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -324,7 +324,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="">
+                                            name="" id="" wire:model="" @disabled(true)>
                                     </div>
                                 </div>
                             </div>
@@ -336,7 +336,7 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter12">
+                                            name="" id="" wire:model="cup_counter12" @disabled(true)>
                                         @error('cup_counter12')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -354,7 +354,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="">
+                                            name="" id="" wire:model="" @disabled(true)>
                                     </div>
                                 </div>
                             </div>
@@ -366,7 +366,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="arah11">
+                                            name="" id="" wire:model="arah11" @disabled(true)>
                                         @error('arah11')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -384,7 +384,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="kecepatan11">
+                                            name="" id="" wire:model="kecepatan11" @disabled(true)>
                                         @error('kecepatan11')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -407,7 +407,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="arah12">
+                                            name="" id="" wire:model="arah12" @disabled(true)>
                                         @error('arah12')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -425,7 +425,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="kecepatan12">
+                                            name="" id="" wire:model="kecepatan12" @disabled(true)>
                                         @error('kecepatan12')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -487,7 +487,30 @@
                             <div class="col-sm-12">
                                 <label style="text-decoration: underline;">Open Pan</label>
                             </div>
-                            <div class="col-md-4 ml-12 mr-80">
+                            <div class="col-md-2 ml-12">
+                                <label for="" style="text-decoration: underline;">Hujan</label>
+                                <div class="row">
+                                    <div class="col-md-6 mr-48">
+                                        <label for="">CH (24 Jam)</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="ch1">
+                                        @error('ch1')
+                                            <div class="has-error">
+                                                <span style="margin-right: 5px;"
+                                                    class="glyphicon glyphicon-remove form-control-feedback"
+                                                    aria-hidden="true"></span><label class="control-label"
+                                                    for="inputError2">{{ $message }}</label>
+                                            </div>
+                                            <script>
+                                                $('#editForm1').scrollTop(0);
+                                            </script>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mr-20">
                                 <label for="" style="text-decoration: underline;">Ketinggian Air di
                                     Panci</label>
                                 <div class="row">
@@ -510,7 +533,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-3 mr-50">
-                                        <label for="">EV</label>
+                                        <label for="">EV (24Jam)</label>
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min=0
@@ -529,29 +552,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-2 mr-20">
-                                <label for="" style="text-decoration: underline;">Hujan</label>
-                                <div class="row">
-                                    <div class="col-md-6 mr-48">
-                                        <label for="">CH</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="ch1">
-                                        @error('ch1')
-                                            <div class="has-error">
-                                                <span style="margin-right: 5px;"
-                                                    class="glyphicon glyphicon-remove form-control-feedback"
-                                                    aria-hidden="true"></span><label class="control-label"
-                                                    for="inputError2">{{ $message }}</label>
-                                            </div>
-                                            <script>
-                                                $('#editForm1').scrollTop(0);
-                                            </script>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="col-md-6">
                                 <label for="" style="text-decoration: underline;">Suhu Air</label>
                                 <div class="row">
@@ -717,8 +718,7 @@
                                                 ];
                                             @endphp
                                             @foreach ($arr_kode_tanah as $key => $kode_tanah)
-                                                <option value="{{ $key }}">{{ $kode_tanah }}
-                                                </option>
+                                                <option value="{{ $key }}">{{ $kode_tanah }}</option>
                                             @endforeach
                                         </select>
                                         {{-- <input class="form-control" type="number" step="any" min="0"
@@ -759,6 +759,8 @@
                                                 <option value="{{ $key }}">{{ $kode_cuaca }}</option>
                                             @endforeach
                                         </select>
+                                        {{-- <input class="form-control" type="number" step="any" min="0"
+                                            name="" id="" wire:model="kode_cuaca1"> --}}
                                         @error('kode_cuaca1')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"

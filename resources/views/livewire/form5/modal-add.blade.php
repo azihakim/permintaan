@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbk51">
+                                            wire:model.lazy="tbk51" @disabled(true)>
                                         @error('tbk51')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="col-md-4 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbb51">
+                                            wire:model.lazy="tbb51" @disabled(true)>
                                         @error('tbb51')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="RH51">
+                                            wire:model="RH51" @disabled(true)>
                                         @error('RH51')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -175,7 +175,7 @@
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbk53">
+                                            wire:model.lazy="tbk53" @disabled(true)>
                                         @error('tbk53')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="col-md-4 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbb53">
+                                            wire:model.lazy="tbb53" @disabled(true)>
                                         @error('tbb53')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -214,7 +214,7 @@
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="RH53">
+                                            wire:model="RH53" @disabled(true)>
                                         @error('RH53')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -238,7 +238,7 @@
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbk54">
+                                            wire:model.lazy="tbk54" @disabled(true)>
                                         @error('tbk54')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -256,7 +256,7 @@
                                     </div>
                                     <div class="col-md-4 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbb54">
+                                            wire:model.lazy="tbb54" @disabled(true)>
                                         @error('tbb54')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -277,7 +277,7 @@
                                     </div>
                                     <div class="col-md-4 mr-12 px-16">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="RH54">
+                                            wire:model="RH54" @disabled(true)>
                                         @error('RH54')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -306,7 +306,7 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter51">
+                                            name="" id="" wire:model="cup_counter51" @disabled(true)>
                                         @error('cup_counter51')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -324,7 +324,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="">
+                                            name="" id="" @disabled(true)>
                                     </div>
                                 </div>
                             </div>
@@ -336,7 +336,7 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter52">
+                                            name="" id="" wire:model="cup_counter52" @disabled(true)>
                                         @error('cup_counter52')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -354,7 +354,7 @@
                                     </div>
                                     <div class="col-md-2">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="">
+                                            name="" id="" @disabled(true)>
                                     </div>
                                 </div>
                             </div>
@@ -366,7 +366,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="arah51">
+                                            name="" id="" wire:model="arah51" @disabled(true)>
                                         @error('arah51')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -384,7 +384,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="kecepatan51">
+                                            name="" id="" wire:model="kecepatan51" @disabled(true)>
                                         @error('kecepatan51')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -407,7 +407,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="arah52">
+                                            name="" id="" wire:model="arah52" @disabled(true)>
                                         @error('arah52')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -425,7 +425,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="kecepatan52">
+                                            name="" id="" wire:model="kecepatan52" @disabled(true)>
                                         @error('kecepatan52')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -495,7 +495,7 @@
                                     </div>
                                     <div class="col-md-3 mr-8">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="berumput51">
+                                            step="any" min="0" wire:model="berumput51" @disabled(true)>
                                         @error('berumput51')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -513,7 +513,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="gundul51">
+                                            step="any" min="0" wire:model="gundul51" @disabled(true)>
                                         @error('gundul51')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -536,7 +536,7 @@
                                     </div>
                                     <div class="col-md-3 mr-8">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="berumput52">
+                                            step="any" min="0" wire:model="berumput52" @disabled(true)>
                                         @error('berumput52')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -554,7 +554,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="gundul52">
+                                            step="any" min="0" wire:model="gundul52" @disabled(true)>
                                         @error('gundul52')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -577,7 +577,7 @@
                                     </div>
                                     <div class="col-md-3 mr-8">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="berumput53">
+                                            step="any" min="0" wire:model="berumput53" @disabled(true)>
                                         @error('berumput53')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -595,7 +595,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="gundul53">
+                                            step="any" min="0" wire:model="gundul53" @disabled(true)>
                                         @error('gundul53')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -618,7 +618,7 @@
                                     </div>
                                     <div class="col-md-3 mr-8">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="berumput54">
+                                            step="any" min="0" wire:model="berumput54" @disabled(true)>
                                         @error('berumput54')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -636,7 +636,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="gundul54">
+                                            step="any" min="0" wire:model="gundul54" @disabled(true)>
                                         @error('gundul54')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -659,7 +659,7 @@
                                     </div>
                                     <div class="col-md-3 mr-8">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="berumput55">
+                                            step="any" min="0" wire:model="berumput55" @disabled(true)>
                                         @error('berumput55')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -677,7 +677,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="gundul55">
+                                            step="any" min="0" wire:model="gundul55" @disabled(true)>
                                         @error('gundul55')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -700,7 +700,7 @@
                                     </div>
                                     <div class="col-md-3 mr-8">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="berumput56">
+                                            step="any" min="0" wire:model="berumput56" @disabled(true)>
                                         @error('berumput56')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -718,7 +718,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="gundul56">
+                                            step="any" min="0" wire:model="gundul56" @disabled(true)>
                                         @error('gundul56')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -741,7 +741,7 @@
                                     </div>
                                     <div class="col-md-3 mr-8">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="berumput57">
+                                            step="any" min="0" wire:model="berumput57" @disabled(true)>
                                         @error('berumput57')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -759,7 +759,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input type="number" name="" id="" class="form-control"
-                                            step="any" min="0" wire:model="gundul57">
+                                            step="any" min="0" wire:model="gundul57" @disabled(true)>
                                         @error('gundul57')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"

@@ -175,7 +175,7 @@
                                     </div>
                                     <div class="col-md-4 px-16 mr-12">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbk33">
+                                            wire:model.lazy="tbk33" @disabled(true)>
                                         @error('tbk33')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="col-md-4 px-16 mr-12">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbb33">
+                                            wire:model.lazy="tbb33" @disabled(true)>
                                         @error('tbb33')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -214,7 +214,7 @@
                                     </div>
                                     <div class="col-md-4 px-16 mr-12">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="RH33">
+                                            wire:model="RH33" @disabled(true)>
                                         @error('RH33')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -238,7 +238,7 @@
                                     </div>
                                     <div class="col-md-4 px-16 mr-12">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbk34">
+                                            wire:model.lazy="tbk34" @disabled(true)>
                                         @error('tbk34')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -256,7 +256,7 @@
                                     </div>
                                     <div class="col-md-4 px-16 mr-12">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model.lazy="tbb34">
+                                            wire:model.lazy="tbb34" @disabled(true)>
                                         @error('tbb34')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -277,7 +277,7 @@
                                     </div>
                                     <div class="col-md-4 px-16 mr-12">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            wire:model="RH34">
+                                            wire:model="RH34" @disabled(true)>
                                         @error('RH34')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
