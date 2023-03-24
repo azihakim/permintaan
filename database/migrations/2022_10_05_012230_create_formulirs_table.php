@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('jenis_permintaan');
             $table->string('status_form');
             $table->string('respon')->nullable();
+            $table->string('surat_pengantar')->nullable();
             $table->string('surat_pernyataan')->nullable();
             $table->string('surat_permintaan')->nullable();
             $table->string('surat_perintah')->nullable();

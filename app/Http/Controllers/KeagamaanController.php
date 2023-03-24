@@ -63,20 +63,21 @@ class KeagamaanController extends Controller
 
         // data petir
         if($request->exists("cb_datapetirs")){
-                foreach($data['lokasi_petir'] as $key=>$value){
-                        if($value != null ){
-                            $save_data=[
-                                'formulir_id'   => $keagamaan->id,
-                                'jenis_data'    => "datapetir",
-                                'lokasi'        => $value,
-                                // 'latitude'      => $data['latitude_petir'][$key],
-                                // 'longitude'     => $data['longitude_petir'][$key],
-                                'tgl_dari'      => $data['tgl_dari_petir'][$key],
-                                // 'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
-                            ];
-                            DB::table('datapermintaans')->insert($save_data); 
-                        }
-                }
+            foreach($data['lokasi_petir'] as $key=>$value){
+                    if($value != null ){
+                        $save_data=[
+                            'formulir_id'   => $keagamaan->id,
+                            'jenis_data'    => "datapetir",
+                            'lokasi'        => $request->lokasi_petir[$key],
+                            'desk_petir' => $request->desk_petir,
+                            // 'latitude'      => $request->latitude_petir[$key],
+                            // 'longitude'     => $request->longitude_petir[$key],
+                            'tgl_dari'      => $request->tgl_dari_petir[$key],
+                            // 'tgl_sampai'    => $request->tgl_sampai_petir[$key]
+                        ];
+                        DB::table('datapermintaans')->insert($save_data); 
+                    }
+            }
         }
 
         // data hari hujan
@@ -401,11 +402,12 @@ class KeagamaanController extends Controller
             for($i = 0; $i < count($request->lokasi_datapetir) ; $i++){
                 $petir = Datapermintaan::where('id', $request->id_df_datapetir[$i]);
                 $petir->update([
-                            'lokasi'        => $request->lokasi_datapetir[$i],
-                            'latitude'      => $request->latitude_datapetir[$i],
-                            'longitude'     => $request->longitude_datapetir[$i],
-                            'tgl_dari'      => $request->tgl_dari_datapetir[$i],
-                            'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
+                    'lokasi'        => $request->lokasi_datapetir[$i],
+                    'desk_petir' => $request->deskripsi_datapetir,
+                    // 'latitude'      => $request->latitude_datapetir[$i],
+                    // 'longitude'     => $request->longitude_datapetir[$i],
+                    'tgl_dari'      => $request->tgl_dari_datapetir[$i],
+                    // 'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
                 ]);
             }
         }
@@ -624,7 +626,7 @@ class KeagamaanController extends Controller
             for($i = 0; $i < count($request->lokasi_unsurcuacalainnya) ; $i++){
                 $unsurcuacalainnya = Datapermintaan::where('id', $request->id_df_unsurcuacalainnya[$i]);
                 $unsurcuacalainnya->update([
-                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya[$i],
+                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya,
                 'lokasi'        => $request->lokasi_unsurcuacalainnya[$i],
                 'tgl_dari'      => $request->tgl_dari_unsurcuacalainnya[$i],
                 'tgl_sampai'    => $request->tgl_sampai_unsurcuacalainnya[$i]

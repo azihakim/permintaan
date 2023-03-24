@@ -139,8 +139,8 @@ Route::middleware(['auth', 'verified','cekrole:Masyarakat'])->group(function()
     Route::resource('/dashboard', DashboarduserController::class);
 
     Route::get('/dashboard',[DashboarduserController::class, 'index'])->name('dashboard.user');
-
 });
+
 // edit user
 Route::resource('/edit-user', UsermasyarakatController::class);
 Route::get('/akun', [UsermasyarakatController::class, 'index'])->name('akun.user');

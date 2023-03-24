@@ -69,28 +69,28 @@ class PendidikanController extends Controller
         // data petir
         if($request->exists("cb_datapetirs")){
             foreach($data['lokasi_petir'] as $key=>$value){
-                        if($value != null ){
-                            // $save_data=[
-                            //     'formulir_id'   => $formulir->id,
-                            //     'jenis_data'    => "datapetir",
-                            //     'lokasi'        => $value,
-                            //     'latitude'      => $data['latitude_petir'][$key],
-                            //     'longitude'     => $data['longitude_petir'][$key],
-                            //     'tgl_dari'      => $data['tgl_dari_petir'][$key],
-                            //     'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
-                            // ];
-                            // DB::table('datapermintaans')->create($save_data); 
-                        Datapermintaan::create([
-                            'formulir_id'   => $formulir->id,
-                            'jenis_data'    => "datapetir",
-                            'lokasi'        => $request->lokasi_petir[$key],
-                            'desk_petir' => $request->desk_petir,
-                            // 'latitude'      => $request->latitude_petir[$key],
-                            // 'longitude'     => $request->longitude_petir[$key],
-                            'tgl_dari'      => $request->tgl_dari_petir[$key],
-                            // 'tgl_sampai'    => $request->tgl_sampai_petir[$key]
-                        ]);
-                        }
+                if($value != null ){
+                    // $save_data=[
+                    //     'formulir_id'   => $formulir->id,
+                    //     'jenis_data'    => "datapetir",
+                    //     'lokasi'        => $value,
+                    //     'latitude'      => $data['latitude_petir'][$key],
+                    //     'longitude'     => $data['longitude_petir'][$key],
+                    //     'tgl_dari'      => $data['tgl_dari_petir'][$key],
+                    //     'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
+                    // ];
+                    // DB::table('datapermintaans')->create($save_data); 
+                    Datapermintaan::create([
+                        'formulir_id'   => $formulir->id,
+                        'jenis_data'    => "datapetir",
+                        'lokasi'        => $request->lokasi_petir[$key],
+                        'desk_petir' => $request->desk_petir,
+                        // 'latitude'      => $request->latitude_petir[$key],
+                        // 'longitude'     => $request->longitude_petir[$key],
+                        'tgl_dari'      => $request->tgl_dari_petir[$key],
+                        // 'tgl_sampai'    => $request->tgl_sampai_petir[$key]
+                    ]);
+                }
             }
         }
 

@@ -314,7 +314,7 @@ class LayananbertarifController extends Controller
             }
 
             
-            return redirect('dashboard')->with('status', 'Data berhasil di simpan');
+            return redirect('dashboard')->with('status', 'Data berhasil di kirim');
     }
 
     /**

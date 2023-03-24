@@ -13,10 +13,10 @@
         <div class="col-sm-12">
             <div class="row">
                 <div class="col-sm-3">
-                    <label>Surat pengantar</label>
+                    <label>Surat pernyataan</label>
                 </div>
                 <div class="file-bar">
-                    <a href="{{ asset('storage/dokumen/' . $formulir->surat_pengantar) }}" target="_blank">
+                    <a href="{{ asset('storage/dokumen/' . $formulir->surat_pernyataan) }}" target="_blank">
                         <div class="file-bar-icon">
                             <i class="fa fa-download"></i>
                         </div>

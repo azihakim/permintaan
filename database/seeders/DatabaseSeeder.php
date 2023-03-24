@@ -30,12 +30,12 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         // User::create([
-        //     'name' =>'abdul',
+        //     'name' =>'Abdul Halim',
         //     'role' =>'Masyarakat',
-        //     'email' =>'azi@gmail.com',
+        //     'email' =>'abdul@gmail.com',
         //     'no_wa' => '081279338859',
         //     'ktp' => 'KTP-1674566021.jpeg',
-        //     'kategori' => 'Umum',
+        //     'kategori' => 'Pemerintahan',
         //     'instansi' => 'MDP',
         //     'email_verified_at' => '2023-02-03',
         //     'password' => bcrypt('123123123')
@@ -53,6 +53,7 @@ class DatabaseSeeder extends Seeder
         //     'password' => bcrypt('123123123')
         // ]);
 
+
         User::create([
             'name' =>'Chris',
             'role' =>'Admin',
@@ -63,6 +64,28 @@ class DatabaseSeeder extends Seeder
             'instansi' => 'MDP',
             'email_verified_at' => '2023-02-03',
             'password' => bcrypt('123123123')
+            ]);
+        // User::create([
+        //     'name' =>'Chris',
+        //     'role' =>'Admin',
+        //     'email' =>'2024240105',
+        //     'no_wa' => '081279338859',
+        //     'ktp' => 'KTP-1674566021.jpeg',
+        //     'kategori' => 'Umum',
+        //     'instansi' => 'MDP',
+        //     'email_verified_at' => '2023-02-03',
+        //     'password' => bcrypt('123123123')
+        // ]);
+
+        // Formulir::create([
+        //     'user_id' => '4',
+        //     'jenis_permintaan' => 'Kegiatan sosial',
+        //     'status_form' => '4'
+        // ]);
+        Formulir::create([
+            'user_id' => '5',
+            'jenis_permintaan' => 'Kegiatan penaggulangan bencana',
+            'status_form' => '5'
         ]);
     }
 }

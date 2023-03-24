@@ -1,13 +1,30 @@
 @component('mail::message')
 
 
-# Permintaan data BMKG
+# Permohonan data BMKG
 
-Data permintaan anda berhasil di proses
+Data permohonan anda berhasil di proses
 <a href="{{ 'store/documen/' . $user->respon_data }}" target="_blank">Download data</a><br>
-<p>Permintaan anda: </p><strong>{{ $user->respon_desk }}</strong>
+<p>Permintaan anda: </p>
+<strong>
+    @if($user->status_form == 1)
+    Permintaan Baru                              
+    @elseif($user->status_form == 2)
+    Diproses
+    @elseif($user->status_form == 3)
+    Diterima
+    @elseif($user->status_form == 4)
+    Selesai
+    @elseif($user->status_form == 5)
+    Menunggu Pembayaran
+    @elseif($user->status_form == 6)
+    Menunggu Pembayaran Ulan
+    @elseif($user->status_form == 7)
+    Ditolak
+    @endif
+</strong>
 @component('mail::button', ['url' => 'http://127.0.0.1:8000/dashboard'])
-Buka data
+Buka permohonan
 @endcomponent
 
 Terima kasih,<br>

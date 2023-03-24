@@ -31,7 +31,9 @@ class KirimRespon extends Mailable
     {
         // $respon = $this->data_user['nama'];
         $user = $this->user;
-        return $this->markdown('emails.sites.respon', compact('user'));
+        return $this
+        ->subject('Respon pemohonan data - SIPACAK BMKG')
+        ->markdown('emails.sites.respon', compact('user'));
         // ->attach($this->user["respon_data"]->getRealPath(),[
         //     'as' => $this->user["respon_data"]->getClientOriginalName(),
         // ]);

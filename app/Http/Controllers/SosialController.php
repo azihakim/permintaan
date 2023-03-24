@@ -624,7 +624,7 @@ class SosialController extends Controller
             for($i = 0; $i < count($request->lokasi_unsurcuacalainnya) ; $i++){
                 $unsurcuacalainnya = Datapermintaan::where('id', $request->id_df_unsurcuacalainnya[$i]);
                 $unsurcuacalainnya->update([
-                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya[$i],
+                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya,
                 'lokasi'        => $request->lokasi_unsurcuacalainnya[$i],
                 'tgl_dari'      => $request->tgl_dari_unsurcuacalainnya[$i],
                 'tgl_sampai'    => $request->tgl_sampai_unsurcuacalainnya[$i]
