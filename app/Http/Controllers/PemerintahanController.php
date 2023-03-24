@@ -68,16 +68,16 @@ class PemerintahanController extends Controller
         if($request->exists("cb_datapetirs")){
                 foreach($data['lokasi_petir'] as $key=>$value){
                         if($value != null ){
-                            $save_data=[
+                            Datapermintaan::create([
                                 'formulir_id'   => $formulir->id,
                                 'jenis_data'    => "datapetir",
-                                'lokasi'        => $value,
-                                // 'latitude'      => $data['latitude_petir'][$key],
-                                // 'longitude'     => $data['longitude_petir'][$key],
-                                'tgl_dari'      => $data['tgl_dari_petir'][$key],
-                                // 'tgl_sampai'    => $data['tgl_sampai_petir'][$key]
-                            ];
-                            DB::table('datapermintaans')->insert($save_data); 
+                                'lokasi'        => $request->lokasi_petir[$key],
+                                'desk_petir' => $request->desk_petir,
+                                // 'latitude'      => $request->latitude_petir[$key],
+                                // 'longitude'     => $request->longitude_petir[$key],
+                                'tgl_dari'      => $request->tgl_dari_petir[$key],
+                                // 'tgl_sampai'    => $request->tgl_sampai_petir[$key]
+                            ]);
                         }
                 }
         }
@@ -349,9 +349,14 @@ class PemerintahanController extends Controller
      */
     public function show($id)
     {
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.showPemerintahan', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.showPemerintahan', compact('formulir', 'datapermintaan'));
+
+        }else{
+            return abort(404);
+        }
     }
 
     /**
@@ -362,10 +367,14 @@ class PemerintahanController extends Controller
      */
     public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
-        //
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.editPemerintahan', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.editPemerintahan', compact('formulir', 'datapermintaan'));
+
+        }else{
+            return abort(404);
+        }
     }
 
     /**
@@ -423,11 +432,9 @@ class PemerintahanController extends Controller
             for($i = 0; $i < count($request->lokasi_datapetir) ; $i++){
                 $petir = Datapermintaan::where('id', $request->id_df_datapetir[$i]);
                 $petir->update([
-                            'lokasi'        => $request->lokasi_datapetir[$i],
-                            'latitude'      => $request->latitude_datapetir[$i],
-                            'longitude'     => $request->longitude_datapetir[$i],
-                            'tgl_dari'      => $request->tgl_dari_datapetir[$i],
-                            'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
+                    'lokasi'        => $request->lokasi_datapetir[$i],
+                    'desk_petir'    => $request->deskripsi_datapetir,
+                    'tgl_dari'      => $request->tgl_dari_datapetir[$i],
                 ]);
             }
         }
@@ -646,7 +653,7 @@ class PemerintahanController extends Controller
             for($i = 0; $i < count($request->lokasi_unsurcuacalainnya) ; $i++){
                 $unsurcuacalainnya = Datapermintaan::where('id', $request->id_df_unsurcuacalainnya[$i]);
                 $unsurcuacalainnya->update([
-                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya[$i],
+                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya,
                 'lokasi'        => $request->lokasi_unsurcuacalainnya[$i],
                 'tgl_dari'      => $request->tgl_dari_unsurcuacalainnya[$i],
                 'tgl_sampai'    => $request->tgl_sampai_unsurcuacalainnya[$i]

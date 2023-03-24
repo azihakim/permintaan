@@ -64,11 +64,12 @@ class PertahanankeamananController extends Controller
                             Datapermintaan::create([
                                 'formulir_id'   => $formulir->id,
                                 'jenis_data'    => "datapetir",
-                                'lokasi'        => $request->lokasi_petir[$key],    
-                                'latitude'      => $request->latitude_petir[$key],
-                                'longitude'     => $request->longitude_petir[$key],
+                                'lokasi'        => $request->lokasi_petir[$key],
+                                'desk_petir'    => $request->desk_petir,
+                                // 'latitude'      => $request->latitude_petir[$key],
+                                // 'longitude'     => $request->longitude_petir[$key],
                                 'tgl_dari'      => $request->tgl_dari_petir[$key],
-                                'tgl_sampai'    => $request->tgl_sampai_petir[$key]
+                                // 'tgl_sampai'    => $request->tgl_sampai_petir[$key]
                             ]);
                         }
                 }
@@ -341,9 +342,13 @@ class PertahanankeamananController extends Controller
      */
     public function show($id)
     {
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.showPertahanankeamanan', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.showPertahanankeamanan', compact('formulir', 'datapermintaan'));
+        }else{
+            return abort(404);
+        }
     }
 
     /**
@@ -354,10 +359,13 @@ class PertahanankeamananController extends Controller
      */
     public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
-        //
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.editPertahanankeamanan', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.editPertahanankeamanan', compact('formulir', 'datapermintaan'));
+        }else{
+            return abort(404);
+        }
     }
 
     /**
@@ -398,10 +406,11 @@ class PertahanankeamananController extends Controller
                 $petir = Datapermintaan::where('id', $request->id_df_datapetir[$i]);
                 $petir->update([
                             'lokasi'        => $request->lokasi_datapetir[$i],
-                            'latitude'      => $request->latitude_datapetir[$i],
-                            'longitude'     => $request->longitude_datapetir[$i],
+                            'desk_petir' => $request->deskripsi_datapetir,
+                            // 'latitude'      => $request->latitude_datapetir[$i],
+                            // 'longitude'     => $request->longitude_datapetir[$i],
                             'tgl_dari'      => $request->tgl_dari_datapetir[$i],
-                            'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
+                            // 'tgl_sampai'    => $request->tgl_sampai_datapetir[$i]
                 ]);
             }
         }
@@ -620,7 +629,7 @@ class PertahanankeamananController extends Controller
             for($i = 0; $i < count($request->lokasi_unsurcuacalainnya) ; $i++){
                 $unsurcuacalainnya = Datapermintaan::where('id', $request->id_df_unsurcuacalainnya[$i]);
                 $unsurcuacalainnya->update([
-                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya[$i],
+                'unsurcuacalain'=> $request->deskripsi_unsurcuacalainnya,
                 'lokasi'        => $request->lokasi_unsurcuacalainnya[$i],
                 'tgl_dari'      => $request->tgl_dari_unsurcuacalainnya[$i],
                 'tgl_sampai'    => $request->tgl_sampai_unsurcuacalainnya[$i]

@@ -120,41 +120,41 @@
         <div class="spacer-20"></div>
 
         {{-- Start syarat permohonan data --}}
-        <div class="row">
-            <div class="col-sm-12">
-                <h4 class="bold">Syarat permohonan data</h4>
-            </div>
-        </div>
-            <div class="spacer-10"></div>
             <div class="row">
-                <div class="col-sm-6">
-                    <label>perjanjian kerjasama dengan BMKG tentang kebutuhan informasi MKKuG</label>
+                <div class="col-sm-12">
+                    <h4 class="bold">Syarat permohonan data</h4>
                 </div>
-                <div class="col-sm-6">
-                    <input required type="file" accept="application/pdf" name="surat_kerjasama">
-                    <div class="helper-text-box">
-                            <div class="form-helper-header">Format
-                                file:<code>.pdf</code>
-                            </div>
+            </div>
+                <div class="spacer-10"></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>perjanjian kerjasama dengan BMKG tentang kebutuhan informasi MKKuG</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input required type="file" accept="application/pdf" name="surat_kerjasama">
+                        <div class="helper-text-box">
+                                <div class="form-helper-header">Format
+                                    file:<code>.pdf</code>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="spacer-10"></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Surat pengantar</label>
+                    </div>
+                    <div class="col-sm-6">
+                        <input required type="file" accept="application/pdf" name="surat_pengantar">
+                        <div class="helper-text-box">
+                                <div class="form-helper-header">Format
+                                    file:<code>.pdf</code>
+                                </div>
+                        </div>
                     </div>
                 </div>
             </div>
-    
-            <div class="spacer-10"></div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <label>Surat pengantar</label>
-                </div>
-                <div class="col-sm-6">
-                    <input required type="file" accept="application/pdf" name="surat_pengantar">
-                    <div class="helper-text-box">
-                            <div class="form-helper-header">Format
-                                file:<code>.pdf</code>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         {{-- End syarat permohonan data --}}
         <div class="spacer-40"></div>
         <hr>

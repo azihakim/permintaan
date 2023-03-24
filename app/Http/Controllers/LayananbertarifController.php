@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\Layananbertarif;
 use App\Models\Formulir;
 use App\Models\Datapermintaan;
+use Illuminate\Database\Eloquent\Builder;
 use App\Policies\FormulirPolicy;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Validation\Rule;
@@ -325,10 +326,13 @@ class LayananbertarifController extends Controller
      */
     public function show(Layananbertarif $layananbertarif, Datapermintaan $datapermintaan, $id)
     {
-        
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.showLayananBertarif', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.showLayananBertarif', compact('formulir', 'datapermintaan'));
+        } else{
+            return abort(404);
+        }
     }
 
     /**
@@ -339,10 +343,13 @@ class LayananbertarifController extends Controller
      */
     public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
-        // $this->authorize('view', $formulir);
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.editLayananBertarif', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.editLayananBertarif', compact('formulir', 'datapermintaan'));
+        } else{
+            return abort(404);
+        }
     }
 
     /**
@@ -354,7 +361,6 @@ class LayananbertarifController extends Controller
      */
     public function update(Request $request, $id, Formulir $formulir)
     {   
-        
         $formulir = Formulir::find($id);
         $formulir ->deskripsi = $request->input('deskripsi');
         $file_name = $formulir->surat_pengantar;

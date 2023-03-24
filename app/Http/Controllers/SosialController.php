@@ -343,10 +343,13 @@ class SosialController extends Controller
      */
     public function show($id)
     {
-        //
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.showSosial', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.showSosial', compact('formulir', 'datapermintaan'));
+        }else{
+            return abort(404);
+        }
     }
 
     /**
@@ -357,10 +360,13 @@ class SosialController extends Controller
      */
     public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
-        //
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.editSosial', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.editSosial', compact('formulir', 'datapermintaan'));
+        }else{
+            return abort(404);
+        }
     }
 
     /**

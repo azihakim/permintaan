@@ -347,9 +347,13 @@ class KeagamaanController extends Controller
      */
     public function show($id)
     {
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.showKeagamaan', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.showKeagamaan', compact('formulir', 'datapermintaan'));
+        }else{
+            return abort(404);
+        }
     }
 
     /**
@@ -360,9 +364,13 @@ class KeagamaanController extends Controller
      */
     public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.editKeagamaan', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.editKeagamaan', compact('formulir', 'datapermintaan'));
+        }else{
+            return abort(404);
+        }
     }
 
     /**

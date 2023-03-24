@@ -356,10 +356,14 @@ class PenanggulanganbencanaController extends Controller
      */
     public function show($id)
     {
-        //
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.showPenanggulanganbencana', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.showPenanggulanganbencana', compact('formulir', 'datapermintaan'));
+
+        }else{
+            return abort(404);
+        }
     }
 
     /**
@@ -370,10 +374,14 @@ class PenanggulanganbencanaController extends Controller
      */
     public function edit($id, Datapermintaan $datapermintaan, Formulir $formulir)
     {
-        //
-        $formulir = Formulir::find($id);
-        $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
-        return view('formulir.editPenanggulanganbencana', compact('formulir', 'datapermintaan'));
+        if($formulir = Formulir::find($id) != null ){
+            $formulir = Formulir::find($id);
+            $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
+            return view('formulir.editPenanggulanganbencana', compact('formulir', 'datapermintaan'));
+
+        }else{
+            return abort(404);
+        }
     }
 
     /**
