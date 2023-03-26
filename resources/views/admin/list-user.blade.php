@@ -74,9 +74,6 @@
                             </div>
                         </td>
                     </tr>
-                    @if(!$loop->last)
-                        ,
-                    @endif
                 @endforeach
             </tbody>
             <tfoot>

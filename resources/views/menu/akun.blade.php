@@ -11,49 +11,49 @@
         <div class="spacer-10"></div>
         <div class="row">
             <div class="col-sm-3">
-                <label>Nama</label>
+                <p>Nama</p>
             </div>
             <div class="col-sm-4">
-                <input type="text" aria-required="true" name="nama" required="" value="{{ Auth::user()->name }}" class="form-control">
+                <label>{{ Auth::user()->name }}</label>
             </div>
         </div>
         <div class="spacer-10"></div>
         <div class="row">
             <div class="col-sm-3">
-                <label>Asal instansi</label>
+                <p>Asal instansi</p>
             </div>
             <div class="col-sm-4">
-                <input type="text" aria-required="true" name="instansi" value="{{ Auth::user()->instansi }}" required="" class="form-control">
+                <label>{{ Auth::user()->instansi }}</label>
             </div>
         </div>
         <div class="spacer-10"></div>
         <div class="row">
             <div class="col-sm-3">
-                <label>Kategori</label>
+                <p>Kategori</p>
             </div>
             <div class="col-sm-4">
-                <input type="text" aria-required="true" name="kategori" value="{{ Auth::user()->kategori }}" required="" class="form-control">
+                <label>{{ Auth::user()->kategori }}</label>
             </div>
         </div>
         <div class="spacer-10"></div>
         <div class="row">
             <div class="col-sm-3">
-                <label>Deskripsi kategori</label>
+                <p>Deskripsi kategori</p>
             </div>
             <div class="col-sm-4">
-                <input type="text" aria-required="true" name="instansi" value="{{ Auth::user()->desk_kategori }}" required="" class="form-control">
+                <label>{{ Auth::user()->desk_kategori }}</label>
             </div>
         </div>
         <div class="spacer-10"></div>
         <div class="row">
             <div class="col-sm-3">
-                <label>Nomor whatsapp</label>
+                <p>Nomor whatsapp</p>
             </div>
             <div class="col-sm-4">
-                <input type="text" aria-required="true" name="no_wa" value="{{ Auth::user()->no_wa }}" required="" class="form-control">
+                <label>{{ Auth::user()->no_wa }}</label>
             </div>
         </div>
-        <div class="spacer-10"></div>
+        {{-- <div class="spacer-10"></div>
         <div class="row">
             <div class="col-lg-3">
                 <label for="fcid-4">KTP</label>
@@ -72,7 +72,7 @@
                     <div class="form-helper">disarankan sensor bagian NIK</div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="spacer-10"></div>
         {{-- @foreach ($user as $item) --}}
         <div class="row">

@@ -198,11 +198,6 @@
                             <ul>
                                 {{-- Super Admin --}}
                                 @if (auth()->user()->role == 'Super Admin')
-                                    <li class="@yield('dashboard')">
-                                        <a href="{{ url('/dashboard-superadmin') }}">Dashboard admin<i
-                                                class="fa fa-dashboard"></i></a>
-                                    </li>
-
                                     <li class="@yield('akun')">
                                         <a href="{{ url('/list-user') }}">List user<i class="fa fa-user"></i> </a>
                                     </li>
