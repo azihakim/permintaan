@@ -18,12 +18,12 @@
                 <label>Role</label>
             </div>
             <div class="col-sm-5">
-              @if($item->role == 0)
+              @if($item->role == 'Masyarakat')
               <span class='label label-default'>Masyarakat</span>                                    
-              @elseif($item->role == 1)
+              @elseif($item->role == 'Super Admin')
               <span class='label label-primary'>Super Admin</span>
-              @elseif($item->role == 2)
-              <span class='label label-warning'>Kepala</span>
+              @elseif($item->role == 'Viewer')
+              <span class='label label-warning'>Viewer</span>
               @else
               <span class='label label-success'>Admin</span>
               @endif

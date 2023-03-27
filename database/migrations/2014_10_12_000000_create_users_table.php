@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('kategori')->nullable();
             $table->string('desk_kategori')->nullable();
             $table->string('no_wa')->nullable();
-            $table->string('ktp');
+            $table->string('ktp')->nullable();
             $table->string('ktm')->nullable();
             $table->rememberToken();
             $table->timestamps();

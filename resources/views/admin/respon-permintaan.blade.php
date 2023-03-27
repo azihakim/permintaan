@@ -276,30 +276,90 @@
                                 <hr>
                                 <div class="spacer-20"></div>
                                 {{-- Start syarat permohonan data --}}
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h4 class="bold">Syarat permohonan data</h4>
-                                    </div>
-                                </div>
-                                <div class="spacer-10"></div>
-                                <div class="col-sm-12">
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <label>Surat pengantar</label>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <h4 class="bold">Syarat permohonan data</h4>
+                                            </div>
                                         </div>
-                                        <div class="file-bar">
-                                            <a href="{{ asset('storage/dokumen/' . $formulir->surat_pengantar) }}" target="_blank">
-                                                <div class="file-bar-icon">
-                                                    <i class="fa fa-download"></i>
+                                        @if ($formulir->surat_proposal != null)
+                                            <div class="spacer-10"></div>
+                                            {{-- Surat proposal --}}
+                                            <div>
+                                                <div class="col-sm-12">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <label>Surat proposal</label>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="file-bar">
+                                                                <a href="{{ asset('storage/dokumen/' . $formulir->surat_proposal) }}" target="_blank">
+                                                                    <div class="file-bar-icon">
+                                                                        <i class="fa fa-download"></i>
+                                                                    </div>
+                                                                    <div class="file-bar-info">
+                                                                        <h5>Unduh file</h5>
+                                                                        <span class="label label-default">.pdf</span>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="file-bar-info">
-                                                    <h5>Unduh file</h5>
-                                                    <span class="label label-default">.pdf</span>
+                                            </div>
+                                        @endif
+                                        @if($formulir->surat_pengantar != null)
+                                            <div class="spacer-10"></div>
+                                            {{-- Surat pengantar --}}
+                                                <div>
+                                                    <div class="col-sm-12">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <label>Surat pengantar</label>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="file-bar">
+                                                                    <a href="{{ asset('storage/dokumen/' . $formulir->surat_pengantar) }}" target="_blank">
+                                                                        <div class="file-bar-icon">
+                                                                            <i class="fa fa-download"></i>
+                                                                        </div>
+                                                                        <div class="file-bar-info">
+                                                                            <h5>Unduh file</h5>
+                                                                            <span class="label label-default">.pdf</span>
+                                                                        </div>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                                        @endif
+                                        @if ($formulir->surat_pernyataan != null)
+                                            <div class="spacer-10"></div>
+                                            {{-- Surat pernyataan --}}
+                                            <div>
+                                                <div class="col-sm-12">
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <label>Surat pernyataan</label>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="file-bar">
+                                                                <a href="{{ asset('storage/dokumen/' . $formulir->surat_pernyataan) }}" target="_blank">
+                                                                    <div class="file-bar-icon">
+                                                                        <i class="fa fa-download"></i>
+                                                                    </div>
+                                                                    <div class="file-bar-info">
+                                                                        <h5>Unduh file</h5>
+                                                                        <span class="label label-default">.pdf</span>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                        
                                     {{-- End syarat permohonan data --}}
                                     
                                     <div class="spacer-40"></div>

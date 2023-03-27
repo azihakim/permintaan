@@ -109,10 +109,8 @@ Auth::routes(['verify'=>true]);
 Route::middleware(['auth','cekrole:Super Admin'])->group(function()
 {
 // Dashboard
-    // Route::resource('/admin', DashboardadminController::class);
-    Route::get('/dashboard-superadmin',[DashboardadminController::class, 'index'])->name('dashboard.sa');
-    // Route::resource('/respon', ResponController::class);
-// Route::resource('respon-layanan', [ResponController::class])->middleware(['auth', 'verified'] );
+    Route::get('/dashboard-superadmin', [ListuserController::class, 'index'])->name('dashboard.sa');
+    // Route::get('/dashboard-superadmin',[DashboardadminController::class, 'index'])->name('dashboard.sa');
 });
 
 Route::middleware(['auth','cekrole:Admin'])->group(function()

@@ -49,7 +49,7 @@
                 <div class="spacer-50"></div>	
                 <div class="spacer-30"></div>
                 <div class="alert alert-warning">
-                    <i class="fa fa-info-circle"></i><p class="text-center">Silahkan cek email anda untuk melakukan verifikasi melalui link yang sudah dikirimkan.</p>
+                    <i class="fa fa-info-circle"></i><p class="text-center">Silahkan cek inbox atau spam email anda untuk melakukan verifikasi melalui link yang sudah dikirimkan.</p>
                 </div>
                 <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                     @csrf
