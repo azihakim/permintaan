@@ -19,8 +19,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-use function PHPUnit\Framework\isEmpty;
-
 class AddPencatatanAgromet extends Component
 {
     public $jenisForm;
@@ -77,12 +75,13 @@ class AddPencatatanAgromet extends Component
     public $arah13 = 0;
     public $kecepatan13 = 0;
     // Open Pan
-    public $h1 = 0;
-    public $ev1 = 0;
-    public $ch1 = 0;
+    public $h_openpan1 = 0;
+    public $ev_openpan1 = 0;
+    public $ch_openpan1 = 0;
     public $t1 = 0;
     public $max1 = 0;
     public $min1 = 0;
+    public $pesanOpenPan1;
     // Barometer
     public $suhu1 = 0;
     public $barometer1 = 0;
@@ -127,12 +126,13 @@ class AddPencatatanAgromet extends Component
     public $msgError21;
     public $msgError22;
     // Open Pan
-    public $h2_openpan = 0;
-    public $ev2_openpan = 0;
-    public $ch2 = 0;
+    public $h_openpan2 = 0;
+    public $ev_openpan2 = 0;
+    public $ch_openpan2 = 0;
     public $t2 = 0;
     public $max2 = 0;
     public $min2 = 0;
+    public $pesanOpenPan2;
     // Psychrometer Assmann
     public $bb21 = 0;
     public $bk21 = 0;
@@ -214,9 +214,11 @@ class AddPencatatanAgromet extends Component
     public $msgError41;
     public $msgError42;
     // Open Pan
-    public $h2_openpan4 = 0;
-    public $ev2_openpan4 = 0;
-    public $ch4 = 0;
+    public $h_openpan4 = 0;
+    public $ev_openpan4 = 0;
+    public $ch_openpan4 = 0;
+    public $reset_openpan4 = 0;
+    public $pesanOpenPan4;
     public $t4 = 0;
     public $max4 = 0;
     public $min4 = 0;
@@ -331,9 +333,10 @@ class AddPencatatanAgromet extends Component
     public $msgError61;
     public $msgError62;
     // Open Pan
-    public $h2_openpan6 = 0;
-    public $ev2_openpan6 = 0;
-    public $ch6 = 0;
+    public $h_openpan6 = 0;
+    public $ev_openpan6 = 0;
+    public $ch_openpan6 = 0;
+    public $pesanOpenPan6;
     public $t6 = 0;
     public $max6 = 0;
     public $min6 = 0;
@@ -444,9 +447,9 @@ class AddPencatatanAgromet extends Component
             'kecepatan12' => 'numeric|nullable',
             'arah13' => 'numeric|nullable',
             'kecepatan13' => 'numeric|nullable',
-            'h1' => 'numeric|nullable',
-            'ev1' => 'numeric|nullable',
-            'ch1' => 'numeric|nullable',
+            'h_openpan1' => 'numeric|nullable',
+            'ev_openpan1' => 'numeric|nullable',
+            'ch_openpan1' => 'numeric|nullable',
             't1' => 'numeric|nullable',
             'max1' => 'numeric|nullable',
             'min1' => 'numeric|nullable',
@@ -499,9 +502,9 @@ class AddPencatatanAgromet extends Component
         ];
 
         $dataOpenPan = [
-            'h' => $this->h1,
-            'ev' => $this->ev1,
-            'ch' => $this->ch1,
+            'h' => $this->h_openpan1,
+            'ev' => $this->ev_openpan1,
+            'ch' => $this->ch_openpan1,
             't' => $this->t1,
             'max' => $this->max1,
             'min' => $this->min1,
@@ -571,9 +574,9 @@ class AddPencatatanAgromet extends Component
             'kecepatan22' => 'numeric|nullable',
             'arah23' => 'numeric|nullable',
             'kecepatan23' => 'numeric|nullable',
-            'h2_openpan' => 'numeric|nullable',
-            'ev2_openpan' => 'numeric|nullable',
-            'ch2' => 'numeric|nullable',
+            'h_openpan2' => 'numeric|nullable',
+            'ev_openpan2' => 'numeric|nullable',
+            'ch_openpan2' => 'numeric|nullable',
             't2' => 'numeric|nullable',
             'max2' => 'numeric|nullable',
             'min2' => 'numeric|nullable',
@@ -650,9 +653,9 @@ class AddPencatatanAgromet extends Component
         ];
 
         $dataOpenPan = [
-            'h' => $this->h2_openpan,
-            'ev' => $this->ev2_openpan,
-            'ch' => $this->ch2,
+            'h' => $this->h_openpan2,
+            'ev' => $this->ev_openpan2,
+            'ch' => $this->ch_openpan2,
             't' => $this->t2,
             'max' => $this->max2,
             'min' => $this->min2,
@@ -795,9 +798,10 @@ class AddPencatatanAgromet extends Component
             'kecepatan42' => 'numeric|nullable',
             'arah43' => 'numeric|nullable',
             'kecepatan43' => 'numeric|nullable',
-            'h2_openpan4' => 'numeric|nullable',
-            'ev2_openpan4' => 'numeric|nullable',
-            'ch4' => 'numeric|nullable',
+            'h_openpan4' => 'numeric|nullable',
+            'ev_openpan4' => 'numeric|nullable',
+            'ch_openpan4' => 'numeric|nullable',
+            'reset_openpan4' => 'numeric|nullable',
             't4' => 'numeric|nullable',
             'max4' => 'numeric|nullable',
             'min4' => 'numeric|nullable',
@@ -873,9 +877,9 @@ class AddPencatatanAgromet extends Component
         ];
 
         $dataOpenPan = [
-            'h' => $this->h2_openpan4,
-            'ev' => $this->ev2_openpan4,
-            'ch' => $this->ch4,
+            'h' => $this->h_openpan4,
+            'ev' => $this->ev_openpan4,
+            'ch' => $this->ch_openpan4,
             't' => $this->t4,
             'max' => $this->max4,
             'min' => $this->min4,
@@ -1087,9 +1091,9 @@ class AddPencatatanAgromet extends Component
             'kecepatan62' => 'numeric|nullable',
             'arah63' => 'numeric|nullable',
             'kecepatan63' => 'numeric|nullable',
-            'h2_openpan6' => 'numeric|nullable',
-            'ev2_openpan6' => 'numeric|nullable',
-            'ch6' => 'numeric|nullable',
+            'h_openpan6' => 'numeric|nullable',
+            'ev_openpan6' => 'numeric|nullable',
+            'ch_openpan6' => 'numeric|nullable',
             't6' => 'numeric|nullable',
             'max6' => 'numeric|nullable',
             'min6' => 'numeric|nullable',
@@ -1166,9 +1170,9 @@ class AddPencatatanAgromet extends Component
         ];
 
         $dataOpenPan = [
-            'h' => $this->h2_openpan6,
-            'ev' => $this->ev2_openpan6,
-            'ch' => $this->ch6,
+            'h' => $this->h_openpan6,
+            'ev' => $this->ev_openpan6,
+            'ch' => $this->ch_openpan6,
             't' => $this->t6,
             'max' => $this->max6,
             'min' => $this->min6,
@@ -2007,7 +2011,6 @@ class AddPencatatanAgromet extends Component
     // Query H Open Pan Hari ini
     public function queryHOpenPan($tanggal, $waktu){
         $data = DB::select("SELECT open_pans.h FROM pencatatans INNER JOIN open_pans ON pencatatans.id = open_pans.pencatatans_id WHERE tanggal = DATE('$tanggal') AND pencatatans.waktu = '$waktu'");
-
         return isset($data[0]->h) ? $data[0]->h : 0;
     }
 
@@ -2019,15 +2022,157 @@ class AddPencatatanAgromet extends Component
     }
 
     // Hitung EV Open Pan
-    public function hitungEVOpenPan($hKemarin, $h, $ch){
-        $data = ($hKemarin - $h) + $ch;
-
+    public function hitungEVOpenPan($h1, $h2, $ch){
+        $data = ($h1 - $h2) + $ch;
         return round($data, 2);
     }
 
-    public function updatedH1($value){
-        $hKemarin = $this->queryHOpenPanKemarin($this->tanggal, '07.01');
-        $this->ev1 = $this->hitungEVOpenPan($hKemarin, $this->h1, $this->ch1);
+        // Cek Tbk dan Tbb jika kosong
+    public function cekHChOpenPan($ch, $h, $no){
+        if ($ch === '') {
+            $this->reset(["ch_openpan$no", "ev_openpan$no"]);
+        } else if ($h === ''){
+            $this->reset(["h_openpan$no", "ev_openpan$no"]);
+        } else if ($ch === '' && $h === ''){
+            $this->reset(["ch_openpan$no","h_openpan$no", "ev_openpan$no"]);
+        } else {
+            $data = "ModeHitung";
+            return $data;
+        }
     }
+
+    // 07.01 (Updated Hitung EV)
+    public function updatedHOpenpan1($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan1,$this->h_openpan1, "1");
+        if($mode === "ModeHitung"){
+            $hKemarin = $this->queryHOpenPanKemarin($this->tanggal, '07.01');
+            if($hKemarin != 0){
+                $this->ev_openpan1 = $this->hitungEVOpenPan($hKemarin, $this->h_openpan1, $this->ch_openpan1);
+            } else {
+                $this->pesanOpenPan1 = "Data H Open Pan jam 07.01 kemarin belum ada";
+            }
+        }
+    }
+
+    public function updatedChOpenpan1($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan1,$this->h_openpan1, "1");
+        if($mode === "ModeHitung"){
+            $hKemarin = $this->queryHOpenPanKemarin($this->tanggal, '07.01');
+            if($hKemarin != 0){
+                $this->ev_openpan1 = $this->hitungEVOpenPan($hKemarin, $this->h_openpan1, $this->ch_openpan1);
+            } else {
+                $this->pesanOpenPan1 = "Data H Open Pan jam 07.01 kemarin belum ada";
+            }
+        }
+    }
+    // End 07.01 (Updated Hitung EV)
+
+    // 07.31 (Updated Hitung EV)
+    public function updatedHOpenpan2($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan2,$this->h_openpan2, "2");
+        if($mode === "ModeHitung"){
+            $hKemarin = $this->queryHOpenPanKemarin($this->tanggal, "17.31");
+            if($hKemarin != 0){
+                $this->ev_openpan2 = $this->hitungEVOpenPan($hKemarin, $this->h_openpan2, $this->ch_openpan2);
+            } else {
+                $this->pesanOpenPan2 = "Data H Open Pan jam 17.31 kemarin belum ada";
+            }
+        }
+    }
+
+    public function updatedChOpenpan2($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan2,$this->h_openpan2, "2");
+        if($mode === "ModeHitung"){
+            $hKemarin = $this->queryHOpenPanKemarin($this->tanggal, "17.31");
+            if($hKemarin != 0){
+                $this->ev_openpan2 = $this->hitungEVOpenPan($hKemarin, $this->h_openpan2, $this->ch_openpan2);
+            } else {
+                $this->pesanOpenPan2 = "Data H Open Pan jam 17.31 kemarin belum ada";
+            }
+        }
+    }
+    // End 07.31 (Updated Hitung EV)
+
+    // 13.31 (Updated Hitung EV)
+    public function updatedHOpenpan4($value) {
+        $mode = $this->cekHChOpenPan($this->ch_openpan4,$this->h_openpan4, "4");
+        if($mode === "ModeHitung"){
+            $h = $this->queryHOpenPan($this->tanggal, "07.31");
+            if($h != 0){
+                $selisih = $h - $this->h_openpan4;
+                if($selisih < -10 || $selisih > 10) {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($this->reset_openpan4, $this->h_openpan4, $this->ch_openpan4);
+                } else {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($h, $this->h_openpan4, $this->ch_openpan4);
+                }
+            } else {
+                $this->pesanOpenPan4 = "Data H Open Pan jam 07.31 hari ini belum ada";
+            }
+        }
+    }
+
+    public function updatedChOpenpan4($value) {
+        $mode = $this->cekHChOpenPan($this->ch_openpan4,$this->h_openpan4, "4");
+        if($mode === "ModeHitung"){
+            $h = $this->queryHOpenPan($this->tanggal, "07.31");
+            if($h != 0){
+                $selisih = $h - $this->h_openpan4;
+                if($selisih < -10 || $selisih > 10) {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($this->reset_openpan4, $this->h_openpan4, $this->ch_openpan4);
+                } else {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($h, $this->h_openpan4, $this->ch_openpan4);
+                }
+            } else {
+                $this->pesanOpenPan4 = "Data H Open Pan jam 07.31 hari ini belum ada";
+            }
+        }
+    }
+
+    public function updatedResetOpenpan4($value) {
+        $mode = $this->cekHChOpenPan($this->ch_openpan4,$this->h_openpan4, "4");
+        if($mode === "ModeHitung"){
+            $h = $this->queryHOpenPan($this->tanggal, "07.31");
+            if($h != 0){
+                $selisih = $h - $this->h_openpan4;
+                if($selisih < -10 || $selisih > 10) {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($this->reset_openpan4, $this->h_openpan4, $this->ch_openpan4);
+                } else {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($h, $this->h_openpan4, $this->ch_openpan4);
+                }
+            } else {
+                $this->pesanOpenPan4 = "Data H Open Pan jam 07.31 hari ini belum ada";
+            }
+        }
+    }
+    // End 13.31 (Updated Hitung EV)
+
+    // 17.31 (Updated Hitung EV)
+    public function updatedHOpenpan6($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan6,$this->h_openpan6, "6");
+        if($mode === "ModeHitung"){
+            $h = $this->queryHOpenPan($this->tanggal, "13.31");
+            if($h != 0){
+                $this->ev_openpan6 = $this->hitungEVOpenPan($h, $this->h_openpan6, $this->ch_openpan6);
+            } else {
+                $this->pesanOpenPan6 = "Data H Open Pan jam 13.31 hari ini belum ada";
+            }
+        }
+    }
+
+    public function updatedChOpenpan6($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan6,$this->h_openpan6, "6");
+        if($mode === "ModeHitung"){
+            $h = $this->queryHOpenPan($this->tanggal, "13.31");
+            if($h != 0){
+                $this->ev_openpan6 = $this->hitungEVOpenPan($h, $this->h_openpan6, $this->ch_openpan6);
+            } else {
+                $this->pesanOpenPan6 = "Data H Open Pan jam 13.31 hari ini belum ada";
+            }
+        }
+    }
+    // End 17.31 (Updated Hitung EV)
+
     /* -----End Rumus Function Open Pan----- */
+
+
 }
