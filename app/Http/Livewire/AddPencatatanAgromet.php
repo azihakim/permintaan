@@ -799,9 +799,9 @@ class AddPencatatanAgromet extends Component
             'arah43' => 'numeric|nullable',
             'kecepatan43' => 'numeric|nullable',
             'h_openpan4' => 'numeric|nullable',
+            'reset_openpan4'=>'numeric|nullable',
             'ev_openpan4' => 'numeric|nullable',
             'ch_openpan4' => 'numeric|nullable',
-            'reset_openpan4' => 'numeric|nullable',
             't4' => 'numeric|nullable',
             'max4' => 'numeric|nullable',
             'min4' => 'numeric|nullable',
@@ -864,8 +864,8 @@ class AddPencatatanAgromet extends Component
 
         $dataAngin = [
             'cup_counter1' => $this->cup_counter41,
-            'kec_rata1' => $this->kecRata41,
             'cup_counter2' => $this->cup_counter42,
+            'kec_rata1' => $this->kecRata41,
             'kec_rata2' => $this->kecRata42,
             'arah1' => $this->arah41,
             'kecepatan1' => $this->kecepatan41,
@@ -878,6 +878,7 @@ class AddPencatatanAgromet extends Component
 
         $dataOpenPan = [
             'h' => $this->h_openpan4,
+            'reset' => $this->reset_openpan4,
             'ev' => $this->ev_openpan4,
             'ch' => $this->ch_openpan4,
             't' => $this->t4,
@@ -1082,8 +1083,8 @@ class AddPencatatanAgromet extends Component
             'RH63' => 'numeric|nullable',
             'RH64' => 'numeric|nullable',
             'cup_counter61' => 'numeric|nullable',
-            'kecRata61' => 'numeric|nullable',
             'cup_counter62' => 'numeric|nullable',
+            'kecRata61' => 'numeric|nullable',
             'kecRata62' => 'numeric|nullable',
             'arah61' => 'numeric|nullable',
             'kecepatan61' => 'numeric|nullable',
@@ -1157,8 +1158,8 @@ class AddPencatatanAgromet extends Component
 
         $dataAngin = [
             'cup_counter1' => $this->cup_counter61,
-            'kec_rata1' => $this->kecRata61,
             'cup_counter2' => $this->cup_counter62,
+            'kec_rata1' => $this->kecRata61,
             'kec_rata2' => $this->kecRata62,
             'arah1' => $this->arah61,
             'kecepatan1' => $this->kecepatan61,

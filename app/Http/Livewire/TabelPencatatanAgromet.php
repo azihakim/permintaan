@@ -15,6 +15,7 @@ use App\Models\Suhu_min_rumput;
 use App\Models\Suhu_tanah;
 use App\Models\Termometer_maksimum_dan_minimum;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -32,6 +33,12 @@ class TabelPencatatanAgromet extends Component
     public $observerHujan3;
 
     public $idPencatatan;
+
+    public $pesanForm2;
+    public $pesanForm4;
+    public $pesanForm6;
+
+    public $tanggal;
 
     /* ---------- Form 1 ---------- */
     // Psychrometer Sangkar Meteorologi
@@ -57,12 +64,13 @@ class TabelPencatatanAgromet extends Component
     public $arah13 = 0;
     public $kecepatan13 = 0;
     // Open Pan
-    public $h1 = 0;
-    public $ev1 = 0;
-    public $ch1 = 0;
+    public $h_openpan1 = 0;
+    public $ev_openpan1 = 0;
+    public $ch_openpan1 = 0;
     public $t1 = 0;
     public $max1 = 0;
     public $min1 = 0;
+    public $pesanOpenPan1;
     // Barometer
     public $suhu1 = 0;
     public $barometer1 = 0;
@@ -95,19 +103,24 @@ class TabelPencatatanAgromet extends Component
     // Angin
     public $cup_counter21 = 0;
     public $cup_counter22 = 0;
+    public $kecRata21 = 0;
+    public $kecRata22 = 0;
     public $arah21 = 0;
     public $kecepatan21 = 0;
     public $arah22 = 0;
     public $kecepatan22 = 0;
     public $arah23 = 0;
     public $kecepatan23 = 0;
+    public $msgError21;
+    public $msgError22;
     // Open Pan
-    public $h2_openpan = 0;
-    public $ev2_openpan = 0;
-    public $ch2 = 0;
+    public $h_openpan2 = 0;
+    public $ev_openpan2 = 0;
+    public $ch_openpan2 = 0;
     public $t2 = 0;
     public $max2 = 0;
     public $min2 = 0;
+    public $pesanOpenPan2;
     // Psychrometer Assmann
     public $bb21 = 0;
     public $bk21 = 0;
@@ -140,7 +153,7 @@ class TabelPencatatanAgromet extends Component
     public $gundul27 = 0;
     // Piche Evaporimeter
     public $h2_piche = 0;
-    public $h22_piche = 0;
+    public $reset_piche2 = 0;
     public $ev2_piche = 0;
     /* ---------- End Form 2 ---------- */
 
@@ -178,16 +191,22 @@ class TabelPencatatanAgromet extends Component
     // Angin
     public $cup_counter41 = 0;
     public $cup_counter42 = 0;
+    public $kecRata41 = 0;
+    public $kecRata42 = 0;
     public $arah41 = 0;
     public $kecepatan41 = 0;
     public $arah42 = 0;
     public $kecepatan42 = 0;
     public $arah43 = 0;
     public $kecepatan43 = 0;
+    public $msgError41;
+    public $msgError42;
     // Open Pan
-    public $h2_openpan4 = 0;
-    public $ev2_openpan4 = 0;
-    public $ch4 = 0;
+    public $h_openpan4 = 0;
+    public $ev_openpan4 = 0;
+    public $ch_openpan4 = 0;
+    public $reset_openpan4 = 0;
+    public $pesanOpenPan4;
     public $t4 = 0;
     public $max4 = 0;
     public $min4 = 0;
@@ -291,16 +310,21 @@ class TabelPencatatanAgromet extends Component
     // Angin
     public $cup_counter61 = 0;
     public $cup_counter62 = 0;
+    public $kecRata61 = 0;
+    public $kecRata62 = 0;
     public $arah61 = 0;
     public $kecepatan61 = 0;
     public $arah62 = 0;
     public $kecepatan62 = 0;
     public $arah63 = 0;
     public $kecepatan63 = 0;
+    public $msgError61;
+    public $msgError62;
     // Open Pan
-    public $h2_openpan6 = 0;
-    public $ev2_openpan6 = 0;
-    public $ch6 = 0;
+    public $h_openpan6 = 0;
+    public $ev_openpan6 = 0;
+    public $ch_openpan6 = 0;
+    public $pesanOpenPan6;
     public $t6 = 0;
     public $max6 = 0;
     public $min6 = 0;
@@ -336,6 +360,7 @@ class TabelPencatatanAgromet extends Component
     public $gundul67 = 0;
     // Piche Evaporimeter
     public $h2_piche6 = 0;
+    public $reset_piche6 = 0;
     public $ev2_piche6 = 0;
     /* ---------- End Form 6 ---------- */
 
@@ -460,6 +485,7 @@ class TabelPencatatanAgromet extends Component
 
     public function editForm1($pencatatan_id){
         // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        $this->tanggal = DB::select("SELECT tanggal FROM pencatatans WHERE id = $pencatatan_id")[0]->tanggal;
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataOpenPan = Open_pan::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -493,9 +519,9 @@ class TabelPencatatanAgromet extends Component
         $this->arah13 = $dataAngin->arah3;
         $this->kecepatan13 = $dataAngin->kecepatan3;
 
-        $this->h1 = $dataOpenPan->h;
-        $this->ev1 = $dataOpenPan->ev;
-        $this->ch1 = $dataOpenPan->ch;
+        $this->h_openpan1 = $dataOpenPan->h;
+        $this->ev_openpan1 = $dataOpenPan->ev;
+        $this->ch_openpan1 = $dataOpenPan->ch;
         $this->t1 = $dataOpenPan->t;
         $this->max1 = $dataOpenPan->max;
         $this->min1 = $dataOpenPan->min;
@@ -516,6 +542,7 @@ class TabelPencatatanAgromet extends Component
 
     public function editForm2($pencatatan_id){
         // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        $this->tanggal = DB::select("SELECT tanggal FROM pencatatans WHERE id = $pencatatan_id")[0]->tanggal;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -541,6 +568,8 @@ class TabelPencatatanAgromet extends Component
 
         $this->cup_counter21 = $dataAngin->cup_counter1;
         $this->cup_counter22 = $dataAngin->cup_counter2;
+        $this->kecRata21 = $dataAngin->kec_rata1;
+        $this->kecRata22 = $dataAngin->kec_rata2;
         $this->arah21 = $dataAngin->arah1;
         $this->kecepatan21 = $dataAngin->kecepatan1;
         $this->arah22 = $dataAngin->arah2;
@@ -548,9 +577,9 @@ class TabelPencatatanAgromet extends Component
         $this->arah23 = $dataAngin->arah3;
         $this->kecepatan23 = $dataAngin->kecepatan3;
 
-        $this->h2_openpan = $dataOpenPan->h;
-        $this->ev2_openpan = $dataOpenPan->ev;
-        $this->ch2 = $dataOpenPan->ch;
+        $this->h_openpan2 = $dataOpenPan->h;
+        $this->ev_openpan2 = $dataOpenPan->ev;
+        $this->ch_openpan2 = $dataOpenPan->ch;
         $this->t2 = $dataOpenPan->t;
         $this->max2 = $dataOpenPan->max;
         $this->min2 = $dataOpenPan->min;
@@ -586,12 +615,13 @@ class TabelPencatatanAgromet extends Component
         $this->gundul27 = $dataSuhuTanah->gundul7;
 
         $this->h2_piche = $dataPicheEvaporimeter->h;
-        $this->h22_piche = $dataPicheEvaporimeter->reset;
+        $this->reset_piche2 = $dataPicheEvaporimeter->reset;
         $this->ev2_piche = $dataPicheEvaporimeter->ev;
     }
 
     public function editForm3($pencatatan_id){
         // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        $this->tanggal = DB::select("SELECT tanggal FROM pencatatans WHERE id = $pencatatan_id")[0]->tanggal;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataOpenPan = Open_pan::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -615,6 +645,7 @@ class TabelPencatatanAgromet extends Component
 
     public function editForm4($pencatatan_id){
         // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        $this->tanggal = DB::select("SELECT tanggal FROM pencatatans WHERE id = $pencatatan_id")[0]->tanggal;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -640,6 +671,8 @@ class TabelPencatatanAgromet extends Component
 
         $this->cup_counter41 = $dataAngin->cup_counter1;
         $this->cup_counter42 = $dataAngin->cup_counter2;
+        $this->kecRata41 = $dataAngin->kec_rata1;
+        $this->kecRata42 = $dataAngin->kec_rata2;
         $this->arah41 = $dataAngin->arah1;
         $this->kecepatan41 = $dataAngin->kecepatan1;
         $this->arah42 = $dataAngin->arah2;
@@ -647,9 +680,10 @@ class TabelPencatatanAgromet extends Component
         $this->arah43 = $dataAngin->arah3;
         $this->kecepatan43 = $dataAngin->kecepatan3;
 
-        $this->h2_openpan4 = $dataOpenPan->h;
-        $this->ev2_openpan4 = $dataOpenPan->ev;
-        $this->ch4 = $dataOpenPan->ch;
+        $this->h_openpan4 = $dataOpenPan->h;
+        $this->reset_openpan4 = $dataOpenPan->reset;
+        $this->ev_openpan4 = $dataOpenPan->ev;
+        $this->ch_openpan4 = $dataOpenPan->ch;
         $this->t4 = $dataOpenPan->t;
         $this->max4 = $dataOpenPan->max;
         $this->min4 = $dataOpenPan->min;
@@ -690,6 +724,7 @@ class TabelPencatatanAgromet extends Component
 
     public function editForm5($pencatatan_id){
         // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        $this->tanggal = DB::select("SELECT tanggal FROM pencatatans WHERE id = $pencatatan_id")[0]->tanggal;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -747,6 +782,7 @@ class TabelPencatatanAgromet extends Component
 
     public function editForm6($pencatatan_id){
         // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        $this->tanggal = DB::select("SELECT tanggal FROM pencatatans WHERE id = $pencatatan_id")[0]->tanggal;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -772,6 +808,8 @@ class TabelPencatatanAgromet extends Component
 
         $this->cup_counter61 = $dataAngin->cup_counter1;
         $this->cup_counter62 = $dataAngin->cup_counter2;
+        $this->kecRata61 = $dataAngin->kec_rata1;
+        $this->kecRata62 = $dataAngin->kec_rata2;
         $this->arah61 = $dataAngin->arah1;
         $this->kecepatan61 = $dataAngin->kecepatan1;
         $this->arah62 = $dataAngin->arah2;
@@ -779,9 +817,9 @@ class TabelPencatatanAgromet extends Component
         $this->arah63 = $dataAngin->arah3;
         $this->kecepatan63 = $dataAngin->kecepatan3;
 
-        $this->h2_openpan6 = $dataOpenPan->h;
-        $this->ev2_openpan6 = $dataOpenPan->ev;
-        $this->ch6 = $dataOpenPan->ch;
+        $this->h_openpan6 = $dataOpenPan->h;
+        $this->ev_openpan6 = $dataOpenPan->ev;
+        $this->ch_openpan6 = $dataOpenPan->ch;
         $this->t6 = $dataOpenPan->t;
         $this->max6 = $dataOpenPan->max;
         $this->min6 = $dataOpenPan->min;
@@ -822,6 +860,7 @@ class TabelPencatatanAgromet extends Component
 
     public function editForm7($pencatatan_id){
         // $observer = Pencatatan::where('id', $pencatatan_id)->get()->first()->users->id;
+        $this->tanggal = DB::select("SELECT tanggal FROM pencatatans WHERE id = $pencatatan_id")[0]->tanggal;
 
         $dataPsychrometerSangkarMeteorologi =  Psychrometer_sangkar_meteorologi::where("pencatatans_id", $pencatatan_id)->get()->first();
         $dataAngin = Angin::where("pencatatans_id", $pencatatan_id)->get()->first();
@@ -1080,15 +1119,17 @@ class TabelPencatatanAgromet extends Component
             'RH24' => 'numeric|nullable',
             'cup_counter21' => 'numeric|nullable',
             'cup_counter22' => 'numeric|nullable',
+            'kecRata21' => 'numeric|nullable',
+            'kecRata22' => 'numeric|nullable',
             'arah21' => 'numeric|nullable',
             'kecepatan21' => 'numeric|nullable',
             'arah22' => 'numeric|nullable',
             'kecepatan22' => 'numeric|nullable',
             'arah23' => 'numeric|nullable',
             'kecepatan23' => 'numeric|nullable',
-            'h2_openpan' => 'numeric|nullable',
-            'ev2_openpan' => 'numeric|nullable',
-            'ch2' => 'numeric|nullable',
+            'h_openpan2' => 'numeric|nullable',
+            'ev_openpan2' => 'numeric|nullable',
+            'ch_openpan2' => 'numeric|nullable',
             't2' => 'numeric|nullable',
             'max2' => 'numeric|nullable',
             'min2' => 'numeric|nullable',
@@ -1147,6 +1188,8 @@ class TabelPencatatanAgromet extends Component
         $dataAngin = [
             'cup_counter1' => $this->cup_counter21,
             'cup_counter2' => $this->cup_counter22,
+            'kec_rata1' => $this->kecRata21,
+            'kec_rata2' => $this->kecRata22,
             'arah1' => $this->arah21,
             'kecepatan1' => $this->kecepatan21,
             'arah2' => $this->arah22,
@@ -1156,9 +1199,9 @@ class TabelPencatatanAgromet extends Component
         ];
 
         $dataOpenPan = [
-            'h' => $this->h2_openpan,
-            'ev' => $this->ev2_openpan,
-            'ch' => $this->ch2,
+            'h' => $this->h_openpan2,
+            'ev' => $this->ev_openpan2,
+            'ch' => $this->ch_openpan2,
             't' => $this->t2,
             'max' => $this->max2,
             'min' => $this->min2
@@ -1282,15 +1325,18 @@ class TabelPencatatanAgromet extends Component
             'RH44' => 'numeric|nullable',
             'cup_counter41' => 'numeric|nullable',
             'cup_counter42' => 'numeric|nullable',
+            'kecRata41' => 'numeric|nullable',
+            'kecRata42' => 'numeric|nullable',
             'arah41' => 'numeric|nullable',
             'kecepatan41' => 'numeric|nullable',
             'arah42' => 'numeric|nullable',
             'kecepatan42' => 'numeric|nullable',
             'arah43' => 'numeric|nullable',
             'kecepatan43' => 'numeric|nullable',
-            'h2_openpan4' => 'numeric|nullable',
-            'ev2_openpan4' => 'numeric|nullable',
-            'ch4' => 'numeric|nullable',
+            'h_openpan4' => 'numeric|nullable',
+            'reset_openpan4'=>'numeric|nullable',
+            'ev_openpan4' => 'numeric|nullable',
+            'ch_openpan4' => 'numeric|nullable',
             't4' => 'numeric|nullable',
             'max4' => 'numeric|nullable',
             'min4' => 'numeric|nullable',
@@ -1348,6 +1394,8 @@ class TabelPencatatanAgromet extends Component
         $dataAngin = [
             'cup_counter1' => $this->cup_counter41,
             'cup_counter2' => $this->cup_counter42,
+            'kec_rata1' => $this->kecRata41,
+            'kec_rata2' => $this->kecRata42,
             'arah1' => $this->arah41,
             'kecepatan1' => $this->kecepatan41,
             'arah2' => $this->arah42,
@@ -1357,9 +1405,10 @@ class TabelPencatatanAgromet extends Component
         ];
 
         $dataOpenPan = [
-            'h' => $this->h2_openpan4,
-            'ev' => $this->ev2_openpan4,
-            'ch' => $this->ch4,
+            'h' => $this->h_openpan4,
+            'reset' => $this->reset_openpan4,
+            'ev' => $this->ev_openpan4,
+            'ch' => $this->ch_openpan4,
             't' => $this->t4,
             'max' => $this->max4,
             'min' => $this->min4
@@ -1548,15 +1597,17 @@ class TabelPencatatanAgromet extends Component
             'RH64' => 'numeric|nullable',
             'cup_counter61' => 'numeric|nullable',
             'cup_counter62' => 'numeric|nullable',
+            'kecRata61' => 'numeric|nullable',
+            'kecRata62' => 'numeric|nullable',
             'arah61' => 'numeric|nullable',
             'kecepatan61' => 'numeric|nullable',
             'arah62' => 'numeric|nullable',
             'kecepatan62' => 'numeric|nullable',
             'arah63' => 'numeric|nullable',
             'kecepatan63' => 'numeric|nullable',
-            'h2_openpan6' => 'numeric|nullable',
-            'ev2_openpan6' => 'numeric|nullable',
-            'ch6' => 'numeric|nullable',
+            'h_openpan6' => 'numeric|nullable',
+            'ev_openpan6' => 'numeric|nullable',
+            'ch_openpan6' => 'numeric|nullable',
             't6' => 'numeric|nullable',
             'max6' => 'numeric|nullable',
             'min6' => 'numeric|nullable',
@@ -1614,6 +1665,8 @@ class TabelPencatatanAgromet extends Component
         $dataAngin = [
             'cup_counter1' => $this->cup_counter61,
             'cup_counter2' => $this->cup_counter62,
+            'kec_rata1' => $this->kecRata61,
+            'kec_rata2' => $this->kecRata62,
             'arah1' => $this->arah61,
             'kecepatan1' => $this->kecepatan61,
             'arah2' => $this->arah62,
@@ -1623,9 +1676,9 @@ class TabelPencatatanAgromet extends Component
         ];
 
         $dataOpenPan = [
-            'h' => $this->h2_openpan6,
-            'ev' => $this->ev2_openpan6,
-            'ch' => $this->ch6,
+            'h' => $this->h_openpan6,
+            'ev' => $this->ev_openpan6,
+            'ch' => $this->ch_openpan6,
             't' => $this->t6,
             'max' => $this->max6,
             'min' => $this->min6
@@ -2258,4 +2311,349 @@ class TabelPencatatanAgromet extends Component
         }
     }
     // End Updated Form 7 ~ 18.01
+    public function queryResetPiche($tanggal, $waktu){
+        $data = DB::select("SELECT piche_evaporimeters.reset FROM pencatatans INNER JOIN piche_evaporimeters ON pencatatans.id = piche_evaporimeters.pencatatans_id WHERE tanggal = DATE('$tanggal') AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->reset) ? $data[0]->reset : null;
+    }
+
+    // Update ev2_piche jam 07.31
+    public function updatedH2Piche($value){
+        $data = DB::select("SELECT piche_evaporimeters.reset FROM pencatatans INNER JOIN piche_evaporimeters ON pencatatans.id = piche_evaporimeters.pencatatans_id WHERE tanggal = DATE('$this->tanggal')-1 AND pencatatans.waktu = '17.31'");
+
+        $resetSebelumnya = isset($data[0]->reset) ? $data[0]->reset : null;
+
+        if ($this->h2_piche === "") {
+            $this->h2_piche = 0;
+            $this->reset_piche2 = 0;
+            $this->ev2_piche = 0;
+        } else{
+            if ($resetSebelumnya !== null) {
+                $this->reset_piche2 = $this->h2_piche;
+                $this->ev2_piche = $this->h2_piche - $resetSebelumnya;
+            } else {
+                $this->reset_piche2 = $this->h2_piche;
+                $this->pesanForm2 = "Data reset sebelumnya di jam 17.31 kemarin belum ada.";
+            }
+        }
+    }
+
+    // Update ev2_piche jam 13.31
+    public function updatedH2Piche4($value){
+        $resetSebelumnya = $this->queryResetPiche($this->tanggal, '07.31');
+
+        if ($this->h2_piche4 === "") {
+            $this->h2_piche4 = 0;
+            $this->ev2_piche4 = 0;
+        } else{
+            if ($resetSebelumnya !== null) {
+                $this->ev2_piche4 = $this->h2_piche4 - $resetSebelumnya;
+            } else {
+                $this->pesanForm4 = "Data reset sebelumnya di jam 07.31 belum ada.";
+            }
+        }
+    }
+
+    // Update ev2_piche jam 17.31
+    public function updatedH2Piche6($value){
+        $resetSebelumnya = $this->queryResetPiche($this->tanggal, '13.31');
+
+        if ($this->h2_piche6 === "") {
+            $this->h2_piche6 = 0;
+            $this->reset_piche6 = 0;
+            $this->ev2_piche6 = 0;
+        } else{
+            if ($resetSebelumnya !== null) {
+                $this->reset_piche6 = $this->h2_piche6;
+                $this->ev2_piche6 = $this->h2_piche6 - $resetSebelumnya;
+            } else {
+                $this->reset_piche6 = $this->h2_piche6;
+                $this->pesanForm6 = "Data reset sebelumnya di jam 13.31 belum ada.";
+            }
+        }
+    }
+    /* -----End Rumus Function Piche Evaporimeter----- */
+
+    /* -----Start Rumus Function Angin----- */
+    // cup_counter1
+    public function queryKecRata1($tanggal, $waktu){
+        $data = DB::select("SELECT angins.cup_counter1 FROM pencatatans INNER JOIN angins ON pencatatans.id = angins.pencatatans_id WHERE tanggal = DATE('$tanggal') AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->cup_counter1) ? $data[0]->cup_counter1 : 0;
+    }
+
+    // cup_counter2
+    public function queryKecRata2($tanggal, $waktu){
+        $data = DB::select("SELECT angins.cup_counter2 FROM pencatatans INNER JOIN angins ON pencatatans.id = angins.pencatatans_id WHERE tanggal = DATE('$tanggal') AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->cup_counter2) ? $data[0]->cup_counter2 : 0;
+    }
+
+    // cup_counter1 kemarin
+    public function queryKecRata1Kemarin($tanggal, $waktu){
+        $data = DB::select("SELECT angins.cup_counter1 FROM pencatatans INNER JOIN angins ON pencatatans.id = angins.pencatatans_id WHERE tanggal = DATE('$tanggal')-1 AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->cup_counter1) ? $data[0]->cup_counter1 : 0;
+    }
+
+    // cup_counter2 kemarin
+    public function queryKecRata2Kemarin($tanggal, $waktu){
+        $data = DB::select("SELECT angins.cup_counter2 FROM pencatatans INNER JOIN angins ON pencatatans.id = angins.pencatatans_id WHERE tanggal = DATE('$tanggal')-1 AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->cup_counter2) ? $data[0]->cup_counter2 : 0;
+    }
+
+    // Menghitung kecepatan rata-rata cup counter
+    public function hitungKecRata($cupCounterSekarang, $cupCounterSebelumnya, $bagi){
+        $hasil = $cupCounterSekarang - $cupCounterSebelumnya;
+        if (0 > $hasil) {
+        $data = (($cupCounterSekarang + 10000) - $cupCounterSebelumnya)/$bagi;
+        } else {
+            $data = ($cupCounterSekarang - $cupCounterSebelumnya) / $bagi;
+        }
+
+        // dd($cupCounterSebelumnya);
+        return round($data,2);
+    }
+
+    // 07.31
+    public function updatedCupCounter21($value) {
+        $cup_counter1Sebelumnya = $this->queryKecRata1Kemarin($this->tanggal, '17.31');
+        if ($this->cup_counter21 === "") {
+            $this->cup_counter21 = 0;
+            $this->kecRata21 = 0;
+        } else {
+                $data = $this->hitungKecRata($this->cup_counter21, $cup_counter1Sebelumnya, 14);
+                $this->kecRata21 = $data;
+        }
+    }
+
+    public function updatedCupCounter22($value) {
+        $cup_counter2Sebelumnya = $this->queryKecRata2Kemarin($this->tanggal, '17.31');
+        if ($this->cup_counter22 === "") {
+            $this->cup_counter22 = 0;
+            $this->kecRata22 = 0;
+        } else {
+                $data = $this->hitungKecRata($this->cup_counter22, $cup_counter2Sebelumnya, 14);
+                $this->kecRata22 = $data;
+        }
+    }
+
+    // 13.31
+    public function updatedCupCounter41($value) {
+        $cup_counter1Sebelumnya = $this->queryKecRata1($this->tanggal, '07.31');
+        if ($this->cup_counter41 === "") {
+            $this->cup_counter41 = 0;
+            $this->kecRata41 = 0;
+        } else {
+                $data = $this->hitungKecRata($this->cup_counter41, $cup_counter1Sebelumnya, 6);
+                $this->kecRata41 = $data;
+        }
+    }
+
+    public function updatedCupCounter42($value) {
+        $cup_counter2Sebelumnya = $this->queryKecRata2($this->tanggal, '07.31');
+        if ($this->cup_counter42 === "") {
+            $this->cup_counter42 = 0;
+            $this->kecRata42 = 0;
+        } else {
+
+                $data = $this->hitungKecRata($this->cup_counter42, $cup_counter2Sebelumnya, 6);
+                $this->kecRata42 = $data;
+        }
+    }
+
+    // 17.31
+    public function updatedCupCounter61($value) {
+        $cup_counter1Sebelumnya = $this->queryKecRata1($this->tanggal, '13.31');
+        if ($this->cup_counter61 === "") {
+            $this->cup_counter61 = 0;
+            $this->kecRata61 = 0;
+        } else {
+
+                $data = $this->hitungKecRata($this->cup_counter61, $cup_counter1Sebelumnya, 4);
+                $this->kecRata61 = $data;
+
+        }
+    }
+
+    public function updatedCupCounter62($value) {
+        $cup_counter2Sebelumnya = $this->queryKecRata2($this->tanggal, '13.31');
+        if ($this->cup_counter62 === "") {
+            $this->cup_counter62 = 0;
+            $this->kecRata62 = 0;
+        } else {
+                $data = $this->hitungKecRata($this->cup_counter62, $cup_counter2Sebelumnya, 4);
+                $this->kecRata62 = $data;
+        }
+    }
+    /* -----End Rumus Function Angin----- */
+
+    /* -----Start Rumus Function Open Pan----- */
+    // Query H Open Pan Hari ini
+    public function queryHOpenPan($tanggal, $waktu){
+        $data = DB::select("SELECT open_pans.h FROM pencatatans INNER JOIN open_pans ON pencatatans.id = open_pans.pencatatans_id WHERE tanggal = DATE('$tanggal') AND pencatatans.waktu = '$waktu'");
+        return isset($data[0]->h) ? $data[0]->h : 0;
+    }
+
+    // Query H Open Pan Kemarin
+    public function queryHOpenPanKemarin($tanggal, $waktu){
+        $data = DB::select("SELECT open_pans.h FROM pencatatans INNER JOIN open_pans ON pencatatans.id = open_pans.pencatatans_id WHERE tanggal = DATE('$tanggal')-1 AND pencatatans.waktu = '$waktu'");
+
+        return isset($data[0]->h) ? $data[0]->h : 0;
+    }
+
+    // Hitung EV Open Pan
+    public function hitungEVOpenPan($h1, $h2, $ch){
+        $data = ($h1 - $h2) + $ch;
+        return round($data, 2);
+    }
+
+        // Cek Tbk dan Tbb jika kosong
+    public function cekHChOpenPan($ch, $h, $no){
+        if ($ch === '') {
+            $this->reset(["ch_openpan$no", "ev_openpan$no"]);
+        } else if ($h === ''){
+            $this->reset(["h_openpan$no", "ev_openpan$no"]);
+        } else if ($ch === '' && $h === ''){
+            $this->reset(["ch_openpan$no","h_openpan$no", "ev_openpan$no"]);
+        } else {
+            $data = "ModeHitung";
+            return $data;
+        }
+    }
+
+    // 07.01 (Updated Hitung EV)
+    public function updatedHOpenpan1($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan1,$this->h_openpan1, "1");
+        if($mode === "ModeHitung"){
+            $hKemarin = $this->queryHOpenPanKemarin($this->tanggal, '07.01');
+            if($hKemarin != 0){
+                $this->ev_openpan1 = $this->hitungEVOpenPan($hKemarin, $this->h_openpan1, $this->ch_openpan1);
+            } else {
+                $this->pesanOpenPan1 = "Data H Open Pan jam 07.01 kemarin belum ada";
+            }
+        }
+    }
+
+    public function updatedChOpenpan1($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan1,$this->h_openpan1, "1");
+        if($mode === "ModeHitung"){
+            $hKemarin = $this->queryHOpenPanKemarin($this->tanggal, '07.01');
+            if($hKemarin != 0){
+                $this->ev_openpan1 = $this->hitungEVOpenPan($hKemarin, $this->h_openpan1, $this->ch_openpan1);
+            } else {
+                $this->pesanOpenPan1 = "Data H Open Pan jam 07.01 kemarin belum ada";
+            }
+        }
+    }
+    // End 07.01 (Updated Hitung EV)
+
+    // 07.31 (Updated Hitung EV)
+    public function updatedHOpenpan2($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan2,$this->h_openpan2, "2");
+        if($mode === "ModeHitung"){
+            $hKemarin = $this->queryHOpenPanKemarin($this->tanggal, "17.31");
+            if($hKemarin != 0){
+                $this->ev_openpan2 = $this->hitungEVOpenPan($hKemarin, $this->h_openpan2, $this->ch_openpan2);
+            } else {
+                $this->pesanOpenPan2 = "Data H Open Pan jam 17.31 kemarin belum ada";
+            }
+        }
+    }
+
+    public function updatedChOpenpan2($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan2,$this->h_openpan2, "2");
+        if($mode === "ModeHitung"){
+            $hKemarin = $this->queryHOpenPanKemarin($this->tanggal, "17.31");
+            if($hKemarin != 0){
+                $this->ev_openpan2 = $this->hitungEVOpenPan($hKemarin, $this->h_openpan2, $this->ch_openpan2);
+            } else {
+                $this->pesanOpenPan2 = "Data H Open Pan jam 17.31 kemarin belum ada";
+            }
+        }
+    }
+    // End 07.31 (Updated Hitung EV)
+
+    // 13.31 (Updated Hitung EV)
+    public function updatedHOpenpan4($value) {
+        $mode = $this->cekHChOpenPan($this->ch_openpan4,$this->h_openpan4, "4");
+        if($mode === "ModeHitung"){
+            $h = $this->queryHOpenPan($this->tanggal, "07.31");
+            if($h != 0){
+                $selisih = $h - $this->h_openpan4;
+                if($selisih < -10 || $selisih > 10) {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($this->reset_openpan4, $this->h_openpan4, $this->ch_openpan4);
+                } else {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($h, $this->h_openpan4, $this->ch_openpan4);
+                }
+            } else {
+                $this->pesanOpenPan4 = "Data H Open Pan jam 07.31 hari ini belum ada";
+            }
+        }
+    }
+
+    public function updatedChOpenpan4($value) {
+        $mode = $this->cekHChOpenPan($this->ch_openpan4,$this->h_openpan4, "4");
+        if($mode === "ModeHitung"){
+            $h = $this->queryHOpenPan($this->tanggal, "07.31");
+            if($h != 0){
+                $selisih = $h - $this->h_openpan4;
+                if($selisih < -10 || $selisih > 10) {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($this->reset_openpan4, $this->h_openpan4, $this->ch_openpan4);
+                } else {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($h, $this->h_openpan4, $this->ch_openpan4);
+                }
+            } else {
+                $this->pesanOpenPan4 = "Data H Open Pan jam 07.31 hari ini belum ada";
+            }
+        }
+    }
+
+    public function updatedResetOpenpan4($value) {
+        $mode = $this->cekHChOpenPan($this->ch_openpan4,$this->h_openpan4, "4");
+        if($mode === "ModeHitung"){
+            $h = $this->queryHOpenPan($this->tanggal, "07.31");
+            if($h != 0){
+                $selisih = $h - $this->h_openpan4;
+                if($selisih < -10 || $selisih > 10) {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($this->reset_openpan4, $this->h_openpan4, $this->ch_openpan4);
+                } else {
+                    $this->ev_openpan4 = $this->hitungEVOpenPan($h, $this->h_openpan4, $this->ch_openpan4);
+                }
+            } else {
+                $this->pesanOpenPan4 = "Data H Open Pan jam 07.31 hari ini belum ada";
+            }
+        }
+    }
+    // End 13.31 (Updated Hitung EV)
+
+    // 17.31 (Updated Hitung EV)
+    public function updatedHOpenpan6($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan6,$this->h_openpan6, "6");
+        if($mode === "ModeHitung"){
+            $h = $this->queryHOpenPan($this->tanggal, "13.31");
+            if($h != 0){
+                $this->ev_openpan6 = $this->hitungEVOpenPan($h, $this->h_openpan6, $this->ch_openpan6);
+            } else {
+                $this->pesanOpenPan6 = "Data H Open Pan jam 13.31 hari ini belum ada";
+            }
+        }
+    }
+
+    public function updatedChOpenpan6($value){
+        $mode = $this->cekHChOpenPan($this->ch_openpan6,$this->h_openpan6, "6");
+        if($mode === "ModeHitung"){
+            $h = $this->queryHOpenPan($this->tanggal, "13.31");
+            if($h != 0){
+                $this->ev_openpan6 = $this->hitungEVOpenPan($h, $this->h_openpan6, $this->ch_openpan6);
+            } else {
+                $this->pesanOpenPan6 = "Data H Open Pan jam 13.31 hari ini belum ada";
+            }
+        }
+    }
+    // End 17.31 (Updated Hitung EV)
+
+    /* -----End Rumus Function Open Pan----- */
+
 }
