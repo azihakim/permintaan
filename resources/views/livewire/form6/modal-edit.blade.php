@@ -499,8 +499,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="ch6">
-                                        @error('ch6')
+                                            name="" id="" wire:model.lazy="ch_openpan6">
+                                        @error('ch_openpan6')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
                                                     class="glyphicon glyphicon-remove form-control-feedback"
@@ -523,8 +523,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="h2_openpan6">
-                                        @error('h2_openpan6')
+                                            name="" id="" wire:model.lazy="h_openpan6">
+                                        @error('h_openpan6')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
                                                     class="glyphicon glyphicon-remove form-control-feedback"
@@ -536,14 +536,21 @@
                                             </script>
                                         @enderror
                                     </div>
+                                    {{-- Pesan jika data H sebelumnya tidak ada --}}
+                                    <div class="has-error">
+                                        <span style="margin-right: 5px;" class="form-control-feedback"
+                                            aria-hidden="true"></span><label class="control-label"
+                                            for="inputError2">{{ $pesanOpenPan6 }}</label>
+                                    </div>
+                                    {{-- End Pesan --}}
                                     <div class="col-md-3 mr-50">
                                         <label for="">EV <span
                                                 style="font-size: 16px; font-weight: bolder">*</span></label>
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="ev2_openpan6">
-                                        @error('ev2_openpan6')
+                                            name="" id="" wire:model="ev_openpan6">
+                                        @error('ev_openpan6')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
                                                     class="glyphicon glyphicon-remove form-control-feedback"
@@ -1267,11 +1274,11 @@
                                     </div>
                                 </div>
                                 {{-- Pesan jika data reset sebelumnya tidak ada --}}
-                                {{-- <div class="has-error">
+                                <div class="has-error">
                                     <span style="margin-right: 5px;" class="form-control-feedback"
                                         aria-hidden="true"></span><label class="control-label"
                                         for="inputError2">{{ $pesanForm6 }}</label>
-                                </div> --}}
+                                </div>
                                 {{-- End Pesan --}}
                             </div>
                         </div>

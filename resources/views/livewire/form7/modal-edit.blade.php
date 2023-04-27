@@ -306,7 +306,8 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter71" @disabled(true)>
+                                            name="" id="" wire:model="cup_counter71"
+                                            @disabled(true)>
                                         @error('cup_counter71')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -336,7 +337,8 @@
                                     </div>
                                     <div class="col-md-3 px-35">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="cup_counter72" @disabled(true)>
+                                            name="" id="" wire:model="cup_counter72"
+                                            @disabled(true)>
                                         @error('cup_counter72')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -366,7 +368,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="arah71" @disabled(true)>
+                                            name="" id="" wire:model="arah71"
+                                            @disabled(true)>
                                         @error('arah71')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -384,7 +387,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="kecepatan71" @disabled(true)>
+                                            name="" id="" wire:model="kecepatan71"
+                                            @disabled(true)>
                                         @error('kecepatan71')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -407,7 +411,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="arah72" @disabled(true)>
+                                            name="" id="" wire:model="arah72"
+                                            @disabled(true)>
                                         @error('arah72')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"
@@ -425,7 +430,8 @@
                                     </div>
                                     <div class="col-md-3">
                                         <input class="form-control" type="number" step="any" min="0"
-                                            name="" id="" wire:model="kecepatan72" @disabled(true)>
+                                            name="" id="" wire:model="kecepatan72"
+                                            @disabled(true)>
                                         @error('kecepatan72')
                                             <div class="has-error">
                                                 <span style="margin-right: 5px;"

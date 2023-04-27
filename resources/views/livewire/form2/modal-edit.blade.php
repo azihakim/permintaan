@@ -501,8 +501,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                name="" id="" wire:model.lazy="ch2">
-                                            @error('ch2')
+                                                name="" id="" wire:model.lazy="ch_openpan2">
+                                            @error('ch_openpan2')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
                                                         class="glyphicon glyphicon-remove form-control-feedback"
@@ -525,8 +525,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                name="" id="" wire:model.lazy="h2_openpan">
-                                            @error('h2_openpan')
+                                                name="" id="" wire:model.lazy="h_openpan2">
+                                            @error('h_openpan2')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
                                                         class="glyphicon glyphicon-remove form-control-feedback"
@@ -538,14 +538,21 @@
                                                 </script>
                                             @enderror
                                         </div>
+                                        {{-- Pesan jika data H sebelumnya tidak ada --}}
+                                        <div class="has-error">
+                                            <span style="margin-right: 5px;" class="form-control-feedback"
+                                                aria-hidden="true"></span><label class="control-label"
+                                                for="inputError2">{{ $pesanOpenPan2 }}</label>
+                                        </div>
+                                        {{-- End Pesan --}}
                                         <div class="col-md-3 mr-50">
                                             <label for="">EV <span
                                                     style="font-size: 16px; font-weight: bolder">*</span></label>
                                         </div>
                                         <div class="col-md-3">
                                             <input class="form-control" type="number" step="any" min="0"
-                                                name="" id="" wire:model="ev2_openpan">
-                                            @error('ev2_openpan')
+                                                name="" id="" wire:model="ev_openpan2">
+                                            @error('ev_openpan2')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
                                                         class="glyphicon glyphicon-remove form-control-feedback"
@@ -1222,8 +1229,9 @@
                                             <label for="">H</label>
                                         </div>
                                         <div class="col-md-2 pr-0 mrP-20">
-                                            <input type="number" name="" id="" class="form-control"
-                                                step="any" min="0" wire:model.lazy="h2_piche">
+                                            <input type="number" name="" id=""
+                                                class="form-control" step="any" min="0"
+                                                wire:model.lazy="h2_piche">
                                             @error('h2_piche')
                                                 <div class="has-error">
                                                     <span style="margin-right: 5px;"
@@ -1276,11 +1284,11 @@
                                         </div>
                                     </div>
                                     {{-- Pesan jika data reset sebelumnya tidak ada --}}
-                                    {{-- <div class="has-error">
-                                    <span style="margin-right: 5px;" class="form-control-feedback"
-                                        aria-hidden="true"></span><label class="control-label"
-                                        for="inputError2">{{ $pesanForm2 }}</label>
-                                </div> --}}
+                                    <div class="has-error">
+                                        <span style="margin-right: 5px;" class="form-control-feedback"
+                                            aria-hidden="true"></span><label class="control-label"
+                                            for="inputError2">{{ $pesanForm2 }}</label>
+                                    </div>
                                     {{-- End Pesan --}}
                                 </div>
                             </div>
