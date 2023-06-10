@@ -167,7 +167,7 @@
                 <a href="{{ url('dashboard') }}">
                     <img src="../../style/images/gallery/logo/BMKG-80x80.png" alt="" id="logo-big" />
                     &nbsp;
-                    @if (auth()->user()->role == 'Observer')
+                    @if (auth()->user()->role == 'Observer' || auth()->user()->role == 'Pimpinan')
                         <h3>&nbsp;&nbsp;<strong>APODIO</strong></h3>
                         <h6>&nbsp;&nbsp;STAKLIM SUMSEL</h6>
                     @else
@@ -235,7 +235,7 @@
                                 @endif
 
                                 {{-- Observer --}}
-                                @if (auth()->user()->role == 'Observer')
+                                @if (auth()->user()->role == 'Observer' || auth()->user()->role == 'Pimpinan')
                                     <li class="@yield('section-active')">
                                         <a href="{{ url('pencatatan-dashboard') }}"><i class="fa fa-dashboard"></i>
                                             Dashboard </a>
@@ -262,10 +262,12 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li @yield('section-active')>
-                                        <a href="#"><i class="fa fa-book"></i>
+                                    {{-- <li @yield('section-active')>
+                                        <a href="{{ url('tabulasi-harian') }}"><i class="fa fa-book"></i>
                                             Tabulasi </a>
-                                    </li>
+                                    </li> --}}
+                                @endif
+                                @if (auth()->user()->role == '')
                                 @endif
 
                                 <form method="POST" action="{{ route('logout') }}">
@@ -313,7 +315,7 @@
                         <!-- * This is the responsive logo * -->
 
                         <a href="index.html" id="logo-small">
-                            @if (auth()->user()->role == 'Observer')
+                            @if (auth()->user()->role == 'Observer' || auth()->user()->role == 'Pimpinan')
                                 <h4>APODIO</h4>
                                 <h5>Aplikasi Pencatatan Online Data Iklim dan Observasi</h5>
                             @else
@@ -335,7 +337,7 @@
                 <div class="header-main-bottom clearfix">
                     <div class="pull-left">
                         <ul class="breadcrumb">
-                            @if (auth()->user()->role == 'Observer')
+                            @if (auth()->user()->role == 'Observer' || auth()->user()->role == 'Pimpinan')
                                 <li><a href="#">@yield('breadcrumb')</a></li>
                                 <li class="@yield('breadcrumb-active')">@yield('sub-breadcrumb')</li>
                             @else
@@ -365,7 +367,7 @@
                     </header><!-- End #header-sec -->
                 @endif
                 <div class="window">
-                    @if (auth()->user()->role == 'Observer')
+                    @if (auth()->user()->role == 'Observer' || auth()->user()->role == 'Pimpinan')
                         <div class="inner-padding">
                             @yield('contents-pencatatan')
                         </div>

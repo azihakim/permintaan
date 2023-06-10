@@ -15,12 +15,15 @@ use App\Models\Suhu_min_rumput;
 use App\Models\Suhu_tanah;
 use App\Models\Termometer_maksimum_dan_minimum;
 use App\Models\User;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class TabelPencatatanAgromet extends Component
 {
+    use AuthorizesRequests;
+
     public $observer1;
     public $observer2;
     public $observer3;
@@ -416,6 +419,7 @@ class TabelPencatatanAgromet extends Component
     public $clear = '';
     public function render()
     {
+        $this->authorize('viewAny', Pencatatan::class);
         if ($this->filterWaktu != null && $this->filterTanggal != null && $this->filterObserver != null) {
             $dataPencatatan = Pencatatan::where([
                 ['tanggal', $this->filterTanggal],
@@ -924,6 +928,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function updateFormHujan1(){
+        $this->authorize('update', Pencatatan::class);
         $this->validate([
             // 'observerHujan1' => 'required',
             'ch_hujan1' => 'numeric|nullable'
@@ -946,6 +951,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function updateFormHujan2(){
+        $this->authorize('update', Pencatatan::class);
         $this->validate([
             // 'observerHujan2' => 'required',
             'ch_hujan2' => 'numeric|nullable'
@@ -968,6 +974,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function updateFormHujan3(){
+        $this->authorize('update', Pencatatan::class);
         $this->validate([
             // 'observerHujan3' => 'required',
             'ch_hujan3' => 'numeric|nullable'
@@ -990,6 +997,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function updateForm1(){
+        $this->authorize('update', Pencatatan::class);
         $this->validate([
             // 'observer1' => 'required',
             'tbk11' => 'numeric|nullable',
@@ -1103,6 +1111,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function updateForm2(){
+        $this->authorize('update', Pencatatan::class);
         $this->validate([
             // 'observer2' => 'required',
             'tbk21' => 'numeric|nullable',
@@ -1260,6 +1269,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function updateForm3(){
+        $this->authorize('update', Pencatatan::class);
         $this->validate([
             // 'observer3' => 'required',
             'tbk31' => 'numeric|nullable',
@@ -1309,6 +1319,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function updateForm4(){
+        $this->authorize('update', Pencatatan::class);
         $this->validate([
             // 'observer4' => 'required',
             'tbk41' => 'numeric|nullable',
@@ -1466,6 +1477,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function updateForm5(){
+        $this->authorize('update', Pencatatan::class);
         $this->validate([
             // 'observer5' => 'required',
             'tbk51' => 'numeric|nullable',
@@ -1581,6 +1593,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function updateForm6(){
+        $this->authorize('update', Pencatatan::class);
         $this->validate([
             // 'observer6' => 'required',
             'tbk61' => 'numeric|nullable',
@@ -1736,6 +1749,7 @@ class TabelPencatatanAgromet extends Component
     }
 
     public function updateForm7(){
+        $this->authorize('update', Pencatatan::class);
         $this->validate([
             // 'observer7' => 'required',
             'tbk71' => 'numeric|nullable',

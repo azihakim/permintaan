@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AddUserController;
 use App\Http\Controllers\DashboardadminController;
+use App\Http\Controllers\DashboardPencatatanController;
 use App\Http\Controllers\LayananbertarifController;
 use App\Http\Controllers\KeagamaanController;
 use App\Http\Controllers\SosialController;
@@ -143,7 +144,7 @@ Route::resource('/add-user', AddUserController::class);
 
 Route::resource('/keagamaan', KeagamaanController::class);
 
-Route::middleware(['auth','cekrole:Observer'])->group(function()
+Route::middleware(['auth','cekrole:Observer, Pimpinan'])->group(function()
 {
     Route::get('pencatatan-agromet', function () {
         return view('pencatatan.agromet');
@@ -161,9 +162,10 @@ Route::middleware(['auth','cekrole:Observer'])->group(function()
         return view('pencatatan.lysimeter');
     });
 
-    Route::get('pencatatan-dashboard', function () {
-        return view('pencatatan.dashboard');
+    Route::get('pencatatan-dashboard', [DashboardPencatatanController::class, 'getStatusPencatatanAgromet']);
+
+    Route::get('tabulasi-harian', function () {
+        return view('pencatatan.tabulasi');
     });
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('users/{id}', );

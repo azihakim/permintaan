@@ -15,12 +15,15 @@ use App\Models\Suhu_min_rumput;
 use App\Models\Suhu_tanah;
 use App\Models\Termometer_maksimum_dan_minimum;
 use App\Models\User;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class AddPencatatanAgromet extends Component
 {
+    use AuthorizesRequests;
+
     public $jenisForm;
     public $waktu1 = '07.01';
     public $waktu2 = '07.31';
@@ -417,6 +420,7 @@ class AddPencatatanAgromet extends Component
 
     public function render()
     {
+
         return view('livewire.add-pencatatan-agromet',[
             'observers' => User::where('role', 'Observer')->get()
         ]);
@@ -425,6 +429,7 @@ class AddPencatatanAgromet extends Component
     /* -----Start Function Store Semua Alat----- */
     // Simpan Form 1 ~ 07.01
     public function storeForm1(){
+        $this->authorize('create', Pencatatan::class);
         $this->validate([
             'tanggal' => 'required',
             'tbk11' => 'numeric|nullable',
@@ -550,6 +555,7 @@ class AddPencatatanAgromet extends Component
 
     // Simpan Form 2 ~ 07.31
     public function storeForm2(){
+        $this->authorize('create', Pencatatan::class);
         $this->validate([
             'tanggal' => 'required',
             'tbk21' => 'numeric|nullable',
@@ -718,6 +724,7 @@ class AddPencatatanAgromet extends Component
 
     // Simpan Form 3 ~ 13.01
     public function storeForm3(){
+        $this->authorize('create', Pencatatan::class);
         $this->validate([
             'tanggal' => 'required',
             'tbk31' => 'numeric|nullable',
@@ -774,6 +781,7 @@ class AddPencatatanAgromet extends Component
 
     // Simpan Form 4 ~ 13.31
     public function storeForm4(){
+        $this->authorize('create', Pencatatan::class);
         $this->validate([
             'tanggal' => 'required',
             'tbk41' => 'numeric|nullable',
@@ -943,6 +951,7 @@ class AddPencatatanAgromet extends Component
 
     // Simpan Form 5 ~ 14.01
     public function storeForm5(){
+        $this->authorize('create', Pencatatan::class);
         $this->validate([
             'tanggal' => 'required',
             'tbk51' => 'numeric|nullable',
@@ -1068,6 +1077,7 @@ class AddPencatatanAgromet extends Component
 
     // Simpan Form 6 ~ 17.31
     public function storeForm6(){
+        $this->authorize('create', Pencatatan::class);
         $this->validate([
             'tanggal' => 'required',
             'tbk61' => 'numeric|nullable',
@@ -1236,6 +1246,7 @@ class AddPencatatanAgromet extends Component
 
     // Simpan Form 7 ~ 18.01
     public function storeForm7(){
+        $this->authorize('create', Pencatatan::class);
         $this->validate([
             'tanggal' => 'required',
             'tbk71' => 'numeric|nullable',
@@ -1319,6 +1330,7 @@ class AddPencatatanAgromet extends Component
 
     // Simpan Form Hujan 1 ~ 10.01
     public function storeFormHujan1(){
+        $this->authorize('create', Pencatatan::class);
         $this->validate([
             'tanggal' => 'required',
             'ch_hujan1' => 'numeric|nullable'
@@ -1346,6 +1358,7 @@ class AddPencatatanAgromet extends Component
 
     // Simpan Form Hujan 2 ~ 16.01
     public function storeFormHujan2(){
+        $this->authorize('create', Pencatatan::class);
         $this->validate([
             'tanggal' => 'required',
             'ch_hujan2' => 'numeric|nullable'
@@ -1373,6 +1386,7 @@ class AddPencatatanAgromet extends Component
 
     // Simpan Form Hujan 3 ~ 19.01
     public function storeFormHujan3(){
+        $this->authorize('create', Pencatatan::class);
         $this->validate([
             'tanggal' => 'required',
             'ch_hujan3' => 'numeric|nullable'
@@ -2172,8 +2186,5 @@ class AddPencatatanAgromet extends Component
         }
     }
     // End 17.31 (Updated Hitung EV)
-
     /* -----End Rumus Function Open Pan----- */
-
-
 }
