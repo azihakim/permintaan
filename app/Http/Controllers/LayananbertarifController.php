@@ -632,8 +632,8 @@ class LayananbertarifController extends Controller
      */
     public function destroy(Layananbertarif $layananbertarif, $id)
     {
-        Formulir::find($id)->delete();
         Datapermintaan::where("formulir_id", $id)->delete();
+        Formulir::find($id)->delete();
         return redirect()->back();
     }
 

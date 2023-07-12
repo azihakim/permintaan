@@ -5,7 +5,6 @@
                 <div class="subheading">
                     <h2>Formulir Permintaan</h2>
                         <div class="spacer-5"></div>
-                    
                     <h3>
                         @if ($formulir->jenis_permintaan == 'Layanan bertarif')
                             <span class="text-muted">Layanan Bertarif PNBP sesuai dengan PP No.47 Tahun 2018</span>

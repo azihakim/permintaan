@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Formulir;
 use App\Models\Datapermintaan;
-use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
-use Nette\Utils\Strings;
 use App\Mail\KirimRespon;
 
 class ResponController extends Controller
@@ -26,35 +23,7 @@ class ResponController extends Controller
         return view('admin.respon', compact('formulir', 'datapermintaan'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, $id)
-    {
-        //
-        
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id, Request $request)
+    public function show($id)
     {
         $formulir = Formulir::find($id);
         $datapermintaan = Datapermintaan::where("formulir_id", $id)->get();
@@ -66,25 +35,6 @@ class ResponController extends Controller
         return view('admin.respon', compact('formulir', 'datapermintaan', 'user'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Request $request, $id)
-    {
-        //
-        
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
@@ -94,7 +44,10 @@ class ResponController extends Controller
         $respon->status_form = $data['status_form'];
         $respon->respon_desk = $data['respon_desk'];
         $respon->respon = $request->user()->name;
-        // if ($request->)
+        
+        if($request->status_form == "6"){
+            $respon->respon_struk = "";
+        }
 
         if($request->hasFile('respon_bill')){
             $f = $request->file('respon_bill');
@@ -130,16 +83,5 @@ class ResponController extends Controller
         Mail::to($user)->send(new kirimRespon($user));
 
         return redirect('dashboard-admin')->with('status', "Data $user->name, $user->jenis_permintaan tanggal $date berhasil ditanggapi");
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

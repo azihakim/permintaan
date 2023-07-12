@@ -4,7 +4,10 @@
 # Permohonan data BMKG
 
 Data permohonan anda berhasil di proses
+{{-- @if ($user->respon_data != null)
+    <p>Anda dapat mengunduh data yang telah diproses dengan mengklik tombol dibawah ini</p>
 <a href="{{ 'store/documen/' . $user->respon_data }}" target="_blank">Download data</a><br>
+@endif --}}
 <p>Permintaan anda: </p>
 <strong>
     @if($user->status_form == 1)
@@ -18,7 +21,7 @@ Data permohonan anda berhasil di proses
     @elseif($user->status_form == 5)
     Menunggu Pembayaran
     @elseif($user->status_form == 6)
-    Menunggu Pembayaran Ulan
+    Menunggu Pembayaran Ulang
     @elseif($user->status_form == 7)
     Ditolak
     @endif

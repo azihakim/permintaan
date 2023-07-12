@@ -84,12 +84,18 @@
                                 <span class='label label-primary' title="Permintaan berhasil diterima dan menunggu data diproses">Diterima</span>
                                 @elseif($item->status_form == 4)
                                 <span class='label label-success' title="Permintaan selesai di proses">Selesai</span>
+                                @elseif($item->status_form == 7)
+                                <span class='label label-danger' title="Permintaan di tolak, untuk penjelasan ada diketerangan">Ditolak</span>
+                                @elseif ($item->respon_struk != null && $item->status_form == 6)
+                                <div class="spacer-5"></div>
+                                <span class="label label-primary">Sudah dibayar</span>
+                                @elseif ($item->respon_struk != null && $item->status_form == 5)
+                                <div class="spacer-5"></div>
+                                <span class="label label-primary">Sudah dibayar</span>
                                 @elseif($item->status_form == 5)
                                 <span class='label label-warning' title="Menunggu pembayaran sesuai jumlah pada billing yang tersedia">Menunggu Pembayaran</span>
                                 @elseif($item->status_form == 6)
-                                <span class='label label-warning' title="Menunggu pembayaran ulang">Menunggu Pembayaran Ulang</span>
-                                @elseif($item->status_form == 7)
-                                <span class='label label-danger' title="Permintaan di tolak, untuk penjelasan ada diketerangan">Ditolak</span>
+                                <span class='label label-warning' title="Menunggu pembayaran ulang">Pembayaran Ulang</span>
                                 @endif
                         </td>
                         <td>
@@ -119,6 +125,17 @@
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id) }}">Detail</a>
                                 </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('bertarif/' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('bertarif/' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
 
                             @elseif($item->status_form == 2 and $item->jenis_permintaan == 'Layanan bertarif')
                                 <div class="col-sm-4">
@@ -135,12 +152,28 @@
                                     <a type="button" class="btn btn-default" download href="{{ asset('store/documen/' . $item->respon_data) }}">Download</a>
                                 </div>
                             
-                            @elseif($item->status_form == 5 || 6 and $item->jenis_permintaan == 'Layanan bertarif')
+                            @elseif($item->status_form == 5 || $item->status_form == 6 and $item->jenis_permintaan == 'Layanan bertarif')
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" data-toggle="modal" data-target="#exampleModal-{{ $item->id }}" href="">Pembayaran</a>
                                 </div>    
                                 
                             @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan keagamaan')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('keagamaan/' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('keagamaan/' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('keagamaan/' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+                            
+                            @elseif($item->status_form == 7 and $item->jenis_permintaan == 'Kegiatan keagamaan')
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('keagamaan/' . $item->id) }}">Detail</a>
                                 </div>
@@ -172,7 +205,39 @@
                                     <a type="button" class="btn btn-default" href="{{ url('penanggulanganbencana/' . $item->id . '/edit') }}">Ubah</a>
                                 </div>
                             
+                            @elseif($item->status_form == 7 and $item->jenis_permintaan == 'Kegiatan penanggulangan bencana')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('penanggulanganbencana/' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('penanggulanganbencana/' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('penanggulanganbencana/' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+
                             @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan pendidikan/penelitian non komersil')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('pendidikan/' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('pendidikan/' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('pendidikan/' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+                                
+                            @elseif($item->status_form == 7 and $item->jenis_permintaan == 'Kegiatan pendidikan/penelitian non komersil')
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('pendidikan/' . $item->id) }}">Detail</a>
                                 </div>
@@ -204,7 +269,39 @@
                                     <a type="button" class="btn btn-default" href="{{ url('pemerintahan/' . $item->id . '/edit') }}">Ubah</a>
                                 </div>
 
+                            @elseif($item->status_form == 7 and $item->jenis_permintaan == 'Kegiatan pemerintahan')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('pemerintahan/' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('pemerintahan/' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('pemerintahan/' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+
                             @elseif($item->status_form == 1 and $item->jenis_permintaan == 'Kegiatan pertahanan dan keamanan')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('pertahanankeamanan/' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('pertahanankeamanan/' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('pertahanankeamanan/' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+
+                            @elseif($item->status_form == 7 and $item->jenis_permintaan == 'Kegiatan pertahanan dan keamanan')
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('pertahanankeamanan/' . $item->id) }}">Detail</a>
                                 </div>
@@ -234,6 +331,28 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <a type="button" class="btn btn-default" href="{{ url('sosial/' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+
+                            @elseif($item->status_form == 7 and $item->jenis_permintaan == 'Kegiatan sosial')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('sosial/' . $item->id) }}">Detail</a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ url('sosial/' . $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus permintaan {{ $item->jenis_permintaan }} {{ $item->created_at->format('d/m/Y') }}  ?')">
+                                        @csrf
+                                        <input type="hidden" name="_method" value="DELETE"> 
+                                        <button class="btn btn-default">Hapus</button>
+                                    </form>  
+                                </div>
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" href="{{ url('sosial/' . $item->id . '/edit') }}">Ubah</a>
+                                </div>
+
+                            @endif
+                            @if ($item->respon_data != null and $item->jenis_permintaan != 'Layanan bertarif')
+                                <div class="col-sm-4">
+                                    <a type="button" class="btn btn-default" download href="{{ asset('store/documen/' . $item->respon_data) }}">Download</a>
                                 </div>
                             @endif
                         </td>

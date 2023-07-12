@@ -68,9 +68,19 @@
                                 @endif
                         </td>
                         <td>
-                            <div class="col-sm-4">
-                                <a class="btn btn-default" data-target="#deksripsiModal-{{ $item->id }}" data-toggle="modal" href="#deksripsiModal">
-                                Detail</i></a>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <a class="btn btn-default" data-target="#deksripsiModal-{{ $item->id }}" data-toggle="modal" href="#deksripsiModal">
+                                    Detail</i></a>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="{{ route('users.destroy', $item->id) }} " method="POST"
+                                        onsubmit="return confirm('Yakin hapus pengguna {{ $item->name }} ?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-default">Hapus</button>
+                                    </form>
+                                </div>
                             </div>
                         </td>
                     </tr>

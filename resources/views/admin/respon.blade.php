@@ -32,7 +32,7 @@
                                 <option value="5" class="bold text-danger">Menunggu pembayaran</option>
                             }
                             @elseif ($formulir->status_form == '6'){
-                                <option value="6" class="bold text-danger">Pembayaran ulang </option>
+                                <option value="6" class="bold text-danger">Pembayaran ulang</option>
                             }
                             @elseif ($formulir->status_form == '7'){
                                 <option value="7" class="bold text-danger">Dibatalkan</option>

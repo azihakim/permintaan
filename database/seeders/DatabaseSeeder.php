@@ -20,11 +20,20 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' =>'Super Admin',
             'role' =>'Super Admin',
-            'email' =>'SA@bmkg.go.id',
+            'email' =>'SA@gmail.com',
             'kategori' => 'Pegawai',
             'instansi' => 'BMKG-STAKLIM SUMSEL',
             'email_verified_at' => '2023-02-03',
-            'password' => bcrypt('staklimPLB@96223')
+            'password' => bcrypt('123')
+        ]);
+        User::create([
+            'name' =>'Budi',
+            'role' =>'Masyarakat',
+            'email' =>'Budi@gmail.com',
+            'kategori' => 'Umum',
+            'instansi' => 'Umum',
+            'email_verified_at' => '2023-02-03',
+            'password' => bcrypt('123')
         ]);
     }
 }

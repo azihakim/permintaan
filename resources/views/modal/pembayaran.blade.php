@@ -28,6 +28,27 @@
               </div>
             </div>
           </div>
+          @if($item->respon_struk != null)
+            <div class="row">
+              <div class="col-sm-3">
+                  <label>Struk yang sudah dikirim</label>
+              </div>
+              <div class="col-sm-9">
+                <div class="file-bar">
+                  <a href="{{ asset('store/documen/' . $item->respon_struk) }}" target="_blank">
+                      <div class="file-bar-icon">
+                          <i class="fa fa-download"></i>
+                      </div>
+                      <div class="file-bar-info">
+                          <h5>Unduh file</h5>
+                          <span class="label label-default">.pdf</span>
+                      </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          @endif
+
           <div class="spacer-15"></div>
           <div class="row">
             <div class="col-sm-3">
@@ -37,8 +58,6 @@
                 <input type="hidden" name="old_bill" value="{{ $item->respon_struk }}">
                 <input required type="file" name="respon_struk">
             </div>
-        </div>
-        {{-- <div class="clear"></div> --}}
         </div>
           <div class="modal-footer">
               <button class="btn btn-default" data-dismiss="modal">Tutup</button>

@@ -18,7 +18,7 @@ class PemerintahanController extends Controller
     public function index()
     {
         //
-        return view('formulir.createPemerintahan', compact('pemerintahan'));
+        return gettype(view('formulir.createPemerintahan', compact('pemerintahan')));
 
     }
 
@@ -355,7 +355,7 @@ class PemerintahanController extends Controller
             return view('formulir.showPemerintahan', compact('formulir', 'datapermintaan'));
 
         }else{
-            return abort(404);
+            return gettype(abort(404));
         }
     }
 
@@ -660,7 +660,7 @@ class PemerintahanController extends Controller
                 ]);
             }
         }
-        return redirect('dashboard')->with('status', 'Data Berhasil Di update');
+        return redirect('dashboard')->gettype( with('status', 'Data Berhasil Di update'));
     }
 
     /**

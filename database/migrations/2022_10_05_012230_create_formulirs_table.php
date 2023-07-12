@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('formulirs', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('jenis_permintaan');
             $table->string('status_form');
             $table->string('respon')->nullable();

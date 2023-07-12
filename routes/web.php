@@ -111,6 +111,7 @@ Route::middleware(['auth','cekrole:Super Admin'])->group(function()
 // Dashboard
     Route::get('/dashboard-superadmin', [ListuserController::class, 'index'])->name('dashboard.sa');
     // Route::get('/dashboard-superadmin',[DashboardadminController::class, 'index'])->name('dashboard.sa');
+    Route::delete('/users/{id}', [AddUserController::class, 'destroy'])->name('users.destroy');
 });
 
 Route::middleware(['auth','cekrole:Admin'])->group(function()
@@ -119,6 +120,13 @@ Route::middleware(['auth','cekrole:Admin'])->group(function()
     // Route::resource('/admin', DashboardadminController::class);
     Route::get('/dashboard-admin',[DashboardadminController::class, 'index'])->name('dashboard.admin');
     Route::resource('/respon', ResponController::class);
+// Route::resource('respon-layanan', [ResponController::class])->middleware(['auth', 'verified'] );
+});
+Route::middleware(['auth','cekrole:Viewer'])->group(function()
+{
+// Dashboard
+    // Route::resource('/admin', DashboardadminController::class);
+    Route::get('/dashboard-viewer',[DashboardadminController::class, 'index'])->name('dashboard.viewer');
 // Route::resource('respon-layanan', [ResponController::class])->middleware(['auth', 'verified'] );
 });
 
@@ -150,26 +158,26 @@ Route::resource('/add-user', AddUserController::class);
 
 Route::resource('/keagamaan', KeagamaanController::class);
 
-Route::middleware(['auth','cekrole:Observer'])->group(function()
-{
-    Route::get('pencatatan-agromet', function () {
-        return view('pencatatan.agromet');
-    })->name('pencatatan-agromet');
+// Route::middleware(['auth','cekrole:Observer'])->group(function()
+// {
+//     Route::get('pencatatan-agromet', function () {
+//         return view('pencatatan.agromet');
+//     })->name('pencatatan-agromet');
 
-    Route::get('pencatatan-angin-10m-24jam', function () {
-        return view('pencatatan.angin-10m-24jam');
-    });
+//     Route::get('pencatatan-angin-10m-24jam', function () {
+//         return view('pencatatan.angin-10m-24jam');
+//     });
 
-    Route::get('pencatatan-lama-penyinaran', function () {
-        return view('pencatatan.lama-penyinaran');
-    });
+//     Route::get('pencatatan-lama-penyinaran', function () {
+//         return view('pencatatan.lama-penyinaran');
+//     });
 
-    Route::get('pencatatan-lysimeter', function () {
-        return view('pencatatan.lysimeter');
-    });
+//     Route::get('pencatatan-lysimeter', function () {
+//         return view('pencatatan.lysimeter');
+//     });
 
-    Route::get('pencatatan-dashboard', function () {
-        return view('pencatatan.dashboard');
-    });
-});
+//     Route::get('pencatatan-dashboard', function () {
+//         return view('pencatatan.dashboard');
+//     });
+// });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

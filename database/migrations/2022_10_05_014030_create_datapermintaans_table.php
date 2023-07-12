@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('datapermintaans', function (Blueprint $table) {
             $table->id();
-            $table->integer('formulir_id');
+            $table->unsignedBigInteger('formulir_id');
+            $table->foreign('formulir_id')->references('id')->on('formulirs');
             $table->string('jenis_data');
             $table->string('unsurcuacalain')->nullable();
             $table->longText('desk_petir')->nullable();

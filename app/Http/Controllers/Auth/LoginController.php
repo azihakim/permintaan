@@ -51,6 +51,10 @@ class LoginController extends Controller
             {
                 return redirect()->route('dashboard.sa');
             }
+            else if(auth()->user()->role == 'Viewer')
+            {
+                return redirect()->route('dashboard.viewer');
+            }
             else if(auth()->user()->role == 'Admin')
             {
                 return redirect()->route('dashboard.admin');

@@ -53,26 +53,6 @@
                 <label>{{ Auth::user()->no_wa }}</label>
             </div>
         </div>
-        {{-- <div class="spacer-10"></div>
-        <div class="row">
-            <div class="col-lg-3">
-                <label for="fcid-4">KTP</label>
-            </div>
-            <div class="col-lg-9">
-                <img class="media-object" src="../../style/images/dummy-ktp.png"
-                    style="float: left; margin: 0px 10px 10px 0px; width: 400px; height: 200px;">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3">
-            </div>
-            <div class="col-lg-9">
-                <input type="file" class="required">
-                <div class="helper-text-box">
-                    <div class="form-helper">disarankan sensor bagian NIK</div>
-                </div>
-            </div>
-        </div> --}}
         <div class="spacer-10"></div>
         {{-- @foreach ($user as $item) --}}
         <div class="row">
