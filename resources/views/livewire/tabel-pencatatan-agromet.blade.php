@@ -55,7 +55,7 @@
             @foreach ($pencatatan as $index => $item)
                 <tr class="text-center" style="vertical-align: middle;">
                     <td>{{ $pencatatan->firstItem() + $index }}</td>
-                    <td>{{ $item->tanggal }}</td>
+                    <td>{{ date('d-m-Y', strtotime($item->tanggal)) }}</td>
                     <td>{{ $item->waktu }}</td>
                     <td>{{ $item->users->name }}</td>
                     <td colspan="2" class="text-center;">

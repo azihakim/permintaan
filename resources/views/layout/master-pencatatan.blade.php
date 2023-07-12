@@ -240,10 +240,10 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li @yield('section-active')>
-                                    <a href="#"><i class="fa fa-book"></i>
-                                        Tabulasi </a>
-                                </li>
+                                {{-- <li @yield('section-active')>
+                                    <a href="{{ url('tabulasi-harian') }}"><i class="fa fa-book"></i>
+                                        Tabulasi Harian </a>
+                                </li> --}}
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <li>
